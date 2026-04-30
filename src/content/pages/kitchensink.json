@@ -1,0 +1,217 @@
+{
+  "title": "Kitchen Sink",
+  "language": "EN",
+  "slug": "/kitchensink",
+  "description": "use for testing, contains all components!",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "Test Hero Title",
+      "subtitle": "Test Hero Subtitle",
+      "image": "/src/assets/Startup_Karlsruhe_mobile.svg",
+      "button": {
+        "text": "Call to Action",
+        "link": "/target-url"
+      },
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "section",
+      "header": "this is a section header",
+      "body": "a section header?",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "image",
+      "image": "/src/assets/cyberforum_picture.jpg",
+      "size": "small",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "SponsorBlock",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "## Test Heading\n\nParagraph to verify formatting.\n\n> A callout?!\n\n\n| A | table | tooo?? |\n| -------- | ----- | ---------------- |\n| So cool! | fr! | this is so cool! |\n|  |  |  |\n\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "form",
+      "url": "https://tally.so/embed/D4X0PX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "button",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      },
+      "button": {
+        "text": "Click me!",
+        "link": "about"
+      }
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "question": "Is this a test question?",
+          "answer": "Yes, this is the corresponding test answer.\n\n\nBut how does it handle multiple lines?"
+        },
+        {
+          "question": "Can I add more items?",
+          "answer": "Yes, this array handles multiple objects."
+        }
+      ],
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "separator",
+      "size": "2px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "50px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "embed",
+      "url": "https://www.youtube.com/embed/dQw4w9WgXcQ",
+      "width": "800",
+      "height": "600",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "social-medias",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "EventsHighlight",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "SearchableEvents",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "SearchableStartups",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "SponsorBlock",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "TeamGallery",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "tag-cloud",
+      "title": "Tag cloud",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      },
+      "tags": [
+        {
+          "text": "hello",
+          "link": "about",
+          "icon": "instagram",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
+        },
+        {
+          "text": "test",
+          "link": "about",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
+        }
+      ]
+    },
+    {
+      "type": "posts",
+      "sort": "latest",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "StartupsHighlight",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "EcosystemOverview",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    }
+  ]
+}

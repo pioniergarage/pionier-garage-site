@@ -1,0 +1,43 @@
+---
+import { Image } from "astro:assets";
+import type { BlockProps } from "../types/types";
+
+// Adding 'alt' to the type as noted by your TODO
+type Props = BlockProps<"image"> & { alt?: string };
+
+const { image, style, size, alt = "" } = Astro.props;
+
+const widths = {
+  small: 400,
+  medium: 800,
+  large: 1200,
+};
+
+const selectedWidth = size ? widths[size] : widths.large;
+
+// Create a map of all possible images in your assets folder
+// Adjust the path pattern to match where your images actually live
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/**/*.{jpeg,jpg,png,webp,avif}",
+);
+
+// Validate that the image passed via props actually exists in the map
+if (image && !images[image]) {
+  throw new Error(
+    `"${image}" does not exist. Make sure the path is correct and matches the glob pattern.`,
+  );
+}
+---
+
+<section class=`${style.alignment} ${style.size}`>
+  {
+    image && (
+      <Image
+        src={images[image]()}
+        width={selectedWidth}
+        alt={alt}
+        class={`responsive-img ${style.className ?? ""}`}
+      />
+    )
+  }
+</section>

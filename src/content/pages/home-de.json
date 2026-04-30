@@ -1,0 +1,160 @@
+{
+  "title": "Hauptseite",
+  "language": "DE",
+  "slug": "/",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "Wo [Spitzenforschung] auf [Unternehmertum] trifft.",
+      "subtitle": "Wir vernetzen kluge Köpfe, fördern radikale Innovationen und bauen in Karlsruhe die Wirtschaft von morgen.",
+      "heroTagline": "Startups in Karlsruhe",
+      "button": {
+        "text": "Startups entdecken",
+        "link": "de/startups"
+      },
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "EcosystemOverview",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "100px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "EventsHighlight",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "100px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "tag-cloud",
+      "title": "Ich möchte...",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      },
+      "tags": [
+        {
+          "text": "Ein Startup gründen",
+          "link": "contact",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
+        },
+        {
+          "text": "Unterstützung erhalten",
+          "link": "contact",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
+        },
+        {
+          "text": "Zu coolen Events gehen",
+          "link": "events",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
+        },
+        {
+          "text": "Netzwerken",
+          "link": "network",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
+        },
+        {
+          "text": "Einem Startup beitreten",
+          "link": "startups",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
+        },
+        {
+          "text": "Partner werden",
+          "link": "partner",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
+        },
+        {
+          "text": "Ein Startup finanzieren",
+          "link": "contact",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
+        }
+      ]
+    },
+    {
+      "type": "spacer",
+      "size": "100px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "StartupsHighlight",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "100px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "### Startup-Karlrsuhe wird unterstützt von\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "SponsorBlock",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    }
+  ]
+}

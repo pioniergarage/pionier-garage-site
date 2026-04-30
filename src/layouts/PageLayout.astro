@@ -1,0 +1,12 @@
+---
+import Layout from "./Layout.astro";
+
+// We define the Props to match the data schema of the 'pages' collection
+type Props = { title: string };
+
+const { title } = Astro.props;
+---
+
+<Layout title={title}>
+    <slot />
+</Layout>

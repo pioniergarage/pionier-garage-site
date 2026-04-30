@@ -1,0 +1,26 @@
+---
+import { localized } from "../../utils/utils";
+import type { BlockProps } from "../types/types";
+
+type Props = BlockProps<"tag-cloud">;
+
+const { title, tags, style } = Astro.props;
+
+const allProps = Astro.props;
+---
+
+<section class=`${style.alignment} ${style.size}`>
+  <div class={style.className ?? "l-stack l-stack--sm"}>
+    <h2 class="margin-left-md">{title}</h2>
+    <div style="display:flex; gap:10px; align-items:center;flex-wrap: wrap;">
+      {
+        tags?.map((tag, index) => (
+          <a class="button" href={localized(tag.link??"", Astro.currentLocale, ["EN", "DE"])}>
+            {" "}
+            {tag.text}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>

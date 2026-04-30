@@ -1,0 +1,148 @@
+---
+import { pb } from "../../lib/pocketbase";
+import type { StartupItem } from "../startups/types";
+
+const { totalItems: startup_count } = await pb
+  .collection<StartupItem>("startups")
+  .getList(1, 1, { requestKey: "ecosystem_overview" });
+
+const startups_rounded = Math.floor(startup_count / 10) * 10;
+
+const { totalItems: events_count } = await pb
+  .collection<StartupItem>("events")
+  .getList(1, 1, { requestKey: "ecosystem_overview" });
+
+const events_rounded = Math.floor(events_count / 10) * 10;
+
+import rawConfig from "../../content/site_config.json";
+import { SiteSettingsConfigSchema } from "../../content.config.ts";
+
+// This guarantees the data matches your expectations before the page renders
+const config = SiteSettingsConfigSchema.parse(rawConfig);
+
+const { sponsors } = config;
+const locale = Astro.currentLocale === "de" ? "de" : "en";
+const numberLocale = locale === "de" ? "de-DE" : "en-US";
+
+const translations = {
+  de: {
+    events: "Events",
+    partners: "Partner",
+    startups: "Startups",
+  },
+  en: {
+    events: "Events",
+    partners: "Partners",
+    startups: "Startups",
+  },
+} as const;
+
+const labels = translations[locale];
+---
+
+<div class="full center-text" data-count-locale={numberLocale}>
+  <a href="startups" class="section-center">
+    <h1
+      class="title text-glow"
+      data-count-up
+      data-count-target={startups_rounded}
+      data-count-suffix="+"
+      aria-label={`${new Intl.NumberFormat(numberLocale).format(startups_rounded)}+`}
+    >
+      {startups_rounded}+
+    </h1>
+    <h3>{labels.startups}</h3>
+  </a>
+
+  <a href="events" class="section-center">
+    <h1
+      class="title text-glow"
+      data-count-up
+      data-count-target={sponsors.length}
+      data-count-suffix=""
+      aria-label={new Intl.NumberFormat(numberLocale).format(sponsors.length)}
+    >
+      {sponsors.length}
+    </h1>
+    <h3>{labels.partners}</h3>
+  </a>
+
+  <a href="events" class="section-center">
+    <h1
+      class="title text-glow"
+      data-count-up
+      data-count-target={events_rounded}
+      data-count-suffix="+"
+      aria-label={`${new Intl.NumberFormat(numberLocale).format(events_rounded)}+`}
+    >
+      {events_rounded}+
+    </h1>
+    <h3>{labels.events}</h3>
+  </a>
+</div>
+
+<script is:inline>
+  (() => {
+    const counters = document.querySelectorAll("[data-count-up]");
+    if (!counters.length) return;
+
+    const localeSource = counters[0]?.closest("[data-count-locale]");
+    const locale = localeSource?.getAttribute("data-count-locale") || "en-US";
+    const formatter = new Intl.NumberFormat(locale);
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    const renderValue = (element, value) => {
+      const suffix = element.getAttribute("data-count-suffix") || "";
+      element.textContent = `${formatter.format(value)}${suffix}`;
+    };
+
+    const animateCounter = (element) => {
+      const target = Number(element.getAttribute("data-count-target") || "0");
+
+      if (prefersReducedMotion) {
+        renderValue(element, target);
+        return;
+      }
+
+      const duration = 1400;
+      const startTime = performance.now();
+
+      renderValue(element, 0);
+
+      const tick = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const currentValue = Math.round(target * eased);
+
+        renderValue(element, currentValue);
+
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        }
+      };
+
+      requestAnimationFrame(tick);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.35 },
+    );
+
+    counters.forEach((counter) => observer.observe(counter));
+  })();
+</script>
+
+<style>
+  .section-center {
+    width: 300px;
+  }
+</style>

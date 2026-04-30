@@ -1,0 +1,35 @@
+{
+  "title": "Startup Karlsruhe",
+  "description": "Startups in Karslsruhe zum geneißen",
+  "socialMedias": [
+    {
+      "name": "Instagram",
+      "link": "https://www.instagram.com/pioniergarage_ev/",
+      "icon": "instagram"
+    },
+    {
+      "name": "LinkedIn",
+      "link": "https://de.linkedin.com/company/pioniergarage",
+      "icon": "linkedin"
+    },
+    {
+      "name": "YouTube",
+      "link": "https://www.youtube.com/@PionierGarage",
+      "icon": "youtube"
+    }
+  ],
+  "sponsors": [
+    {
+      "name": "Wirtschaftsförderung Karlsruhe",
+      "link": "https://www.karlsruhe.de/wirtschaft-wissenschaft",
+      "image": "/src/assets/Wirtschaftsfoerederung Karlsruhe Weiss-1.png",
+      "tier": "None"
+    },
+    {
+      "name": "PionierGarage Karlsruhe",
+      "link": "https://pioniergarage.de",
+      "image": "/src/assets/LogoMitName weiß.png",
+      "tier": "None"
+    }
+  ]
+}

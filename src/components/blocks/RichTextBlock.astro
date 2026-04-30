@@ -1,0 +1,107 @@
+---
+import { marked } from "marked";
+import DOMPurify from "isomorphic-dompurify";
+import type { BlockProps } from "../types/types";
+
+type Props = BlockProps<"rich-text">;
+
+const { content, style } = Astro.props;
+
+// 1. Convert Markdown string to HTML string
+// 2. Sanitize the HTML to prevent XSS attacks
+const rawHtml = await marked.parse(content || "");
+const sanitizedHtml = DOMPurify.sanitize(rawHtml);
+---
+
+<section class=`${style.alignment} ${style.size}`>
+  <div class=`rich-text-output ${style.className ?? ""}` set:html={sanitizedHtml} />
+</section>
+
+<style is:global>
+  .rich-text-output {
+    /* Spacing between blocks */
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-color, #ffffff);
+  }
+
+  /* Headings */
+  .rich-text-output :is(h1, h2, h3, h4) {
+    font-weight: 700;
+    line-height: 1.2;
+    margin-top: 1rem;
+  }
+
+  .rich-text-output h1 { font-size: 2.25rem; }
+  .rich-text-output h2 { font-size: 1.85rem; }
+  .rich-text-output h3 { font-size: 1.5rem; }
+
+  /* Lists */
+  .rich-text-output ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+  }
+
+  .rich-text-output ol {
+    list-style-type: decimal;
+    padding-left: 1.5rem;
+  }
+
+  /* Links */
+  .rich-text-output a {
+    color: var(--accent-color, #007bff);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+
+  /* Blockquotes */
+  .rich-text-output blockquote {
+    border-left: 2px solid #d1d1d1;
+    padding-left: 1rem;
+    font-style: italic;
+    color: #e1e1e1;
+  }
+
+  /* Tables (Consolidated) */
+  .rich-text-output table {
+    width: 100%;
+    caption-side: bottom;
+    font-size: 0.875rem; 
+    border-collapse: collapse;
+    color: var(--text); 
+    margin: 1.5rem 0;
+  }
+
+  .rich-text-output thead {
+    border-bottom: 1px solid var(--stroke); 
+  }
+
+  .rich-text-output th {
+    height: 3rem;
+    padding: 0 1rem;
+    text-align: left;
+    vertical-align: middle;
+    font-weight: 500;
+    color: var(--text-muted); 
+    border: 1px solid var(--stroke); /* Merged border logic */
+  }
+
+  .rich-text-output td {
+    padding: 1rem;
+    vertical-align: middle;
+    border: 1px solid var(--stroke); /* Merged border logic */
+  }
+
+  /* Removes border from the last row to match clean look */
+  .rich-text-output tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  /* hover effect */
+  .rich-text-output tbody tr:hover {
+    background-color: rgba(39, 39, 42, 0.5);
+    transition: background-color 0.2s ease;
+  }
+</style>

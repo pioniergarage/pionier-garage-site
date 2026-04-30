@@ -1,0 +1,18 @@
+---
+import type { CollectionEntry } from "astro:content";
+import Layout from "./Layout.astro";
+import { render } from "astro:content";
+
+// We define the Props to match the data schema of the 'pages' collection
+type Props = CollectionEntry<"blog">;
+
+const post = Astro.props;
+
+const { data } = Astro.props;
+
+const { Content } = await render(post);
+---
+
+<Layout title={data.title}>
+  <Content />
+</Layout>

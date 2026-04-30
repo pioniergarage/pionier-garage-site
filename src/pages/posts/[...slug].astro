@@ -1,0 +1,28 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+
+	return posts.map((post) => {
+    let finalSlug = post.id
+      .replace(/(^|\/)index$/, "")
+      .replace(/\/+/g, "/")
+      .replace(/^\/|\/$/g, "");
+
+    return {
+      params: { slug: finalSlug === "" ? undefined : finalSlug },
+      props: post,
+    };
+  });;
+}
+type Props = CollectionEntry<'pages'>;
+
+const post = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout title={post.data.title}>
+	<Content />
+</Layout>

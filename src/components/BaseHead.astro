@@ -1,0 +1,53 @@
+---
+import rawConfig from "../content/site_config.json";
+import { SiteSettingsConfigSchema } from "../content.config.ts";
+
+import rubik400 from '@fontsource/rubik/files/rubik-latin-400-normal.woff2?url';
+import unbounded400 from '@fontsource/unbounded/files/unbounded-latin-400-normal.woff2?url';
+
+import '@fontsource/rubik/400.css';
+import '@fontsource/rubik/500.css';
+import '@fontsource/rubik/700.css';
+import '@fontsource/rubik/800.css';
+import '@fontsource/unbounded/400.css';
+import '@fontsource/unbounded/500.css';
+import '@fontsource/unbounded/700.css';
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// This guarantees the data matches your expectations before the page renders
+const config = SiteSettingsConfigSchema.parse(rawConfig);
+
+const { title, description, ogImage } = config;
+---
+<!-- Font Preload -->
+<link rel="preload" href={rubik400} as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href={unbounded400} as="font" type="font/woff2" crossorigin="anonymous">
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+<meta name="generator" content={Astro.generator} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+{ogImage && <meta property="og:image" content={new URL(ogImage, Astro.url)} />}
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+{ogImage && <meta property="twitter:image" content={new URL(ogImage, Astro.url)} />}

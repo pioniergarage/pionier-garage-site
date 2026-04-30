@@ -1,0 +1,19 @@
+---
+import HeroBlock from "../components/blocks/HeroBlock.astro";
+import type { Style } from "../content.config";
+import PageLayout from "../layouts/PageLayout.astro";
+const button_props = { text: "Back Home", link: "/" };
+const style_props = { alignment: "left", size: "full" };
+---
+
+<PageLayout title={"Error"}>
+  <section class="full full-height">
+    <HeroBlock
+      heroTagline="page not found"
+      title="404"
+      subtitle="How did we get here?"
+      button={button_props}
+      style={style_props as Style}
+    />
+  </section>
+</PageLayout>

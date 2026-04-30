@@ -1,0 +1,17 @@
+---
+import type { BlockProps } from "../types/types";
+
+type Props = BlockProps<"separator">;
+
+const { style, direction, size } = Astro.props;
+
+const directionStyles = direction === "vertical" 
+  ? `width: ${size}; height: 100%;` 
+  : `height: ${size}; width: 100%;`;
+---
+
+<section 
+  class=`${style.alignment} ${style.size} ${style.className??""}`
+  style={`${directionStyles} background-color: currentColor; display: inline-block; vertical-align: middle;`}
+>
+</section>

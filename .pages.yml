@@ -1,0 +1,277 @@
+media:
+  input: /src/assets/
+  output: /src/assets/
+
+components:
+  style:
+    type: object
+    label: style
+    fields:
+      - { name: alignment, type: select, options: { values: [left, center, right] }, default: 'left' }
+      - { name: size, type: select, options: { values: [full, half, third] }, default: 'full' }
+      - { name: className, type: string }
+  
+
+content:
+  - name: posts
+    label: Posts
+    type: collection
+    path: src/content/blog
+    view:
+      fields: [ title, draft, date ]
+    fields:
+      - { name: author, label: Author, type: string }
+      - { name: pubDatetime, label: Date, type: date }
+      - { name: modDatetime, label: Date, type: date }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: language, label: Language, type: select, options: { values: [EN, DE] }, default: EN }
+      - { name: ogImage, label: Original Image, type: image }
+      - { name: slug, label: Slug, type: string }
+      - { name: featured, label: Featured, type: boolean }
+      - { name: draft, label: Draft, type: boolean }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: description, label: Description, type: string }
+      - { name: body, label: Body, type: rich-text }
+
+  - name: pages
+    label: Pages
+    type: collection
+    path: src/content/pages
+    format: json
+    filename: "{title}.json"
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: language, label: Language, type: select, options: { values: [EN, DE] }, default: EN }
+      - { name: slug, label: Slug, type: string, required: true }
+      - { name: description, label: Description, type: string }
+      - { name: layout, type: string, hidden: true, default: "../layouts/PageLayout.astro" }
+      - name: blocks
+        label: Blocks
+        type: block
+        list: true
+        blockKey: type
+        blocks:
+          - name: hero
+            label: Hero
+            fields:
+              - { name: title, type: string }
+              - { name: subtitle, type: string }
+              - { name: heroTagline, type: string }
+              - { name: image, type: image }
+              - name: button
+                type: object
+                fields:
+                  - { name: text, type: string }
+                  - { name: link, type: string }
+              - name: style
+                component: style
+
+          - name: tag-cloud
+            label: Tag Cloud
+            fields:
+              - { name: title, type: string }
+              - name: style
+                component: style
+              - name: tags
+                type: object
+                list: true
+                fields:
+                  - { name: text, type: string }
+                  - { name: link, type: string }
+                  - { name: icon, label: Icon Identifier, type: string }
+                  - name: style
+                    component: style
+
+          - name: section
+            label: Section Wrapper
+            fields:
+              - { name: header, type: string }
+              - { name: body, type: rich-text }
+              - name: style
+                component: style
+
+          - name: image
+            label: Image Block
+            fields:
+              - { name: image, type: image }
+              - { name: size, type: select, options: { values: [small, medium, large] } }
+              - name: style
+                component: style
+
+          - name: custom-block
+            label: Custom Component
+            fields:
+              - name: component
+                type: select
+                options: 
+                  values: # NOTE: Dear developer, you must update this _manually_ to match the content of `src/components/custom` when you create a new custom component.
+                    - EventsHighlight
+                    - SearchableEvents
+                    - SearchableStartups
+                    - StartupMap
+                    - StartupsHighlight
+                    - SponsorBlock
+                    - TeamGallery
+                    - EcosystemOverview
+              - name: style
+                component: style
+
+          - name: rich-text
+            label: Rich Text
+            fields:
+              - { name: content, type: rich-text }
+              - name: style
+                component: style
+
+          - name: form # Note to developers: this does NOT need to expose form fields. This is just an embed point for an existing Tally form.
+            label: Tally Form Embed
+            fields:
+              - { name: url, label: Tally Embed URL, type: string } # An existing Tally form
+              - name: style
+                component: style
+
+          - name: button
+            label: Button
+            fields:
+              - name: style
+                component: style
+              - name: button
+                type: object
+                fields:
+                  - { name: text, type: string }
+                  - { name: link, type: string }
+
+          - name: faq
+            label: FAQ
+            fields:
+              - name: items
+                type: object
+                list: true
+                fields:
+                  - { name: question, type: string }
+                  - { name: answer, type: text }
+              - name: style
+                component: style
+                
+          - name: posts
+            label: Posts
+            fields:
+              - { name: sort, type: select, options: { values: [latest, top] }, default: latest }
+              - name: style
+                component: style
+
+          - name: separator
+            label: Separator
+            fields:
+              - { name: size, type: string }
+              - { name: direction, type: select, options: { values: [horizontal, vertical] }, default: horizontal }
+              - name: style
+                component: style
+
+          - name: spacer
+            label: Spacer
+            fields:
+              - { name: size, type: string, default: "50px" }
+              - name: style
+                component: style
+
+          - name: embed
+            label: Iframe Embed
+            fields:
+              - { name: url, type: string }
+              - { name: width, type: string }
+              - { name: height, type: string }
+              - name: style
+                component: style
+
+          - name: social-medias
+            label: Social Medias
+            fields:
+              - name: style
+                component: style
+
+  # --- SINGLETONS ---
+
+  - name: site-header
+    label: Site Header
+    type: file
+    path: src/content/site_header.json
+    format: json
+    fields:
+      - { name: logo, type: image }
+      - name: navbar
+        label: Navbar Items
+        type: object
+        list: true
+        fields:
+          - { name: url, type: string }
+      - { name: styleOverrides, label: Header Style Overrides, type: string }
+
+  - name: site-footer
+    label: Site Footer
+    type: file
+    path: src/content/site_footer.json
+    format: json
+    fields:
+      - { name: centerText, type: rich-text }
+      - { name: impressum, type: string }
+      - { name: datenschutz, type: string }
+      - { name: kontakt, type: string }
+      - name: additionalNavbar
+        label: Additional Navbar Items
+        type: object
+        list: true
+        fields:
+          - { name: label, type: string }
+          - { name: url, type: string }
+      - { name: styleOverrides, label: Footer Style Overrides, type: string }
+
+  - name: team
+    label: Team Directory
+    type: file
+    path: src/content/team.json
+    format: json
+    fields:
+      - name: members
+        type: object
+        list: true
+        fields:
+          - { name: name, type: string }
+          - { name: position, type: string }
+          - { name: image, type: image }
+          - { name: email, type: string }
+          - { name: startDate, type: date }
+
+  - name: site-settings
+    label: Site Settings
+    type: file
+    path: src/content/site_config.json
+    format: json
+    fields:
+      - { name: title, label: Site Title, type: string }
+      - { name: description, label: Site Description, type: string }
+      - { name: ogImage, label: OpenGraph Image, type: image }
+      - name: socialMedias
+        label: Social Medias
+        type: object
+        list: true
+        fields:
+          - { name: name, type: string }
+          - { name: link, type: string }
+          - { name: icon, type: string }
+      - name: sponsors
+        label: Sponsors
+        type: object
+        list: true
+        fields:
+          - { name: name, type: string }
+          - { name: link, type: string }
+          - { name: image, type: image }
+          - { name: tier, label: Sponsor Tier, type: select, options: { values: [Gold,Silver,Bronze,Supporter,Partner,None] }, default: None }
+
+
+  - name: style-overrides
+    label: Global Style Overrides (CSS)
+    type: file
+    path: src/styles/overrides.css
+    format: code

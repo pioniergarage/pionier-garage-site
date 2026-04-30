@@ -1,0 +1,22 @@
+---
+import { BlockComponents } from "./blocks/blocks.config";
+import type { Blocks } from "./types/types";
+
+interface Props {
+  block: Blocks;
+}
+
+// Map the "type" from your schema to the actual component
+const block = Astro.props.block;
+
+// Determines which component to use
+const Component = BlockComponents[block.type];
+---
+
+{
+  Component ? (
+    <Component {...block} />
+  ) : (
+    <div class="error">Unknown block type: {block.type}</div>
+  )
+}

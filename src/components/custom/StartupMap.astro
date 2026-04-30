@@ -1,0 +1,61 @@
+---
+import { pb } from "../../lib/pocketbase";
+import StartupMapRenderer from "../startup-map/StartupMap";
+import type { StartupMapViewMilestone } from "../startup-map/types";
+
+const locale = Astro.currentLocale === "de" ? "de" : "en";
+
+console.log(`lang: ${locale}`);
+
+const [milestones, entries] = await Promise.all([
+  pb.collection("startupMapMilestones").getFullList({
+    sort: "order",
+    expand: "startupMapMilestone_Translations_via_milestone",
+  }),
+  pb.collection("startupMapEntries").getFullList({
+    expand:
+      "startupMapEntry_Translations_via_entry,category,category.startupMapCategory_Translations_via_category",
+  }),
+]);
+
+// Zusammenbauen
+const map: StartupMapViewMilestone[] = milestones.map((milestone) => ({
+  id: milestone.id,
+  name:
+    milestone.expand?.startupMapMilestone_Translations_via_milestone?.find(
+      (t: any) => t.locale === locale.toUpperCase(),
+    )?.name ?? milestone.id,
+  entries: entries
+    .filter((e) => e.milestone === milestone.id)
+    .map((entry) => ({
+      id: entry.id,
+      name: entry.name,
+      description: entry.expand?.startupMapEntry_Translations_via_entry?.find(
+        (t: any) => t.locale === locale.toUpperCase(),
+      )?.description,
+      category: {
+        name:
+          entry.expand?.category?.expand?.startupMapCategory_Translations_via_category?.find(
+            (t: any) => t.locale === locale.toUpperCase(),
+          )?.name ?? entry.expand?.category?.name,
+        color: entry.expand?.category?.color,
+      },
+    }))
+    .sort((a, b) => {
+      const categoryComparison = a.category.name.localeCompare(
+        b.category.name,
+        locale.toUpperCase(),
+      );
+
+      if (categoryComparison !== 0) {
+        return categoryComparison;
+      }
+
+      return a.name.localeCompare(b.name, locale);
+    }),
+}));
+---
+
+<div class="startups-block__surface">
+  <StartupMapRenderer client:load map={map} locale={locale} />
+</div>

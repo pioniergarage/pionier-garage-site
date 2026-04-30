@@ -1,0 +1,89 @@
+{
+  "title": "Home",
+  "language": "EN",
+  "slug": "/",
+  "description": "Startups in Karlsruhe",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "Where [cutting-edge research] meets [entrepreneurial vision].",
+      "subtitle": "We connect smart minds, support innovations and build tomorrow's economy.",
+      "heroTagline": "startups in karlsruhe",
+      "button": {
+        "text": "Explore Startups",
+        "link": "en/startups"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "EcosystemOverview"
+    },
+    {
+      "type": "spacer",
+      "size": "100px"
+    },
+    {
+      "type": "custom-block",
+      "component": "EventsHighlight"
+    },
+    {
+      "type": "spacer",
+      "size": "100px"
+    },
+    {
+      "type": "tag-cloud",
+      "title": "I want to...",
+      "tags": [
+        {
+          "text": "Launch a startup",
+          "link": "/en/contact"
+        },
+        {
+          "text": "Get support",
+          "link": "/en/contact"
+        },
+        {
+          "text": "See cool events",
+          "link": "/en/events"
+        },
+        {
+          "text": "Network",
+          "link": "/en/network"
+        },
+        {
+          "text": "Join a startup",
+          "link": "/en/startups"
+        },
+        {
+          "text": "Become a partner",
+          "link": "/en/partner"
+        },
+        {
+          "text": "Finance a startup",
+          "link": "/en/contact"
+        }
+      ]
+    },
+    {
+      "type": "spacer",
+      "size": "100px"
+    },
+    {
+      "type": "custom-block",
+      "component": "StartupsHighlight"
+    },
+    {
+      "type": "spacer",
+      "size": "100px"
+    },
+    {
+      "type": "rich-text",
+      "content": "### Startup-Karlrsuhe is supported by\n\n"
+    },
+    {
+      "type": "custom-block",
+      "component": "SponsorBlock"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+---
+import type { BlockProps } from "../types/types";
+
+type Props = BlockProps<"section">;
+
+const { header, body, style } = Astro.props;
+
+const allProps = Astro.props;
+---
+
+<section class=`${style.alignment} ${style.size}`>
+  <div class={style.className ?? ""}>
+    <h1>{header}</h1>
+    {body && <p class="margin-top-sm">{body}</p>}
+  </div>
+</section>

@@ -1,0 +1,19 @@
+---
+import HeroBlock from "../components/blocks/HeroBlock.astro";
+import type { Style } from "../content.config";
+import PageLayout from "../layouts/PageLayout.astro";
+const button_props = { text: "Back Home", link: "/" };
+const style_props = { alignment: "left", size: "full" };
+---
+
+<PageLayout title={"Error"}>
+  <section class="full full-height">
+    <HeroBlock
+      heroTagline="server error"
+      title="500"
+      subtitle="Activating rapid response protocol..."
+      button={button_props}
+      style={style_props as Style}
+    />
+  </section>
+</PageLayout>

@@ -1,0 +1,125 @@
+---
+// Site footer. Renders on bottom of site.
+import { Image } from "astro:assets";
+import logoGradient from "../assets/rocket_gradient.svg";
+import startupKarlsruheType from "../assets/Startup_Karlsruhe.svg";
+import startupKarlsruheMobileType from "../assets/Startup_Karlsruhe_mobile.svg";
+
+const locale = Astro.currentLocale === "de" ? "de" : "en";
+
+const translations = {
+  de: {
+    imprint: "Impressum",
+    privacy: "Datenschutz",
+    contact: "Kontakt",
+    copyright: "(c) 2026 PionierGarage e.V.",
+  },
+  en: {
+    imprint: "Imprint",
+    privacy: "Privacy",
+    contact: "Contact",
+    copyright: "(c) 2026 PionierGarage e.V.",
+  },
+} as const;
+
+const labels = translations[locale];
+
+function localizedRoute(path: string) {
+  return `/${locale}/${path.replace(/^\/+/, "")}`;
+}
+---
+
+<footer>
+  <Image class="rocket-logo-gradient" src={logoGradient} alt="rocket_logo" />
+
+  <Image
+    class="startup-karlsruhe-type startup-karlsruhe-type--desktop"
+    src={startupKarlsruheType}
+    alt="rocket_logo"
+  />
+  <Image
+    class="startup-karlsruhe-type startup-karlsruhe-type--mobile"
+    src={startupKarlsruheMobileType}
+    alt="rocket_logo"
+  />
+
+  <div class="footer-content">
+    <a href="https://www.pioniergarage.de/">{labels.copyright}</a>
+
+    <div class="footer-content-link-group">
+      <a href={localizedRoute("imprint")}>{labels.imprint}</a>
+
+      <a href={localizedRoute("privacy")}>{labels.privacy}</a>
+
+      <a href={localizedRoute("contact")}>{labels.contact}</a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .rocket-logo-gradient {
+    width: 65px;
+    height: 65px;
+    object-fit: contain;
+  }
+
+  .startup-karlsruhe-type {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+  .startup-karlsruhe-type--mobile {
+    display: none;
+  }
+
+  .footer-content {
+    color: var(--secondary);
+    font-size: var(--caption-font-size);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .footer-content-link-group {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .footer-content a {
+    transition: var(--transition);
+  }
+  .footer-content a:hover {
+    cursor: pointer;
+    color: var(--text);
+  }
+
+  @media (max-width: 576px) {
+    .startup-karlsruhe-type--mobile {
+      display: block;
+    }
+    .startup-karlsruhe-type--desktop {
+      display: none;
+    }
+
+    .footer-content {
+      flex-direction: column-reverse;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+</style>

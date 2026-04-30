@@ -1,0 +1,19 @@
+{
+  "navbar": [
+    {
+      "url": "/events"
+    },
+    {
+      "url": "/startups"
+    },
+    {
+      "url": "/network"
+    },
+    {
+      "url": "/contact"
+    },
+    {
+      "url": "/partner"
+    }
+  ]
+}

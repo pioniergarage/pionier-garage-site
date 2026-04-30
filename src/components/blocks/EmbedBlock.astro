@@ -1,0 +1,21 @@
+---
+import type { BlockProps } from "../types/types";
+
+type Props = BlockProps<"embed">;
+
+const { url, width, height, style} = Astro.props;
+---
+
+<section class=`${style.alignment} ${style.size}`>
+  <iframe
+    src={url}
+    loading="lazy"
+    width={width}
+    height={height}
+    class={style.className}
+    frameborder="0"
+    marginheight="0"
+    marginwidth="0"
+  >
+  </iframe>
+</section>

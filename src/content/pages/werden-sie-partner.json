@@ -1,0 +1,33 @@
+{
+  "title": "Werde Partner",
+  "language": "DE",
+  "slug": "/partner",
+  "description": "Sind Sie bereit, Partner zu werden und unsere Mission zu unterstützen?",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "section",
+      "header": "Werde Partner",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "50px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "form",
+      "url": "https://tally.so/embed/XxOLrL",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    }
+  ]
+}

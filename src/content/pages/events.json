@@ -1,0 +1,17 @@
+{
+  "title": "Events",
+  "language": "EN",
+  "slug": "/events",
+  "description": "the events page",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "section",
+      "header": "Our Events"
+    },
+    {
+      "type": "custom-block",
+      "component": "SearchableEvents"
+    }
+  ]
+}

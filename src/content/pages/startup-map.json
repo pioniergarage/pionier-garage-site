@@ -1,0 +1,16 @@
+{
+  "title": "Startup Map",
+  "language": "EN",
+  "slug": "/network",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "section",
+      "header": "Our Startup Map"
+    },
+    {
+      "type": "custom-block",
+      "component": "StartupMap"
+    }
+  ]
+}

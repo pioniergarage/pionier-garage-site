@@ -1,0 +1,16 @@
+{
+  "title": "Veranstaltungen",
+  "language": "DE",
+  "slug": "/events",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "section",
+      "header": "Unsere Veranstaltungen"
+    },
+    {
+      "type": "custom-block",
+      "component": "SearchableEvents"
+    }
+  ]
+}

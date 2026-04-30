@@ -1,0 +1,26 @@
+---
+import type { BlockProps } from '../types/types';
+
+type Props = BlockProps<"posts">; //TODO: add posts type to pages.yml and to content.config.ts
+
+// const { filter } = Astro.props;
+
+const allProps = Astro.props;
+---
+
+<!-- THIS IS A TEST-ONLY COMPONENT, REPLACE WITH REAL IMPLEMENTATION BEFORE SHIPPING -->
+
+<section class="debug-component border-2 border-dashed border-gray-400 p-4 my-4 bg-gray-50">
+  <p class="font-mono text-xs uppercase text-gray-500 mb-2">Component Debugger</p>
+  
+  <ul class="space-y-2">
+    {Object.entries(allProps).map(([key, value]) => (
+      <li class="text-sm">
+        <strong class="text-blue-600">{key}:</strong> 
+        <code class="bg-gray-200 px-1 rounded">
+          {typeof value === 'object' ? JSON.stringify(value) : String(value)}
+        </code>
+      </li>
+    ))}
+  </ul>
+</section>

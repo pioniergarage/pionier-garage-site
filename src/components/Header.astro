@@ -1,0 +1,342 @@
+---
+import rawHeader from "../content/site_header.json";
+import { SiteHeaderSchema } from "../content.config.ts";
+
+const config = SiteHeaderSchema.parse(rawHeader);
+const { navbar, logo, styleOverrides } = config;
+
+import { Image } from "astro:assets";
+import logoWhite from "../assets/rocket_white.svg";
+import { getNavLinks } from "../utils/utils.ts";
+import LanguageToggle from "./LanguageToggle.astro";
+
+const locale = Astro.currentLocale == "de" ? "de" : "en";
+
+const translations = {
+  de: {
+    home: "Zur Startseite",
+    menuOpen: "Menue oeffnen",
+    menuClose: "Menue schliessen",
+    navigation: "Hauptnavigation",
+  },
+  en: {
+    home: "Go to homepage",
+    menuOpen: "Open menu",
+    menuClose: "Close menu",
+    navigation: "Main navigation",
+  },
+};
+
+const labels = translations[locale];
+const homeHref = locale === "de" ? "/de" : "/en";
+const navlinks = await getNavLinks(locale, navbar);
+const navLinks = navlinks.map((link) => ({
+  ...link,
+  href: link.href.startsWith("/#")
+    ? `${homeHref}${link.href.slice(1)}`
+    : `/${locale}/${link.href.replace(/^\/+/, "")}`,
+}));
+---
+
+<header class="wrapper" data-header id="header">
+  <div class="container">
+    <a href={homeHref} class="brand" aria-label={labels.home}>
+      <Image class="logo" src={logoWhite} alt="rocket_logo" loading='eager'/>
+    </a>
+
+    <button
+      class="toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="site-nav"
+      aria-label={labels.menuOpen}
+      data-menu-toggle
+    >
+      <span class="line"></span>
+      <span class="line"></span>
+      <span class="line"></span>
+    </button>
+
+    <nav id="site-nav" class="nav" aria-label={labels.navigation} data-topnav>
+      <div class="mobile-header">
+        <a href={homeHref} class="brand" aria-label={labels.home} data-nav-link>
+          <Image class="logo" src={logoWhite} alt="rocket_logo" />
+        </a>
+
+        <button
+          class="close"
+          type="button"
+          aria-label={labels.menuClose}
+          data-menu-close
+        >
+          {/* Inline Lucide X SVG */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg
+          >
+        </button>
+      </div>
+
+      <div class="links">
+        {
+          navLinks.map((link) => (
+            <a class="link" href={link.href} data-nav-link>
+              {link.label}
+            </a>
+          ))
+        }
+        <LanguageToggle />
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const header = document.querySelector("[data-header]");
+    if (!header) return;
+
+    const nav = header.querySelector("[data-topnav]");
+    const toggle = header.querySelector("[data-menu-toggle]");
+    const closeButton = header.querySelector("[data-menu-close]");
+    const navLinks = header.querySelectorAll("[data-nav-link]");
+
+    if (!(nav instanceof HTMLElement) || !(toggle instanceof HTMLButtonElement))
+      return;
+
+    const setOpen = (open) => {
+      // Changed from .topnav--open to .open
+      nav.classList.toggle("open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+      document.body.classList.toggle("header-menu-open", open);
+    };
+
+    toggle.addEventListener("click", () => {
+      setOpen(!nav.classList.contains("open"));
+    });
+
+    if (closeButton instanceof HTMLButtonElement) {
+      closeButton.addEventListener("click", () => setOpen(false));
+    }
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => setOpen(false));
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") setOpen(false);
+    });
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 820) setOpen(false);
+    });
+  })();
+</script>
+
+<style>
+  .active {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  /* Fixes the header to the top viewport edge and centers the inner container */
+  .wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw; /** Fixes problem where hamburger disappears */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+  }
+
+  /* Constrains the max width and handles internal padding/spacing */
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1320px;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  /* Ensures the logo sits above other elements (like the mobile menu background) */
+  .brand {
+    position: relative;
+    z-index: 7;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Sets uniform dimensions for the Astro Image component */
+  .logo {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+  }
+
+  /* Mobile hamburger button: hidden on desktop, acts as a flex column container on mobile */
+  .toggle {
+    display:none;
+    position: relative;
+    z-index: 7;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  /* Individual strokes for the hamburger menu icon */
+  .line {
+    width: 24px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition:
+      transform 180ms ease,
+      opacity 180ms ease;
+  }
+
+  /* Main navigation wrapper: horizontal row on desktop, full-screen overlay on mobile */
+  .nav {
+    font-family: var(--font-display);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+    list-style: none;
+  }
+
+  /* Container for the logo and close button strictly inside the mobile menu overlay */
+  .mobile-header {
+    display: none;
+  }
+
+  /* Wrapper for the navigation text links and language toggle */
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  /* Individual navigation anchor tags */
+  .link {
+    display: inline-block;
+    color: #fff;
+    padding: 5px;
+    text-decoration: none;
+    transition: 180ms ease;
+  }
+
+  .link:hover,
+  .link:focus-visible {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 5px;
+    transform: translateY(-2px);
+    outline: none;
+  }
+
+  /* Global body class added via JS to prevent scrolling when the menu is open */
+  :global(body.header-menu-open) {
+    overflow: hidden;
+  }
+
+  :global(body.header-menu-open) .wrapper.active {
+    background-color: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  @media (max-width: 820px) {
+    .toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 5px;
+      width: 35px;
+      height: 35px;
+      animation: pop-in 180ms ease forwards;
+    }
+
+    /* Transforms nav into a hidden full-screen overlay waiting for the .open class */
+    .nav {
+      position: fixed;
+      inset: 0;
+      z-index: 80;
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: flex-start;
+      gap: 34px;
+      padding: 18px 20px 28px;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-12px);
+      transition:
+        opacity 180ms ease,
+        transform 180ms ease;
+      text-shadow: none;
+      width:100vw;
+    }
+
+    /* Active class toggled by JS to reveal the mobile menu */
+    .open {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .mobile-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    /* Mobile menu close 'X' button */
+    .close {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .links {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .link {
+      padding: 0;
+      font-size: 1.9rem;
+      line-height: 1.15;
+    }
+
+    .link:hover,
+    .link:focus-visible {
+      transform: none;
+      opacity: 0.88;
+    }
+  }
+</style>

@@ -1,0 +1,19 @@
+---
+import { localized } from "../../utils/utils";
+import type { BlockProps } from "../types/types";
+
+type Props = BlockProps<"button">;
+
+const { style, button } = Astro.props;
+
+const allProps = Astro.props;
+---
+
+<section class=`${style.alignment} ${style.size}`>
+  <a
+    class=`button ${style.className??""}`
+    href={localized(button?.link ?? "", Astro.currentLocale, ["EN", "DE"])}
+  >
+    {button?.text}
+  </a>
+</section>

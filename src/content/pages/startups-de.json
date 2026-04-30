@@ -1,0 +1,16 @@
+{
+  "title": "Startups",
+  "language": "DE",
+  "slug": "/startups",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "section",
+      "header": "Unsere Startups"
+    },
+    {
+      "type": "custom-block",
+      "component": "SearchableStartups"
+    }
+  ]
+}

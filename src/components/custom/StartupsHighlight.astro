@@ -1,0 +1,31 @@
+---
+// src/pages/index.astro
+import "../../styles/startup-page.css";
+import { pb } from "../../lib/pocketbase";
+import StartupsHighlightComponent from "../startups/StartupsHighlightComponent";
+import type { StartupItem } from "../startups/types";
+
+const locale = Astro.currentLocale == "de" ? "de" : "en";
+
+const translations = {
+  de: {
+    button_text: "Alle Ansehen",
+    header: "Pioniere als Karlsruhe",
+  },
+  en: {
+    button_text: "See More",
+    header: "Karlsruhe's Startups",
+  },
+};
+
+const startups = await pb
+  .collection<StartupItem>("startups")
+  .getList(1, 3, { requestKey: "startup_highlight" });
+---
+
+<div class="spread">
+  <h1>{translations[locale].header}</h1>
+  <a class="button button--small" href="startups"> {translations[locale].button_text}</a>
+</div>
+
+<StartupsHighlightComponent startups={startups.items} />

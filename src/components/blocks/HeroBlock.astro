@@ -1,0 +1,81 @@
+---
+import { localized, renderHeadline } from "../../utils/utils";
+import type { BlockProps } from "../types/types";
+
+type Props = BlockProps<"hero">;
+
+const { heroTagline, title, subtitle, button, style } = Astro.props;
+const renderedHeadline = renderHeadline(title ?? "");
+---
+
+<section class=`${style.alignment} ${style.size}`>
+  <div class=`hero ${style.className ?? ""}`>
+    {heroTagline && <h3 class="accent-text h3-uppercase">{heroTagline}</h3>}
+    <h1 class="title" set:html={renderedHeadline} />
+    <h2 class="subtitle">{subtitle}</h2>
+
+    {
+      button && (
+        <a
+          class="button-accent margin-top-lg"
+          href={localized(button.link, Astro.currentLocale, ["en", "de"])}
+        >
+          {button.text}
+        </a>
+      )
+    }
+  </div>
+</section>
+
+<style>
+  /* Main container: Controls full-height layout and vertical centering */
+  .hero {
+    height: 80vh;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  /* * Injected outline style: Must use :global() because set:html bypasses 
+   * Astro's CSS scoping. Be sure your renderHeadline() utility outputs 
+   * class="outlined" instead of class="hero-block__title-outlined" to match this.
+   */
+  .title :global(.outlined) {
+    text-shadow:
+      -2px -2px 0 #fff,
+      2px -2px 0 #fff,
+      -2px 2px 0 #fff,
+      2px 2px 0 #fff;
+    color: var(--bg);
+  }
+
+  /* Subtitle: Resets default margins for flexbox alignment */
+  .subtitle {
+    padding: 0;
+    margin: 0;
+  }
+
+  /* Mobile overrides: Adjusts height calculations and typography for smaller screens */
+  @media (max-width: 720px) {
+    .hero {
+      height: auto;
+      /* svh accounts for mobile browser UI elements expanding/collapsing */
+      min-height: calc(100svh - 75px);
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .title {
+      font-size: clamp(2.75rem, 12vw, 3.75rem);
+      line-height: 1;
+    }
+
+    .subtitle {
+      max-width: 30ch; /* Prevents text from stretching too wide and becoming hard to read */
+      /* font-size: 1.1rem; */
+    }
+  }
+</style>

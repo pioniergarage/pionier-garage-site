@@ -1,0 +1,17 @@
+{
+  "title": "Become a partner",
+  "language": "EN",
+  "slug": "/partner",
+  "description": "Are you ready to become a partner and support our mission of bringing together Karlsruhe's startups?",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "form",
+      "url": "https://tally.so/embed/XxOLrL",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    }
+  ]
+}

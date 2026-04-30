@@ -1,0 +1,21 @@
+{
+  "title": "Kontakt",
+  "language": "DE",
+  "slug": "/contact",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "section",
+      "header": "Kontaktiere Uns",
+      "body": "Du brauchst Support für dein Startup, suchst Zugang zur Karlsruher Gründungscommunity oder hast eine Frage?  \nWir helfen dir weiter – schreib uns eine Nachricht und wir vernetzen dich mit dem richtigen Ansprechpartner."
+    },
+    {
+      "type": "spacer",
+      "size": "50px"
+    },
+    {
+      "type": "form",
+      "url": "https://tally.so/r/D4X0PX"
+    }
+  ]
+}
