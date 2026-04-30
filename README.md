@@ -1,4 +1,4 @@
-# Startup Karlsruhe: Astro, React, Pocketbase, PagesCMS
+# PionierGarage: Astro, React, Pocketbase, PagesCMS
 
 ## 🚀 Project Structure
 
