@@ -5,8 +5,6 @@ import { SiteHeaderSchema } from "../content.config.ts";
 const config = SiteHeaderSchema.parse(rawHeader);
 const { navbar, logo, styleOverrides } = config;
 
-import { Image } from "astro:assets";
-import logoWhite from "../assets/rocket_white.svg";
 import { getNavLinks } from "../utils/utils.ts";
 import LanguageToggle from "./LanguageToggle.astro";
 
@@ -40,7 +38,7 @@ const navLinks = navlinks.map((link) => ({
 
 <header class="wrapper" data-header id="header">
   <div class="container">
-    <a href={homeHref} class="brand" aria-label={labels.home}>
+    <a href={homeHref} class="link" aria-label={labels.home}>
       PionierGarage
     </a>
 
@@ -60,7 +58,8 @@ const navLinks = navlinks.map((link) => ({
     <nav id="site-nav" class="nav" aria-label={labels.navigation} data-topnav>
       <div class="mobile-header">
         <a href={homeHref} class="brand" aria-label={labels.home} data-nav-link>
-          <Image class="logo" src={logoWhite} alt="rocket_logo" />
+          PionierGarage
+          <!-- <Image class="logo" src={logoWhite} alt="rocket_logo" /> -->
         </a>
 
         <button
@@ -143,7 +142,7 @@ const navLinks = navlinks.map((link) => ({
 
 <style>
   .active {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(24, 24, 27, 0.7);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
@@ -152,7 +151,7 @@ const navLinks = navlinks.map((link) => ({
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw; /** Fixes problem where hamburger disappears */
+    width: 100%; /** Fixes problem where hamburger disappears */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -241,10 +240,7 @@ const navLinks = navlinks.map((link) => ({
 
   .link:hover,
   .link:focus-visible {
-    color: #fff;
-    text-decoration: underline;
-    text-underline-offset: 5px;
-    transform: translateY(-2px);
+    opacity: 0.7;
     outline: none;
   }
 
@@ -281,7 +277,7 @@ const navLinks = navlinks.map((link) => ({
       justify-content: flex-start;
       gap: 34px;
       padding: 18px 20px 28px;
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(24, 24, 27, 0.7);
       backdrop-filter: blur(10px);
       -webkit-backdrop-filter: blur(10px);
       opacity: 0;
