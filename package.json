@@ -16,6 +16,8 @@
   },
   "dependencies": {
     "@astrojs/react": "^5.0.4",
+    "@fontsource/dela-gothic-one": "^5.2.7",
+    "@fontsource/philosopher": "^5.2.8",
     "@fontsource/rubik": "^5.2.8",
     "@fontsource/unbounded": "^5.2.8",
     "@iconify-json/lucide": "^1.2.103",

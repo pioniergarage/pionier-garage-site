@@ -69,7 +69,7 @@
     flex-direction: column;
     gap: 20px;
     padding: 0 15px 15px;
-    border-radius: 28px;
+    border-radius: var(--border-radius);
     border: 2px solid #2a2c2e;
     background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(5px);
@@ -89,7 +89,7 @@
     gap: 10px;
     align-items: center;
     padding: 12px 15px;
-    border-radius: 28px;
+    border-radius: var(--border-radius);
     border: 2px solid #2a2c2e;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
@@ -104,7 +104,7 @@
     border-top: 0;
     border-left: 0;
     border-right: 0;
-    border-radius: 28px;
+    border-radius: var(--border-radius);
 }
 .startup-search-panel__search {
     display: flex;
@@ -179,7 +179,7 @@
     display: inline-flex;
     align-items: center;
     gap: 5px;
-    border-radius: 50px;
+    border-radius: var(--border-radius);
     border: 1.5px solid var(--accent-pink);
     background: var(--bg);
     color: var(--accent-pink);
@@ -228,7 +228,7 @@
     align-items: center;
     justify-content: center;
     padding: 5px 10px;
-    border-radius: 30px;
+    border-radius: var(--border-radius);
     border: 1px solid transparent;
     font-family: inherit;
     font-size: var(--caption-font-size);
@@ -368,7 +368,7 @@
     flex-direction: column;
     width: 100%;
     min-width: 0;
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     overflow: hidden;
     border: 2px solid var(--stroke);
     background: #000;
@@ -469,7 +469,7 @@
 .card__logo-wrap {
     width: 60px;
     height: 60px;
-    border-radius: 40px;
+    border-radius: var(--border-radius);
     overflow: hidden;
     border: 1.5px solid var(--logo-border, #000);
     background: #fff;
@@ -515,7 +515,7 @@
 
 .startup-detail__hero {
     position: relative;
-    border-radius: 30px;
+    border-radius: var(--border-radius);
     overflow: hidden;
     background: #111;
     border: 5px solid black;
@@ -549,7 +549,7 @@
 .startup-detail__logo-wrap {
     width: 72px;
     height: 72px;
-    border-radius: 999px;
+    border-radius: var(--border-radius);
     overflow: hidden;
     border: 3px solid #000;
     background: #fff;
@@ -610,7 +610,7 @@
     align-items: center;
     justify-content: center;
     padding: 6px 12px;
-    border-radius: 999px;
+    border-radius: var(--border-radius);
     border: 1px solid transparent;
     font: 500 0.875rem/1 var(--font-body), sans-serif;
     white-space: nowrap;
@@ -692,7 +692,7 @@
 }
 
 .startup-detail__card {
-    border-radius: 18px;
+    border-radius: var(--border-radius);
     border: 1px solid var(--stroke);
     background: rgba(0, 0, 0, 0.84);
     box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);

@@ -133,7 +133,7 @@ const getLocalizedUrl = (langCode: string) => {
   /* Current language text: Applies display font and shadow */
   .label {
     font-size: initial;
-    font-family: var(--font-display);
+    font-family: var(--font-serif);
     text-transform: uppercase;
     text-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
   }
@@ -164,7 +164,7 @@ const getLocalizedUrl = (langCode: string) => {
     gap: 2px;
     padding: 2px;
     border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 20px;
+    border-radius: var(--border-radius);
     background: rgba(14, 14, 14, 0.58);
     backdrop-filter: blur(18px) saturate(140%);
     -webkit-backdrop-filter: blur(18px) saturate(140%);
@@ -181,10 +181,10 @@ const getLocalizedUrl = (langCode: string) => {
     gap: 10px;
     padding: 14px 16px;
     border: 0;
-    border-radius: 18px;
+    border-radius: var(--border-radius);
     background: none;
     color: var(--text);
-    font-family: var(--font-display), sans-serif;
+    font-family: var(--font-serif);
     font-size: 1.1rem;
     text-align: left;
     text-decoration: none;
