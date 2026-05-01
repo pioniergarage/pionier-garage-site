@@ -10,7 +10,7 @@ const renderedHeadline = renderHeadline(title ?? "");
 
 <section class=`${style.alignment} ${style.size}`>
   <div class=`hero ${style.className ?? ""}`>
-    {heroTagline && <h3 class="accent-text h3-uppercase">{heroTagline}</h3>}
+    {heroTagline && <h3 class="accent-text">{heroTagline}</h3>}
     <h1 class="title" set:html={renderedHeadline} />
     <h2 class="subtitle">{subtitle}</h2>
 
@@ -34,9 +34,9 @@ const renderedHeadline = renderHeadline(title ?? "");
     min-height: 400px;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: center;
-    gap: 20px;
+    /* gap: 20px; */
   }
 
   /* * Injected outline style: Must use :global() because set:html bypasses 
@@ -45,10 +45,10 @@ const renderedHeadline = renderHeadline(title ?? "");
    */
   .title :global(.outlined) {
     text-shadow:
-      -2px -2px 0 #fff,
-      2px -2px 0 #fff,
-      -2px 2px 0 #fff,
-      2px 2px 0 #fff;
+      -2px -2px 0 var(--accent-red),
+      2px -2px 0 var(--accent-red),
+      -2px 2px 0 var(--accent-red),
+      2px 2px 0 var(--accent-red);
     color: var(--bg);
   }
 

@@ -2,7 +2,7 @@
   --bg: #18181B;
   --text: #fff;
   --text-muted: #a1a1aa;
-  --accent-green: #00FFAE;
+  --accent-red: #E62626;
   --accent-yellow: #FFF830;
   --accent-blue: #00B0FF;
   --accent-pink: #FF4880;
@@ -19,7 +19,8 @@
 }
 
 .accent-text {
-  color: var(--accent-green);
+  font-weight: 400;
+  font-family: var(--font-serif);
 }
 
 .muted-text{
@@ -121,7 +122,7 @@ h1 {
 
 /* Primary headline: Handles responsive text wrapping and typography */
 .title {
-  color: var(--text);
+  color: var(--accent-red);
   font-family: var(--font-display), sans-serif;
   font-size: 60px;
   line-height: 65px;
@@ -131,6 +132,7 @@ h1 {
   overflow-wrap: anywhere;
   word-break: break-word;
   text-wrap: balance;
+  text-align: center;
 }
 
 /* Very big font */
@@ -225,10 +227,10 @@ body.header-menu-open {
 .button-accent {
   display: inline-block;
   font-family: inherit;
-  color: var(--accent-green);
+  color: var(--accent-red);
   padding: 15px 20px;
   border-radius: var(--border-radius);
-  border: 2px solid var(--accent-green);
+  border: 2px solid var(--accent-red);
   transition: var(--transition);
   cursor: pointer;
   animation: glow-accent 6s ease-in-out infinite;
@@ -241,7 +243,7 @@ body.header-menu-open {
 }
 
 .button-accent:hover {
-  background: var(--accent-green);
+  background: var(--accent-red);
   color: var(--bg);
 }
 
@@ -439,17 +441,17 @@ body.header-menu-open {
 @keyframes glow-accent {
   0% {
     /* Mixed with 0% transparent to keep it solid, but standardizes the syntax */
-    box-shadow: 0 0 20px 5px color-mix(in srgb, var(--accent-green), transparent 80%);
+    box-shadow: 0 0 20px 5px color-mix(in srgb, var(--accent-red), transparent 80%);
   }
 
   50% {
     /* Equivalent to 0.5 alpha */
-    box-shadow: 0 0 20px 5px color-mix(in srgb, var(--accent-green), transparent 62%);
+    box-shadow: 0 0 20px 5px color-mix(in srgb, var(--accent-red), transparent 62%);
   }
 
   100% {
     /* Equivalent to 0.3 alpha */
-    box-shadow: 0 0 20px 5px color-mix(in srgb, var(--accent-green), transparent 80%);
+    box-shadow: 0 0 20px 5px color-mix(in srgb, var(--accent-red), transparent 80%);
   }
 }
 

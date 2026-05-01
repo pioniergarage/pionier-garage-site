@@ -57,7 +57,7 @@
     background-color: var(--accent-yellow);
   }
   .startup-map__category-group-indicator--green {
-    background-color: var(--accent-green);
+    background-color: var(--accent-red);
   }
   .startup-map__category-group-indicator--blue {
     background-color: var(--accent-blue);
@@ -138,7 +138,7 @@
     color: var(--accent-yellow);
   }
   .startup-map__category--green {
-    color: var(--accent-green);
+    color: var(--accent-red);
   }
   .startup-map__category--blue {
     color: var(--accent-blue);

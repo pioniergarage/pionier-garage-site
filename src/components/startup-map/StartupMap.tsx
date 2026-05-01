@@ -151,7 +151,7 @@ function groupEntriesByCategory(entries: StartupMapViewEntry[]) {
 
 const colorMap: Record<string, string> = {
   yellow: "var(--accent-yellow)",
-  green: "var(--accent-green)",
+  green: "var(--accent-red)",
   blue: "var(--accent-blue)",
   pink: "var(--accent-pink)",
   orange: "var(--accent-orange)",

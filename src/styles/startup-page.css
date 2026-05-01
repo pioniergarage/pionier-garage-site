@@ -244,7 +244,7 @@
 }
 
 .tag-item--green {
-    color: var(--accent-green);
+    color: var(--accent-red);
     background: rgba(0, 255, 174, 0.14);
     border-color: rgba(0, 255, 174, 0.2);
 }
@@ -305,10 +305,10 @@
     opacity: 0.8;
 }
 .tag-item.tag-item--green.is-selected {
-    background: var(--accent-green);
+    background: var(--accent-red);
 }
 .tag-item.tag-item--green.is-selected:hover {
-    background: var(--accent-green);
+    background: var(--accent-red);
     opacity: 0.8;
 }
 .tag-item.tag-item--blue.is-selected {
@@ -617,7 +617,7 @@
 }
 
 .startup-detail__tag--green {
-    color: var(--accent-green);
+    color: var(--accent-red);
     background: rgba(0, 255, 174, 0.14);
     border-color: rgba(0, 255, 174, 0.2);
 }
