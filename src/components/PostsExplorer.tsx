@@ -1,7 +1,7 @@
 
 import Grid from "./ui/Grid";
-import type { PostData } from "./startups/types";
 import PostCard from "./PostCard";
+import type { PostData } from "./posts/types";
 
 interface Props {
     posts: PostData[]

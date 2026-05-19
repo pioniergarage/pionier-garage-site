@@ -1,4 +1,4 @@
-import type { PostData } from "./startups/types";
+import type { PostData } from "./posts/types";
 
 interface Props {
   data: PostData;

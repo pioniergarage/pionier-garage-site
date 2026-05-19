@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import type { BlockProps } from "../types/types";
 import { sectionVariants } from "../../utils/style-mapping";
 import PostExplorer from "../PostsExplorer"; // Ensure this uses a client directive if it needs React state
-import type { PostData } from "../startups/types";
+import type { PostData } from "../posts/types";
 
 type Props = BlockProps<"posts">;
 const { style } = Astro.props;
@@ -25,6 +25,5 @@ const displayedPosts: PostData[] = allPosts.map((post) => ({
     className: style?.className,
   })}
 >
-<h1>Posts</h1>
-  <PostExplorer posts={displayedPosts}/>
+  <PostExplorer posts={displayedPosts} />
 </section>

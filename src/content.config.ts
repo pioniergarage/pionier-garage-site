@@ -236,14 +236,11 @@ export const SiteFooterSchema = z.object({
   styleOverrides: z.string().optional(),
 });
 
-export const TeamDirectorySchema = z.object({
-  members: z.array(
-    z.object({
-      name: z.string(),
-      position: z.string(),
-      image: z.string().optional(),
-      email: z.email(),
-      startDate: z.coerce.date(),
-    })
-  ).default([]),
-});
+export const TeamDirectorySchema = z.array(z.object({
+  name: z.string(),
+  position: z.string(),
+  image: z.string().optional(),
+  email: z.email(),
+  startDate: z.coerce.date(),
+})
+).default([]);

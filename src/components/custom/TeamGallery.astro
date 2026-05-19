@@ -1,7 +1,11 @@
 ---
-//
-// See more here: https://pioniergarage.notion.site/Implement-Custom-Components-34a69e174f4780d1acf2c81b27105697?pvs=74
+import { getCollection } from "astro:content";
+import team from "../../content/team.json"
+import type { PostData } from "../posts/types";
+import TeamExplorer from "../team/TeamExplorer";
+import { TeamDirectorySchema } from "../../content.config";
+
+// Fetch all posts from the 'blog' collection
+const team_members = TeamDirectorySchema.parse(team);
 ---
-<h1>
-    This is a team gallery custom component
-</h1>
+<TeamExplorer team_members={team_members} />
