@@ -229,17 +229,8 @@ content:
   - name: team
     label: Team Directory
     type: file
-    path: src/content/team.json
-    format: json
-    list:
-      collapsible: true
-      summary: "{name} - Member Since {startDate}"
-    fields:
-      - { name: name, type: string }
-      - { name: position, type: string }
-      - { name: image, type: image }
-      - { name: email, type: string }
-      - { name: startDate, type: date }
+    path: src/content/team.csv
+    format: datagrid
 
   - name: site-settings
     label: Site Settings
