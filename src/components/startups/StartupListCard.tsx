@@ -10,7 +10,6 @@ export interface Props {
 
 export default function StartupListCard({ startup, locale }: Props) {
   const detailUrl = localized(`startups#${startup.externalId}`, locale);
-  console.log("ASHSAFJASHDFHASHSFAHFJSA", detailUrl);
   const industry = formatStartupTaxonomyLabel(startup.industry);
   const marketModel = formatStartupTaxonomyLabel(startup.marketModel);
   const stage = formatStartupTaxonomyLabel(startup.stage);

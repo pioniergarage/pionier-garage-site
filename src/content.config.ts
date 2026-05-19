@@ -1,6 +1,38 @@
 import { glob } from "astro/loaders";
 import { defineCollection } from "astro:content";
 import { z } from 'astro/zod';
+import site_config from './content/site_config.json'
+
+export const SiteSettingsConfigSchema = z.object({
+  title: z.string(),
+  description: z.string().optional(),
+  fallbackImage: z.string().optional(),
+  socialMedias: z.array(
+    z.object({
+      name: z.string(),
+      link: z.string(),
+      icon: z.string(),
+    })
+  ).default([]),
+
+  sponsors: z.array(
+    z.object({
+      name: z.string().optional(),
+      link: z.string().optional(),
+      image: z.string().optional(),
+      tier: z.enum([
+        'Gold',
+        'Silver',
+        'Bronze',
+        'Supporter',
+        'Partner',
+        'None'
+      ]).default('None'),
+    })
+  ).default([]),
+});
+
+const settings = SiteSettingsConfigSchema.parse(site_config);
 
 const blog = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
@@ -11,7 +43,7 @@ const blog = defineCollection({
       modDatetime: z.date().optional().nullable(),
       title: z.string(),
       language: z.enum(["EN", "DE"]).default("EN"),
-      ogImage: z.string().optional(),
+      ogImage: z.string().default(settings.fallbackImage ?? ""),
       slug: z.string().optional(),
       featured: z.boolean().optional(),
       draft: z.boolean().optional(),
@@ -40,7 +72,7 @@ const heroBlockSchema = z.object({
   title: z.string().optional(),
   subtitle: z.string().optional(),
   heroTagline: z.string().optional(),
-  image: z.string().optional(),
+  image: z.string().default(settings.fallbackImage ?? ""),
   button: buttonSchema,
   style: styleSchema,
 });
@@ -70,7 +102,7 @@ const sectionWrapperSchema = z.object({
 
 const imageBlockSchema = z.object({
   type: z.literal("image"),
-  image: z.string().optional(),
+  image: z.string().default(settings.fallbackImage ?? ""),
   size: z.enum(["small", "medium", "large"]).optional(),
   style: styleSchema,
 });
@@ -183,34 +215,7 @@ const pages = defineCollection({
 
 export const collections = { blog, pages };
 
-export const SiteSettingsConfigSchema = z.object({
-  title: z.string(),
-  description: z.string().optional(),
-  fallbackImage: z.string().optional(),
-  socialMedias: z.array(
-    z.object({
-      name: z.string(),
-      link: z.string(),
-      icon: z.string(),
-    })
-  ).default([]),
 
-  sponsors: z.array(
-    z.object({
-      name: z.string().optional(),
-      link: z.string().optional(),
-      image: z.string().optional(),
-      tier: z.enum([
-        'Gold',
-        'Silver',
-        'Bronze',
-        'Supporter',
-        'Partner',
-        'None'
-      ]).default('None'),
-    })
-  ).default([]),
-});
 
 export const SiteHeaderSchema = z.object({
   logo: z.string().optional(),
@@ -239,7 +244,7 @@ export const SiteFooterSchema = z.object({
 export const TeamDirectorySchema = z.array(z.object({
   title: z.string(), //Name
   position: z.string(),
-  image: z.string().optional(),
+  image: z.string().default(settings.fallbackImage ?? ""),
   email: z.email(),
   startDate: z.coerce.date(),
 })
