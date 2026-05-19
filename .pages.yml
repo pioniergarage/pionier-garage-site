@@ -231,17 +231,13 @@ content:
     type: file
     path: src/content/team.json
     format: json
+    list: true
     fields:
-      - name: members
-        label: Members
-        type: object
-        list: true
-        fields:
-          - { name: name, type: string }
-          - { name: position, type: string }
-          - { name: image, type: image }
-          - { name: email, type: string }
-          - { name: startDate, type: date }
+      - { name: name, type: string }
+      - { name: position, type: string }
+      - { name: image, type: image }
+      - { name: email, type: string }
+      - { name: startDate, type: date }
 
   - name: site-settings
     label: Site Settings
