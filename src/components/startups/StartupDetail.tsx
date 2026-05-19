@@ -1,6 +1,7 @@
 import { ArrowLeft } from "lucide-react";
 import { formatStartupTaxonomyLabel } from "../../utils/startupTaxonomy";
 import type { StartupDetailData } from "./types";
+import { sectionVariants } from "../../utils/style-mapping";
 
 export interface Props {
   startup: StartupDetailData;
@@ -11,6 +12,13 @@ type DetailRow = {
   value: string;
   href?: string;
 };
+
+const tagStyles = {
+  green: "text-accent-green bg-accent-green/15 border-bg-accent-green/20",
+  yellow: "text-accent-yellow bg-accent-yellow/15 border-accent-yellow/20",
+  blue: "text-accent-blue bg-accent-blue/15 border-accent-blue/20",
+};
+
 
 function toDisplayValue(value: unknown): string {
   if (value === null || value === undefined) return "";
@@ -134,49 +142,58 @@ export default function StartupDetail({ startup }: Props) {
   ].filter(Boolean) as { tone: "green" | "yellow" | "blue"; label: string }[];
 
   return (
-    <div className="startup-detail">
-      <a href={'startups'} className='button-icon'><ArrowLeft /></a>
-      <section className="startup-detail" aria-label={`${name} details`}>
+    <div className="w-[min(100%,1120px)] mx-auto py-6 pt-2.5 text-text max-lg:pt-4">
+      <a
+        href="startups"
+        className="inline-flex items-center justify-center font-inherit text-text p-2.5 rounded w-13 h-13 border-2 border-text transition duration-150 ease-out cursor-pointer bg-transparent hover:bg-text hover:text-bg mb-4"
+      >
+        <ArrowLeft />
+      </a>
 
-        <div className="startup-detail__hero-frame">
-
-          {headerImageUrl ? (
-            <div className="startup-detail__hero">
+      {/* Merging your CVA sectionVariants with the detail-specific layout needs */}
+      <section
+        className={`${sectionVariants({ alignment: "left", size: "full" })} block!`}
+        aria-label={`${name} details`}
+      >
+        <div className="relative">
+          {headerImageUrl && (
+            <div className="relative rounded overflow-hidden bg-[#111] border-[5px] border-black">
               <img
-                className="startup-detail__hero-image"
+                className="w-full h-full max-h-75 block object-cover object-center"
                 src={headerImageUrl}
                 alt="banner image"
               />
-              <div className="startup-detail__hero-overlay" aria-hidden="true" />
+              <div className="absolute inset-0 bg-linear-to-b from-black/15 to-black/50" aria-hidden="true" />
             </div>
-          ) : (<></>)}
-
+          )}
         </div>
 
-        <div className="startup-detail__identity">
-          <div className="startup-detail__logo-wrap">
+        <div className="flex gap-4.5 -mt-5.5 px-6 relative z-10 max-sm:items-start max-sm:gap-3.5 max-sm:-mt-4.5">
+          <div className="w-18 h-18 rounded overflow-hidden border-[3px] border-black bg-white flex-none flex items-center justify-center shadow-[0_10px_26px_rgba(0,0,0,0.26)] max-sm:w-16 max-sm:h-16">
             {logoUrl ? (
               <img
-                className="startup-detail__logo"
+                className="w-full h-full object-contain object-center block"
                 src={logoUrl}
                 alt={`${name} logo`}
               />
             ) : (
-              <span className="startup-detail__logo-fallback" aria-hidden="true">
+              <span className="flex items-center justify-center text-[#151515] font-display text-[1.35rem] font-bold" aria-hidden="true">
                 {getInitials(name)}
               </span>
             )}
           </div>
 
-          <div className="startup-detail__heading">
-            <h1 className="startup-detail__title">{name}</h1>
+          <div className="min-w-0 flex flex-col gap-2.5 pb-1.5">
+            <h1 className="m-0 font-display tracking-tight text-white [text-shadow:-2px_-2px_0_#000,2px_-2px_0_#000,-2px_2px_0_#000,2px_2px_0_#000]">
+              {name}
+            </h1>
 
             {tags.length > 0 && (
-              <div className="tag-item-wrapper" aria-label="Startup tags">
+              <div className="flex flex-wrap gap-1.25 capitalize" aria-label="Startup tags">
                 {tags.map((tag) => (
                   <span
                     key={`${tag.tone}-${tag.label}`}
-                    className={`tag-item tag-item--${tag.tone}`}
+                    className={`inline-flex items-center justify-center py-1.25 px-2.5 rounded border border-transparent font-inherit text-caption font-normal leading-normal whitespace-nowrap capitalize ${tagStyles[tag.tone]}`}
                   >
                     {tag.label}
                   </span>
@@ -188,20 +205,21 @@ export default function StartupDetail({ startup }: Props) {
 
         {richDescription && (
           <div
-            className="startup-detail__description"
+            // Hardcoded child combinators for rich text — consider replacing with Tailwind Typography plugin
+            className="max-w-245 mt-4.5 mx-0 px-6 text-white/90 font-normal text-base leading-[1.45] font-body max-md:px-4 [&>p]:mb-4 [&>ul]:mb-4 [&>ol]:mb-4 [&>ul]:pl-6 [&>ol]:pl-6 [&_li+li]:mt-1.5 [&_a]:text-white [&_a]:underline [&_a]:decoration-white/45 [&_a]:underline-offset-2 [&_strong]:text-white [&_b]:text-white [&_em]:italic [&_i]:italic"
             dangerouslySetInnerHTML={{ __html: richDescription }}
           />
         )}
 
-        <div className="startup-detail__info-grid">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4.5 items-start mt-6 px-3 max-md:px-0">
           {productRows.length > 0 && (
-            <article className="startup-detail__card">
-              <h2 className="startup-detail__card-title">Unser Produkt</h2>
-              <dl className="startup-detail__meta-list">
+            <article className="rounded border border-stroke bg-black/80 shadow-[0_14px_34px_rgba(0,0,0,0.2)] py-4.5 px-4 pb-3.5 max-sm:px-3.5 max-sm:py-4">
+              <h2 className="m-0 mb-3.5 font-bold text-[1.55rem] leading-[1.1] font-display max-sm:text-xl">Unser Produkt</h2>
+              <dl className="m-0 grid gap-3">
                 {productRows.map((row) => (
-                  <div className="startup-detail__meta-row" key={row.label}>
-                    <dt>{row.label}</dt>
-                    <dd>{row.value}</dd>
+                  <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_auto] gap-1 sm:gap-5 items-baseline" key={row.label}>
+                    <dt className="m-0 text-white/80">{row.label}</dt>
+                    <dd className="m-0 text-white text-left sm:text-right wrap-break-word">{row.value}</dd>
                   </div>
                 ))}
               </dl>
@@ -209,16 +227,16 @@ export default function StartupDetail({ startup }: Props) {
           )}
 
           {companyRows.length > 0 && (
-            <article className="startup-detail__card">
-              <h2 className="startup-detail__card-title">Unser Unternehmen</h2>
-              <dl className="startup-detail__meta-list">
+            <article className="rounded border border-stroke bg-black/80 shadow-[0_14px_34px_rgba(0,0,0,0.2)] py-4.5 px-4 pb-3.5 max-sm:px-3.5 max-sm:py-4">
+              <h2 className="m-0 mb-3.5 font-bold text-[1.55rem] leading-[1.1] font-display max-sm:text-xl">Unser Unternehmen</h2>
+              <dl className="m-0 grid gap-3">
                 {companyRows.map((row) => (
-                  <div className="startup-detail__meta-row" key={row.label}>
-                    <dt>{row.label}</dt>
-                    <dd>
+                  <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_auto] gap-1 sm:gap-5 items-baseline" key={row.label}>
+                    <dt className="m-0 text-white/80">{row.label}</dt>
+                    <dd className="m-0 text-white text-left sm:text-right wrap-break-word">
                       {row.href ? (
                         <a
-                          className="startup-detail__link"
+                          className="text-inherit font-bold no-underline hover:underline focus-visible:underline"
                           href={row.href}
                           target="_blank"
                           rel="noreferrer"
@@ -237,6 +255,6 @@ export default function StartupDetail({ startup }: Props) {
         </div>
       </section>
     </div>
-
   );
 }
+

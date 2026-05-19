@@ -1,5 +1,7 @@
 ---
+import { twMerge } from "tailwind-merge";
 import type { BlockProps } from "../types/types";
+import { sectionVariants } from "../../utils/style-mapping";
 
 type Props = BlockProps<"form">;
 
@@ -9,26 +11,32 @@ const cleaned_embed = url?.includes("?")
   ? url
   : `${url?.replace('/r/','/embed/')}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`;
 
-const allProps = Astro.props;
+// Maps to --panel-bg (rgba(0,0,0,0.5)), padding, --border-radius (4px), and --stroke (#2a2c2e)
+const sectionClasses = twMerge(
+  sectionVariants({ alignment: style.alignment, size: style.size }),
+  "overflow-visible bg-black/50 p-5 pb-3 rounded border-2 border-[#2a2c2e]" 
+);
+const cardClasses = "w-full max-w-3xl overflow-visible bg-black/50 p-5 pb-3 rounded border-2 border-[#2a2c2e]";
 ---
 
-<section class=`form ${style.alignment} ${style.size}`>
-  <iframe
-    data-tally-src={cleaned_embed}
-    loading="lazy"
-    width="100%"
-    height="518"
-    class={style.className ?? ""}
-    frameborder="0"
-    marginheight="0"
-    marginwidth="0"
-    title="Embedded Form"
-  >
-  </iframe>
+<section class={sectionClasses}>
+  <div class={cardClasses}>
+    <iframe
+      data-tally-src={cleaned_embed}
+      loading="lazy"
+      width="100%"
+      height="518"
+      class={twMerge("overflow-visible", style.className)}
+      frameborder="0"
+      marginheight="0"
+      marginwidth="0"
+      title="Embedded Form"
+    >
+    </iframe>
+  </div>
 </section>
 
 <script>
-  // 1. Declare the global variable so TS knows Tally exists
   declare var Tally: any;
 
   var d = document,
@@ -39,10 +47,7 @@ const allProps = Astro.props;
         : d
             .querySelectorAll("iframe[data-tally-src]:not([src])")
             .forEach(function (e) {
-              // 2. Cast the generic Element to an HTMLIFrameElement
               const iframe = e as HTMLIFrameElement;
-
-              // 3. Reassign the src using the dataset
               if (iframe.dataset.tallySrc) {
                 iframe.src = iframe.dataset.tallySrc;
               }
@@ -55,20 +60,3 @@ const allProps = Astro.props;
     ((s.src = w), (s.onload = v), (s.onerror = v), d.body.appendChild(s));
   }
 </script>
-
-<style>
-  section {
-    overflow: visible;
-  }
-  iframe {
-    overflow: visible;
-  }
-
-  .form {
-    background-color: var(--panel-bg);
-    padding: 20px;
-    padding-bottom: 12px;
-    border-radius: var(--border-radius);
-    border: 2px solid #2a2c2e;
-  }
-</style>

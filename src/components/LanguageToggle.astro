@@ -14,7 +14,7 @@ const currentLangCode = languages.some(
 const selected =
   languages.find((lang) => lang.code === currentLangCode) || languages[0];
 
-const getLocalizedUrl = (langCode: string) => {
+const localizeRootUrl = (langCode: string) => {
   const url = new URL(Astro.url);
   const pathSegments = url.pathname.split("/").filter(Boolean);
 
@@ -46,7 +46,7 @@ const getLocalizedUrl = (langCode: string) => {
     {
       languages.map((lang) => (
         <a
-          href={getLocalizedUrl(lang.code)}
+          href={localizeRootUrl(lang.code)}
           role="option"
           aria-selected={selected.code === lang.code}
           class="option"

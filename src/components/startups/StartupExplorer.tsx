@@ -77,16 +77,15 @@ export default function StartupExplorer({ startups, locale = "en" }: Props) {
       />
 
       {filteredStartups.length === 0 ? (
-        //"startup-search-panel__empty"
-        <p className='startup-search-panel__empty'>{labels.empty}</p>
+        <p className="text-center w-full text-secondary">{labels.empty}</p>
       ) : (
-        <div className="startup-search-panel__results">
+        <div className="[&_a]:block [&_a]:min-w-0">
           <Grid<StartupItem> items={visibleStartups} keyExtractor={(startup) => startup.name} card={(startup) => <StartupListCard startup={startup} />} />
           {hasMoreStartups && (
-            <div className="startup-search-panel__pagination">
+            <div className="flex justify-center mt-6">
               <button
                 type="button"
-                className="button"
+                className="inline-block px-5 py-3.75 text-base font-inherit text-text bg-transparent border-2 border-text rounded transition duration-150 ease-out cursor-pointer hover:bg-text hover:text-bg w-full sm:w-auto"
                 onClick={() => setVisibleCount((current) => current + LOAD_MORE_STEP)}
               >
                 {labels.loadMore}

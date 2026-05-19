@@ -1,19 +1,33 @@
 ---
+import { twMerge } from "tailwind-merge";
 import type { BlockProps } from "../types/types";
+import { sectionVariants } from "../../utils/style-mapping";
+
 
 type Props = BlockProps<"faq">;
 
 const { items, style } = Astro.props;
+
+const sectionClasses = twMerge(
+  sectionVariants({ alignment: style.alignment, size: style.size }),
+  style?.className
+);
 ---
 
-<section class={`${style.alignment} ${style.size}`}>
+<section class={sectionClasses}>
   {
     items?.map((item) => (
-      <details class={`faq-details ${style.className ?? ""}`}>
-        <summary class="faq-summary">
-          <h2>{item.question}</h2>
+      <details class="group border-b border-stroke open:pb-4">
+        
+        {/* list-none and the webkit pseudo-selector hide the native browser arrow */}
+        <summary class="flex cursor-pointer list-none items-center justify-between py-4 [&::-webkit-details-marker]:hidden">
+          <h2 class="m-0 text-2xl font-semibold leading-[1.3]">
+            {item.question}
+          </h2>
+          
+          {/* group-open applies styles based on the parent details element's state */}
           <svg 
-            class="faq-icon" 
+            class="ml-6 shrink-0 transition-transform duration-200 ease-in-out group-open:rotate-180" 
             xmlns="http://www.w3.org/2000/svg" 
             width="24" 
             height="24" 
@@ -28,66 +42,15 @@ const { items, style } = Astro.props;
           </svg>
         </summary>
         
-        <div class="content">{item.answer}</div>
+        {/* 
+          Native <details> handles the display toggle intrinsically. 
+          We use group-open to apply margins and trigger your custom animation.
+        */}
+        <div class="whitespace-pre-line leading-[1.6] text-text-muted group-open:animate-[drop-and-fade_180ms_ease-in] group-open:mb-1">
+          {item.answer}
+        </div>
+        
       </details>
     ))
   }
 </section>
-
-<style>
-  /* Hide the default HTML arrow */
-  .faq-summary {
-    list-style: none; /* Modern browsers */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    cursor: pointer;
-    padding: 1rem 0;
-  }
-
-  .faq-summary::-webkit-details-marker {
-    display: none; /* Safari */
-  }
-
-  /* Style the H3 to look correct inside the summary */
-  .faq-summary h3 {
-    margin: 0;
-    font-size: 1.5rem; /* Standard h3 sizing */
-    font-weight: 600;
-    line-height: 1.3;
-  }
-
-  /* Style the custom SVG arrow */
-  .faq-icon {
-    flex-shrink: 0; /* Prevents the arrow from squishing if the headline is very long */
-    margin-left: 1.5rem;
-    transition: transform 0.2s ease-in-out;
-  }
-
-  /* Rotate arrow when the details block is expanded */
-  details[open] .faq-icon {
-    transform: rotate(180deg);
-  }
-
-  details[open]{
-    padding-bottom: 1em;
-  }
-
-  .content {
-    padding-left: 0;
-    line-height: 1.6;
-    color: var(--text-muted, #a1a1aa);
-    animation: pop-in 180ms ease-in;
-    display:none;
-    white-space: pre-line;
-  }
-
-  details[open] .content {
-    display:inline;
-    margin-bottom: 4px;
-  }
-  
-  .faq-details {
-    border-bottom: 1px solid var(--stroke, #27272a);
-  }
-</style>

@@ -3,7 +3,6 @@ import FilterSearchBar from "../search/FilterSearchBar";
 import StartupMapCategoryGroup from "./StartupMapCategoryGroup";
 import type { StartupMapViewEntry, StartupMapViewMilestone } from "./types";
 import { useStartupMapViewModel } from "./useStartupMapViewModel";
-import "./startup-map.css"
 
 type StartupMapProps = {
   map: StartupMapViewMilestone[];
@@ -52,7 +51,7 @@ export default function StartupMapRenderer({ map, locale = "en" }: StartupMapPro
     <>
       <FilterSearchBar
         activeFilterCount={activeFilterCount}
-        className="startup-explorer"
+        className="sticky top-[80px] z-10"
         clearAll={clearAll}
         close={close}
         groups={groups}
@@ -72,24 +71,24 @@ export default function StartupMapRenderer({ map, locale = "en" }: StartupMapPro
       />
 
       {filteredMap.length === 0 ? (
-        <p className="startup-map-empty">
+        <p className="mt-5 text-secondary">
           {locale === "de"
             ? "Keine passenden Eintraege gefunden."
             : "No matching entries found."}
         </p>
       ) : (
-        <div className="startup-map">
+        <div className="flex flex-col gap-5 w-full max-w-215 pt-2 pb-6">
           {filteredMap.map((milestone) => {
             const categoryGroups = groupEntriesByCategory(milestone.entries);
 
             return (
-              <section className="startup-map__milestone-group" key={milestone.id}>
-                <div className="startup-map__milestone">
-                  <span className="startup-map__milestone-circle" aria-hidden="true" />
-                  <h3 className="title-3--medium">{milestone.name}</h3>
+              <section className="flex flex-col gap-5" key={milestone.id}>
+                <div className="flex items-center gap-2.5">
+                  <span className="w-5 h-5 border-[2.5px] border-text rounded-full shrink-0" aria-hidden="true" />
+                  <h3 className="m-0 text-text font-medium text-xl">{milestone.name}</h3>
                 </div>
 
-                <div className="startup-map__milestone-categories">
+                <div className="flex flex-col">
                   {categoryGroups.map((group, index) => {
                     const nextGroup = categoryGroups[index + 1];
 
@@ -98,10 +97,11 @@ export default function StartupMapRenderer({ map, locale = "en" }: StartupMapPro
                         <StartupMapCategoryGroup group={group} />
                         {nextGroup && (
                           <div
-                            className="startup-map__category-transition"
+                            className="w-2.5 h-16.25 -my-2.5 mx-1.25 rounded-[10px]"
                             aria-hidden="true"
                             style={
                               {
+                                background: "linear-gradient(180deg, var(--startup-map-transition-from) 20%, var(--startup-map-transition-to) 80%)",
                                 "--startup-map-transition-from": getCategoryColorValue(group.categoryColor),
                                 "--startup-map-transition-to": getCategoryColorValue(nextGroup.categoryColor),
                               } as CSSProperties
@@ -150,15 +150,13 @@ function groupEntriesByCategory(entries: StartupMapViewEntry[]) {
 }
 
 const colorMap: Record<string, string> = {
-  yellow: "var(--accent-yellow)",
-  green: "var(--accent-red)",
-  blue: "var(--accent-blue)",
-  pink: "var(--accent-pink)",
-  orange: "var(--accent-orange)",
+  yellow: "var(--color-accent-yellow)",
+  green: "var(--color-accent-red)",
+  blue: "var(--color-accent-blue)",
+  pink: "var(--color-accent-pink)",
+  orange: "var(--color-accent-orange)",
 };
 
 function getCategoryColorValue(categoryColor: string) {
-
-
-  return colorMap[categoryColor] ?? "var(--text)";
+  return colorMap[categoryColor] ?? "var(--color-text)";
 }

@@ -13,59 +13,14 @@ export default function StartupsHeader({
   sortLabel = "Recently Added",
 }: Props) {
   return (
-    <>
-      <header className="startups-header">
-        <h2 className="startups-header__title">{title}</h2>
-        <div className="startups-header__controls">
-          <StartupSearchShell placeholder={searchPlaceholder} />
-          <StartupSortControl label={sortLabel} />
-        </div>
-      </header>
-
-      <style>{`
-        .startups-header {
-          display: flex;
-          flex-direction: column;
-          align-items: stretch;
-          gap: 20px;
-          margin-bottom: 16px;
-        }
-
-        .startups-header__title {
-          margin: 0;
-          width: 100%;
-          display: block;
-          font-family: var(--font-display), sans-serif;
-          font-size: 30px;
-          font-weight: 700;
-          line-height: normal;
-          letter-spacing: 0;
-          color: #fff;
-        }
-
-        .startups-header__controls {
-          display: flex;
-          align-items: center;
-          gap: 20px;
-          width: 100%;
-        }
-
-        @media (max-width: 640px) {
-          .startups-header {
-            gap: 14px;
-          }
-
-          .startups-header__title {
-            font-size: 28px;
-          }
-
-          .startups-header__controls {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 8px;
-          }
-        }
-      `}</style>
-    </>
+    <header className="flex flex-col items-stretch gap-5 mb-4 max-sm:gap-3.5">
+      <h2 className="m-0 w-full block font-display text-[30px] font-bold leading-normal tracking-normal text-white max-sm:text-[28px]">
+        {title}
+      </h2>
+      <div className="flex items-center gap-5 w-full max-sm:flex-col max-sm:items-start max-sm:gap-2">
+        <StartupSearchShell placeholder={searchPlaceholder} />
+        <StartupSortControl label={sortLabel} />
+      </div>
+    </header>
   );
 }

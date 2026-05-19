@@ -1,8 +1,9 @@
 ---
-import '../../styles/startup-page.css';
 import { pb } from "../../lib/pocketbase";
 import EventsGrid from "../events/EventsGrid";
 import type { EventItem } from '../events/types';
+import { sectionVariants } from "../../utils/style-mapping";
+
 const locale = Astro.currentLocale == "de" ? "de" : "en";
 const now = new Date().toISOString();
 
@@ -15,8 +16,19 @@ const eventFilter = [
 const events = await pb.collection<EventItem>("events").getFullList({
   filter: eventFilter,
 });
+
+// Using your centralized CVA layout engine for the block surface container
+const containerClasses = sectionVariants({
+  alignment: "left", // Matches the default flex-col structure
+  size: "full"
+});
 ---
 
-<div class="startups-block__surface">
+{/* 
+  Replaced .startups-block__surface with Tailwind utilities:
+  - pt-[10px] maps your exact padding-top
+  - gap-[30px] maps your exact vertical layout spacing
+*/}
+<div class={`${containerClasses} pt-[10px] gap-[30px]`}>
   <EventsGrid events={events} locale={locale} client:load />
 </div>

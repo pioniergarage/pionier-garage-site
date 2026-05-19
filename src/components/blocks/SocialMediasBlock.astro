@@ -1,20 +1,30 @@
 ---
 import rawConfig from "../../content/site_config.json";
 import { SiteSettingsConfigSchema } from "../../content.config.ts";
-
 import { Icon } from "astro-icon/components";
+import { twMerge } from "tailwind-merge";
+import { sectionVariants } from "../../utils/style-mapping";
 import type { BlockProps } from "../types/types";
+
 type Props = BlockProps<"social-medias">;
 
-// This guarantees the data matches your expectations before the page renders
 const config = SiteSettingsConfigSchema.parse(rawConfig);
-
 const { socialMedias } = config;
 const { style } = Astro.props;
+
+// Compute clean wrapper classes using your unified CVA setup
+const sectionClasses = twMerge(
+  sectionVariants({ alignment: style.alignment, size: style.size }),
+  style.className
+);
 ---
 
-<section class=`${style.alignment} ${style.size} ${style.className??""}`>
-  <div class="full center-text">
+<section class={sectionClasses}>
+  {/* 
+    1. Replaced '.full' with: w-full flex flex-1 justify-around items-center flex-wrap gap-5
+    2. Replaced '.center-text' with: text-center 
+  */}
+  <div class="w-full flex flex-1 justify-around items-center flex-wrap gap-5 text-center">
     {
       socialMedias?.map((item) => (
         <a
@@ -22,11 +32,20 @@ const { style } = Astro.props;
           target="_blank"
           rel="noopener noreferrer"
           aria-label={item.name}
+          class="group block"
         >
-          <h2 class="title text-glow" aria-label={`${item.name} Icon`}>
-            <Icon name={`lucide:${item.icon}`} class="w-6 h-6" />{" "}
+          {/* 
+            Replaced '.title' and '.text-glow' with their utility equivalents.
+            Note: The 4-point hard stroke shadow on headers from global.css requires
+            a custom arbitrary text-shadow value since it's highly specific.
+          */}
+          <h2 
+            class="text-text font-display text-[60px] leading-16.25 p-0 m-0 max-w-full text-center text-wrap balance [text-shadow:0_0_20px_color-mix(in_srgb,var(--text),transparent_60%)]" 
+            aria-label={`${item.name} Icon`}
+          >
+            <Icon name={`lucide:${item.icon}`} class="w-10 h-10 inline-block" />
           </h2>
-          <h3>{item.name}</h3>
+          <h3 class="font-body text-text mt-3"><span class="font-serif">PionierGarage</span> on {item.name}</h3>
         </a>
       ))
     }

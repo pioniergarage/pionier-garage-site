@@ -1,22 +1,39 @@
 ---
+import { twMerge } from "tailwind-merge";
 import { localized } from "../../utils/utils";
+import { sectionVariants } from "../../utils/style-mapping";
 import type { BlockProps } from "../types/types";
 
 type Props = BlockProps<"tag-cloud">;
 
 const { title, tags, style } = Astro.props;
 
-const allProps = Astro.props;
+// 1. Apply the CVA configuration to the outer section
+const sectionClasses = sectionVariants({ 
+  alignment: style.alignment, 
+  size: style.size 
+});
+
+// 2. Handle the inner wrapper's custom layout and CMS fallback
+const innerWrapperClasses = twMerge(
+  "flex flex-col justify-start gap-2", // Translated from "l-stack l-stack--sm"
+  style.className
+);
 ---
 
-<section class=`${style.alignment} ${style.size}`>
-  <div class={style.className ?? "l-stack l-stack--sm"}>
-    <h2 class="margin-left-md">{title}</h2>
-    <div style="display:flex; gap:10px; align-items:center;flex-wrap: wrap;">
+<section class={sectionClasses}>
+  <div class={innerWrapperClasses}>
+    {/* Translated .margin-left-md (20px) to ml-5 */}
+    <h2 class="ml-5">{title}</h2>
+    
+    {/* Translated inline styles to Tailwind utilities (gap: 10px -> gap-2.5) */}
+    <div class="flex flex-wrap items-center gap-2.5">
       {
-        tags?.map((tag, index) => (
-          <a class="button" href={localized(tag.link??"", Astro.currentLocale, ["EN", "DE"])}>
-            {" "}
+        tags?.map((tag) => (
+          <a 
+            class="inline-block px-5 py-3.75 text-base font-inherit text-text bg-transparent border-2 border-text rounded transition duration-150 ease-out cursor-pointer hover:bg-text hover:text-bg"
+            href={localized(tag.link ?? "", Astro.currentLocale, ["EN", "DE"])}
+          >
             {tag.text}
           </a>
         ))

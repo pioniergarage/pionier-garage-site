@@ -3,7 +3,6 @@ import { Image } from "astro:assets";
 import rawConfig from "../../content/site_config.json";
 import { SiteSettingsConfigSchema } from "../../content.config.ts";
 
-// This guarantees the data matches your expectations before the page renders
 const config = SiteSettingsConfigSchema.parse(rawConfig);
 
 const { sponsors } = config;
@@ -20,99 +19,52 @@ for (const sponsor of sponsors) {
 }
 ---
 
-<div class="carousel">
-  <div class="group">
+<div class="carousel m-0 p-0 overflow-hidden flex max-h-[300px] w-full">
+  <div class="group flex shrink-0 grow-0 basis-full gap-[100px] pr-[100px] will-change-transform">
     {
       sponsors.map((sponsor) => (
-        <a class="carousel-card" href={sponsor.link}>
+        <a class="carousel-card flex m-5 w-full max-h-[100px] justify-center items-center text-white transition-transform duration-150 ease-in hover:scale-105" href={sponsor.link}>
           {sponsor.image ? (
-            <Image src={images[sponsor.image]()} alt={sponsor.name ?? ""} />
+            <Image 
+              src={images[sponsor.image]()} 
+              alt={sponsor.name ?? ""} 
+              class="w-[250px] h-auto m-0 p-0 object-contain"
+            />
           ) : (
-            <h2>{sponsor.name}</h2>
+            <h2 class="font-display text-white">{sponsor.name}</h2>
           )}
         </a>
       ))
     }
   </div>
   <!-- Add `aria-hidden` to hide the duplicated carousel-cards from screen readers. -->
-  <div aria-hidden="true" class="group">
+  <div aria-hidden="true" class="group flex shrink-0 grow-0 basis-full gap-[100px] pr-[100px] will-change-transform">
     {
       sponsors.map((sponsor) => (
-        <a class="carousel-card" href={sponsor.link}>
+        <a class="carousel-card flex m-5 w-full max-h-[100px] justify-center items-center text-white transition-transform duration-150 ease-in hover:scale-105" href={sponsor.link}>
           {sponsor.image ? (
-            <Image src={images[sponsor.image]()} alt={sponsor.name ?? ""} />
+            <Image 
+              src={images[sponsor.image]()} 
+              alt={sponsor.name ?? ""} 
+              class="w-[250px] h-auto m-0 p-0 object-contain"
+            />
           ) : (
-            <h2>{sponsor.name}</h2>
+            <h2 class="font-display text-white">{sponsor.name}</h2>
           )}
         </a>
       ))
     }
   </div>
 </div>
-<style>
-  .carousel {
-    margin: 0 0;
-    padding: 0 0;
-    overflow: hidden;
-    display: flex;
-    max-height: 300px;
-    width: 100%;
-  }
-
-  .carousel > * {
-    flex: 0 0 100%;
-  }
-
-  .group {
-    display: flex;
-    gap: 100px;
-    padding-right: 100px;
-    will-change: transform;
-    /* CSS animation removed entirely */
-  }
-
-  .carousel-card {
-    display: flex; /* or block, depending on your layout */
-    max-height: 100px;
-    width: 100%;
-    color: white;
-    margin: 20px;
-    justify-content: center;
-    align-items: center;
-    /* Moved from :hover for smooth scale up AND scale down */
-    transition: transform 0.15s ease-in;
-  }
-
-  /* 2. Constrain the image */
-  .carousel-card img {
-    width: 250px;
-    height: auto;
-    margin: 0;
-    padding: 0;
-    /* Controls how the image scales if the carousel-card dimensions don't match the image's aspect ratio */
-    object-fit: contain;
-  }
-
-  .carousel-card:hover {
-    transform: scale(1.05);
-  }
-</style>
 
 <script>
-  // 1. Select the actual carousels
   const carousels = document.querySelectorAll(".carousel");
 
-  // 2. Loop through each carousel independently
   carousels.forEach((carousel) => {
-    // Find only the groups inside THIS specific carousel
     const groups = carousel.querySelectorAll(".group");
-    
-    // Create an array to hold the animation instances for this carousel
     const animations = new Array<Animation>();
-
     const items = new Array<ChildNode>();
 
-    // 3. Initialize animations for all groups in this carousel
     groups.forEach((group) => {
       const animation = group.animate(
         [{ transform: "translateX(0)" }, { transform: "translateX(-100%)" }],
@@ -127,30 +79,22 @@ for (const sponsor of sponsors) {
       }
     });
 
-    // 4. Set up speed variables scoped to this specific carousel
     let targetSpeed = 1;
     let currentSpeed = 1;
 
-    // 5. Attach listeners to groups. 
     for (const item of items) {
       item.addEventListener("mouseenter", () => (targetSpeed = 0));
       item.addEventListener("mouseleave", () => (targetSpeed = 1));
     }
 
-    // 6. Create the animation loop
     function smoothSpeed() {
-      // Calculate the eased speed once per frame
       currentSpeed += (targetSpeed - currentSpeed) * 0.08;
-
-      // Apply that exact same speed to ALL groups in the carousel simultaneously
       animations.forEach((anim) => {
         anim.playbackRate = currentSpeed;
       });
-
       requestAnimationFrame(smoothSpeed);
     }
 
-    // Start the loop for this carousel
     smoothSpeed();
   });
 </script>

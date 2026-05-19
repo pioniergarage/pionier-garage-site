@@ -1,37 +1,54 @@
 ---
 import "../styles/global.css";
-import { Image } from "astro:assets";
-import backgroundGradient from "../assets/background_gradient_desktop.svg";
-import backgroundGradientMobile from "../assets/background_gradient_mobile.svg";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
-const root_anim = Astro.originPathname.length < 5 ? "appear-slowly" : "";
+// Maps your path conditional animation smoothly
+const root_anim = Astro.originPathname.length < 5 ? "animate-appear-slowly" : "";
 ---
 
 <!doctype html>
-<html lang={Astro.currentLocale}>
+<html lang={Astro.currentLocale} class="scroll-smooth">
   <head>
     <BaseHead />
   </head>
-  <body>
-    <div class="content-wrapper">
-      <Header class={root_anim} />
-      <main id="main-content" class="content">
+  <!-- 
+    Translated body styles:
+    min-h-screen background color (--color-bg), and text color (--color-text)
+  -->
+  <body class="margin-0 min-h-screen bg-bg text-text font-body">
+    <!-- 
+      Translated .content-wrapper:
+      Replaces absolute positioning stack with a unified flex system 
+    -->
+    <div class="absolute top-0 left-0 w-full z-10 mt-18.75 flex flex-col justify-center px-[1em] min-h-screen">
+      
+      <Header id="header" class={root_anim} />
+      
+      <!-- 
+        Translated .content:
+        mx-auto acts as margin-inline: auto, max-w-7xl caps it at 1200px (approx 75rem)
+      -->
+      <main id="main-content" class="flex flex-col flex-1 flex-wrap w-full max-w-7xl mx-auto">
         <slot />
       </main>
+      
       <Footer />
     </div>
-  </body><script>
-    const header = document.getElementById("header")!;
+  </body>
+  
+  <script>
+    const header = document.getElementById("header");
 
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 50) {
-        header.classList.add("active");
-      } else {
-        header.classList.remove("active");
-      }
-    });
+    if (header) {
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.add("active");
+        } else {
+          header.classList.remove("active");
+        }
+      });
+    }
   </script>
 </html>

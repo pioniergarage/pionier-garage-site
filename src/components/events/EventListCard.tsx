@@ -75,7 +75,6 @@ export default function EventListCard({
   const location = event.location?.trim();
   const duration = formatDuration(event.duration, locale);
 
-  // Get split date parts
   const { day, month } = getEventDateParts(event.date, locale);
 
   const href = event.eventUrl?.trim() || "#";
@@ -85,41 +84,41 @@ export default function EventListCard({
     <a
       href={href}
       {...(hasExternalUrl ? { target: "_blank", rel: "noreferrer" } : {})}
-      className="card-anchor"
+      className="block min-w-0"
     >
-      <article className="card event-list-card">
-        <div className="card__media">
+      <article className="flex w-full min-w-0 flex-col overflow-hidden rounded border-2 border-stroke bg-black transition duration-150 ease-out hover:-translate-y-[2px]">
+        <div className="relative -mb-[23px] h-[150px] shrink-0 overflow-hidden">
           {event.headerImageUrl ? (
             <>
-              <img src={pb.files.getURL(event, event.headerImageUrl)} alt="" loading="lazy" className="card__banner-image" />
-              <div className="card__banner-overlay"></div>
+              <img src={pb.files.getURL(event, event.headerImageUrl)} alt="" loading="lazy" className="block h-full w-full object-cover object-center" />
+              <div className="absolute inset-0 bg-gradient-to-b from-black/15 to-black/50"></div>
             </>
           ) : (
-            <div className="card__banner-fallback"></div>
+            <div className="h-full w-full bg-gradient-to-b from-[#22252c] to-black"></div>
           )}
         </div>
 
-        <div className="card__content">
-          <div className="l-row--sm">
-            <div className="l-stack--sm">
-              <h1 className="card__title">{title}</h1>
-              <div className="tag-item-wrapper" aria-label="Event tags">
-                {location && <span className="tag-item tag-item--yellow">{location}</span>}
-                {duration && <span className="tag-item tag-item--blue">{duration}</span>}
-                {event.freeEvent && <span className="tag-item tag-item--pink">{labels.free}</span>}
+        <div className="relative flex flex-col gap-2.5 p-2.5">
+          <div className="flex flex-row justify-between gap-2">
+            <div className="flex min-w-0 flex-col justify-start gap-2">
+              <h1 className="m-0 line-clamp-2 whitespace-normal font-display text-[21px] font-semibold leading-normal text-white [text-shadow:-1.5px_-1.5px_0_black,1.5px_-1.5px_0_black,-1.5px_1.5px_0_black,1.5px_1.5px_0_black]">{title}</h1>
+              <div className="flex flex-wrap gap-1.5 capitalize" aria-label="Event tags">
+                {location && <span className="inline-flex items-center justify-center whitespace-nowrap rounded border border-accent-yellow/20 bg-accent-yellow/15 px-2.5 py-1.5 font-inherit text-[14px] font-normal leading-normal text-accent-yellow capitalize">{location}</span>}
+                {duration && <span className="inline-flex items-center justify-center whitespace-nowrap rounded border border-accent-blue/20 bg-accent-blue/15 px-2.5 py-1.5 font-inherit text-[14px] font-normal leading-normal text-accent-blue capitalize">{duration}</span>}
+                {event.freeEvent && <span className="inline-flex items-center justify-center whitespace-nowrap rounded border border-accent-pink/20 bg-accent-pink/15 px-2.5 py-1.5 font-inherit text-[14px] font-normal leading-normal text-accent-pink capitalize">{labels.free}</span>}
               </div>
             </div>
             {day && (
-              <div className="l-stack center-text">
-                <h1>{day}</h1>
-                <h3>{month}</h3>
+              <div className="flex shrink-0 flex-col justify-start text-center">
+                <h1 className="text-white m-0">{day}</h1>
+                <h3 className="text-white m-0">{month}</h3>
               </div>
             )}
           </div>
 
           {shortDescription && (
-            <div className="card__desc-wrap">
-              <p className="card__description">{shortDescription}</p>
+            <div className="px-2.5 pb-2.5">
+              <p className="m-0 line-clamp-2 overflow-hidden text-ellipsis font-inherit leading-normal text-text-muted">{shortDescription}</p>
             </div>
           )}
         </div>

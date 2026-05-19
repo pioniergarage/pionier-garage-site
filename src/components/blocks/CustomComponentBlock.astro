@@ -1,32 +1,33 @@
 ---
+import { twMerge } from "tailwind-merge";
 import type { BlockProps } from "../types/types";
+import { sectionVariants } from "../../utils/style-mapping";
 
 type Props = BlockProps<"custom-block">;
 
 const { style, component } = Astro.props;
 
-// 1. Eagerly load all components in the target directory
-// (Adjust the relative path to point to your actual /custom/ folder)
 const customComponents = import.meta.glob<{ default: any }>(
   "../custom/*.astro",
   { eager: true },
 );
 
-// 2. Construct the exact object key Vite generates for this file
 const componentPath = `../custom/${component}.astro`;
-
-// 3. Extract the default export (the actual Astro component)
-// We must assign it to a capitalized variable name to render it as a JSX/Astro tag
 const DynamicComponent = customComponents[componentPath]?.default;
+
+const sectionClasses = twMerge(
+  sectionVariants({ alignment: style.alignment, size: style.size })
+);
 ---
 
-<section class=`${style.alignment} ${style.size}`>
-  {/* 4. Render it, with a fallback in case the CMS passes a typo */}
+<section class={sectionClasses}>
   {
     DynamicComponent ? (
-      <DynamicComponent class={style.className ?? ""} />
+      <DynamicComponent class={style.className} />
     ) : (
-      <div class="error">Error: Component "{component}" not found.</div>
+      <div class="p-4 text-sm font-medium text-accent-red bg-accent-red/10 border border-accent-red/20 rounded">
+        Error: Component "{component}" not found.
+      </div>
     )
   }
 </section>

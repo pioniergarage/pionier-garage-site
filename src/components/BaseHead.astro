@@ -2,10 +2,13 @@
 import rawConfig from "../content/site_config.json";
 import { SiteSettingsConfigSchema } from "../content.config.ts";
 
+// Preloading fonts for optimal Core Web Vitals (Performance)
 import rubik400 from '@fontsource/rubik/files/rubik-latin-400-normal.woff2?url';
 import unbounded400 from '@fontsource/unbounded/files/unbounded-latin-400-normal.woff2?url';
+import philosopher400 from '@fontsource/philosopher/files/philosopher-latin-400-normal.woff2?url';
 
-import '@fontsource/dela-gothic-one';
+// Font stylesheets mapped directly to your Tailwind theme configuration aliases
+import '@fontsource/dela-gothic-one/400.css';
 import '@fontsource/philosopher/400.css';
 import '@fontsource/philosopher/700.css';
 import '@fontsource/rubik/400.css';
@@ -18,14 +21,14 @@ import '@fontsource/unbounded/700.css';
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-// This guarantees the data matches your expectations before the page renders
+// Validates the JSON configuration against your Zod schema at build/runtime
 const config = SiteSettingsConfigSchema.parse(rawConfig);
-
 const { title, description, ogImage } = config;
 ---
-<!-- Font Preload -->
+<!-- Font Preload Hooks -->
 <link rel="preload" href={rubik400} as="font" type="font/woff2" crossorigin="anonymous">
 <link rel="preload" href={unbounded400} as="font" type="font/woff2" crossorigin="anonymous">
+<link rel="preload" href={philosopher400} as="font" type="font/woff2" crossorigin="anonymous">
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />

@@ -1,0 +1,39 @@
+---
+// src/components/ErrorDisplay.astro
+import Layout from '../layouts/Layout.astro';
+import { sectionVariants } from "../utils/style-mapping";
+
+interface Props {
+  code: number;
+  message: string;
+}
+
+const { code, message } = Astro.props;
+---
+
+<Layout title={`${code} - ${message}`}>
+  {/* 
+    Translated .content-wrapper + specific alignment requests.
+    justify-center handles vertical centering; items-start handles left alignment. 
+  */}
+  <div class="absolute inset-0 z-10 mt-18.75 flex min-h-screen w-full flex-col items-start justify-center px-4 text-left">
+    
+    {/* Translated .huge and .text-glow */}
+    <h1 class="font-display text-[120px] leading-16.25 text-text-main drop-shadow-[0_0_20px_rgba(255,255,255,0.4)] max-w-full text-balance break-words">
+      {code}
+    </h1>
+    
+    {/* Translated .muted-text */}
+    <h2 class="mt-6 text-2xl text-text-muted">
+      {message}
+    </h2>
+    
+    {/* Translated .button */}
+    <a 
+      href="/" 
+      class="mt-8 inline-block cursor-pointer rounded border-2 border-text-main bg-transparent px-5 py-[15px] font-inherit text-base text-text-main transition duration-150 ease-out hover:bg-text-main hover:text-bg"
+    >
+      Return Home
+    </a>
+  </div>
+</Layout>

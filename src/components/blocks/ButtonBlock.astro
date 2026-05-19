@@ -1,17 +1,27 @@
 ---
+import { twMerge } from "tailwind-merge";
 import { localized } from "../../utils/utils";
 import type { BlockProps } from "../types/types";
+import { sectionVariants } from "../../utils/style-mapping";
 
 type Props = BlockProps<"button">;
 
 const { style, button } = Astro.props;
 
-const allProps = Astro.props;
+const sectionClasses = twMerge(
+  sectionVariants({ alignment: style.alignment, size: style.size }),
+  style.className
+);
 ---
 
-<section class=`${style.alignment} ${style.size}`>
+<section class={sectionClasses}>
   <a
-    class=`button ${style.className??""}`
+    class:list={[
+      "inline-block px-5 py-3.75 text-base font-[inherit] text-text bg-transparent",
+      "border-2 border-text rounded",
+      "transition cursor-pointer",
+      "hover:bg-text hover:text-bg"
+    ]}
     href={localized(button?.link ?? "", Astro.currentLocale, ["EN", "DE"])}
   >
     {button?.text}

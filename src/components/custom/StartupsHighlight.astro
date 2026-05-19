@@ -1,16 +1,18 @@
 ---
 // src/pages/index.astro
-import "../../styles/startup-page.css";
 import { pb } from "../../lib/pocketbase";
 import StartupsHighlightComponent from "../startups/StartupsHighlightComponent";
 import type { StartupItem } from "../startups/types";
+
+// Note: Ensure your startup-page.css import is removed once its internal 
+// components (like StartupsHighlightComponent) are also fully migrated.
 
 const locale = Astro.currentLocale == "de" ? "de" : "en";
 
 const translations = {
   de: {
     button_text: "Alle Ansehen",
-    header: "Pioniere als Karlsruhe",
+    header: "Pioniere aus Karlsruhe", // Corrected 'als' typo to 'aus'
   },
   en: {
     button_text: "See More",
@@ -23,9 +25,28 @@ const startups = await pb
   .getList(1, 3, { requestKey: "startup_highlight" });
 ---
 
-<div class="spread">
-  <h1>{translations[locale].header}</h1>
-  <a class="button button--small" href="startups"> {translations[locale].button_text}</a>
+<!-- Translated .spread class -->
+<div class="flex flex-wrap items-center justify-between gap-5 w-full">
+  <!-- 
+    Translated h1 styles:
+    - font-display mapped from your theme variable
+    - text-shadow layout matching your exact -1.5px black hard-stroke offset
+  -->
+  <h1 class="font-display text-text [text-shadow:-1.5px_-1.5px_0_var(--bg),1.5px_-1.5px_0_var(--bg),-1.5px_1.5px_0_var(--bg),1.5px_1.5px_0_var(--bg)]">
+    {translations[locale].header}
+  </h1>
+  
+  <!-- 
+    Translated .button and .button--small combination:
+    - Base padding adjusted from 15px 20px down to 10px 15px (px-[15px] py-2.5)
+    - Colors and interactions matching your global styles
+  -->
+  <a 
+    class="inline-block px-3.75 py-2.5 font-inherit text-base text-text bg-transparent border-2 border-text rounded cursor-pointer transition duration-150 ease-out hover:bg-text hover:text-bg" 
+    href="startups"
+  > 
+    {translations[locale].button_text}
+  </a>
 </div>
 
 <StartupsHighlightComponent startups={startups.items} />

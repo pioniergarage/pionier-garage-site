@@ -1,26 +1,30 @@
 ---
-import type { BlockProps } from '../types/types';
+import { getCollection } from "astro:content";
+import type { BlockProps } from "../types/types";
+import { sectionVariants } from "../../utils/style-mapping";
+import PostExplorer from "../PostsExplorer"; // Ensure this uses a client directive if it needs React state
+import type { PostData } from "../startups/types";
 
-type Props = BlockProps<"posts">; //TODO: add posts type to pages.yml and to content.config.ts
+type Props = BlockProps<"posts">;
+const { style } = Astro.props;
 
-// const { filter } = Astro.props;
+// Fetch all posts from the 'blog' collection
+const allPosts = await getCollection("blog");
 
-const allProps = Astro.props;
+// Map Astro's collection entry structure to your flat PostData interface
+const displayedPosts: PostData[] = allPosts.map((post) => ({
+  ...post.data, // Spread the nested frontmatter fields
+  id: post.id,
+}));
 ---
 
-<!-- THIS IS A TEST-ONLY COMPONENT, REPLACE WITH REAL IMPLEMENTATION BEFORE SHIPPING -->
-
-<section class="debug-component border-2 border-dashed border-gray-400 p-4 my-4 bg-gray-50">
-  <p class="font-mono text-xs uppercase text-gray-500 mb-2">Component Debugger</p>
-  
-  <ul class="space-y-2">
-    {Object.entries(allProps).map(([key, value]) => (
-      <li class="text-sm">
-        <strong class="text-blue-600">{key}:</strong> 
-        <code class="bg-gray-200 px-1 rounded">
-          {typeof value === 'object' ? JSON.stringify(value) : String(value)}
-        </code>
-      </li>
-    ))}
-  </ul>
+<section
+  class={sectionVariants({
+    alignment: style?.alignment,
+    size: style?.size,
+    className: style?.className,
+  })}
+>
+<h1>Posts</h1>
+  <PostExplorer posts={displayedPosts}/>
 </section>

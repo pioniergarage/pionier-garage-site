@@ -1,17 +1,38 @@
 ---
+import { twMerge } from "tailwind-merge";
+import { sectionVariants } from "../../utils/style-mapping";
 import type { BlockProps } from "../types/types";
 
 type Props = BlockProps<"separator">;
 
 const { style, direction, size } = Astro.props;
 
-const directionStyles = direction === "vertical" 
-  ? `width: ${size}; height: 100%;` 
-  : `height: ${size}; width: 100%;`;
+// Evaluate dynamic properties that Tailwind cannot compile
+const dynamicStyle = direction === "vertical" 
+  ? { width: size } 
+  : { height: size };
+
+// Map static logical rules to Tailwind utility classes
+const directionClasses = direction === "vertical" 
+  ? "h-full" 
+  : "w-full";
+
+// Merge variants with incoming class overrides
+const containerClasses = twMerge(
+  sectionVariants({ alignment: style.alignment, size: style.size }),
+  style.className
+);
 ---
 
-<section 
-  class=`${style.alignment} ${style.size} ${style.className??""}`
-  style={`${directionStyles} background-color: currentColor; display: inline-block; vertical-align: middle;`}
+<div 
+  class={containerClasses}
 >
-</section>
+  <hr
+    role="separator"
+    class:list={[
+      "inline-block align-middle bg-current border-0",
+      directionClasses
+    ]}
+    style={dynamicStyle}
+  />
+</div>

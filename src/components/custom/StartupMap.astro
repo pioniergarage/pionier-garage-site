@@ -3,6 +3,11 @@ import { pb } from "../../lib/pocketbase";
 import StartupMapRenderer from "../startup-map/StartupMap";
 import type { StartupMapViewMilestone } from "../startup-map/types";
 
+// Note: You imported sectionVariants from style-mapping, 
+// but it isn't utilized in this specific component's markup. 
+// Keep it if needed for future extensions, or remove if unused.
+import { sectionVariants } from "../../utils/style-mapping";
+
 const locale = Astro.currentLocale === "de" ? "de" : "en";
 
 console.log(`lang: ${locale}`);
@@ -56,6 +61,13 @@ const map: StartupMapViewMilestone[] = milestones.map((milestone) => ({
 }));
 ---
 
-<div class="startups-block__surface">
+{/* 
+  Translated .startups-block__surface:
+  - padding-top: 10px -> pt-[10px]
+  - display: flex -> flex
+  - flex-direction: column -> flex-col
+  - gap: 30px -> gap-[30px]
+*/}
+<div class="pt-[10px] flex flex-col gap-[30px]">
   <StartupMapRenderer client:load map={map} locale={locale} />
 </div>

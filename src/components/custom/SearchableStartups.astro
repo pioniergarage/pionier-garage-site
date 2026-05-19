@@ -1,9 +1,9 @@
 ---
 // src/pages/index.astro
-import '../../styles/startup-page.css';
 import { pb } from "../../lib/pocketbase";
 import StartupsExplorer from "../startups/Startups";
 import type { StartupItem } from "../startups/types";
+
 const locale = Astro.currentLocale == "de" ? "de" : "en";
 
 const startupFilter = [
@@ -20,6 +20,13 @@ const startups = await pb.collection<StartupItem>("startups").getFullList({
 });
 ---
 
-<div class="startups-block__surface">
+<!-- 
+  Translated .startups-block__surface:
+  padding-top: 10px -> pt-2.5
+  display: flex -> flex
+  flex-direction: column -> flex-col
+  gap: 30px -> gap-[30px]
+-->
+<div class="pt-2.5 flex flex-col gap-[30px]">
   <StartupsExplorer startups={startups} locale={locale} client:load />
 </div>

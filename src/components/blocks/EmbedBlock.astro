@@ -1,21 +1,33 @@
 ---
+import { twMerge } from "tailwind-merge";
 import type { BlockProps } from "../types/types";
+import { sectionVariants } from "../../utils/style-mapping";
 
 type Props = BlockProps<"embed">;
 
-const { url, width, height, style} = Astro.props;
+const { url, width, height, style } = Astro.props;
+
+const sectionClasses = sectionVariants({ 
+  alignment: style?.alignment, 
+  size: style?.size 
+});
+
+// twMerge ensures the structural iframe classes aren't accidentally removed 
+// if style.className contains conflicting border or width rules.
+const iframeClasses = twMerge(
+  "max-w-full border-0", 
+  style?.className
+);
 ---
 
-<section class=`${style.alignment} ${style.size}`>
+<section class={sectionClasses}>
   <iframe
     src={url}
     loading="lazy"
     width={width}
     height={height}
-    class={style.className}
-    frameborder="0"
-    marginheight="0"
-    marginwidth="0"
+    class={iframeClasses}
+    title="Embedded Content"
   >
   </iframe>
 </section>

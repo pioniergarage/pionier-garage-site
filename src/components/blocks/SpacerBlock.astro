@@ -1,13 +1,27 @@
 ---
 import type { BlockProps } from "../types/types";
+import { sectionVariants } from "../../utils/style-mapping";
+import { twMerge } from "tailwind-merge";
 
-type Props = BlockProps<"spacer">;
+// Assuming size is a string like "24px", "4rem", etc. passed from your CMS
+type Props = BlockProps<"spacer"> & {
+  size: string;
+};
 
 const { style, size } = Astro.props;
+
+// Merge base section variants with incoming className overrides.
+// We explicitly pass 'full' as the size variant so it spans 100% width, 
+// keeping it decoupled from the height calculation.
+const containerClasses = twMerge(
+  sectionVariants({ alignment: style.alignment, size: "full" }),
+  "inline-block align-middle h-[var(--spacer-height)]",
+  style.className
+);
 ---
 
 <section
-  class=`${style.alignment} ${style.size} ${style.className??""}`
-  style={`display: inline-block; vertical-align: middle; height: ${size};width: 100%;`}
+  class={containerClasses}
+  style={{ "--spacer-height": size }}
 >
 </section>

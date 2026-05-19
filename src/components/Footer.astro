@@ -4,6 +4,7 @@ import { Image } from "astro:assets";
 import logoGradient from "../assets/rocket_gradient.svg";
 import startupKarlsruheType from "../assets/Startup_Karlsruhe.svg";
 import startupKarlsruheMobileType from "../assets/Startup_Karlsruhe_mobile.svg";
+import { localized } from "../utils/utils";
 
 const locale = Astro.currentLocale === "de" ? "de" : "en";
 
@@ -23,10 +24,6 @@ const translations = {
 } as const;
 
 const labels = translations[locale];
-
-function localizedRoute(path: string) {
-  return `/${locale}/${path.replace(/^\/+/, "")}`;
-}
 ---
 
 <footer>
@@ -47,11 +44,11 @@ function localizedRoute(path: string) {
     <a href="https://www.pioniergarage.de/">{labels.copyright}</a>
 
     <div class="footer-content-link-group">
-      <a href={localizedRoute("imprint")}>{labels.imprint}</a>
+      <a href={localized("imprint", Astro.currentLocale)}>{labels.imprint}</a>
 
-      <a href={localizedRoute("privacy")}>{labels.privacy}</a>
+      <a href={localized("privacy", Astro.currentLocale)}>{labels.privacy}</a>
 
-      <a href={localizedRoute("contact")}>{labels.contact}</a>
+      <a href={localized("contact", Astro.currentLocale)}>{labels.contact}</a>
     </div>
   </div>
 </footer>

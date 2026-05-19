@@ -82,22 +82,22 @@ export default function EventsGrid({ events, locale = "en" }: Props) {
       />
 
       {filteredEvents.length === 0 ? (
-        <p className="startup-search-panel__empty">{labels.empty}</p>
+        <p className="w-full text-center text-text-muted">{labels.empty}</p>
       ) : (
-        <div className="startup-search-panel__results">
-          <div className="grid" aria-label="Event list">
+        <div className="block min-w-0">
+          <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 lg:grid-cols-3" aria-label="Event list">
             {visibleEvents.map((event) => (
-              <div key={event.id}>
+              <div key={event.id} className="min-w-0">
                 <EventListCard event={event} locale={locale} />
               </div>
             ))}
           </div>
 
           {hasMoreEvents && (
-            <div className="startup-search-panel__pagination">
+            <div className="mt-6 flex justify-center">
               <button
                 type="button"
-                className="button"
+                className="inline-block cursor-pointer rounded border-2 border-text bg-transparent px-5 py-[15px] font-inherit text-base text-text transition duration-150 ease-out hover:bg-text hover:text-bg"
                 onClick={() => setVisibleCount((current) => current + LOAD_MORE_STEP)}
               >
                 {labels.loadMore}

@@ -1,4 +1,4 @@
-import { Search, X } from "lucide-react";
+import { Search, XIcon } from "lucide-react";
 import type { KeyboardEvent, MouseEvent, RefObject } from "react";
 
 import type { SearchFilterGroup, SelectedTagChip } from "./types";
@@ -31,6 +31,24 @@ type FilterSearchBarProps<GroupKey extends string = string> = {
   selectedTagChips: SelectedTagChip<GroupKey>[];
   setQuery: (value: string) => void;
   toggleFilter: (groupKey: GroupKey, value: string) => void;
+};
+
+// Static color mapping dictionaries ensure Tailwind detects full utility class names
+const tagBaseColors: Record<string, string> = {
+  summary: "text-text-muted bg-white/5 border-white/10",
+  green: "text-accent-green bg-accent-green/14 border-accent-green/20 hover:bg-accent-green/30",
+  yellow: "text-accent-yellow bg-accent-yellow/14 border-accent-yellow/20 hover:bg-accent-yellow/30",
+  blue: "text-accent-blue bg-accent-blue/14 border-accent-blue/20 hover:bg-accent-blue/30",
+  pink: "text-accent-pink bg-accent-pink/14 border-accent-pink/20 hover:bg-accent-pink/30",
+  orange: "text-accent-orange bg-accent-orange/14 border-accent-orange/20 hover:bg-accent-orange/30",
+};
+
+const tagSelectedColors: Record<string, string> = {
+  green: "bg-accent-green text-text-muted hover:bg-accent-green hover:opacity-80",
+  yellow: "bg-accent-yellow text-text-muted hover:bg-accent-yellow hover:opacity-80",
+  blue: "bg-accent-blue text-text-muted hover:bg-accent-blue hover:opacity-80",
+  pink: "bg-accent-pink text-text-muted hover:bg-accent-pink hover:opacity-80",
+  orange: "bg-accent-orange text-text-muted hover:bg-accent-orange hover:opacity-80",
 };
 
 export default function FilterSearchBar<GroupKey extends string = string>({
@@ -81,89 +99,112 @@ export default function FilterSearchBar<GroupKey extends string = string>({
     0,
   );
 
+  // Common button class derived from global.css
+  const tagItemBaseClass = "inline-flex items-center justify-center px-2.5 py-1.25 rounded border text-[14px] font-normal leading-normal whitespace-nowrap capitalize transition duration-150 ease-out cursor-pointer";
+
   return (
     <section className={className} aria-label={labels.ariaLabel}>
-      <div className="startup-search-panel__top-row startup-search-panel__top-row--closed">
-        <button
-          type="button"
-          className="startup-search-trigger"
-          onClick={onOpen}
-          aria-expanded={isOpen}
-          aria-controls={overlayId}
-        >
-          <div className="startup-search-panel__search startup-search-panel__search--summary">
-            <Search className="startup-search-panel__icon" />
-            {selectedTags()}
+      {/* Top Row / Closed State Bar */}
+      <div className="flex flex-col mt-0.5 py-2 rounded border-2 border-[#2a2c2e] bg-black/50 backdrop-blur-md shadow-[0_2px_24px_rgba(0,0,0,0.25)]">
+        <div className="flex justify-between gap-2.5 items-center m-0 max-[900px]:items-center">
+          <button
+            type="button"
+            className="flex items-center align-self-stretch flex-1 min-w-0 border-0 bg-transparent -my-3 -ml-3.5 py-3 px-3.5 color-inherit font-inherit text-left cursor-text"
+            onClick={onOpen}
+            aria-expanded={isOpen}
+            aria-controls={overlayId}
+          >
+            <div className="flex items-center gap-2.5 min-w-0 w-full text-white p-2">
+              <Search className="w-3.75 height-3.75 text-text-muted shrink-0" />
 
-            {query ? (
-              <span className="startup-search-trigger__text">{query}</span>
-            ) : (
-              <span className="startup-search-trigger__text startup-search-trigger__text--placeholder">
-                {labels.searchPlaceholder}
-              </span>
-            )}
-          </div>
-        </button>
-        {clearAllButton()}
+
+              {query ? (
+                <span className="text-text min-w-0 overflow-hidden w-full line-clamp-1 vertical-box-orient">{query}</span>
+              ) : (
+                <span className="text-text-muted min-w-0 overflow-hidden w-full line-clamp-1 vertical-box-orient">
+                  {labels.searchPlaceholder}
+                </span>
+              )}
+            </div>
+            {(selectedTagChips.length < 1 && hasActiveFilters) && <ClearAllButton />}
+          </button>
+
+        </div>
+        {selectedTagChips.length > 0 && <div className="flex items-center gap-2.5 min-w-0 w-full px-2 my-3 justify-between">
+          <SelectedTags />
+          <ClearAllButton />
+        </div>}
       </div>
 
-      {isOpen && <div className="startup-search-backdrop" />}
+      {/* Backdrop overlay */}
+      {isOpen && <div className="fixed inset-0 bg-black/25 backdrop-blur-[1px] z-11" />}
 
+      {/* Open Search Filter Panel */}
       <div
         id={overlayId}
         ref={panelRef}
-        className={`startup-search-panel ${isOpen ? "is-open" : ""}`}
+        className={`flex-col gap-5 p-3.5 pt-0 border-2 border-[#2a2c2e] bg-black/80 backdrop-blur-[5px] shadow-[0_2px_24px_rgba(0,0,0,0.25)] absolute left-0 right-0 top-0 z-12 rounded ${isOpen ? "flex" : "hidden"}`}
       >
-        <div className="startup-search-panel__top-row startup-search-panel__top-row--overlay">
-          <label className="startup-search-panel__search" htmlFor={inputId}>
-            <Search className="startup-search-panel__icon" />
-            {selectedTags()}
-
+        {/* Inner Panel Header Row */}
+        <div className="flex justify-between gap-2.5 items-center p-3.5-4 border-2 border-[#2a2c2e] bg-black/50 backdrop-blur-md shadow-[0_2px_24px_rgba(0,0,0,0.25)] -mx-3.5 border-t-0 border-x-0 rounded max-[900px]:items-center">
+          <label className="flex items-center gap-2.5 min-w-0 w-full px-2 my-3" htmlFor={inputId}>
+            <Search className="w-3.75 height-3.75 text-text-muted shrink-0" />
             <input
               ref={inputRef}
               id={inputId}
               type="text"
+              className="flex-1 min-w-0 border-0 bg-transparent text-text font-inherit text-initial outline-none p-0 overflow-hidden w-full line-clamp-1 vertical-box-orient placeholder:text-text-muted"
               placeholder={labels.searchPlaceholder}
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               onKeyDown={handleInputKeyDown}
             />
+            <ClearAllButton />
           </label>
-          {clearAllButton()}
         </div>
 
+        <SelectedTags />
+
+        {/* Filter Groups */}
         {groups.map((group) => (
-          <div className="startup-search-panel__group" key={group.key}>
-            <p>{group.title}</p>
-            <div className="startup-search-panel__chips">
-              {group.values
-                .filter((value) => value.value)
-                .map((value) => (
-                  <button
-                    type="button"
-                    key={`${group.key}-${value.value}`}
-                    className={`tag-item tag-item__clickable tag-item--${value.color ?? group.color} ${value.isSelected ? "is-selected" : ""}`}
-                    onClick={() => toggleFilter(group.key, value.value)}
-                  >
-                    {value.label ?? value.value}
-                  </button>
-                ))}
+          <div className="flex flex-col gap-1.25" key={group.key}>
+            <p className="m-0 text-white">{group.title}</p>
+            <div className="flex flex-wrap gap-1.25">
+              {group.values.filter(p => query.length < 2 || p.value.toLowerCase().toLowerCase().includes(query))
+                .map((value) => {
+                  const colorKey = value.color ?? group.color;
+                  return (
+                    <button
+                      type="button"
+                      key={`${group.key}-${value.value}`}
+                      className={`${tagItemBaseClass} ${tagBaseColors[colorKey] ?? ""} ${value.isSelected ? tagSelectedColors[colorKey] ?? "" : ""}`}
+                      onClick={() => toggleFilter(group.key, value.value)}
+                    >
+                      {value.label ?? value.value}
+                    </button>
+                  );
+                })}
             </div>
           </div>
         ))}
 
-        <button type="button" className="button-filled__white" onClick={close}>
+        {/* Close Panel Button */}
+        <button
+          type="button"
+          className="border-0 rounded bg-white text-black text-base font-inherit py-2.5 px-3.75 w-full cursor-pointer transition duration-150 ease-out hover:bg-[#e6e6e6]"
+          onClick={close}
+        >
           {labels.searchButton}
         </button>
       </div>
     </section>
   );
 
-  function clearAllButton() {
+  function ClearAllButton() {
     return (
       <button
         type="button"
-        className={`startup-search-panel__clear ${hasActiveFilters ? "is-visible" : ""}`}
+        className={`inline-flex items-center gap-1.25 rounded border-[1.5px] border-accent-pink bg-bg text-accent-pink text-initial font-body shrink-0 py-1.25 px-2.5 cursor-pointer transition duration-150 ease-out ${hasActiveFilters ? "opacity-100 visible pointer-events-auto" : "opacity-0 invisible pointer-events-none"}`}
         onClick={clearAll}
         aria-label={
           hasActiveFilters
@@ -171,35 +212,25 @@ export default function FilterSearchBar<GroupKey extends string = string>({
             : labels.noActiveFiltersAriaLabel
         }
       >
-        <X className="startup-search-panel__icon startup-search-panel__icon--clear" />
-        <span className="startup-search-panel__clear-label">{labels.clearAll}</span>
+        <XIcon className="w-3.75 height-3.7 shrink-0" />
+        <span className="text-caption leading-none max-[820px]:hidden">{labels.clearAll}</span>
       </button>
     );
   }
 
-  function selectedTags() {
+  function SelectedTags() {
     return (
-      <div className="startup-search-panel__selected-tags">
+      <div className="inline-flex gap-1.25 flex-nowrap min-w-0 overflow-hidden shrink-0">
         {selectedTagChips.map((chip) => (
           <button
             type="button"
             key={`${chip.key}-${chip.value}`}
-            className={`tag-item tag-item__clickable tag-item--${chip.color} is-selected startup-search-panel__selected-tag`}
+            className={`${tagItemBaseClass} ${tagBaseColors[chip.color] ?? ""} max-[820px]:nth-child-n-2:hidden max-[820px]:last:inline-flex`}
             onClick={(event) => handleTagRemove(event, chip.key, chip.value)}
           >
-            <span>{chip.label ?? chip.value}</span>
+            <XIcon className="w-3.75 height-3.7 shrink-0 mr-1" /><span>{chip.label ?? chip.value}</span>
           </button>
         ))}
-        {desktopHiddenSelectedTagCount > 0 && (
-          <span className="tag-item tag-item--summary startup-search-panel__selected-tag-count startup-search-panel__selected-tag-count--desktop">
-            +{desktopHiddenSelectedTagCount}
-          </span>
-        )}
-        {mobileHiddenSelectedTagCount > 0 && (
-          <span className="tag-item tag-item--summary startup-search-panel__selected-tag-count startup-search-panel__selected-tag-count--mobile">
-            +{mobileHiddenSelectedTagCount}
-          </span>
-        )}
       </div>
     );
   }

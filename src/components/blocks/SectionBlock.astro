@@ -1,16 +1,17 @@
 ---
+import { sectionVariants } from "../../utils/style-mapping";
+import { twMerge } from "tailwind-merge";
 import type { BlockProps } from "../types/types";
 
 type Props = BlockProps<"section">;
 
 const { header, body, style } = Astro.props;
-
-const allProps = Astro.props;
 ---
 
-<section class=`${style.alignment} ${style.size}`>
-  <div class={style.className ?? ""}>
+<section class={sectionVariants({ alignment: style.alignment, size: style.size })}>
+  <div class={style.className}>
     <h1>{header}</h1>
-    {body && <p class="margin-top-sm">{body}</p>}
+    {/* .margin-top-sm was 10px. Tailwind's mt-2.5 maps exactly to 10px (0.625rem). */}
+    {body && <p class="mt-2.5">{body}</p>}
   </div>
 </section>

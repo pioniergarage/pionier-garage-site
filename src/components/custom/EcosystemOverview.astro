@@ -16,8 +16,8 @@ const events_rounded = Math.floor(events_count / 10) * 10;
 
 import rawConfig from "../../content/site_config.json";
 import { SiteSettingsConfigSchema } from "../../content.config.ts";
+import { localized } from "../../utils/utils";
 
-// This guarantees the data matches your expectations before the page renders
 const config = SiteSettingsConfigSchema.parse(rawConfig);
 
 const { sponsors } = config;
@@ -40,10 +40,16 @@ const translations = {
 const labels = translations[locale];
 ---
 
-<div class="full center-text" data-count-locale={numberLocale}>
-  <a href="startups" class="section-center">
+<div
+  class="w-full grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center items-center text-center"
+  data-count-locale={numberLocale}
+>
+  <a
+    href={localized("startups", Astro.currentLocale)}
+    class="w-full max-w-75 group block"
+  >
     <h1
-      class="title text-glow"
+      class="text-accent-red font-display text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance [text-shadow:0_0_20px_color-mix(in_srgb,var(--color-accent-red),transparent_60%)]"
       data-count-up
       data-count-target={startups_rounded}
       data-count-suffix="+"
@@ -51,12 +57,17 @@ const labels = translations[locale];
     >
       {startups_rounded}+
     </h1>
-    <h3>{labels.startups}</h3>
+    <h3 class="font-body text-text mt-2 group-hover:underline">
+      {labels.startups}
+    </h3>
   </a>
 
-  <a href="events" class="section-center">
+  <a
+    href={localized("events", Astro.currentLocale)}
+    class="w-full max-w-75 group block"
+  >
     <h1
-      class="title text-glow"
+      class="text-accent-red font-display text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance [text-shadow:0_0_20px_color-mix(in_srgb,var(--color-accent-red),transparent_60%)]"
       data-count-up
       data-count-target={sponsors.length}
       data-count-suffix=""
@@ -64,12 +75,17 @@ const labels = translations[locale];
     >
       {sponsors.length}
     </h1>
-    <h3>{labels.partners}</h3>
+    <h3 class="font-body text-text mt-2 group-hover:underline">
+      {labels.partners}
+    </h3>
   </a>
 
-  <a href="events" class="section-center">
+  <a
+    href={localized("events", Astro.currentLocale)}
+    class="w-full max-w-75 group block"
+  >
     <h1
-      class="title text-glow"
+      class="text-accent-red font-display text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance [text-shadow:0_0_20px_color-mix(in_srgb,var(--color-accent-red),transparent_60%)]"
       data-count-up
       data-count-target={events_rounded}
       data-count-suffix="+"
@@ -77,7 +93,9 @@ const labels = translations[locale];
     >
       {events_rounded}+
     </h1>
-    <h3>{labels.events}</h3>
+    <h3 class="font-body text-text mt-2 group-hover:underline">
+      {labels.events}
+    </h3>
   </a>
 </div>
 
@@ -140,9 +158,3 @@ const labels = translations[locale];
     counters.forEach((counter) => observer.observe(counter));
   })();
 </script>
-
-<style>
-  .section-center {
-    width: 300px;
-  }
-</style>

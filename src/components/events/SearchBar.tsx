@@ -62,7 +62,7 @@ export default function SearchBar({
   return (
     <FilterSearchBar
       activeFilterCount={activeFilterCount}
-      className="startup-explorer"
+      className="sticky top-20 z-10" // Replaced .startup-explorer
       clearAll={clearAll}
       close={close}
       groups={groups}
