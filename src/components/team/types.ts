@@ -1,5 +1,5 @@
 export interface TeamData {
-    name: string,
+    title: string, //name
     position: string,
     image?: string,
     email: string,

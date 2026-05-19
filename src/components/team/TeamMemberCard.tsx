@@ -23,7 +23,7 @@ export default function TeamMemberCard({ team_member }: Props) {
                 {team_member.image ? (
                     <img
                         src={team_member.image}
-                        alt={team_member.name}
+                        alt={team_member.title}
                         loading="lazy"
                         className="w-full h-full object-cover object-center block"
                     />
@@ -43,7 +43,7 @@ export default function TeamMemberCard({ team_member }: Props) {
                         {/* Name */}
                         <div className="px-2.5 min-w-0">
                             <h3 className="m-0 font-display text-[21px] font-semibold leading-normal text-white whitespace-normal line-clamp-2 [text-shadow:-1.5px_-1.5px_0_#000,1.5px_-1.5px_0_#000,-1.5px_1.5px_0_#000,1.5px_1.5px_0_#000]">
-                                {team_member.name}
+                                {team_member.title}
                             </h3>
                         </div>
 

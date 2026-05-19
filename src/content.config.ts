@@ -237,7 +237,7 @@ export const SiteFooterSchema = z.object({
 });
 
 export const TeamDirectorySchema = z.array(z.object({
-  name: z.string(),
+  title: z.string(), //Name
   position: z.string(),
   image: z.string().optional(),
   email: z.email(),

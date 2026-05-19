@@ -233,11 +233,11 @@ content:
     format: json
     list: true
     fields:
-      - { name: name, type: string }
-      - { name: position, type: string }
-      - { name: image, type: image }
-      - { name: email, type: string }
-      - { name: startDate, type: date }
+      - { name: title, Label: Full Name, type: string }
+      - { name: position, Label: Position, type: string }
+      - { name: image, Label: Image, type: image }
+      - { name: email, Label: Email, type: string }
+      - { name: startDate, Label: Start Date, type: date }
 
   - name: site-settings
     label: Site Settings
