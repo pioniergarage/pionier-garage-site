@@ -5,8 +5,8 @@ import { SiteHeaderSchema } from "../content.config.ts";
 const config = SiteHeaderSchema.parse(rawHeader);
 const { navbar, logo, styleOverrides } = config;
 
-import { getNavLinks } from "../utils/utils.ts";
 import LanguageToggle from "./LanguageToggle.astro";
+import { getNavLinks } from "../utils/server-utils";
 
 const locale = Astro.currentLocale == "de" ? "de" : "en";
 

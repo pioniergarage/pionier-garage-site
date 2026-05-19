@@ -248,7 +248,7 @@ content:
       - { name: title, label: Site Title, type: string }
       - { name: description, label: Site Description, type: string }
       - { name: ogImage, label: OpenGraph Image, type: image }
-      - { name: defaultContentImage, label: Default Content Image, type: image }
+      - { name: fallbackImage, label: Fallback Image, type: image }
       - name: socialMedias
         label: Social Medias
         type: object

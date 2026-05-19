@@ -1,26 +1,7 @@
-import { getCollection } from "astro:content";
-
 export function renderHeadline(text: string): string {
   return text.replace(/\[([^\]]+)\]/g, (_, word) =>
     `<span class="outlined">${word}</span>`
   );
-}
-
-export async function getNavLinks(lang: 'de' | 'en', navbar: { url: string }[]) {
-  const allPages = await getCollection('pages');
-
-  return navbar.map((item) => {
-    // Find the page matching the URL and the language
-    const page = allPages.find((p: { id: string; }) => {
-      // Logic assumes your slugs or IDs follow a pattern like 'en/events' or 'de/events'
-      return p.id.startsWith(`${lang}/`) && p.id.endsWith(item.url);
-    });
-
-    return {
-      href: item.url,
-      label: page?.data.title || item.url, // Fallback to URL if title is missing
-    };
-  });
 }
 
 /**
@@ -30,11 +11,14 @@ export async function getNavLinks(lang: 'de' | 'en', navbar: { url: string }[]) 
  * @param locales The available locales, skip if you trust the input link.
  * @returns The localized link
  */
-export function localized(link: string | undefined, locale: string | undefined, locales: string[] = []): string {
-  if (link == undefined || locale == undefined)
+export function localized(link_raw: string | undefined, locale: string | undefined, locales: string[] = []): string {
+
+  if (link_raw == undefined || locale == undefined)
     return "";
+  const link = link_raw.toLowerCase();
   if (link.startsWith('/')) {
-    for (const loc of locales) {
+    for (const raw_loc of locales) {
+      const loc = raw_loc.toLowerCase();
       if (link.startsWith(loc, 1)) {
         if (link.endsWith(loc)) {
           return `${link}/`

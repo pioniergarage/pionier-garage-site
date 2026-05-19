@@ -1,13 +1,16 @@
 import { pb } from "../../lib/pocketbase";
 import { formatStartupTaxonomyLabel } from "../../utils/startupTaxonomy";
+import { localized } from "../../utils/utils";
 import type { StartupItem } from "./types";
 
 export interface Props {
   startup: StartupItem;
+  locale: string;
 }
 
-export default function StartupListCard({ startup }: Props) {
-  const detailUrl = `startups#${startup.externalId}`;
+export default function StartupListCard({ startup, locale }: Props) {
+  const detailUrl = localized(`startups#${startup.externalId}`, locale);
+  console.log("ASHSAFJASHDFHASHSFAHFJSA", detailUrl);
   const industry = formatStartupTaxonomyLabel(startup.industry);
   const marketModel = formatStartupTaxonomyLabel(startup.marketModel);
   const stage = formatStartupTaxonomyLabel(startup.stage);
@@ -16,11 +19,11 @@ export default function StartupListCard({ startup }: Props) {
     <a href={detailUrl} className="block min-w-0">
       <article className="flex flex-col w-full min-w-0 rounded border-2 border-stroke bg-black transition duration-150 ease-out hover:-translate-y-0.5">
         <div className="relative h-37.5 shrink-0 overflow-hidden -mb-5.75">
-          <img 
-            src={startup.headerImageUrl ? pb.files.getURL(startup, startup.headerImageUrl) : pb.files.getURL(startup, startup.logoUrl)} 
-            alt="" 
-            loading="lazy" 
-            className="w-full h-full object-cover object-center block" 
+          <img
+            src={startup.headerImageUrl ? pb.files.getURL(startup, startup.headerImageUrl) : pb.files.getURL(startup, startup.logoUrl)}
+            alt=""
+            loading="lazy"
+            className="w-full h-full object-cover object-center block"
           />
           <div className="absolute inset-0 bg-linear-to-b from-black/15 to-black/50"></div>
         </div>

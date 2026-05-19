@@ -1,4 +1,4 @@
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { formatStartupTaxonomyLabel } from "../../utils/startupTaxonomy";
 import type { StartupDetailData } from "./types";
 import { sectionVariants } from "../../utils/style-mapping";
@@ -125,12 +125,7 @@ export default function StartupDetail({ startup }: Props) {
     { label: "Gründer", value: founders },
     { label: "Mitarbeiter", value: employees },
     { label: "Region", value: region },
-    { label: "Branche", value: industry },
-    {
-      label: "Web",
-      value: 'View on Pitchload',
-      href: `https://pitchload.net/startups/${startup.id}`, //Once pitchload implements URL-sanitization: website ? buildWebsiteUrl(website) : undefined
-    },
+    { label: "Branche", value: industry }
   ].filter((row) => row.value);
 
   const tags = [
@@ -247,6 +242,15 @@ export default function StartupDetail({ startup }: Props) {
                     </dd>
                   </div>
                 ))}
+                <dd className="m-0 text-white font-body text-left sm:text-right wrap-break-word">
+                  <a
+                    href={`https://pitchload.net/startups/${startup.id}`}
+                    className="inline-flex items-center gap-2 px-2 py-1 font-body bg-transparent border-2 border-text rounded transition duration-150 ease-out cursor-pointer hover:bg-text hover:text-bg"
+                  >
+                    Visit on Pitchload
+                    <ArrowUpRight size={18} />
+                  </a>
+                </dd>
               </dl>
             </article>
           )}

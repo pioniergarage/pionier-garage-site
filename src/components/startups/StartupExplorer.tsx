@@ -8,7 +8,7 @@ import { useStartupExplorerViewModel } from "./useStartupExplorerViewModel";
 
 export interface Props {
   startups: StartupItem[];
-  locale?: "de" | "en";
+  locale: "de" | "en";
 }
 
 const INITIAL_VISIBLE_STARTUPS = 24;
@@ -25,7 +25,7 @@ const translations = {
   },
 } as const;
 
-export default function StartupExplorer({ startups, locale = "en" }: Props) {
+export default function StartupExplorer({ startups, locale}: Props) {
   const {
     activeFilterCount,
     clearAll,
@@ -80,7 +80,7 @@ export default function StartupExplorer({ startups, locale = "en" }: Props) {
         <p className="text-center w-full text-secondary">{labels.empty}</p>
       ) : (
         <div className="[&_a]:block [&_a]:min-w-0">
-          <Grid<StartupItem> items={visibleStartups} keyExtractor={(startup) => startup.name} card={(startup) => <StartupListCard startup={startup} />} />
+          <Grid<StartupItem> items={visibleStartups} keyExtractor={(startup) => startup.name} card={(startup) => <StartupListCard startup={startup} locale={locale} />} />
           {hasMoreStartups && (
             <div className="flex justify-center mt-6">
               <button

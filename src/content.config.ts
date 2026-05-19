@@ -186,7 +186,7 @@ export const collections = { blog, pages };
 export const SiteSettingsConfigSchema = z.object({
   title: z.string(),
   description: z.string().optional(),
-  defaultContentImage: z.string().optional(),
+  fallbackImage: z.string().optional(),
   socialMedias: z.array(
     z.object({
       name: z.string(),
