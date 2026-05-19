@@ -1,6 +1,7 @@
 {
   "title": "PionierGarage",
   "description": "Student Entrepreneurs in Karlsruhe",
+  "fallbackImage": "/src/assets/LogoMitName weiß.png",
   "socialMedias": [
     {
       "name": "Instagram",
