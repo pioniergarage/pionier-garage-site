@@ -231,9 +231,8 @@ content:
     type: file
     path: src/content/team.json
     format: json
-    list: true
-    collapsible:
-      collapsed: true
+    list:
+      collapsible: true
       summary: "{name} - Member Since {startDate}"
     fields:
       - { name: name, type: string }
