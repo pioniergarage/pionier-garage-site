@@ -1,11 +1,9 @@
-{
-  "members": [
-    {
-      "name": "Hirad Sardashti",
-      "position": "Head of External",
-      "image": "/src/assets/Join PG_batch26.png",
-      "email": "hirad.sardashti@pioniergarage.de",
-      "startDate": "2026-05-19"
-    }
-  ]
-}
+[
+  {
+    "name": "Hirad Sardashti",
+    "position": "Head of External",
+    "image": "/src/assets/Join PG_batch26.png",
+    "email": "hirad.sardashti@pioniergarage.de",
+    "startDate": "2026-05-19"
+  }
+]
