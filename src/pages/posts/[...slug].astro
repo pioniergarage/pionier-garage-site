@@ -1,11 +1,13 @@
 ---
-import { type CollectionEntry, getCollection, render } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import PageLayout from "../../layouts/PageLayout.astro";
+import RichTextRenderer from "../../components/RichTextRenderer";
+import type { BlockProps } from "../../components/types/types";
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
+  const posts = await getCollection("blog");
 
-	return posts.map((post) => {
+  return posts.map((post) => {
     let finalSlug = post.id
       .replace(/(^|\/)index$/, "")
       .replace(/\/+/g, "/")
@@ -15,14 +17,20 @@ export async function getStaticPaths() {
       params: { slug: finalSlug === "" ? undefined : finalSlug },
       props: post,
     };
-  });;
+  });
 }
-type Props = CollectionEntry<'pages'>;
+type Props = CollectionEntry<"pages">;
+type BlockPropsRichText = Pick<BlockProps<"rich-text">, "style">;
 
 const post = Astro.props;
 const { Content } = await render(post);
+
+const props: BlockPropsRichText = {
+  style: { alignment: "center", size: "full" },
+};
 ---
 
-<Layout title={post.data.title}>
-	<Content />
-</Layout>
+<PageLayout title={post.data.title}>
+  <RichTextRenderer style={props.style} >
+    <Content/>
+  </RichTextRenderer>

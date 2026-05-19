@@ -59,8 +59,6 @@ function normalizeRichText(html: string): string {
 }
 
 export default function StartupDetail({ startup }: Props) {
-  // console.log("Startup detail")
-  // console.log(JSON.stringify(startup));
   const company = startup.ourCompany ?? {};
   const product = startup.ourProduct ?? {};
 

@@ -3,24 +3,19 @@ import { defineCollection } from "astro:content";
 import { z } from 'astro/zod';
 
 const blog = defineCollection({
-  type: "content",
-  schema: ({ image }) =>
+  loader: glob({ pattern: "**/*.md", base: "./src/content/blog" }),
+  schema:
     z.object({
       author: z.string().default(""),
       pubDatetime: z.date(),
       modDatetime: z.date().optional().nullable(),
       title: z.string(),
       language: z.enum(["EN", "DE"]).default("EN"),
-      ogImage: image()
-        .refine(img => img.width >= 1200 && img.height >= 630, {
-          message: "OpenGraph image must be at least 1200 X 630 pixels!",
-        })
-        .or(z.string())
-        .optional(),
+      ogImage: z.string().optional(),
       slug: z.string().optional(),
       featured: z.boolean().optional(),
       draft: z.boolean().optional(),
-      tags: z.array(z.string()).default(["others"]),
+      tags: z.array(z.string()).default([]),
       description: z.string().optional(),
     }),
 });
@@ -190,9 +185,8 @@ export const collections = { blog, pages };
 
 export const SiteSettingsConfigSchema = z.object({
   title: z.string(),
-  description: z.string(),
-  ogImage: z.string().optional(),
-
+  description: z.string().optional(),
+  defaultContentImage: z.string().optional(),
   socialMedias: z.array(
     z.object({
       name: z.string(),
@@ -248,7 +242,7 @@ export const TeamDirectorySchema = z.object({
       name: z.string(),
       position: z.string(),
       image: z.string().optional(),
-      email: z.string().email(),
+      email: z.email(),
       startDate: z.coerce.date(),
     })
   ).default([]),

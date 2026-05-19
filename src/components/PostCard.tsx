@@ -59,7 +59,7 @@ export default function PostCard({ data }: Props) {
                   {data.tags.map((tag, index) => (
                     <span
                       key={`${data.id}-${tag}-${index}`}
-                      className="inline-flex items-center justify-center py-1.25 px-2.5 rounded border border-accent-green/20 bg-accent-green/15 font-inherit text-caption font-normal leading-normal whitespace-nowrap capitalize text-accent-green"
+                      className="inline-flex items-center justify-center py-1.25 px-2.5 rounded border text/20 text/15 font-inherit text-caption font-normal leading-normal whitespace-nowrap capitalize text"
                     >
                       {tag}
                     </span>
