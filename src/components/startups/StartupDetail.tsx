@@ -245,6 +245,8 @@ export default function StartupDetail({ startup }: Props) {
                 <dd className="m-0 text-white font-body text-left sm:text-right wrap-break-word">
                   <a
                     href={`https://pitchload.net/startups/${startup.id}`}
+                    target="_blank"             // Opens the link in a new tab
+                    rel="noopener noreferrer"   // Security safeguard for blank targets
                     className="inline-flex items-center gap-2 px-2 py-1 font-body bg-transparent border-2 border-text rounded transition duration-150 ease-out cursor-pointer hover:bg-text hover:text-bg"
                   >
                     Visit on Pitchload
