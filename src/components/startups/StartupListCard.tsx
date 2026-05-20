@@ -13,19 +13,22 @@ export default function StartupListCard({ startup, locale }: Props) {
   const industry = formatStartupTaxonomyLabel(startup.industry);
   const marketModel = formatStartupTaxonomyLabel(startup.marketModel);
   const stage = formatStartupTaxonomyLabel(startup.stage);
+  const startup_logo_url = pb.files.getURL(startup, startup.logoUrl);
+  const startup_header_url = startup.headerImageUrl ? pb.files.getURL(startup, startup.headerImageUrl) : pb.files.getURL(startup, startup.logoUrl);
 
   return (
     <a href={detailUrl} className="block min-w-0">
       <article className="flex flex-col w-full min-w-0 rounded border-2 border-stroke bg-black transition duration-150 ease-out hover:-translate-y-0.5">
         <div className="relative h-37.5 shrink-0 overflow-hidden -mb-5.75">
-          <img
-            src={startup.headerImageUrl ? pb.files.getURL(startup, startup.headerImageUrl) : pb.files.getURL(startup, startup.logoUrl)}
-            alt=""
+          {startup_header_url && <img
+            src={startup_header_url}
+            alt={`${startup.name} Header Image`}
             loading="lazy"
             className="w-full h-full object-cover object-center block"
-          />
+          />}
           <div className="absolute inset-0 bg-linear-to-b from-black/15 to-black/50"></div>
         </div>
+
 
         <div className="flex flex-col gap-2.5 p-2.5 z-10 relative">
           <div className="flex flex-row gap-2.5 min-w-0 items-center justify-between">
@@ -64,13 +67,13 @@ export default function StartupListCard({ startup, locale }: Props) {
                 )}
               </div>
             </div>
-            {startup.logoUrl && (
-              <div className="w-15 h-15 rounded overflow-hidden border-[1.5px] border-black bg-white shrink-0">
+            {startup_logo_url && (
+              <div className="w-15 h-15 rounded overflow-hidden border-[1.5px] border-black bg-black shrink-0">
                 <img
-                  src={pb.files.getURL(startup, startup.logoUrl)}
-                  alt={startup.logoUrl ?? `${startup.name} logo`}
+                  src={startup_logo_url}
+                  alt={`${startup.name} Logo Image`}
                   loading="lazy"
-                  className="w-full h-full object-contain object-center block"
+                  className="w-full h-full object-cover object-center block"
                 />
               </div>
             )}

@@ -28,17 +28,13 @@ function toDisplayValue(value: unknown): string {
 }
 
 function pickDisplayValue(...values: unknown[]): string {
+  let pick = "";
   for (const value of values) {
     const displayValue = toDisplayValue(value);
-    if (displayValue) return displayValue;
+    if (displayValue.length > pick.length)
+      pick = displayValue;
   }
-  return "";
-}
-
-function buildWebsiteUrl(value: string): string {
-  if (!value) return "";
-  if (/^https?:\/\//i.test(value)) return value;
-  return `https://${value}`;
+  return pick;
 }
 
 function getInitials(name: string): string {
@@ -64,6 +60,7 @@ export default function StartupDetail({ startup }: Props) {
 
   const name = pickDisplayValue(startup.name) || "Startup";
   const description = pickDisplayValue(startup.longDescription, startup.shortDescription);
+  console.log("description: ", startup.longDescription, startup.shortDescription);
   const richDescription = description ? normalizeRichText(description) : "";
   const headerImageUrl = pickDisplayValue(startup.headerImageUrl);
   const logoUrl = pickDisplayValue(startup.logoUrl);
