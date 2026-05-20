@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import type { StartupDetailData, StartupItem } from "./types";
 import StartupExplorer from "./StartupExplorer";
 import StartupDetail from "./StartupDetail";
+import { pb } from "../../lib/pocketbase";
 
 export interface Props {
     startups: StartupItem[];
@@ -14,37 +15,28 @@ export default function Startups({ startups, locale = "en" }: Props) {
     useEffect(() => {
         // 1. Move the fetch logic inside a dedicated handler
         const handleHashChange = async () => {
-            const id = window.location.hash.slice(1);
+        const id = window.location.hash.slice(1);
 
-            // If there is no hash (user went back to main list), clear state
-            if (!id) {
-                setStartup(undefined);
-                return;
-            }
+        if (!id) {
+            setStartup(undefined);
+            return;
+        }
 
-            try {
-                const pitchloadUrl = import.meta.env.PUBLIC_PITCHLOAD_URL;
-                const token = import.meta.env.PUBLIC_PITCHLOAD_AUTH_TOKEN;
-                const detailUrl = `${pitchloadUrl}/startups/${id}/details`;
-
-                const res = await fetch(detailUrl, {
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                        'Content-Type': 'application/json',
-                    }
-                });
-
-                if (!res.ok) throw new Error(`HTTP error: ${res.status}`);
-
-                const startup_raw = await res.json();
-                const details = startup_raw.data as StartupDetailData;
-
-                setStartup(details);
-            } catch (err) {
-                console.error(err);
-                setStartup(undefined);
-            }
-        };
+        try {
+            // Call the custom PocketBase proxy route using the PB SDK
+            // This automatically includes the user's auth token if they are logged in
+            const startup_raw = await pb.send(`/api/pitchload/startups/${id}`, {
+                method: 'GET'
+            });
+            
+            const details = startup_raw.data as StartupDetailData;
+            setStartup(details);
+            
+        } catch (err) {
+            console.error("Failed to fetch startup details:", err);
+            setStartup(undefined);
+        }
+    };
 
         // 2. Call it immediately on mount to check initial URL
         handleHashChange();
