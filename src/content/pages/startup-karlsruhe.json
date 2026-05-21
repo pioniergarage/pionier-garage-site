@@ -20,11 +20,30 @@
       }
     },
     {
-      "type": "custom-block",
-      "component": "EcosystemOverview",
+      "type": "hero",
+      "title": "60+",
+      "heroTagline": "Startups",
       "style": {
         "alignment": "left",
-        "size": "full"
+        "size": "third"
+      }
+    },
+    {
+      "type": "hero",
+      "title": "2008",
+      "heroTagline": "Since",
+      "style": {
+        "alignment": "left",
+        "size": "third"
+      }
+    },
+    {
+      "type": "hero",
+      "title": "300+",
+      "heroTagline": "Alumni",
+      "style": {
+        "alignment": "left",
+        "size": "third"
       }
     }
   ]
