@@ -18,7 +18,7 @@
       "style": {
         "alignment": "left",
         "size": "full",
-        "className": "max-h-50"
+        "className": "max-h-100"
       }
     }
   ]
