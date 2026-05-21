@@ -3,7 +3,7 @@ import rawConfig from "../../content/site_config.json";
 import { SiteSettingsConfigSchema } from "../../content.config.ts";
 import { Icon } from "astro-icon/components";
 import { twMerge } from "tailwind-merge";
-import { sectionVariants } from "../../utils/style-mapping";
+import { sectionVariants } from "../../styles/style-mapping";
 import type { BlockProps } from "../types/types";
 
 type Props = BlockProps<"social-medias">;
@@ -40,12 +40,12 @@ const sectionClasses = twMerge(
             a custom arbitrary text-shadow value since it's highly specific.
           */}
           <h2 
-            class="text-text font-display text-[60px] leading-16.25 p-0 m-0 max-w-full text-center text-wrap balance [text-shadow:0_0_20px_color-mix(in_srgb,var(--text),transparent_60%)]" 
+            class="text-primary font-display text-[60px] leading-16.25 p-0 m-0 max-w-full text-center text-wrap balance [text-shadow:0_0_20px_color-mix(in_srgb,var(--text),transparent_60%)]" 
             aria-label={`${item.name} Icon`}
           >
             <Icon name={`lucide:${item.icon}`} class="w-10 h-10 inline-block" />
           </h2>
-          <h3 class="font-body text-text mt-3"><span class="font-serif">PionierGarage</span> on {item.name}</h3>
+          <h3 class="font-body text-primary mt-3"><span class="font-serif">PionierGarage</span> on {item.name}</h3>
         </a>
       ))
     }

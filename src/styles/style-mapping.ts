@@ -10,8 +10,8 @@ export const sectionVariants = cva(
     variants: {
       alignment: {
         left: "items-start",
-        center: "items-center justify-around py-[30px]",
-        right: "items-end py-[30px]",
+        center: "items-center",
+        right: "items-end",
       },
       size: {
         full: "w-full",

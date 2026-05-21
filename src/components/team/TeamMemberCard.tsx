@@ -61,13 +61,13 @@ export default function TeamMemberCard({ team_member }: Props) {
                     <div className="flex gap-4 items-center space-between text-caption mt-1">
 
                         {team_member.position && (
-                            <div className="flex items-center justify-between font-serif text-caption text-text">
+                            <div className="flex items-center justify-between font-serif text-caption text-primary">
                                 <span className="text-lg">{team_member.position}</span>
                             </div>
                         )}
                         <a
                             href={`mailto:${team_member.email}`}
-                            className="inline-flex items-center gap-2 px-2 py-1 text-base font-inherit text-text bg-transparent border-2 border-text rounded transition duration-150 ease-out cursor-pointer hover:bg-text hover:text-bg"
+                            className="inline-flex items-center gap-2 px-2 py-1 text-base font-inherit text-primary bg-transparent border-2 border-primary rounded transition duration-150 ease-out cursor-pointer hover:bg-primary hover:text-bg"
                         >
                             Contact
                             <ArrowUpRight size={18} />

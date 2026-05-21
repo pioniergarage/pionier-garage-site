@@ -82,7 +82,7 @@ export default function EventsGrid({ events, locale = "en" }: Props) {
       />
 
       {filteredEvents.length === 0 ? (
-        <p className="w-full text-center text-text-muted">{labels.empty}</p>
+        <p className="w-full text-center text-primary-muted">{labels.empty}</p>
       ) : (
         <div className="block min-w-0">
           <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 lg:grid-cols-3" aria-label="Event list">
@@ -97,7 +97,7 @@ export default function EventsGrid({ events, locale = "en" }: Props) {
             <div className="mt-6 flex justify-center">
               <button
                 type="button"
-                className="inline-block cursor-pointer rounded border-2 border-text bg-transparent px-5 py-[15px] font-inherit text-base text-text transition duration-150 ease-out hover:bg-text hover:text-bg"
+                className="inline-block cursor-pointer rounded border-2 border-primary bg-transparent px-5 py-[15px] font-inherit text-base text-primary transition duration-150 ease-out hover:bg-primary hover:text-bg"
                 onClick={() => setVisibleCount((current) => current + LOAD_MORE_STEP)}
               >
                 {labels.loadMore}

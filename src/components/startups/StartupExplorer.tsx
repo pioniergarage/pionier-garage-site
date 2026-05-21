@@ -85,7 +85,7 @@ export default function StartupExplorer({ startups, locale}: Props) {
             <div className="flex justify-center mt-6">
               <button
                 type="button"
-                className="inline-block px-5 py-3.75 text-base font-inherit text-text bg-transparent border-2 border-text rounded transition duration-150 ease-out cursor-pointer hover:bg-text hover:text-bg w-full sm:w-auto"
+                className="inline-block px-5 py-3.75 text-base font-inherit text-primary bg-transparent border-2 border-primary rounded transition duration-150 ease-out cursor-pointer hover:bg-primary hover:text-bg w-full sm:w-auto"
                 onClick={() => setVisibleCount((current) => current + LOAD_MORE_STEP)}
               >
                 {labels.loadMore}

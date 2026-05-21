@@ -1,42 +1,62 @@
 ---
 import { twMerge } from "tailwind-merge";
 import { localized, renderHeadline } from "../../utils/utils";
-import { sectionVariants } from "../../utils/style-mapping";
 import type { BlockProps } from "../types/types";
+import { sectionVariants } from "../../styles/style-mapping";
 
 type Props = BlockProps<"hero">;
 
-const { heroTagline, title, subtitle, button, style } = Astro.props;
+const { heroTagline, title, subtitle, button, style, image } = Astro.props;
 const renderedHeadline = renderHeadline(title ?? "");
 
 // Apply the imported CVA variants to the outer wrapper
-const sectionClasses = sectionVariants({ alignment: style?.alignment, size: style?.size });
+const sectionClasses = sectionVariants({
+  alignment: style?.alignment,
+  size: style?.size,
+});
 ---
 
 <section class={sectionClasses}>
-  <div class={twMerge(
-    // Mobile (Default): auto height, centered layout, explicit gap
-    "flex flex-col items-center justify-center gap-4 h-auto min-h-[calc(100svh-75px)]",
-    // Desktop: 80vh height, bottom-aligned, no gap (elements control their own spacing)
-    "md:justify-end md:gap-0 md:h-[80vh] md:min-h-100",
-    style?.className
-  )}>
+  <div
+    class={twMerge(
+      "bg-cover bg-center",
+
+      // 1. Break out of parent container horizontally while respecting a 1em margin
+      "w-screen ml-[calc(50%-50vw)] p-8 pb-0",
+      "flex flex-col items-center justify-center gap-4 h-auto min-h-[calc(100svh-75px)]",
+      "md:justify-end md:gap-0 md:h-[80vh] md:min-h-100",
+      style?.className,
+    )}
+    style={{
+      // Layer 1 (Top): Linear gradient fading from transparent down to bg color
+      // Layer 2 (Middle): Radial vignette
+      // Layer 3 (Bottom): The image
+      backgroundImage: `
+        linear-gradient(to bottom, transparent 50%, var(--color-bg) 100%), 
+        linear-gradient(to top, transparent 50%, var(--color-bg) 100%),
+        radial-gradient(circle at center, transparent 40%, var(--color-bg) 100%), 
+        url(${image})
+      `,
+    }}
+  >
     {heroTagline && <h3 class="font-serif font-normal">{heroTagline}</h3>}
-    
-    <h1 
+    <h1
       class={twMerge(
-        // Base typography translated from global.css .title
         "font-display text-accent-red text-center text-balance wrap-break-word max-w-full",
-        // Responsive sizing translated from the media query
-        "text-[clamp(2.75rem,12vw,3.75rem)] leading-none",
-        "md:text-[60px] md:leading-16.25",
-        // Targets the HTML injected by renderHeadline()
-        // Note: Assumes your @theme setup mapped the CSS variable to --color-accent-red
-        "[&_.outlined]:text-bg [&_.outlined]:[text-shadow:-2px_-2px_0_var(--color-accent-red),2px_-2px_0_var(--color-accent-red),-2px_2px_0_var(--color-accent-red),2px_2px_0_var(--color-accent-red)]"
-      )} 
-      set:html={renderedHeadline} 
+
+        // 2. We replace vw (viewport width) with cqi (container query inline width).
+        // 15cqi means 15% of the parent container's width. Adjust this number to fit your specific font.
+        "text-[clamp(2rem,15cqi,6rem)] leading-none",
+
+        // (Optional) Remove the explicit md:text-[60px] if you want fluid scaling at all breakpoints,
+        // or keep it if you want it to stop growing on desktop.
+
+        // Existing injected HTML targeting
+        "[&_.outlined]:text-bg [&_.outlined]:[text-shadow:-2px_-2px_0_var(--color-accent-red),2px_-2px_0_var(--color-accent-red),-2px_2px_0_var(--color-accent-red),2px_2px_0_var(--color-accent-red)]",
+      )}
+      set:html={renderedHeadline}
     />
-    
+
     {/* See note below regarding the max-width logic */}
     <h2 class="m-0 p-0 max-w-[30ch] md:max-w-[50ch] text-center">{subtitle}</h2>
 
@@ -48,7 +68,7 @@ const sectionClasses = sectionVariants({ alignment: style?.alignment, size: styl
             "mt-10 inline-block px-5 py-3.75 font-inherit text-accent-red bg-transparent",
             "border-2 border-accent-red rounded cursor-pointer",
             "transition duration-150 ease-out hover:bg-accent-red hover:text-bg",
-            "animate-glow-accent"
+            "animate-glow-accent",
           )}
           href={localized(button.link, Astro.currentLocale, ["en", "de"])}
         >

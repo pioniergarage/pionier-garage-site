@@ -35,7 +35,7 @@ type FilterSearchBarProps<GroupKey extends string = string> = {
 
 // Static color mapping dictionaries ensure Tailwind detects full utility class names
 const tagBaseColors: Record<string, string> = {
-  summary: "text-text-muted bg-white/5 border-white/10",
+  summary: "text-primary-muted bg-white/5 border-white/10",
   green: "text-accent-green bg-accent-green/14 border-accent-green/20 hover:bg-accent-green/30",
   yellow: "text-accent-yellow bg-accent-yellow/14 border-accent-yellow/20 hover:bg-accent-yellow/30",
   blue: "text-accent-blue bg-accent-blue/14 border-accent-blue/20 hover:bg-accent-blue/30",
@@ -44,11 +44,11 @@ const tagBaseColors: Record<string, string> = {
 };
 
 const tagSelectedColors: Record<string, string> = {
-  green: "bg-accent-green text-text-muted hover:bg-accent-green hover:opacity-80",
-  yellow: "bg-accent-yellow text-text-muted hover:bg-accent-yellow hover:opacity-80",
-  blue: "bg-accent-blue text-text-muted hover:bg-accent-blue hover:opacity-80",
-  pink: "bg-accent-pink text-text-muted hover:bg-accent-pink hover:opacity-80",
-  orange: "bg-accent-orange text-text-muted hover:bg-accent-orange hover:opacity-80",
+  green: "bg-accent-green text-primary-muted hover:bg-accent-green hover:opacity-80",
+  yellow: "bg-accent-yellow text-primary-muted hover:bg-accent-yellow hover:opacity-80",
+  blue: "bg-accent-blue text-primary-muted hover:bg-accent-blue hover:opacity-80",
+  pink: "bg-accent-pink text-primary-muted hover:bg-accent-pink hover:opacity-80",
+  orange: "bg-accent-orange text-primary-muted hover:bg-accent-orange hover:opacity-80",
 };
 
 export default function FilterSearchBar<GroupKey extends string = string>({
@@ -115,13 +115,13 @@ export default function FilterSearchBar<GroupKey extends string = string>({
             aria-controls={overlayId}
           >
             <div className="flex items-center gap-2.5 min-w-0 w-full text-white p-2">
-              <Search className="w-3.75 height-3.75 text-text-muted shrink-0" />
+              <Search className="w-3.75 height-3.75 text-primary-muted shrink-0" />
 
 
               {query ? (
-                <span className="text-text min-w-0 overflow-hidden w-full line-clamp-1 vertical-box-orient">{query}</span>
+                <span className="text-primary min-w-0 overflow-hidden w-full line-clamp-1 vertical-box-orient">{query}</span>
               ) : (
-                <span className="text-text-muted min-w-0 overflow-hidden w-full line-clamp-1 vertical-box-orient">
+                <span className="text-primary-muted min-w-0 overflow-hidden w-full line-clamp-1 vertical-box-orient">
                   {labels.searchPlaceholder}
                 </span>
               )}
@@ -148,12 +148,12 @@ export default function FilterSearchBar<GroupKey extends string = string>({
         {/* Inner Panel Header Row */}
         <div className="flex justify-between gap-2.5 items-center p-3.5-4 border-2 border-[#2a2c2e] bg-black/50 backdrop-blur-md shadow-[0_2px_24px_rgba(0,0,0,0.25)] -mx-3.5 border-t-0 border-x-0 rounded max-[900px]:items-center">
           <label className="flex items-center gap-2.5 min-w-0 w-full px-2 my-3" htmlFor={inputId}>
-            <Search className="w-3.75 height-3.75 text-text-muted shrink-0" />
+            <Search className="w-3.75 height-3.75 text-primary-muted shrink-0" />
             <input
               ref={inputRef}
               id={inputId}
               type="text"
-              className="flex-1 min-w-0 border-0 bg-transparent text-text font-inherit text-initial outline-none p-0 overflow-hidden w-full line-clamp-1 vertical-box-orient placeholder:text-text-muted"
+              className="flex-1 min-w-0 border-0 bg-transparent text-primary font-inherit text-initial outline-none p-0 overflow-hidden w-full line-clamp-1 vertical-box-orient placeholder:text-primary-muted"
               placeholder={labels.searchPlaceholder}
               value={query}
               onChange={(event) => setQuery(event.target.value)}

@@ -1,7 +1,7 @@
 ---
 import { twMerge } from "tailwind-merge";
 import type { BlockProps } from "../types/types";
-import { sectionVariants } from "../../utils/style-mapping";
+import { sectionVariants } from "../../styles/style-mapping";
 
 
 type Props = BlockProps<"faq">;
@@ -46,7 +46,7 @@ const sectionClasses = twMerge(
           Native <details> handles the display toggle intrinsically. 
           We use group-open to apply margins and trigger your custom animation.
         */}
-        <div class="whitespace-pre-line leading-[1.6] text-text-muted group-open:animate-[drop-and-fade_180ms_ease-in] group-open:mb-1">
+        <div class="whitespace-pre-line leading-[1.6] text-primary-muted group-open:animate-[drop-and-fade_180ms_ease-in] group-open:mb-1">
           {item.answer}
         </div>
         

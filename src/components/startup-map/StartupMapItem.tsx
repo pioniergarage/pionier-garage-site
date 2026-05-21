@@ -24,7 +24,7 @@ export default function StartupMapItem({ entry }: StartupMapItemProps) {
   return (
     <article className="flex flex-row gap-2.5">
       <div className="flex justify-center min-h-full w-5 shrink-0" aria-hidden="true">
-        <span className="w-[14px] h-[14px] shrink-0 rounded-full border-2 border-bg bg-text mt-[22px]" />
+        <span className="w-[14px] h-[14px] shrink-0 rounded-full border-2 border-bg bg-primary mt-[22px]" />
       </div>
       
       <div className="min-w-0 flex flex-col gap-[5px]">
@@ -32,7 +32,7 @@ export default function StartupMapItem({ entry }: StartupMapItemProps) {
           <span className={categoryTextVariants({ color: entry.category.color as VariantProps<typeof categoryTextVariants>["color"] })}>
             {entry.category.name}
           </span>
-          <h3 className="m-0 text-text font-medium text-xl">{entry.name}</h3>
+          <h3 className="m-0 text-primary font-medium text-xl">{entry.name}</h3>
         </div>
         
         {entry.description && (

@@ -3,7 +3,7 @@
 import { pb } from "../../lib/pocketbase";
 import EventHightlightComponent from "../events/EventHighlightComponent";
 import type { EventItem } from "../events/types";
-import { sectionVariants } from "../../utils/style-mapping";
+import { sectionVariants } from "../../styles/style-mapping";
 
 const now = new Date().toISOString();
 const locale = Astro.currentLocale == "de" ? "de" : "en";
@@ -37,17 +37,17 @@ const sectionClasses = sectionVariants({ alignment: "left", size: "full" });
 <div class="flex flex-wrap items-center justify-between gap-5 w-full">
   
   <!-- Translated h1 element with 4-point text stroke simulation -->
-  <h1 class="font-display text-text [text-shadow:-1.5px_-1.5px_0_var(--color-bg),1.5px_-1.5px_0_var(--color-bg),-1.5px_1.5px_0_var(--color-bg),1.5px_1.5px_0_var(--color-bg)]">
+  <h1 class="font-display text-primary [text-shadow:-1.5px_-1.5px_0_var(--color-bg),1.5px_-1.5px_0_var(--color-bg),-1.5px_1.5px_0_var(--color-bg),1.5px_1.5px_0_var(--color-bg)]">
     {translations[locale].header}
   </h1>
   
   <!-- Translated .button and .button--small modifiers -->
   <a 
     class:list={[
-      "inline-block text-sm font-serif text-text bg-transparent no-underline cursor-pointer",
-      "px-3.75 py-2.5 rounded border-2 border-text",
+      "inline-block text-sm font-serif text-primary bg-transparent no-underline cursor-pointer",
+      "px-3.75 py-2.5 rounded border-2 border-primary",
       "transition duration-150 ease-out",
-      "hover:bg-text hover:text-bg"
+      "hover:bg-primary hover:text-bg"
     ]} 
     href={`/${locale}/events`}
   > 

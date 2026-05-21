@@ -1,7 +1,7 @@
 ---
 import { twMerge } from "tailwind-merge";
 import { localized } from "../../utils/utils";
-import { sectionVariants } from "../../utils/style-mapping";
+import { sectionVariants } from "../../styles/style-mapping";
 import type { BlockProps } from "../types/types";
 
 type Props = BlockProps<"tag-cloud">;
@@ -31,7 +31,7 @@ const innerWrapperClasses = twMerge(
       {
         tags?.map((tag) => (
           <a 
-            class="inline-block px-5 py-3.75 text-base font-inherit text-text bg-transparent border-2 border-text rounded transition duration-150 ease-out cursor-pointer hover:bg-text hover:text-bg"
+            class="inline-block px-5 py-3.75 text-base font-inherit text-primary bg-transparent border-2 border-primary rounded transition duration-150 ease-out cursor-pointer hover:bg-primary hover:text-bg"
             href={localized(tag.link ?? "", Astro.currentLocale, ["EN", "DE"])}
           >
             {tag.text}

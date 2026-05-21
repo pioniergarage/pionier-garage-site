@@ -1,5 +1,5 @@
 import { twMerge } from "tailwind-merge";
-import { sectionVariants } from "../utils/style-mapping";
+import { sectionVariants } from "../styles/style-mapping";
 import type { BlockProps } from "./types/types";
 
 
@@ -36,7 +36,7 @@ export default function RichTextRenderer({ html, style, children }: Props) {
     // Tables
     "[&_table]:w-full [&_table]:caption-bottom [&_table]:text-sm [&_table]:border-collapse [&_table]:text-[var(--text)] [&_table]:my-6",
     "[&_thead]:border-b [&_thead]:border-[var(--stroke)]",
-    "[&_th]:h-12 [&_th]:px-4 [&_th]:text-left [&_th]:align-middle [&_th]:font-medium [&_th]:text-[var(--text-muted)] [&_th]:border [&_th]:border-[var(--stroke)]",
+    "[&_th]:h-12 [&_th]:px-4 [&_th]:text-left [&_th]:align-middle [&_th]:font-medium [&_th]:text-[var(--primary-muted)] [&_th]:border [&_th]:border-[var(--stroke)]",
     "[&_td]:p-4 [&_td]:align-middle [&_td]:border [&_td]:border-[var(--stroke)]",
     "[&_tbody_tr:last-child_td]:border-b-0",
     "[&_tbody_tr]:transition-colors [&_tbody_tr]:duration-200 hover:[&_tbody_tr]:bg-[rgba(39,39,42,0.5)]",

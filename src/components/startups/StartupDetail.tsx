@@ -1,7 +1,7 @@
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { formatStartupTaxonomyLabel } from "../../utils/startupTaxonomy";
 import type { StartupDetailData } from "./types";
-import { sectionVariants } from "../../utils/style-mapping";
+import { sectionVariants } from "../../styles/style-mapping";
 
 export interface Props {
   startup: StartupDetailData;
@@ -132,10 +132,10 @@ export default function StartupDetail({ startup }: Props) {
   ].filter(Boolean) as { tone: "green" | "yellow" | "blue"; label: string }[];
 
   return (
-    <div className="w-[min(100%,1120px)] mx-auto py-6 pt-2.5 text-text max-lg:pt-4">
+    <div className="w-[min(100%,1120px)] mx-auto py-6 pt-2.5 text-primary max-lg:pt-4">
       <a
         href="startups"
-        className="inline-flex items-center justify-center font-inherit text-text p-2.5 rounded w-13 h-13 border-2 border-text transition duration-150 ease-out cursor-pointer bg-transparent hover:bg-text hover:text-bg mb-4"
+        className="inline-flex items-center justify-center font-inherit text-primary p-2.5 rounded w-13 h-13 border-2 border-primary transition duration-150 ease-out cursor-pointer bg-transparent hover:bg-primary hover:text-bg mb-4"
       >
         <ArrowLeft />
       </a>
@@ -244,7 +244,7 @@ export default function StartupDetail({ startup }: Props) {
                     href={`https://pitchload.net/startups/${startup.id}`}
                     target="_blank"             // Opens the link in a new tab
                     rel="noopener noreferrer"   // Security safeguard for blank targets
-                    className="inline-flex items-center gap-2 px-2 py-1 font-body bg-transparent border-2 border-text rounded transition duration-150 ease-out cursor-pointer hover:bg-text hover:text-bg"
+                    className="inline-flex items-center gap-2 px-2 py-1 font-body bg-transparent border-2 border-primary rounded transition duration-150 ease-out cursor-pointer hover:bg-primary hover:text-bg"
                   >
                     Visit on Pitchload
                     <ArrowUpRight size={18} />

@@ -1,7 +1,7 @@
 import Grid from "../ui/Grid";
 import EventListCard from "./EventListCard";
 import type { EventItem } from "./types";
-import { sectionVariants } from "../../utils/style-mapping"; // Added import
+import { sectionVariants } from "../../styles/style-mapping"; // Added import
 
 export interface Props {
     events: EventItem[];

@@ -84,8 +84,8 @@ export default function StartupMapRenderer({ map, locale = "en" }: StartupMapPro
             return (
               <section className="flex flex-col gap-5" key={milestone.id}>
                 <div className="flex items-center gap-2.5">
-                  <span className="w-5 h-5 border-[2.5px] border-text rounded-full shrink-0" aria-hidden="true" />
-                  <h3 className="m-0 text-text font-medium text-xl">{milestone.name}</h3>
+                  <span className="w-5 h-5 border-[2.5px] border-primary rounded-full shrink-0" aria-hidden="true" />
+                  <h3 className="m-0 text-primary font-medium text-xl">{milestone.name}</h3>
                 </div>
 
                 <div className="flex flex-col">

@@ -13,23 +13,10 @@ const root_anim = Astro.originPathname.length < 5 ? "animate-appear-slowly" : ""
   <head>
     <BaseHead />
   </head>
-  <!-- 
-    Translated body styles:
-    min-h-screen background color (--color-bg), and text color (--color-text)
-  -->
-  <body class="margin-0 min-h-screen bg-bg text-text font-body">
-    <!-- 
-      Translated .content-wrapper:
-      Replaces absolute positioning stack with a unified flex system 
-    -->
+  <body class="margin-0 min-h-screen bg-bg text-primary font-body">
     <div class="absolute top-0 left-0 w-full z-10 mt-18.75 flex flex-col justify-center px-[1em] min-h-screen">
       
       <Header id="header" class={root_anim} />
-      
-      <!-- 
-        Translated .content:
-        mx-auto acts as margin-inline: auto, max-w-7xl caps it at 1200px (approx 75rem)
-      -->
       <main id="main-content" class="flex flex-col flex-1 flex-wrap w-full max-w-7xl mx-auto">
         <slot />
       </main>
