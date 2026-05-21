@@ -6,11 +6,10 @@
   "blocks": [
     {
       "type": "hero",
-      "title": "Wo [Spitzenforschung] auf [Unternehmertum] trifft.",
-      "subtitle": "Wir vernetzen kluge Köpfe, fördern radikale Innovationen und bauen in Karlsruhe die Wirtschaft von morgen.",
-      "heroTagline": "Startups in Karlsruhe",
+      "title": "PIONIERGARAGE",
+      "heroTagline": "Student Entrepreneurs",
       "button": {
-        "text": "Startups entdecken",
+        "text": "Triff dich mit unserem Vorstand",
         "link": "de/startups"
       },
       "style": {
