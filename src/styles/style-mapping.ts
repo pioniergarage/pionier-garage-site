@@ -1,5 +1,11 @@
 import { cva } from "class-variance-authority";
 
+export const alignmentVariants: Record<string, string> = {
+  left: "items-start",
+  center: "items-center",
+  right: "items-end",
+};
+
 /**
  * Maps from CMS alignment styles to Tailwind classnames.
  */
@@ -8,11 +14,7 @@ export const sectionVariants = cva(
   "flex flex-col gap-5 flex-wrap",
   {
     variants: {
-      alignment: {
-        left: "items-start",
-        center: "items-center",
-        right: "items-end",
-      },
+      alignment: alignmentVariants,
       size: {
         full: "w-full max-w-7xl mx-auto",
         half: "max-w-[50%]",

@@ -61,7 +61,7 @@ export default function TeamMemberCard({ team_member }: Props) {
                     <div className="flex gap-4 items-center space-between text-caption mt-1">
 
                         {team_member.position && (
-                            <div className="flex items-center justify-between font-serif text-caption text-primary">
+                            <div className="flex items-center justify-between font-accent text-caption text-primary">
                                 <span className="text-lg">{team_member.position}</span>
                             </div>
                         )}

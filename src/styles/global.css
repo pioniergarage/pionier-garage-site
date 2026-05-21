@@ -22,7 +22,7 @@
   /* Typography */
   --font-body: "Helvetica", system-ui, -apple-system, sans-serif;
   --font-display: "Dela Gothic One", sans-serif;
-  --font-serif: "Philosopher", serif;
+  --font-accent: "Philosopher", serif;
   
   /* Font Sizes */
   --text-caption: 14px;
@@ -91,7 +91,7 @@
   }
 
   a {
-    @apply text-inherit no-underline font-serif;
+    @apply text-inherit no-underline font-accent;
   }
 
   h1 {
@@ -170,7 +170,7 @@
   }
 
   .accent-text {
-    @apply font-normal font-serif;
+    @apply font-normal font-accent;
   }
 
   .muted-text {

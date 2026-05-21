@@ -2,7 +2,7 @@
 import { twMerge } from "tailwind-merge";
 import { localized, renderHeadline } from "../../utils/utils";
 import type { BlockProps } from "../types/types";
-import { sectionVariants } from "../../styles/style-mapping";
+import { alignmentVariants, sectionVariants } from "../../styles/style-mapping";
 
 type Props = BlockProps<"hero">;
 
@@ -15,9 +15,7 @@ const sectionClasses = sectionVariants({
   size: style?.size,
   className: style?.className,
 });
-const alignmentClasses = sectionVariants({
-  alignment: style?.alignment
-});
+const alignmentClasses = alignmentVariants[style?.alignment];
 ---
 
 <section class={sectionClasses}>
@@ -25,7 +23,7 @@ const alignmentClasses = sectionVariants({
     class={twMerge(
       "bg-cover bg-center",
 
-      "w-full px-4",
+      "w-full px-4 mb-8",
       "flex flex-col items-center",
       alignmentClasses,
       " gap-4 h-auto",
@@ -43,7 +41,7 @@ const alignmentClasses = sectionVariants({
       `,
     }}
   >
-    {heroTagline && <h3 class="font-serif font-normal">{heroTagline}</h3>}
+    {heroTagline && <h3 class="font-accent font-normal">{heroTagline}</h3>}
     <h1
       class={twMerge(
         "font-display text-accent-red text-center text-balance wrap-break-word max-w-full",
