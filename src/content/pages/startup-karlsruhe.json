@@ -20,15 +20,6 @@
       }
     },
     {
-      "type": "rich-text",
-      "content": "# We are Germany's largest student group for entrepreneurship.\n\n",
-      "style": {
-        "alignment": "center",
-        "size": "screen",
-        "className": "bg-primary text-bg"
-      }
-    },
-    {
       "type": "hero",
       "title": "60+",
       "heroTagline": "Startups",
@@ -36,6 +27,14 @@
         "alignment": "left",
         "size": "third",
         "className": "max-h-30 bg-primary text-bg"
+      }
+    },
+    {
+      "type": "separator",
+      "direction": "vertical",
+      "style": {
+        "alignment": "left",
+        "size": "full"
       }
     },
     {
