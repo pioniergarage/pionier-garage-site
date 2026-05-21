@@ -25,7 +25,8 @@
       "heroTagline": "Startups",
       "style": {
         "alignment": "left",
-        "size": "third"
+        "size": "third",
+        "className": "min-h-10"
       }
     },
     {
@@ -34,7 +35,8 @@
       "heroTagline": "Since",
       "style": {
         "alignment": "left",
-        "size": "third"
+        "size": "third",
+        "className": "min-h-10"
       }
     },
     {
@@ -43,7 +45,8 @@
       "heroTagline": "Alumni",
       "style": {
         "alignment": "left",
-        "size": "third"
+        "size": "third",
+        "className": "min-h-10"
       }
     }
   ]
