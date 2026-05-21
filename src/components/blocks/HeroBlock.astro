@@ -16,6 +16,18 @@ const sectionClasses = sectionVariants({
   className: style?.className,
 });
 const alignmentClasses = alignmentVariants[style?.alignment];
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/**/*.{jpeg,jpg,png,webp,avif,svg}",
+);
+
+if (image && !images[image]) {
+  throw new Error(
+    `"${image}" does not exist. Make sure the path is correct and matches the glob pattern.`,
+  );
+}
+const imageModule = await images[image]();
+const backgroundUrl = imageModule.default.src;
 ---
 
 <section class={sectionClasses}>
@@ -37,7 +49,7 @@ const alignmentClasses = alignmentVariants[style?.alignment];
         linear-gradient(to bottom, transparent 50%, var(--color-bg) 100%), 
         linear-gradient(to top, transparent 50%, var(--color-bg) 100%),
         radial-gradient(circle at center, transparent 40%, var(--color-bg) 100%), 
-        url(${image})
+        url(${backgroundUrl})
       `,
     }}
   >
