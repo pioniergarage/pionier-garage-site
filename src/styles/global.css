@@ -96,7 +96,7 @@
 
   h1 {
     @apply text-3xl;
-    @apply font-display text-primary;
+    @apply font-display;
     /* text-shadow:
       -1.5px -1.5px 0 var(--color-bg),
       1.5px -1.5px 0 var(--color-bg),
@@ -105,11 +105,15 @@
   }
 
   h2 {
-    @apply font-display text-primary;
+    @apply font-display;
   }
 
   h3 {
-    @apply font-body text-primary;
+    @apply font-body ;
+  }
+
+  section{
+    @apply m-0 w-full;
   }
 }
 
@@ -182,9 +186,6 @@
   }
 
   /* Structural Utilities (Legacy mappings to be phased out) */
-  section {
-    @apply w-full my-5;
-  }
 
   .full {
     @apply w-full flex flex-1 justify-around items-center flex-wrap gap-5;

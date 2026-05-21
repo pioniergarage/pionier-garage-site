@@ -5,7 +5,7 @@ import { cva } from "class-variance-authority";
  */
 export const sectionVariants = cva(
   // Base classes applied to all sections
-  "flex flex-col gap-5 flex-wrap", 
+  "flex flex-col gap-5 flex-wrap",
   {
     variants: {
       alignment: {
