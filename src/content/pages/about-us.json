@@ -17,7 +17,8 @@
       },
       "style": {
         "alignment": "left",
-        "size": "full"
+        "size": "full",
+        "className": "max-h-50"
       }
     }
   ]
