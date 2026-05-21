@@ -16,7 +16,7 @@
       },
       "style": {
         "alignment": "center",
-        "size": "screen"
+        "size": "full"
       }
     },
     {
@@ -47,6 +47,14 @@
         "alignment": "center",
         "size": "third",
         "className": "max-h-50 bg-primary text-bg"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "EcosystemOverview",
+      "style": {
+        "alignment": "center",
+        "size": "full"
       }
     }
   ]
