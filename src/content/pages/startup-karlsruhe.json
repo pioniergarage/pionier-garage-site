@@ -25,7 +25,7 @@
       "style": {
         "alignment": "left",
         "size": "screen",
-        "className": "bg-primary"
+        "className": "bg-primary text-bg"
       }
     },
     {
