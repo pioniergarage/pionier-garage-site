@@ -9,7 +9,7 @@
       "type": "hero",
       "title": "PIONIERGARAGE",
       "heroTagline": "Student Entrepreneurs",
-      "image": "src/assets/DSCF2147.jpg",
+      "image": "/src/assets/DSCF2147.jpg",
       "button": {
         "text": "Explore Startups",
         "link": "en/startups"
@@ -24,7 +24,7 @@
       "title": "60+",
       "heroTagline": "Startups",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "third",
         "className": "max-h-30 bg-primary text-bg"
       }
@@ -34,7 +34,7 @@
       "title": "2008",
       "heroTagline": "Since",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "third",
         "className": "max-h-30 bg-primary text-bg"
       }
@@ -44,7 +44,7 @@
       "title": "300+",
       "heroTagline": "Alumni",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "third",
         "className": "max-h-30 bg-primary text-bg"
       }
