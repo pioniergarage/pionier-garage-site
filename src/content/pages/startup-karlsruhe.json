@@ -26,7 +26,7 @@
       "style": {
         "alignment": "left",
         "size": "third",
-        "className": "max-h-10"
+        "className": "max-h-30"
       }
     },
     {
@@ -36,7 +36,7 @@
       "style": {
         "alignment": "left",
         "size": "third",
-        "className": "max-h-10"
+        "className": "max-h-30"
       }
     },
     {
@@ -46,7 +46,7 @@
       "style": {
         "alignment": "left",
         "size": "third",
-        "className": "max-h-10"
+        "className": "max-h-30"
       }
     }
   ]
