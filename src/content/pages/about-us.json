@@ -10,7 +10,7 @@
       "title": "Events",
       "subtitle": "We manage events!",
       "heroTagline": "5 People | Event Management",
-      "image": "src/assets/cyberforum_picture.jpg",
+      "image": "/src/assets/cyberforum_picture-1.jpg",
       "button": {
         "text": "Get in Contact!",
         "link": "mailto:grow@pioniergarage.de"
