@@ -20,6 +20,23 @@
         "size": "full",
         "className": "max-h-100"
       }
+    },
+    {
+      "type": "rich-text",
+      "content": "# Events\n\nWe make sure our members are chilling\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "half"
+      }
+    },
+    {
+      "type": "image",
+      "image": "/src/assets/cyberforum_picture.jpg",
+      "size": "medium",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     }
   ]
 }
