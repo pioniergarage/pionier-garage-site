@@ -30,14 +30,6 @@
       }
     },
     {
-      "type": "separator",
-      "direction": "vertical",
-      "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
       "type": "hero",
       "title": "2008",
       "heroTagline": "Since",
