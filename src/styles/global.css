@@ -113,7 +113,7 @@
   }
 
   section{
-    @apply m-0 w-full;
+    @apply m-0 w-full py-2;
   }
 }
 

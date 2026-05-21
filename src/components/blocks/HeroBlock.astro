@@ -13,7 +13,10 @@ const renderedHeadline = renderHeadline(title ?? "");
 const sectionClasses = sectionVariants({
   alignment: style?.alignment,
   size: style?.size,
-  className:style?.className
+  className: style?.className,
+});
+const alignmentClasses = sectionVariants({
+  alignment: style?.alignment
 });
 ---
 
@@ -22,12 +25,13 @@ const sectionClasses = sectionVariants({
     class={twMerge(
       "bg-cover bg-center",
 
-      "w-full p-8 pb-0",
-      "flex flex-col items-center justify-center gap-4 h-auto",
+      "w-full px-4",
+      "flex flex-col items-center",
+      alignmentClasses,
+      " gap-4 h-auto",
       "md:justify-end md:gap-0 md:h-[80vh]",
-      style?.className,
     )}
-    style={{
+    style={image.length > 0 && {
       // Layer 1 (Top): Linear gradient fading from transparent down to bg color
       // Layer 2 (Middle): Radial vignette
       // Layer 3 (Bottom): The image

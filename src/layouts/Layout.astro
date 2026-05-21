@@ -5,7 +5,8 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 
 // Maps your path conditional animation smoothly
-const root_anim = Astro.originPathname.length < 5 ? "animate-appear-slowly" : "";
+const root_anim =
+  Astro.originPathname.length < 5 ? "animate-appear-slowly" : "";
 ---
 
 <!doctype html>
@@ -14,18 +15,17 @@ const root_anim = Astro.originPathname.length < 5 ? "animate-appear-slowly" : ""
     <BaseHead />
   </head>
   <body class="margin-0 min-h-screen bg-bg text-primary font-body">
-    <div class="absolute top-0 left-0 w-full z-10 mt-18.75 flex flex-col justify-center px-[1em] min-h-screen">
-      
+    <div
+      class="absolute top-0 left-0 w-full z-10 mt-18.75 flex flex-col justify-center min-h-screen"
+    >
       <Header id="header" class={root_anim} />
       <main id="main-content" class="flex flex-row flex-1 flex-wrap w-full">
         <slot />
       </main>
-      
+
       <Footer />
     </div>
-  </body>
-  
-  <script>
+  </body><script>
     const header = document.getElementById("header");
 
     if (header) {
