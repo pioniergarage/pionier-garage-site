@@ -21,7 +21,7 @@
     },
     {
       "type": "rich-text",
-      "content": "# We are Germany's largest student group for entrepreneurship.\n\n\n\n\n\n",
+      "content": "# We are Germany's largest student group for entrepreneurship.\n\n",
       "style": {
         "alignment": "left",
         "size": "screen",
@@ -35,7 +35,7 @@
       "style": {
         "alignment": "left",
         "size": "third",
-        "className": "max-h-30 bg-primary"
+        "className": "max-h-30 bg-primary text-bg"
       }
     },
     {
@@ -45,7 +45,7 @@
       "style": {
         "alignment": "left",
         "size": "third",
-        "className": "max-h-30 bg-primary"
+        "className": "max-h-30 bg-primary text-bg"
       }
     },
     {
@@ -55,7 +55,7 @@
       "style": {
         "alignment": "left",
         "size": "third",
-        "className": "max-h-30 bg-primary"
+        "className": "max-h-30 bg-primary text-bg"
       }
     }
   ]
