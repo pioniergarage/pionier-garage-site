@@ -7,6 +7,16 @@
   "blocks": [
     {
       "type": "hero",
+      "title": "We are empowering the next generation of founders in karlsruhe to turn ideas into impact",
+      "heroTagline": "Our Mission",
+      "style": {
+        "alignment": "left",
+        "size": "screen",
+        "className": "bg-red"
+      }
+    },
+    {
+      "type": "hero",
       "title": "Events",
       "subtitle": "We manage events!",
       "heroTagline": "5 People | Event Management",
@@ -19,23 +29,6 @@
         "alignment": "left",
         "size": "full",
         "className": "max-h-100"
-      }
-    },
-    {
-      "type": "rich-text",
-      "content": "# Events\n\nWe make sure our members are chilling\n\n",
-      "style": {
-        "alignment": "left",
-        "size": "half"
-      }
-    },
-    {
-      "type": "image",
-      "image": "/src/assets/cyberforum_picture.jpg",
-      "size": "medium",
-      "style": {
-        "alignment": "left",
-        "size": "half"
       }
     }
   ]
