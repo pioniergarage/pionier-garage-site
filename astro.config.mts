@@ -20,9 +20,6 @@ export default defineConfig({
       de: 'en',
     }
   },
-  redirects: {
-    '/': '/de/'
-  },
   vite: {
     plugins: [tailwindcss()],
   },
