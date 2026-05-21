@@ -10,80 +10,153 @@
       "title": "Where [cutting-edge research] meets [entrepreneurial vision].",
       "subtitle": "We connect smart minds, support innovations and build tomorrow's economy.",
       "heroTagline": "startups in karlsruhe",
+      "image": "src/assets/DSCF2147.jpg",
       "button": {
         "text": "Explore Startups",
         "link": "en/startups"
+      },
+      "style": {
+        "alignment": "left",
+        "size": "full"
       }
     },
     {
       "type": "custom-block",
-      "component": "EcosystemOverview"
+      "component": "EcosystemOverview",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     },
     {
       "type": "spacer",
-      "size": "100px"
+      "size": "100px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     },
     {
       "type": "custom-block",
-      "component": "EventsHighlight"
+      "component": "EventsHighlight",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     },
     {
       "type": "spacer",
-      "size": "100px"
+      "size": "100px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     },
     {
       "type": "tag-cloud",
       "title": "I want to...",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      },
       "tags": [
         {
           "text": "Launch a startup",
-          "link": "/en/contact"
+          "link": "/en/contact",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
         },
         {
           "text": "Get support",
-          "link": "/en/contact"
+          "link": "/en/contact",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
         },
         {
           "text": "See cool events",
-          "link": "/en/events"
+          "link": "/en/events",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
         },
         {
           "text": "Network",
-          "link": "/en/network"
+          "link": "/en/network",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
         },
         {
           "text": "Join a startup",
-          "link": "/en/startups"
+          "link": "/en/startups",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
         },
         {
           "text": "Become a partner",
-          "link": "/en/partner"
+          "link": "/en/partner",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
         },
         {
           "text": "Finance a startup",
-          "link": "/en/contact"
+          "link": "/en/contact",
+          "style": {
+            "alignment": "left",
+            "size": "full"
+          }
         }
       ]
     },
     {
       "type": "spacer",
-      "size": "100px"
+      "size": "100px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     },
     {
       "type": "custom-block",
-      "component": "StartupsHighlight"
+      "component": "StartupsHighlight",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     },
     {
       "type": "spacer",
-      "size": "100px"
+      "size": "100px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     },
     {
       "type": "rich-text",
-      "content": "### Startup-Karlrsuhe is supported by\n\n"
+      "content": "### Startup-Karlrsuhe is supported by\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     },
     {
       "type": "custom-block",
-      "component": "SponsorBlock"
+      "component": "SponsorBlock",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     }
   ]
 }
