@@ -26,7 +26,7 @@
       "style": {
         "alignment": "center",
         "size": "third",
-        "className": "max-h-30 bg-primary text-bg"
+        "className": "max-h-50 bg-primary text-bg"
       }
     },
     {
@@ -36,7 +36,7 @@
       "style": {
         "alignment": "center",
         "size": "third",
-        "className": "max-h-30 bg-primary text-bg"
+        "className": "max-h-50 bg-primary text-bg"
       }
     },
     {
@@ -46,7 +46,7 @@
       "style": {
         "alignment": "center",
         "size": "third",
-        "className": "max-h-30 bg-primary text-bg"
+        "className": "max-h-50 bg-primary text-bg"
       }
     }
   ]
