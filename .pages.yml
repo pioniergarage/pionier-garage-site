@@ -1,6 +1,6 @@
 media:
-  input: /src/assets/
-  output: /src/assets/
+  input: ./src/assets
+  output: ./src/assets
 
 components:
   style:
