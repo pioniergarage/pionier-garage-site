@@ -1,19 +1,16 @@
 {
   "navbar": [
     {
-      "url": "/events"
-    },
-    {
-      "url": "/startups"
-    },
-    {
-      "url": "/network"
-    },
-    {
-      "url": "/contact"
+      "url": "/about"
     },
     {
       "url": "/partner"
+    },
+    {
+      "url": "/offers"
+    },
+    {
+      "url": "/join"
     }
   ]
 }
