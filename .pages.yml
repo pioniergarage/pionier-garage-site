@@ -8,7 +8,7 @@ components:
     label: style
     fields:
       - { name: alignment, type: select, options: { values: [left, center, right] }, default: 'left' }
-      - { name: size, type: select, options: { values: [full, half, third] }, default: 'full' }
+      - { name: size, type: select, options: { values: [full, half, third, screen] }, default: 'full' }
       - { name: className, type: string }
   
 

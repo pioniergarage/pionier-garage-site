@@ -61,7 +61,7 @@ const buttonSchema = z
 const styleSchema = z
   .object({
     alignment: z.enum(["left", "center", "right"]),
-    size: z.enum(["full", "half", "third"]),
+    size: z.enum(["full", "half", "third","screen"]),
     className: z.string().optional(),
   }).default({ alignment: "left", size: "full" });
 
