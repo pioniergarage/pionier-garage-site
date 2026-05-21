@@ -16,14 +16,15 @@ const displayedPosts: PostData[] = allPosts.map((post) => ({
   ...post.data, // Spread the nested frontmatter fields
   id: post.id,
 }));
+const sectionClasses = sectionVariants({
+  alignment: style?.alignment,
+  size: style?.size,
+  className:style?.className
+});
 ---
 
 <section
-  class={sectionVariants({
-    alignment: style?.alignment,
-    size: style?.size,
-    className: style?.className,
-  })}
+  class={sectionClasses}
 >
   <PostExplorer posts={displayedPosts} />
 </section>

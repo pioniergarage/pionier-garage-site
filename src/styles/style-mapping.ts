@@ -14,7 +14,7 @@ export const sectionVariants = cva(
         right: "items-end",
       },
       size: {
-        full: "w-full",
+        full: "w-full max-w-7xl mx-auto",
         half: "max-w-[50%]",
         third: "max-w-[33%]",
         screen: "w-screen ml-[calc(50%-50vw)]"

@@ -8,10 +8,11 @@ type Props = BlockProps<"faq">;
 
 const { items, style } = Astro.props;
 
-const sectionClasses = twMerge(
-  sectionVariants({ alignment: style.alignment, size: style.size }),
-  style?.className
-);
+const sectionClasses = sectionVariants({
+  alignment: style?.alignment,
+  size: style?.size,
+  className:style?.className
+});
 ---
 
 <section class={sectionClasses}>

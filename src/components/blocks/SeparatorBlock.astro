@@ -8,30 +8,29 @@ type Props = BlockProps<"separator">;
 const { style, direction, size } = Astro.props;
 
 // Evaluate dynamic properties that Tailwind cannot compile
-const dynamicStyle = direction === "vertical" 
-  ? { width: size } 
-  : { height: size };
+const dynamicStyle =
+  direction === "vertical" ? { width: size } : { height: size };
 
 // Map static logical rules to Tailwind utility classes
-const directionClasses = direction === "vertical" 
-  ? "h-full" 
-  : "w-full";
+const directionClasses = direction === "vertical" ? "h-full" : "w-full";
 
 // Merge variants with incoming class overrides
 const containerClasses = twMerge(
-  sectionVariants({ alignment: style.alignment, size: style.size }),
-  style.className
+  sectionVariants({
+    alignment: style?.alignment,
+    size: style?.size,
+    className: style?.className,
+  }),
+  style.className,
 );
 ---
 
-<div 
-  class={containerClasses}
->
+<div class={containerClasses}>
   <hr
     role="separator"
     class:list={[
       "inline-block align-middle bg-current border-0",
-      directionClasses
+      directionClasses,
     ]}
     style={dynamicStyle}
   />

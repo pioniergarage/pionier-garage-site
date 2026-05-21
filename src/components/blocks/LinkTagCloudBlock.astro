@@ -9,9 +9,10 @@ type Props = BlockProps<"tag-cloud">;
 const { title, tags, style } = Astro.props;
 
 // 1. Apply the CVA configuration to the outer section
-const sectionClasses = sectionVariants({ 
-  alignment: style.alignment, 
-  size: style.size 
+const sectionClasses = sectionVariants({
+  alignment: style?.alignment,
+  size: style?.size,
+  className:style?.className
 });
 
 // 2. Handle the inner wrapper's custom layout and CMS fallback

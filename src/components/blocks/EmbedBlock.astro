@@ -7,9 +7,10 @@ type Props = BlockProps<"embed">;
 
 const { url, width, height, style } = Astro.props;
 
-const sectionClasses = sectionVariants({ 
-  alignment: style?.alignment, 
-  size: style?.size 
+const sectionClasses = sectionVariants({
+  alignment: style?.alignment,
+  size: style?.size,
+  className:style?.className
 });
 
 // twMerge ensures the structural iframe classes aren't accidentally removed 

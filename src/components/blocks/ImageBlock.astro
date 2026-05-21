@@ -28,9 +28,10 @@ if (image && !images[image]) {
 }
 
 // Generate the wrapper classes using your centralized CVA config
-const sectionClasses = sectionVariants({ 
-  alignment: style?.alignment, 
-  size: style?.size 
+const sectionClasses = sectionVariants({
+  alignment: style?.alignment,
+  size: style?.size,
+  className:style?.className
 });
 ---
 

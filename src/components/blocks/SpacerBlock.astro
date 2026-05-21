@@ -14,9 +14,8 @@ const { style, size } = Astro.props;
 // We explicitly pass 'full' as the size variant so it spans 100% width, 
 // keeping it decoupled from the height calculation.
 const containerClasses = twMerge(
-  sectionVariants({ alignment: style.alignment, size: "full" }),
-  "inline-block align-middle h-[var(--spacer-height)]",
-  style.className
+  sectionVariants({ alignment: style.alignment, size: "full",className:style.className }),
+  "inline-block align-middle h-[var(--spacer-height)]"
 );
 ---
 

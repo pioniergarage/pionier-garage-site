@@ -6,9 +6,15 @@ import type { BlockProps } from "../types/types";
 type Props = BlockProps<"section">;
 
 const { header, body, style } = Astro.props;
+
+const sectionClasses = sectionVariants({
+  alignment: style?.alignment,
+  size: style?.size,
+  className: style?.className,
+});
 ---
 
-<section class={sectionVariants({ alignment: style.alignment, size: style.size })}>
+<section class={sectionClasses}>
   <div class={style.className}>
     <h1>{header}</h1>
     {/* .margin-top-sm was 10px. Tailwind's mt-2.5 maps exactly to 10px (0.625rem). */}

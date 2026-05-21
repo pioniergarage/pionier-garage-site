@@ -3,18 +3,23 @@ import { marked } from "marked";
 import DOMPurify from "isomorphic-dompurify";
 import type { BlockProps } from "../types/types";
 import RichTextRenderer from "../RichTextRenderer";
+import { sectionVariants } from "../../styles/style-mapping";
 
 type Props = BlockProps<"rich-text">;
 
 const { content, style } = Astro.props;
+
+const sectionClasses = sectionVariants({
+  alignment: style?.alignment,
+  size: style?.size,
+  className: style?.className,
+});
 
 // Process the markdown exclusively on the server
 const rawHtml = await marked.parse(content || "");
 const sanitizedHtml = DOMPurify.sanitize(rawHtml);
 ---
 
-<RichTextRenderer 
-  content={content} 
-  style={style} 
-  html={sanitizedHtml} 
-/>
+<section class={sectionClasses}>
+  <RichTextRenderer content={content} style={style} html={sanitizedHtml} />
+</section>

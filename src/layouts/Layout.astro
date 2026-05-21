@@ -17,7 +17,7 @@ const root_anim = Astro.originPathname.length < 5 ? "animate-appear-slowly" : ""
     <div class="absolute top-0 left-0 w-full z-10 mt-18.75 flex flex-col justify-center px-[1em] min-h-screen">
       
       <Header id="header" class={root_anim} />
-      <main id="main-content" class="flex flex-col flex-1 flex-wrap w-full max-w-7xl mx-auto">
+      <main id="main-content" class="flex flex-row flex-1 flex-wrap w-full">
         <slot />
       </main>
       
