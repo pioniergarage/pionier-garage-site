@@ -23,7 +23,7 @@
       "type": "rich-text",
       "content": "# We are Germany's largest student group for entrepreneurship.\n\n",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "screen",
         "className": "bg-primary text-bg"
       }
