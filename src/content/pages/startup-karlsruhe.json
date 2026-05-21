@@ -20,6 +20,14 @@
       }
     },
     {
+      "type": "rich-text",
+      "content": "> ### We are Germany's largest student group for entrepreneurship. Among our members we count many founders as well as entrepreneurs.\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "hero",
       "title": "60+",
       "heroTagline": "Startups",
@@ -47,14 +55,6 @@
         "alignment": "left",
         "size": "third",
         "className": "max-h-30"
-      }
-    },
-    {
-      "type": "rich-text",
-      "content": "### We are Germany's largest student group for entrepreneurship. Among our members we count many founders as well as entrepreneurs.\n\n\n| Startups | Since | Active members |\n| -------- | ----- | -------------- |\n| 60 | 2008 | 35 |\n\n\n",
-      "style": {
-        "alignment": "left",
-        "size": "full"
       }
     }
   ]
