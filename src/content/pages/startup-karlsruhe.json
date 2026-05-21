@@ -21,7 +21,7 @@
     },
     {
       "type": "rich-text",
-      "content": "> ### We are Germany's largest student group for entrepreneurship. Among our members we count many founders as well as entrepreneurs.\n\n",
+      "content": "# We are Germany's largest student group for entrepreneurship.\n\n\n\n\n\n",
       "style": {
         "alignment": "left",
         "size": "screen",
