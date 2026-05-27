@@ -17,21 +17,21 @@ const sectionClasses = twMerge(
   style.className,
   "overflow-visible p-5 pb-3 ",
 );
-const cardClasses =
-  "w-full max-w-3xl overflow-visible p-5 pb-3 rounded border-2 border-[#2a2c2e]";
+const cardClasses = "w-full max-w-3xl overflow-visible mx-auto";
 ---
 
 <section class={sectionClasses}>
   <div class={cardClasses}>
     <iframe
+      id="tally-form-iframe"
       data-tally-src={cleaned_embed}
-      loading="lazy"
+      loading="eager"
       width="100%"
-      height="518"
-      class={twMerge("overflow-visible", style.className)}
-      frameborder="0"
-      marginheight="0"
-      marginwidth="0"
+      height="600"
+      class={twMerge(
+        "overflow-visible opacity-0 transition-opacity duration-500 ease-in-out",
+        style.className,
+      )}
       title="Embedded Form"
     >
     </iframe>
@@ -61,4 +61,17 @@ const cardClasses =
     var s = d.createElement("script");
     ((s.src = w), (s.onload = v), (s.onerror = v), d.body.appendChild(s));
   }
+
+  // NEW: Listen for Tally's internal load event to fade in the iframe
+  window.addEventListener("message", (e) => {
+    // Tally sends an event called 'Tally.FormLoaded' when it's done computing
+    if (e.data && typeof e.data === 'string'&& e.data.includes("Tally.FormLoaded")) {
+      const iframe = document.getElementById("tally-form-iframe");
+      if (iframe) {
+        // Remove the invisible class and set opacity to full
+        iframe.classList.remove("opacity-0");
+        iframe.classList.add("opacity-100");
+      }
+    }
+  });
 </script>
