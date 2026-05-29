@@ -1,0 +1,16 @@
+{
+  "title": "Über uns",
+  "language": "DE",
+  "slug": "/about",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "Our Mission",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    }
+  ]
+}
