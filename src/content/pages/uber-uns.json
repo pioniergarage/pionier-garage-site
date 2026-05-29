@@ -6,11 +6,12 @@
   "blocks": [
     {
       "type": "hero",
-      "title": "Unsere Mission",
+      "title": "Wir befähigen die nächste Generation von Gründerinnen und Gründern in Karlsruhe, Ideen in Wirkung zu verwandeln.",
+      "heroTagline": "Unsere Mission",
       "style": {
         "alignment": "left",
         "size": "full",
-        "className": "bg-accent-red text-bg!"
+        "className": "bg-accent-red text-bg! uppercase"
       }
     }
   ]
