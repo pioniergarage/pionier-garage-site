@@ -12,7 +12,7 @@
       "style": {
         "alignment": "left",
         "size": "screen",
-        "className": "bg-accent-red text-bg!"
+        "className": "bg-accent-red text-bg! text-xl"
       }
     },
     {
