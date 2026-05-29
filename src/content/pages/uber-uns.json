@@ -6,10 +6,11 @@
   "blocks": [
     {
       "type": "hero",
-      "title": "Our Mission",
+      "title": "Unsere Mission",
       "style": {
         "alignment": "left",
-        "size": "full"
+        "size": "full",
+        "className": "bg-accent-red text-bg!"
       }
     }
   ]
