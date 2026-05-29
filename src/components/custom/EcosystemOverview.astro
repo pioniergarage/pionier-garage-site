@@ -41,7 +41,7 @@ const labels = translations[locale];
 ---
 
 <div
-  class="w-full grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center items-center text-center"
+  class="w-full bg-white p-10 text-black grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center items-center text-center"
   data-count-locale={numberLocale}
 >
   <a
@@ -49,7 +49,7 @@ const labels = translations[locale];
     class="w-full max-w-75 group block"
   >
     <h1
-      class="text-accent-red font-display text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance [text-shadow:0_0_20px_color-mix(in_srgb,var(--color-accent-red),transparent_60%)]"
+      class="font-serif text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance"
       data-count-up
       data-count-target={startups_rounded}
       data-count-suffix="+"
@@ -57,7 +57,7 @@ const labels = translations[locale];
     >
       {startups_rounded}+
     </h1>
-    <h3 class="font-body text-primary mt-2 group-hover:underline">
+    <h3 class="font-serif group-hover:underline">
       {labels.startups}
     </h3>
   </a>
@@ -67,7 +67,7 @@ const labels = translations[locale];
     class="w-full max-w-75 group block"
   >
     <h1
-      class="text-accent-red font-display text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance [text-shadow:0_0_20px_color-mix(in_srgb,var(--color-accent-red),transparent_60%)]"
+      class="font-serif text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance"
       data-count-up
       data-count-target={sponsors.length}
       data-count-suffix=""
@@ -75,7 +75,7 @@ const labels = translations[locale];
     >
       {sponsors.length}
     </h1>
-    <h3 class="font-body text-primary mt-2 group-hover:underline">
+    <h3 class="font-serif group-hover:underline">
       {labels.partners}
     </h3>
   </a>
@@ -85,7 +85,7 @@ const labels = translations[locale];
     class="w-full max-w-75 group block"
   >
     <h1
-      class="text-accent-red font-display text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance [text-shadow:0_0_20px_color-mix(in_srgb,var(--color-accent-red),transparent_60%)]"
+      class="font-serif text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance"
       data-count-up
       data-count-target={events_rounded}
       data-count-suffix="+"
@@ -93,7 +93,7 @@ const labels = translations[locale];
     >
       {events_rounded}+
     </h1>
-    <h3 class="font-body text-primary mt-2 group-hover:underline">
+    <h3 class="font-serif group-hover:underline">
       {labels.events}
     </h3>
   </a>
