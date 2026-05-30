@@ -33,7 +33,8 @@
       "body": "We shape Karlsruhe's ecosystem",
       "style": {
         "alignment": "left",
-        "size": "full"
+        "size": "full",
+        "className": "bg-accent-red text-bg! text-xl"
       }
     }
   ]
