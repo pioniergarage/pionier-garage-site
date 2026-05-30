@@ -33,6 +33,10 @@
         {
           "question": "Do I need an idea to get involved with you?",
           "answer": "No! We want to help you with precisely this issue! It makes absolutely no difference how much experience or skill you already possess. Our goal is to help you become a founder! However, if you are already at that stage and ready to hit the ground running, we will, of course, support you and your team with every resource at our disposal!"
+        },
+        {
+          "question": "Do you have to be a university student to become a member?",
+          "answer": "Absolutely not! We welcome anyone interested in founding a business!"
         }
       ],
       "style": {
