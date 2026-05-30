@@ -8,12 +8,13 @@
       "type": "hero",
       "title": "PIONIERGARAGE",
       "heroTagline": "Student Entrepreneurs",
+      "image": "/src/assets/DSCF2147.jpg",
       "button": {
         "text": "Triff dich mit unserem Vorstand",
         "link": "de/startups"
       },
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
