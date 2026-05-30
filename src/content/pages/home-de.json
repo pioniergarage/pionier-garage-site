@@ -33,6 +33,23 @@
         "alignment": "left",
         "size": "full"
       }
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "question": "Brauche ich eine Idee, um bei euch aktiv zu werden?",
+          "answer": "Nein! Wir wollen Dir genau bei diesem Thema helfen! Es ist ganz egal wie viel Erfahrung & Können Du schon mitbringst. Unser Ziel ist es Dir dabei zu helfen zu einem Gründer zu werden! Falls Du aber schon soweit bist und durchstarten willst, unterstützen wir Dich und dein Team natürlich auch mit all unseren Mitteln!"
+        },
+        {
+          "question": "Muss man studieren, um bei euch Mitglied zu werden?",
+          "answer": "Absolut nicht! Wir heißen alle Gründungsinteressierten bei uns willkommen!"
+        }
+      ],
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     }
   ]
 }
