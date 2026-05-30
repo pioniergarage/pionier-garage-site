@@ -26,6 +26,15 @@
         "alignment": "center",
         "size": "full"
       }
+    },
+    {
+      "type": "section",
+      "header": "Our Mission",
+      "body": "We shape Karlsruhe's ecosystem",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     }
   ]
 }
