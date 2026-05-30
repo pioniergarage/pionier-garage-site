@@ -1,0 +1,27 @@
+{
+  "title": "Coffee Chat Booking",
+  "language": "EN",
+  "slug": "/chat",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "rich-text",
+      "content": "Josua",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "button",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      },
+      "button": {
+        "text": "Book a Coffee Chat with Josua",
+        "link": "https://calendar.app.google/QYfrRL3pWdAV3bEh6"
+      }
+    }
+  ]
+}
