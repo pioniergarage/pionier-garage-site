@@ -11,8 +11,8 @@
       "heroTagline": "Student Entrepreneurs",
       "image": "/src/assets/DSCF2147.jpg",
       "button": {
-        "text": "Explore Startups",
-        "link": "en/startups"
+        "text": "Learn More",
+        "link": "en/chat"
       },
       "style": {
         "alignment": "center",
