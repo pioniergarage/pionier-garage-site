@@ -28,13 +28,16 @@
       }
     },
     {
-      "type": "section",
-      "header": "Our Mission",
-      "body": "We shape Karlsruhe's ecosystem",
+      "type": "faq",
+      "items": [
+        {
+          "question": "Do I need an idea to get involved with you?",
+          "answer": "No! We want to help you with precisely this issue! It makes absolutely no difference how much experience or skill you already possess. Our goal is to help you become a founder! However, if you are already at that stage and ready to hit the ground running, we will, of course, support you and your team with every resource at our disposal!"
+        }
+      ],
       "style": {
         "alignment": "left",
-        "size": "full",
-        "className": "bg-accent-red text-bg! text-xl"
+        "size": "full"
       }
     }
   ]
