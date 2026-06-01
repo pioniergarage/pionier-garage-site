@@ -16,8 +16,7 @@
       },
       "style": {
         "alignment": "center",
-        "size": "screen",
-        "className": "text-accent-red"
+        "size": "screen"
       }
     },
     {
