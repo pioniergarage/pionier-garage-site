@@ -15,7 +15,7 @@ components:
     type: object
     label: titleStyle
     fields:
-      - { name: size,label: Size, type: select, options: { values: [small, medium, large, xlarge, display] }, default: 'display' }
+      - { name: size,label: Size, type: select, options: { values: [small, medium, large, xlarge, display] }, default: 'large' }
       - { name: color,label: Color, type: select, options: { values: [primary, background, accent-red, inherit] }, default: 'accent-red' }
       - { name: alignment,label: Alignment, type: select, options: { values: [left, center, right] }, default: 'left' }
       - { name: className,label: Tailwind Classes, type: string }
