@@ -77,6 +77,8 @@ const titleStyleSchema = z
   })
   .optional();
 
+export type TitleStyle = z.infer<typeof titleStyleSchema>;
+
 const heroBlockSchema = z.object({
   type: z.literal("hero"),
   title: z.string().optional(),
