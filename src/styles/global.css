@@ -97,6 +97,7 @@
   h1 {
     @apply text-3xl;
     @apply font-display;
+    text-transform: uppercase;
     /* text-shadow:
       -1.5px -1.5px 0 var(--color-bg),
       1.5px -1.5px 0 var(--color-bg),
@@ -106,14 +107,15 @@
 
   h2 {
     @apply font-display;
+    text-transform: uppercase;
   }
 
   h3 {
-    @apply font-body ;
+    @apply font-body;
   }
 
   section{
-    @apply m-0 w-full py-2;
+    @apply m-0 p-0 w-full py-2;
   }
 }
 

@@ -6,45 +6,66 @@ import { alignmentVariants, sectionVariants } from "../../styles/style-mapping";
 
 type Props = BlockProps<"hero">;
 
-const { heroTagline, title, subtitle, button, style, image } = Astro.props;
+const { heroTagline, title, subtitle, button, style, image, titleStyle } = Astro.props;
 const renderedHeadline = renderHeadline(title ?? "");
+const hasImage = Boolean(image);
 
-// Apply the imported CVA variants to the outer wrapper
 const sectionClasses = sectionVariants({
   alignment: style?.alignment,
   size: style?.size,
   className: style?.className,
 });
 const alignmentClasses = alignmentVariants[style?.alignment];
+const titleAlignment = titleStyle?.alignment ?? style?.alignment ?? "center";
+
+const titleSizeClasses = {
+  small: "text-4xl md:text-5xl",
+  medium: "text-5xl md:text-6xl",
+  large: "text-5xl md:text-7xl lg:text-8xl",
+  xlarge: "text-6xl md:text-8xl lg:text-[6rem]",
+  display: "text-6xl md:text-8xl lg:text-[7.5rem]",
+};
+
+const titleColorClasses = {
+  primary: "text-primary",
+  background: "text-bg",
+  "accent-red": "text-accent-red",
+  inherit: "text-inherit",
+};
+
+const titleAlignClasses = {
+  left: "text-left",
+  center: "text-center",
+  right: "text-right",
+};
+
+const defaultTitleSize = hasImage ? "display" : "large";
+const defaultTitleColor = hasImage ? "accent-red" : "inherit";
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/**/*.{jpeg,jpg,png,webp,avif,svg}",
 );
 
-if (image && !images[image]) {
+if (hasImage && !images[image]) {
   throw new Error(
     `"${image}" does not exist. Make sure the path is correct and matches the glob pattern.`,
   );
 }
-const imageModule = await images[image]();
-const backgroundUrl = imageModule.default.src;
+const imageModule = hasImage ? await images[image]() : undefined;
+const backgroundUrl = imageModule?.default.src;
 ---
 
 <section class={sectionClasses}>
   <div
     class={twMerge(
-      "bg-cover bg-center",
-
-      "w-full px-4 mb-8",
-      "flex flex-col items-center",
+      "w-full px-4",
+      "flex flex-col",
       alignmentClasses,
-      " gap-4 h-auto",
-      "md:justify-end md:gap-0 md:h-[80vh]",
+      hasImage
+        ? "bg-cover bg-center mb-8 gap-4 h-auto md:justify-end md:gap-0 md:h-[80vh]"
+        : "min-h-[70vh] justify-center gap-5 py-28 md:px-24",
     )}
-    style={image.length > 0 && {
-      // Layer 1 (Top): Linear gradient fading from transparent down to bg color
-      // Layer 2 (Middle): Radial vignette
-      // Layer 3 (Bottom): The image
+    style={backgroundUrl && {
       backgroundImage: `
         linear-gradient(to bottom, transparent 50%, var(--color-bg) 100%), 
         linear-gradient(to top, transparent 50%, var(--color-bg) 100%),
@@ -53,25 +74,19 @@ const backgroundUrl = imageModule.default.src;
       `,
     }}
   >
-    {heroTagline && <h3 class="font-accent font-normal">{heroTagline}</h3>}
+    {heroTagline && <h3 class="font-accent text-xl">{heroTagline}</h3>}
     <h1
       class={twMerge(
-        "font-display text-accent-red text-center text-balance wrap-break-word max-w-full",
-
-        // 2. We replace vw (viewport width) with cqi (container query inline width).
-        // 15cqi means 15% of the parent container's width. Adjust this number to fit your specific font.
-        "text-[clamp(2rem,15cqi,6rem)] leading-none",
-
-        // (Optional) Remove the explicit md:text-[60px] if you want fluid scaling at all breakpoints,
-        // or keep it if you want it to stop growing on desktop.
-
-        // Existing injected HTML targeting
+        "font-display leading-none text-balance wrap-break-word max-w-full",
+        titleSizeClasses[titleStyle?.size ?? defaultTitleSize],
+        titleColorClasses[titleStyle?.color ?? defaultTitleColor],
+        titleAlignClasses[titleAlignment],
         "[&_.outlined]:text-bg [&_.outlined]:[text-shadow:-2px_-2px_0_var(--color-accent-red),2px_-2px_0_var(--color-accent-red),-2px_2px_0_var(--color-accent-red),2px_2px_0_var(--color-accent-red)]",
+        titleStyle?.className,
       )}
       set:html={renderedHeadline}
     />
 
-    {/* See note below regarding the max-width logic */}
     <h2 class="m-0 p-0 max-w-[30ch] md:max-w-[50ch] text-center">{subtitle}</h2>
 
     {

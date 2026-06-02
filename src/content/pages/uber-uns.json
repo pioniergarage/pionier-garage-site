@@ -10,8 +10,13 @@
       "heroTagline": "Unsere Mission",
       "style": {
         "alignment": "left",
-        "size": "full",
-        "className": "bg-accent-red text-bg!"
+        "size": "screen",
+        "className": "bg-accent-red text-primary"
+      },
+      "titleStyle": {
+        "size": "large",
+        "color": "primary",
+        "alignment": "left"
       }
     }
   ]
