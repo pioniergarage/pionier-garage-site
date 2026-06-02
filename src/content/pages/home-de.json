@@ -16,6 +16,11 @@
       "style": {
         "alignment": "center",
         "size": "full"
+      },
+      "titleStyle": {
+        "size": "large",
+        "color": "accent-red",
+        "alignment": "left"
       }
     },
     {

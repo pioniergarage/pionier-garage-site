@@ -68,14 +68,26 @@ const styleSchema = z
 
 export type Style = z.infer<typeof styleSchema>;
 
+const titleStyleSchema = z
+  .object({
+    size: z.enum(["small", "medium", "large", "xlarge", "display"]).optional(),
+    color: z.enum(["primary", "background", "accent-red", "inherit"]).optional(),
+    alignment: z.enum(["left", "center", "right"]).optional(),
+    className: z.string().optional(),
+  })
+  .optional();
+
+export type TitleStyle = z.infer<typeof titleStyleSchema>;
+
 const heroBlockSchema = z.object({
   type: z.literal("hero"),
   title: z.string().optional(),
   subtitle: z.string().optional(),
   heroTagline: z.string().optional(),
-  image: z.string().default(settings.fallbackImage ?? ""),
+  image: z.string().optional().default(""),
   button: buttonSchema,
   style: styleSchema,
+  titleStyle: titleStyleSchema,
 });
 
 const linkTagCloudBlockSchema = z.object({

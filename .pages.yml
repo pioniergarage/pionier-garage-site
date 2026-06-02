@@ -10,7 +10,15 @@ components:
       - { name: alignment,label: Alignment, type: select, options: { values: [left, center, right] }, default: 'left' }
       - { name: size,label: Size, type: select, options: { values: [full, half, third, screen] }, default: 'full' }
       - { name: className,label: Tailwind Classes, type: string }
-  
+
+  titleStyle:
+    type: object
+    label: titleStyle
+    fields:
+      - { name: size,label: Size, type: select, options: { values: [small, medium, large, xlarge, display] }, default: 'large' }
+      - { name: color,label: Color, type: select, options: { values: [primary, background, accent-red, inherit] }, default: 'accent-red' }
+      - { name: alignment,label: Alignment, type: select, options: { values: [left, center, right] }, default: 'left' }
+      - { name: className,label: Tailwind Classes, type: string }
 
 content:
   - name: posts
@@ -65,6 +73,8 @@ content:
                   - { name: link, type: string }
               - name: style
                 component: style
+              - name: titleStyle
+                component: titleStyle
 
           - name: tag-cloud
             label: Tag Cloud

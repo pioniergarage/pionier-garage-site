@@ -18,13 +18,13 @@ const sectionClasses = sectionVariants({
 <section class={sectionClasses}>
   {
     items?.map((item) => (
-      <details class="group border-b border-stroke open:pb-4">
+      <details class="group w-full border-b border-stroke open:pb-4 max-w-7xl">
         
         {/* list-none and the webkit pseudo-selector hide the native browser arrow */}
         <summary class="flex cursor-pointer list-none items-center justify-between py-4 [&::-webkit-details-marker]:hidden">
-          <h2 class="m-0 text-2xl font-semibold leading-[1.3]">
+          <h3 class="m-0 font-semibold leading-[1.3]">
             {item.question}
-          </h2>
+          </h3>
           
           {/* group-open applies styles based on the parent details element's state */}
           <svg 
