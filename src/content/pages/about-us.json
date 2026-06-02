@@ -15,7 +15,7 @@
         "className": "bg-accent-red text-primary"
       },
       "titleStyle": {
-        "size": "large",
+        "size": "small",
         "color": "primary",
         "alignment": "left"
       }
@@ -34,6 +34,11 @@
         "alignment": "left",
         "size": "full",
         "className": "max-h-100"
+      },
+      "titleStyle": {
+        "size": "display",
+        "color": "accent-red",
+        "alignment": "left"
       }
     }
   ]
