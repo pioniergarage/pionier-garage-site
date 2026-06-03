@@ -10,5 +10,29 @@
     "position": "Head of the Board",
     "email": "oscar.streif@pioniergarage.de",
     "startDate": "2026-06-03"
+  },
+  {
+    "title": "Josua Röck",
+    "position": "Head of IT",
+    "email": "josua.roeck@pioniergarage.de",
+    "startDate": "2026-06-03"
+  },
+  {
+    "title": "Farzad Yaqubi",
+    "position": "Head of Marketing",
+    "email": "farzad.yaqubi@pioniergarage.de",
+    "startDate": "2026-06-03"
+  },
+  {
+    "title": "Yavuz Cagan",
+    "position": "Head of Events",
+    "email": "yavuz.cagan@pioniergarage.de",
+    "startDate": "2026-06-03"
+  },
+  {
+    "title": "Peer Vagner",
+    "position": "Head of External",
+    "email": "peer.vagner@pioniergarage.de",
+    "startDate": "2026-06-03"
   }
 ]
