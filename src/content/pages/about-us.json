@@ -40,6 +40,14 @@
         "color": "accent-red",
         "alignment": "left"
       }
+    },
+    {
+      "type": "custom-block",
+      "component": "TeamGallery",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     }
   ]
 }
