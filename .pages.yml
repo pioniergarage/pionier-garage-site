@@ -247,6 +247,7 @@ content:
       - { name: position, label: Position, type: string }
       - { name: image, label: Image, type: image }
       - { name: email, label: Email, type: string }
+      - { name: coffeeChatLink, label: Coffee Chat Link, type: string }
       - { name: startDate, label: Start Date, type: date }
 
   - name: site-settings
