@@ -259,7 +259,7 @@ export const TeamDirectorySchema = z.array(z.object({
   position: z.string(),
   image: z.string().default(settings.fallbackImage ?? ""),
   email: z.email(),
-  coffeeChatLink: z.string(),
+  coffeeChatLink: z.string().default(""),
   startDate: z.coerce.date(),
 })
 ).default([]);
