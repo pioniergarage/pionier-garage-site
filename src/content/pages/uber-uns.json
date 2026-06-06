@@ -18,6 +18,20 @@
         "color": "primary",
         "alignment": "left"
       }
+    },
+    {
+      "type": "hero",
+      "title": "In 5 years our members are impactful entrepreneurs, contributing to Karlsruhe’s ecosystem.",
+      "heroTagline": "Unsere Vision",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      },
+      "titleStyle": {
+        "size": "large",
+        "color": "accent-red",
+        "alignment": "left"
+      }
     }
   ]
 }
