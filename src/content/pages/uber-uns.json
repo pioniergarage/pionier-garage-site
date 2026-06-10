@@ -18,6 +18,45 @@
         "color": "primary",
         "alignment": "left"
       }
+    },
+    {
+      "type": "hero",
+      "title": "In fünf Jahren sind unsere Mitglieder wirkungsvolle Unternehmer, die einen Beitrag zum Karlsruher Ökosystem leisten.",
+      "heroTagline": "Unsere Vision",
+      "style": {
+        "alignment": "left",
+        "size": "screen",
+        "className": "bg-accent-red/80 text-primary"
+      },
+      "titleStyle": {
+        "size": "small",
+        "color": "primary",
+        "alignment": "left"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "Unsere Geschichte",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "2008: Gründung am KIT\n\nA group of students — Moritz Meenen, Jan Henric Stönner, Martin Mitscher, Tobias Griesshaber, and Maximilian Engelken — founded the new university group \"PionierGarage\" at KIT. Regular Tuesday meetings became the main activity, with founders invited for \"Meet-the-Founder\" sessions so students could get first-hand entrepreneurship experience.",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "TeamGallery",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     }
   ]
 }
