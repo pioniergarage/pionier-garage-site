@@ -38,35 +38,33 @@ export default function TeamMemberCard({ team_member }: Props) {
             {/* Content */}
             <div className="flex flex-col gap-2.5 p-2.5 z-10 relative">
                 <div className="flex flex-row gap-2.5 min-w-0 items-start justify-between">
-                    <div className="flex flex-col gap-2.5 min-w-0 flex-1">
+                    <div className="flex flex-col min-w-0 flex-1">
 
-                        {/* Name */}
-                        <div className="px-2.5 min-w-0">
-                            <h3 className="m-0 font-display text-[21px] font-semibold leading-normal text-white whitespace-normal line-clamp-2 [text-shadow:-1.5px_-1.5px_0_#000,1.5px_-1.5px_0_#000,-1.5px_1.5px_0_#000,1.5px_1.5px_0_#000]">
+                        {team_member.position && (
+                            <div className="flex items-center justify-between font-accent text-primary -mb-2">
+                                <span>{team_member.position}</span>
+                            </div>
+                        )}
+                        <div className="min-w-0">
+                            <h3 className="m-0 font-accent text-3xl leading-normal text-white whitespace-normal line-clamp-2">
                                 {team_member.title}
                             </h3>
                         </div>
 
-                        {formattedDate && (
+                        {/* {formattedDate && (
                             <div className="flex flex-wrap gap-1.25 px-2.5 text-secondary">
                                 <time dateTime={new Date(team_member.startDate!).toISOString()}>
                                     Joined {formattedDate}
                                 </time>
                             </div>
-                        )}
+                        )} */}
                     </div>
                 </div>
 
-                <div className="px-2.5 pb-2.5 flex flex-col gap-2 mt-2">
-                    <div className="flex gap-4 items-center space-between text-caption mt-1">
-
-                        {team_member.position && (
-                            <div className="flex items-center justify-between font-accent text-caption text-primary">
-                                <span className="text-lg">{team_member.position}</span>
-                            </div>
-                        )}
+                <div className="flex flex-row gap-2 mt-2">
+                    <div className="flex flex-col gap-4 space-between mt-1">
                         <a
-                            href={`mailto:${team_member.email}`}
+                            href={team_member.coffeeChatLink ?? `mailto:${team_member.email}`}
                             className="inline-flex items-center gap-2 px-2 py-1 text-base font-inherit text-primary bg-transparent border-2 border-primary rounded transition duration-150 ease-out cursor-pointer hover:bg-primary hover:text-bg"
                         >
                             Contact
