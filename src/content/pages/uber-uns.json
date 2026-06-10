@@ -25,7 +25,7 @@
       "heroTagline": "Unsere Vision",
       "style": {
         "alignment": "left",
-        "size": "full",
+        "size": "screen",
         "className": "bg-accent-red/80 text-primary"
       },
       "titleStyle": {
