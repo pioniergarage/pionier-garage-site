@@ -26,7 +26,7 @@
       "style": {
         "alignment": "left",
         "size": "full",
-        "className": "text-primary"
+        "className": "bg-accent-red/10 text-primary"
       },
       "titleStyle": {
         "size": "small",
