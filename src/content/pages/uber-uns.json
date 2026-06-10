@@ -49,6 +49,14 @@
         "alignment": "left",
         "size": "full"
       }
+    },
+    {
+      "type": "custom-block",
+      "component": "TeamGallery",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     }
   ]
 }
