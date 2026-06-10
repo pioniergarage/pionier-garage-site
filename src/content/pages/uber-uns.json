@@ -25,11 +25,11 @@
       "heroTagline": "Unsere Vision",
       "style": {
         "alignment": "left",
-        "size": "half",
+        "size": "full",
         "className": "text-primary"
       },
       "titleStyle": {
-        "size": "medium",
+        "size": "small",
         "color": "primary",
         "alignment": "left"
       }
