@@ -51,6 +51,14 @@
       }
     },
     {
+      "type": "rich-text",
+      "content": "## Unser Board\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "custom-block",
       "component": "TeamGallery",
       "style": {
