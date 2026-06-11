@@ -36,6 +36,14 @@
       }
     },
     {
+      "type": "rich-text",
+      "content": "## Our Story",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "hero",
       "title": "Events",
       "subtitle": "We manage events!",
