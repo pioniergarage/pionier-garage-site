@@ -22,6 +22,21 @@
     },
     {
       "type": "hero",
+      "title": "In 5 years our members are impactful entrepreneurs, contributing to Karlsruhe’s ecosystem.",
+      "heroTagline": "Our Vision",
+      "style": {
+        "alignment": "left",
+        "size": "screen",
+        "className": "bg-accent-red text-primary"
+      },
+      "titleStyle": {
+        "size": "small",
+        "color": "primary",
+        "alignment": "left"
+      }
+    },
+    {
+      "type": "hero",
       "title": "Events",
       "subtitle": "We manage events!",
       "heroTagline": "5 People | Event Management",
