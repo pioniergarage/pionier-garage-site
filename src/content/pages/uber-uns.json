@@ -36,7 +36,7 @@
     },
     {
       "type": "rich-text",
-      "content": "Unsere Geschichte",
+      "content": "## Unsere Geschichte\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
