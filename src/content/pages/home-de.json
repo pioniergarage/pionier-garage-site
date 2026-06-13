@@ -66,9 +66,9 @@
     },
     {
       "type": "rich-text",
-      "content": "### Woran wir arbeiten",
+      "content": "### Woran wir arbeiten\n\n",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
@@ -109,7 +109,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Unsere Partner und Sponsoren",
+      "content": "## Unsere Partner und Sponsoren\n\n",
       "style": {
         "alignment": "center",
         "size": "full"
