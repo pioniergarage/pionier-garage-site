@@ -138,16 +138,19 @@
       "type": "highlight-cards",
       "items": [
         {
+          "image": "/src/assets/GROW_highlight.png",
           "title": "GROW",
           "link": "https://grow.pioniergarage.de/",
           "buttonText": "Learn More"
         },
         {
+          "image": "/src/assets/startup_karlsruhe_highlight.png",
           "title": "Startup Karlsruhe",
           "link": "https://startup-karlsruhe.de/de/",
           "buttonText": "Learn More"
         },
         {
+          "image": "/src/assets/startup_tour_highlight.png",
           "title": "Startup Tour",
           "link": "https://tour.pioniergarage.de/",
           "buttonText": "Learn More"
