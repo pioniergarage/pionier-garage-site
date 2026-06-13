@@ -65,6 +65,14 @@
       }
     },
     {
+      "type": "rich-text",
+      "content": "### Our Partners and Sponsors\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "custom-block",
       "component": "SponsorBlock",
       "style": {
@@ -112,14 +120,6 @@
     {
       "type": "spacer",
       "size": "80px",
-      "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "rich-text",
-      "content": "### Our Partners and Sponsors\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
