@@ -48,10 +48,10 @@
       }
     },
     {
-      "type": "custom-block",
-      "component": "EventsHighlight",
+      "type": "spacer",
+      "size": "50px",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
