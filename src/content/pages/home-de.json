@@ -56,6 +56,14 @@
       }
     },
     {
+      "type": "custom-block",
+      "component": "SponsorBlock",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "faq",
       "items": [
         {
@@ -79,14 +87,6 @@
           "answer": "Von Marketing, über Akquise bis zu Leadership ist bei uns alles drin! Ob es die interne Finanzbuchhaltung, die Planung eines Workshops mit über 50 Teilnehmern oder die Organisation von GROW, unserem Gründungswettbewerb mit über 50 Teams und 1000 Besuchern, ist. Du hast die Chance Dich in Deinen Interessen zu entfalten, Verantwortung zu übernehmen , grundlegende Dinge rund ums Gründen zu lernen und Dir ein eigenes Netzwerk aufzubauen!"
         }
       ],
-      "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "custom-block",
-      "component": "SponsorBlock",
       "style": {
         "alignment": "left",
         "size": "full"
