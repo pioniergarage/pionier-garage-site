@@ -3,5 +3,18 @@
   "language": "DE",
   "slug": "/join",
   "description": "Flo Test",
-  "layout": "../layouts/PageLayout.astro"
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "button",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      },
+      "button": {
+        "text": "Ich will mitmachen!",
+        "link": "/kontakt"
+      }
+    }
+  ]
 }
