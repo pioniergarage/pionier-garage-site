@@ -42,6 +42,18 @@
         {
           "question": "Do you have to be a university student to become a member?",
           "answer": "Absolutely not! We welcome anyone interested in founding a business!"
+        },
+        {
+          "question": "I don't really want to start a business—can I still join in?",
+          "answer": "Sure! Not all of our members want to start a business. However, PionierGarage gives you the chance to find out if that’s right for you! Since we play a very active role in the student startup scene, there are plenty of projects and tasks you can take on to help both yourself and us move forward."
+        },
+        {
+          "question": "What level of commitment is expected of me as an active member?",
+          "answer": "Commitment is an important factor, but it is entirely up to you! Depending on the project you wish to take on and your personal situation—whether regarding your studies, work, or other commitments—you have the autonomy to manage your own involvement and schedule. Apart from our weekly team meeting every Thursday, you are free to organize your work however you like."
+        },
+        {
+          "question": "What can I learn in PionierGarage?",
+          "answer": "We cover everything from marketing and business development to leadership! Whether it’s internal financial accounting, planning a workshop with over 50 participants, or organizing GROW—our startup competition featuring more than 50 teams and 1,000 attendees—you have the chance to pursue your interests, take on responsibility, learn the fundamentals of starting a business, and build your own network!"
         }
       ],
       "style": {
