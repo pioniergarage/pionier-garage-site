@@ -41,6 +41,14 @@
     },
     {
       "type": "custom-block",
+      "component": "StartupLogos",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
       "component": "EventsHighlight",
       "style": {
         "alignment": "left",
@@ -73,14 +81,6 @@
       ],
       "style": {
         "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "custom-block",
-      "component": "StartupLogos",
-      "style": {
-        "alignment": "center",
         "size": "full"
       }
     }
