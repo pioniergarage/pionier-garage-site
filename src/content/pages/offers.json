@@ -6,15 +6,21 @@
   "blocks": [
     {
       "type": "hero",
-      "title": "Offers",
+      "title": "GROW",
+      "heroTagline": "Germany's Largest Student Founding Contest",
+      "image": "/src/assets/grow_hero.png",
+      "button": {
+        "text": "Learn More",
+        "link": "https://grow.pioniergarage.de/"
+      },
       "style": {
         "alignment": "left",
         "size": "full"
       },
       "titleStyle": {
-        "size": "large",
-        "color": "accent-red",
-        "alignment": "left"
+        "size": "medium",
+        "color": "primary",
+        "alignment": "center"
       }
     }
   ]
