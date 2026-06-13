@@ -23,5 +23,10 @@
     "logo": "/src/assets/parloa.svg",
     "name": "Parloa",
     "website": "https://www.parloa.com/"
+  },
+  {
+    "logo": "/src/assets/auvisus_logo-1000x1000-1.jpg",
+    "name": "Auvisus",
+    "website": "https://visioncheckout.com/"
   }
 ]
