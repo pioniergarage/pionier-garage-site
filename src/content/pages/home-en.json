@@ -12,7 +12,7 @@
       "image": "/src/assets/DSCF2147.jpg",
       "button": {
         "text": "Chat With Our Board",
-        "link": "en/chat"
+        "link": "en/chat#board"
       },
       "style": {
         "alignment": "center",
@@ -110,7 +110,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Our Partners and Sponsors",
+      "content": "## Our Partners and Sponsors\n\n",
       "style": {
         "alignment": "center",
         "size": "full"
