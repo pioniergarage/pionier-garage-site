@@ -43,6 +43,12 @@
       "link": "https://www.wplusk.de/",
       "image": "/src/assets/Stiftung W+K_white.svg",
       "tier": "Supporter"
+    },
+    {
+      "name": "CyberForum e.V.",
+      "link": "https://www.cyberforum.de/",
+      "image": "/src/assets/CyberForumSmall.svg",
+      "tier": "None"
     }
   ]
 }
