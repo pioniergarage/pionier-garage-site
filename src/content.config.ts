@@ -189,6 +189,21 @@ const socialMediasBlockSchema = z.object({
   style: styleSchema,
 });
 
+const highlightCardsBlockSchema = z.object({
+  type: z.literal("highlight-cards"),
+  items: z
+    .array(
+      z.object({
+        title: z.string().optional(),
+        image: z.string().default(""),
+        link: z.string().optional(),
+        buttonText: z.string().optional(),
+      })
+    )
+    .optional(),
+  style: styleSchema,
+});
+
 const pageBlockSchema = z.discriminatedUnion("type", [
   heroBlockSchema,
   linkTagCloudBlockSchema,
@@ -204,6 +219,7 @@ const pageBlockSchema = z.discriminatedUnion("type", [
   spacerBlockSchema,
   embedBlockSchema,
   socialMediasBlockSchema,
+  highlightCardsBlockSchema,
 ]);
 
 const pages = defineCollection({

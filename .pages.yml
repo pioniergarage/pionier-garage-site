@@ -201,6 +201,21 @@ content:
               - name: style
                 component: style
 
+          - name: highlight-cards
+            label: Highlight Cards
+            fields:
+              - name: items
+                label: Cards
+                type: object
+                list: true
+                fields:
+                  - { name: image, label: Image, type: image }
+                  - { name: title, label: Title, type: string }
+                  - { name: link, label: Link, type: string }
+                  - { name: buttonText, label: Button Text, type: string }
+              - name: style
+                component: style
+
   # --- SINGLETONS ---
 
   - name: site-header

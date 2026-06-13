@@ -5,6 +5,7 @@ import EmbedBlock from "./EmbedBlock.astro";
 import FAQBlock from "./FAQBlock.astro";
 import FormBlock from "./FormBlock.astro";
 import HeroBlock from "./HeroBlock.astro";
+import HighlightCardsBlock from "./HighlightCardsBlock.astro";
 import ImageBlock from "./ImageBlock.astro";
 import LinkTagCloudBlock from "./LinkTagCloudBlock.astro";
 import PostsBlock from "./PostsBlock.astro";
@@ -27,6 +28,7 @@ export const BlockComponents: Partial<Record<BlockTypes, any>> = {
   'faq': FAQBlock,
   'form': FormBlock,
   'hero': HeroBlock,
+  'highlight-cards': HighlightCardsBlock,
   'image': ImageBlock,
   'posts': PostsBlock,
   'rich-text': RichTextBlock,
