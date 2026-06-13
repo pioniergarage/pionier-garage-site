@@ -13,7 +13,7 @@
       },
       "titleStyle": {
         "size": "large",
-        "color": "accent-red",
+        "color": "primary",
         "alignment": "left"
       }
     },
@@ -36,7 +36,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Warum der Pioniergarage beitreten - Erkennst du dich wieder?",
+      "content": "## Warum der Pioniergarage beitreten - Erkennst du dich wieder?\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
