@@ -6,14 +6,93 @@
   "layout": "../layouts/PageLayout.astro",
   "blocks": [
     {
+      "type": "hero",
+      "title": "WERDE MITGLIED",
+      "subtitle": "Wir starten zweimal pro Jahr eine neue Trainee-Batch: zum Beginn des Wintersemesters und zum Beginn des Sommersemesters.",
+      "heroTagline": "Batch",
+      "button": {
+        "text": "Ich will mitmachen!",
+        "link": "/kontakt"
+      },
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      },
+      "titleStyle": {
+        "size": "large",
+        "color": "accent-red",
+        "alignment": "center"
+      }
+    },
+    {
+      "type": "separator",
+      "direction": "horizontal",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "DEINE MITGLIEDERREISE",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "separator",
+      "direction": "horizontal",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "STIMMEN UNSERER MITGLIEDER",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "button",
       "style": {
         "alignment": "center",
         "size": "full"
       },
       "button": {
-        "text": "Ich will mitmachen!",
-        "link": "/kontakt"
+        "text": "Das will ich auch "
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "50px",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "faq",
+      "style": {
+        "alignment": "center",
+        "size": "full"
       }
     }
   ]
