@@ -40,6 +40,22 @@
       }
     },
     {
+      "type": "spacer",
+      "size": "20px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "### Unsere Startups",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "custom-block",
       "component": "StartupLogos",
       "style": {
