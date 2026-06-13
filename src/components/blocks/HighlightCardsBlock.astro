@@ -44,7 +44,7 @@ const sectionClasses = sectionVariants({
         items.map((item) => (
           <article
             class:list={[
-              "highlight-card relative aspect-2/3 overflow-hidden rounded-lg",
+              "highlight-card relative aspect-2/3 overflow-hidden rounded",
               isCarousel
                 ? "shrink-0 snap-start basis-[85%] sm:basis-[47%] lg:basis-[31.7%]"
                 : "flex-1",
@@ -63,9 +63,9 @@ const sectionClasses = sectionVariants({
             <div class="absolute inset-0 bg-linear-to-tr from-black/80 via-black/25 to-black/40" />
 
             {item.title && (
-              <h3 class="absolute bottom-6 left-5 m-0 max-h-[calc(100%-3rem)] rotate-180 font-display text-4xl leading-none text-white uppercase [writing-mode:vertical-rl]">
+              <h1 class="absolute bottom-6 text-6xl left-5 m-0 max-h-[calc(100%-3rem)] rotate-180 font-display leading-none text-white uppercase [writing-mode:vertical-rl]">
                 {item.title}
-              </h3>
+              </h1>
             )}
 
             {item.buttonText && (
