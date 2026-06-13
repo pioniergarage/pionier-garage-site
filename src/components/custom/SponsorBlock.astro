@@ -19,34 +19,16 @@ for (const sponsor of sponsors) {
 }
 ---
 
-<div class="carousel m-0 p-0 overflow-hidden flex max-h-[300px] w-full">
-  <div class="group flex shrink-0 grow-0 basis-full gap-[100px] pr-[100px] will-change-transform">
+<div class="m-0 p-0 overflow-hidden flex max-h-[300px] w-full">
+  <div class="flex flex-wrap flex-row w-full justify-center">
     {
       sponsors.map((sponsor) => (
-        <a class="carousel-card flex m-5 w-full max-h-[100px] justify-center items-center text-white transition-transform duration-150 ease-in hover:scale-105" href={sponsor.link}>
+        <a class="flex m-7 justify-center items-center text-white transition-transform duration-150 ease-in hover:scale-105" href={sponsor.link}>
           {sponsor.image ? (
             <Image 
               src={images[sponsor.image]()} 
               alt={sponsor.name ?? ""} 
-              class="w-[250px] h-auto m-0 p-0 object-contain"
-            />
-          ) : (
-            <h2 class="font-display text-white">{sponsor.name}</h2>
-          )}
-        </a>
-      ))
-    }
-  </div>
-  <!-- Add `aria-hidden` to hide the duplicated carousel-cards from screen readers. -->
-  <div aria-hidden="true" class="group flex shrink-0 grow-0 basis-full gap-[100px] pr-[100px] will-change-transform">
-    {
-      sponsors.map((sponsor) => (
-        <a class="carousel-card flex m-5 w-full max-h-[100px] justify-center items-center text-white transition-transform duration-150 ease-in hover:scale-105" href={sponsor.link}>
-          {sponsor.image ? (
-            <Image 
-              src={images[sponsor.image]()} 
-              alt={sponsor.name ?? ""} 
-              class="w-[250px] h-auto m-0 p-0 object-contain"
+              class="h-[50px] w-auto m-0 p-0 object-contain"
             />
           ) : (
             <h2 class="font-display text-white">{sponsor.name}</h2>
@@ -56,45 +38,3 @@ for (const sponsor of sponsors) {
     }
   </div>
 </div>
-
-<script>
-  const carousels = document.querySelectorAll(".carousel");
-
-  carousels.forEach((carousel) => {
-    const groups = carousel.querySelectorAll(".group");
-    const animations = new Array<Animation>();
-    const items = new Array<ChildNode>();
-
-    groups.forEach((group) => {
-      const animation = group.animate(
-        [{ transform: "translateX(0)" }, { transform: "translateX(-100%)" }],
-        {
-          duration: 20000,
-          iterations: Infinity,
-        }
-      );
-      animations.push(animation);
-      for (const element of group.childNodes) {
-        items.push(element);
-      }
-    });
-
-    let targetSpeed = 1;
-    let currentSpeed = 1;
-
-    for (const item of items) {
-      item.addEventListener("mouseenter", () => (targetSpeed = 0));
-      item.addEventListener("mouseleave", () => (targetSpeed = 1));
-    }
-
-    function smoothSpeed() {
-      currentSpeed += (targetSpeed - currentSpeed) * 0.08;
-      animations.forEach((anim) => {
-        anim.playbackRate = currentSpeed;
-      });
-      requestAnimationFrame(smoothSpeed);
-    }
-
-    smoothSpeed();
-  });
-</script>
