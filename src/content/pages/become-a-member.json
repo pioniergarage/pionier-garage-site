@@ -16,6 +16,22 @@
         "color": "accent-red",
         "alignment": "left"
       }
+    },
+    {
+      "type": "rich-text",
+      "content": "## Your Memberjourney\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "## What our members say\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     }
   ]
 }
