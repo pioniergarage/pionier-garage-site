@@ -24,6 +24,17 @@
       }
     },
     {
+      "type": "button",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      },
+      "button": {
+        "text": "Mehr erfahren",
+        "link": "https://grow.pioniergarage.de/"
+      }
+    },
+    {
       "type": "rich-text",
       "content": "Unsere Startups",
       "style": {
@@ -42,7 +53,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Warum der Pioniergarage beitreten - Erkennst du dich wieder?\n\n",
+      "content": "## Warum der Pioniergarage beitreten - Erkennst du dich wieder?",
       "style": {
         "alignment": "left",
         "size": "full"
