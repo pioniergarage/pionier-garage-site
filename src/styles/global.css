@@ -111,7 +111,7 @@
   }
 
   h3 {
-    @apply font-body;
+    @apply font-accent;
   }
 
   section{

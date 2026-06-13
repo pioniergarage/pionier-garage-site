@@ -122,6 +122,7 @@ content:
                     - StartupsHighlight
                     - SponsorBlock
                     - TeamGallery
+                    - StartupLogos
                     - EcosystemOverview
               - name: style
                 component: style
@@ -249,6 +250,17 @@ content:
       - { name: email, label: Email, type: string }
       - { name: coffeeChatLink, label: Coffee Chat Link, type: string }
       - { name: startDate, label: Start Date, type: date }
+
+  - name: startup-logos
+    label: PG Startups
+    type: file
+    path: src/content/startup_logos.json
+    format: json
+    list: true
+    fields:
+      - { name: logo, label: Logo, type: image }
+      - { name: name, label: Startup Name, type: string }
+      - { name: website, label: Website, type: string }
 
   - name: site-settings
     label: Site Settings

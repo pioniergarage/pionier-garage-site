@@ -1,0 +1,128 @@
+---
+import { Image } from "astro:assets";
+import rawStartups from "../../content/startup_logos.json";
+import { StartupLogosSchema } from "../../content.config.ts";
+
+const startups = StartupLogosSchema.parse(rawStartups);
+
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/**/*.{jpeg,jpg,png,webp,avif,svg}",
+);
+
+for (const startup of startups) {
+  const logo = startup.logo;
+  if (logo && !images[logo]) {
+    throw new Error(
+      `"${logo}" does not exist. Make sure the path is correct and matches the glob pattern.`,
+    );
+  }
+}
+---
+
+<div class="startup-logos flex w-full justify-center overflow-hidden">
+  <div class="startup-logos-track flex shrink-0 gap-6 will-change-transform">
+    {
+      startups.map((startup) => (
+        <a
+          class="startup-logo-card flex h-[120px] w-[120px] shrink-0 items-center justify-center rounded-lg bg-white p-4 transition-transform duration-150 ease-in hover:scale-105"
+          href={startup.website || undefined}
+          target={startup.website ? "_blank" : undefined}
+          rel={startup.website ? "noopener noreferrer" : undefined}
+          title={startup.name ?? ""}
+        >
+          {startup.logo ? (
+            <Image
+              src={images[startup.logo]()}
+              alt={startup.name ?? ""}
+              class="m-0 h-full w-full object-contain p-0"
+            />
+          ) : (
+            <span class="text-center text-sm font-medium text-black">
+              {startup.name}
+            </span>
+          )}
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<script>
+  // Renders the startup logos as a centered row. When the logos no longer fit
+  // in a single row, the track is duplicated and animated into an infinite
+  // marquee so visitors can slide/scroll through all of them.
+  function setupStartupLogos() {
+    const containers =
+      document.querySelectorAll<HTMLElement>(".startup-logos");
+
+    containers.forEach((container) => {
+      const track = container.querySelector<HTMLElement>(
+        ".startup-logos-track",
+      );
+      if (!track) return;
+
+      // Reset any previous marquee setup (e.g. on resize).
+      const existing = (track as any)._marqueeAnimation as
+        | Animation
+        | undefined;
+      if (existing) existing.cancel();
+      const originals = (track as any)._originalChildren as
+        | ChildNode[]
+        | undefined;
+      if (originals) {
+        track.replaceChildren(...originals);
+      } else {
+        (track as any)._originalChildren = Array.from(track.childNodes);
+      }
+      container.classList.add("justify-center");
+
+      const overflowing = track.scrollWidth > container.clientWidth;
+      if (!overflowing) return;
+
+      // Switch from centered row to a left-aligned marquee.
+      container.classList.remove("justify-center");
+
+      const singleWidth = track.scrollWidth;
+
+      // Duplicate the logos so the loop is seamless.
+      const clone = track.cloneNode(true) as HTMLElement;
+      Array.from(clone.childNodes).forEach((child) => {
+        if (child instanceof HTMLElement) child.setAttribute("aria-hidden", "true");
+        track.appendChild(child);
+      });
+
+      const speed = 60; // pixels per second
+      const duration = (singleWidth / speed) * 1000;
+
+      const animation = track.animate(
+        [
+          { transform: "translateX(0)" },
+          { transform: `translateX(-${singleWidth}px)` },
+        ],
+        { duration, iterations: Infinity },
+      );
+      (track as any)._marqueeAnimation = animation;
+
+      // Smoothly pause on hover, like the sponsor carousel.
+      let targetSpeed = 1;
+      let currentSpeed = 1;
+      container.addEventListener("mouseenter", () => (targetSpeed = 0));
+      container.addEventListener("mouseleave", () => (targetSpeed = 1));
+
+      function smoothSpeed() {
+        currentSpeed += (targetSpeed - currentSpeed) * 0.08;
+        animation.playbackRate = currentSpeed;
+        requestAnimationFrame(smoothSpeed);
+      }
+      smoothSpeed();
+    });
+  }
+
+  setupStartupLogos();
+
+  let resizeTimer: number;
+  window.addEventListener("resize", () => {
+    window.clearTimeout(resizeTimer);
+    resizeTimer = window.setTimeout(setupStartupLogos, 200);
+  });
+</script>

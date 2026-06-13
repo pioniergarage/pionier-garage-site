@@ -254,6 +254,13 @@ export const SiteFooterSchema = z.object({
   styleOverrides: z.string().optional(),
 });
 
+export const StartupLogosSchema = z.array(z.object({
+  name: z.string().optional(),
+  website: z.string().optional(),
+  logo: z.string().default(""),
+})
+).default([]);
+
 export const TeamDirectorySchema = z.array(z.object({
   title: z.string(), //Name
   position: z.string(),

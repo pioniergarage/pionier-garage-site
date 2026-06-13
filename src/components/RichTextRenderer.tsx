@@ -14,7 +14,7 @@ export default function RichTextRenderer({ html, children }: Props) {
     "flex flex-col gap-5 leading-relaxed",
 
     // Headings
-    "[&_:is(h1,h2,h3,h4)]:font-bold [&_:is(h1,h2,h3,h4)]:leading-tight [&_:is(h1,h2,h3,h4)]:mt-4",
+    "[&_:is(h1,h2)]:font-bold [&_:is(h1,h2,h3,h4)]:leading-tight [&_:is(h1,h2,h3,h4)]:mt-4",
     "[&_h1]:text-4xl [&_h2]:text-[1.85rem] [&_h3]:text-2xl",
 
     // Lists
