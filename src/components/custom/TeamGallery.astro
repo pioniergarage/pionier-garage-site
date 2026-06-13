@@ -1,11 +1,24 @@
 ---
-import { getCollection } from "astro:content";
 import team from "../../content/team.json"
-import type { PostData } from "../posts/types";
 import TeamExplorer from "../team/TeamExplorer";
 import { TeamDirectorySchema } from "../../content.config";
 
-// Fetch all posts from the 'blog' collection
 const team_members = TeamDirectorySchema.parse(team);
+
+// Resolve `/src/assets/...` paths to their processed, build-time URLs.
+// A raw source path works in `astro dev` (Vite serves source files) but 404s
+// in production, where assets are hashed into `/_astro/`. Since the team card
+// is a React component, it can't use Astro's asset pipeline itself — so we
+// resolve the URLs here and pass plain strings down.
+const images = import.meta.glob<{ default: ImageMetadata }>(
+  "/src/assets/**/*.{jpeg,jpg,png,webp,avif,svg}",
+  { eager: true },
+);
+
+const resolved_team_members = team_members.map((member) =>
+  member.image && images[member.image]
+    ? { ...member, image: images[member.image].default.src }
+    : member,
+);
 ---
-<TeamExplorer team_members={team_members} />
+<TeamExplorer team_members={resolved_team_members} />
