@@ -5,8 +5,13 @@ import logoGradient from "../assets/rocket_gradient.svg";
 import startupKarlsruheType from "../assets/Startup_Karlsruhe.svg";
 import startupKarlsruheMobileType from "../assets/Startup_Karlsruhe_mobile.svg";
 import { localized } from "../utils/utils";
+import rawConfig from "../content/site_config.json";
+import { SiteSettingsConfigSchema } from "../content.config.ts";
 
 const locale = Astro.currentLocale === "de" ? "de" : "en";
+
+const config = SiteSettingsConfigSchema.parse(rawConfig);
+const { socialMedias } = config;
 
 const translations = {
   de: {
@@ -26,8 +31,22 @@ const translations = {
 const labels = translations[locale];
 ---
 
-<footer>
-  <h1>PionierGarage e.V.</h1>
+<footer class="w-full flex flex-row gap-4">
+  <div class="flex flex-row items-center w-full justify-between">
+    <h1>PionierGarage e.V.</h1>
+
+    <div class="flex flex-row gap-5">
+      {
+        socialMedias.map((social) => (
+          <a class="" href={social.link}>
+            {social.name}
+          </a>
+        ))
+      }
+    </div>
+  </div>
+
+  <div class="w-full bg-secondary h-[1px]"></div>
 
   <div class="footer-content">
     <a href="https://www.pioniergarage.de/">{labels.copyright}</a>
@@ -70,10 +89,8 @@ const labels = translations[locale];
   }
 
   .footer-content {
-    color: var(--secondary);
+    color: var(--color-secondary);
     font-size: var(--caption-font-size);
-    margin-top: 10px;
-    margin-bottom: 10px;
     display: flex;
     flex-direction: row;
     width: 100%;
