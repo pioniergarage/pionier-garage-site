@@ -27,10 +27,10 @@
       "tier": "None"
     },
     {
-      "name": "PionierGarage Karlsruhe",
-      "link": "https://pioniergarage.de",
-      "image": "/src/assets/LogoMitName weiß.png",
-      "tier": "None"
+      "name": "KIT Gründerschmiede",
+      "link": "https://kit-gruenderschmiede.de/",
+      "image": "/src/assets/kgs logo.svg",
+      "tier": "Partner"
     }
   ]
 }
