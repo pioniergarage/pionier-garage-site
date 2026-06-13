@@ -1,11 +1,5 @@
 [
   {
-    "title": "Hirad Sardashti",
-    "position": "Head of External",
-    "email": "hirad.sardashti@pioniergarage.de",
-    "startDate": "2026-05-19"
-  },
-  {
     "title": "Oscar Streif",
     "position": "Head of the Board",
     "image": "/src/assets/oscar_formatted.png",
@@ -14,8 +8,16 @@
     "startDate": "2026-05-19"
   },
   {
+    "title": "Hirad Sardashti",
+    "position": "Head of Finance",
+    "image": "/src/assets/hirad formatted.png",
+    "email": "hirad.sardashti@pioniergarage.de",
+    "startDate": "2026-05-19"
+  },
+  {
     "title": "Josua Röck",
     "position": "Head of IT",
+    "image": "/src/assets/josua formatted.png",
     "email": "josua.roeck@pioniergarage.de",
     "coffeeChatLink": "https://calendar.app.google/TCLPWq5bYzEByEbcA",
     "startDate": "2026-05-19"
@@ -23,12 +25,14 @@
   {
     "title": "Farzad Yaqubi",
     "position": "Head of Marketing",
+    "image": "/src/assets/farzad formatted.png",
     "email": "farzad.yaqubi@pioniergarage.de",
     "startDate": "2026-06-03"
   },
   {
     "title": "Yavuz Cagan",
     "position": "Head of Events",
+    "image": "/src/assets/yavuz formatted.png",
     "email": "yavuz.cagan@pioniergarage.de",
     "coffeeChatLink": "https://calendar.app.google/SzcS35JVTnMqGeuz7",
     "startDate": "2026-05-19"
@@ -36,6 +40,7 @@
   {
     "title": "Peer Vagner",
     "position": "Head of External",
+    "image": "/src/assets/peer formatted.png",
     "email": "peer.vagner@pioniergarage.de",
     "startDate": "2026-06-03"
   }

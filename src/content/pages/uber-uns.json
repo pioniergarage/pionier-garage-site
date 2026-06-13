@@ -44,7 +44,15 @@
     },
     {
       "type": "rich-text",
-      "content": "### 2008: Gründung am KIT\n\nA group of students — Moritz Meenen, Jan Henric Stönner, Martin Mitscher, Tobias Griesshaber, and Maximilian Engelken — founded the new university group \"PionierGarage\" at KIT. Regular Tuesday meetings became the main activity, with founders invited for \"Meet-the-Founder\" sessions so students could get first-hand entrepreneurship experience.\n\n\n\n### 2009: Partnership with Cyberforum\n\nKerstin Weber-Sanguigno joined the association, and the partnership with CyberForum began. As the biggest player in the Karlsruhe startup scene, CyberForum connected PionierGarage with founders and mentors and embedded it more deeply in the local ecosystem.\n\n\n\n### 2011: First Startup Tour to Silicon Valley\n\nThe first Startup Tour took members to Silicon Valley for two weeks to experience the local founder scene. Startup Tours have been an annual tradition ever since, with new destinations each year.\n\n",
+      "content": "### 2008: Gründung am KIT\n\nEine Gruppe von Studierenden – Moritz Meenen, Jan Henric Stönner, Martin Mitscher, Tobias Griesshaber und Maximilian Engelken – gründete am KIT die neue Hochschulgruppe „PionierGarage“. Regelmäßige Treffen am Dienstag bildeten den Schwerpunkt der Aktivitäten; dabei wurden Gründer zu „Meet-the-Founder“-Veranstaltungen eingeladen, damit die Studierenden Unternehmertum aus erster Hand erleben konnten.\n\n\n\n### 2009: Partnerschaft mit dem Cyberforum\n\nKerstin Weber-Sanguigno trat dem Verein bei, und die Partnerschaft mit dem CyberForum begann. Als wichtigster Akteur der Karlsruher Startup-Szene vernetzte das CyberForum die PionierGarage mit Gründern sowie Mentoren und verankerte sie stärker im lokalen Ökosystem.\n\n\n\n### 2011: Erste Startup Tour ins Silicon Valley\n\nDie erste Startup-Tour führte die Teilnehmer für zwei Wochen ins Silicon Valley, um die dortige Gründerszene zu erleben. Seither sind Startup-Touren eine jährliche Tradition, wobei jedes Jahr neue Ziele angesteuert werden.\n\n\n\n### 2013: GROW wird geboren\n\nErste Ausgabe des Gründungswettbewerbs GROW, unterstützt von Holger Kujath (Gründer von Knuddels). Der Wettbewerb findet seither jährlich am KIT statt, wobei sowohl die Zahl der Teilnehmenden als auch das Publikum stetig wachsen. Holger Kujath unterstützt GROW weiterhin jedes Jahr als Geldgeber und Sponsor.\n\n\n\n### 2016: Das Launchpad öffnet\n\nEröffnung des PionierGarage Launchpads – des ersten von Studierenden betriebenen Inkubators in Deutschland. Nach einjähriger Planungsphase bot das Launchpad Start-ups erschwingliche Arbeitsflächen in unmittelbarer Nähe zur Studierendenschaft. Es erfolgte der offizielle Umzug aus den Räumlichkeiten des AStA am KIT in eigene Vereinsräumlichkeiten. Zudem wurden Ressorts sowie regelmäßige Ressort-Treffen eingeführt, und die Zahl der aktiven Mitglieder ist seither stetig gewachsen.\n\n\n\n### 2019: 10-jähriges Jubiläum\n\nDas GROW-Finale lockte 500 Teilnehmer ins Audimax. Erstes PionierWochenende. Feier zum zehnjährigen Jubiläum der PionierGarage. Die Ressortstruktur wurde durch eine projektbasierte Struktur ersetzt.\n\n\n\n### 2024: Umzug in den CUBE\n\nAuszug aus dem Launchpad aufgrund des schlechten Gebäudezustands. Umzug in den CUBE der KIT-Gründerschmiede.\n\n\n\n### 2026: GROW erreicht 1000 Besucher\n\nZum ersten Mal in der Geschichte erreicht GROW 1.000 Besucher, darunter Daniel Jung sowie Investoren und Mentoren aus ganz Deutschland.\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -52,7 +60,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Unser Board\n\n",
+      "content": "## Unser Vorstand\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -61,6 +69,14 @@
     {
       "type": "custom-block",
       "component": "TeamGallery",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
       "style": {
         "alignment": "left",
         "size": "full"

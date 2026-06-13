@@ -6,15 +6,54 @@
   "blocks": [
     {
       "type": "hero",
-      "title": "Offers",
+      "title": "GROW",
+      "heroTagline": "Germany's Largest Student Founding Contest",
+      "image": "/src/assets/grow_hero.png",
+      "button": {
+        "text": "Learn More",
+        "link": "https://grow.pioniergarage.de/"
+      },
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       },
       "titleStyle": {
-        "size": "large",
-        "color": "accent-red",
-        "alignment": "left"
+        "size": "medium",
+        "color": "primary",
+        "alignment": "center"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "Our Startups",
+      "style": {
+        "alignment": "center",
+        "size": "full",
+        "className": "font-accent"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "StartupLogos",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
       }
     }
   ]

@@ -52,29 +52,32 @@
       }
     },
     {
-      "type": "hero",
-      "title": "Events",
-      "subtitle": "We manage events!",
-      "heroTagline": "5 People | Event Management",
-      "image": "/src/assets/cyberforum_picture-1.jpg",
-      "button": {
-        "text": "Talk to Yavuz",
-        "link": "https://calendar.app.google/SzcS35JVTnMqGeuz7"
-      },
+      "type": "spacer",
+      "size": "50px",
       "style": {
         "alignment": "left",
-        "size": "full",
-        "className": "max-h-100"
-      },
-      "titleStyle": {
-        "size": "display",
-        "color": "accent-red",
-        "alignment": "left"
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "## Our Board\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
       }
     },
     {
       "type": "custom-block",
       "component": "TeamGallery",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "50px",
       "style": {
         "alignment": "left",
         "size": "full"
