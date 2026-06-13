@@ -74,6 +74,41 @@
       }
     },
     {
+      "type": "highlight-cards",
+      "items": [
+        {
+          "image": "/src/assets/GROW_highlight-1.png",
+          "title": "GROW",
+          "link": "https://grow.pioniergarage.de/",
+          "buttonText": "Learn More"
+        },
+        {
+          "image": "/src/assets/startup_karlsruhe_highlight-1.png",
+          "title": "Startup Karlsruhe",
+          "link": "https://startup-karlsruhe.de/de/",
+          "buttonText": "Learn More"
+        },
+        {
+          "image": "/src/assets/startup_tour_highlight-1.png",
+          "title": "Startup Tour",
+          "link": "https://tour.pioniergarage.de/",
+          "buttonText": "Learn More"
+        }
+      ],
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "rich-text",
       "content": "## Our Partners and Sponsors\n\n",
       "style": {
@@ -129,33 +164,6 @@
     {
       "type": "spacer",
       "size": "80px",
-      "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "highlight-cards",
-      "items": [
-        {
-          "image": "/src/assets/GROW_highlight.png",
-          "title": "GROW",
-          "link": "https://grow.pioniergarage.de/",
-          "buttonText": "Learn More"
-        },
-        {
-          "image": "/src/assets/startup_karlsruhe_highlight.png",
-          "title": "Startup Karlsruhe",
-          "link": "https://startup-karlsruhe.de/de/",
-          "buttonText": "Learn More"
-        },
-        {
-          "image": "/src/assets/startup_tour_highlight.png",
-          "title": "Startup Tour",
-          "link": "https://tour.pioniergarage.de/",
-          "buttonText": "Learn More"
-        }
-      ],
       "style": {
         "alignment": "left",
         "size": "full"

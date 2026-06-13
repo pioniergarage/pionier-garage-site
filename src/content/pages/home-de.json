@@ -66,6 +66,49 @@
     },
     {
       "type": "rich-text",
+      "content": "### Woran wir arbeiten",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "highlight-cards",
+      "items": [
+        {
+          "image": "/src/assets/GROW_highlight-1.png",
+          "title": "GROW",
+          "link": "https://grow.pioniergarage.de/",
+          "buttonText": "Mehr erfahren"
+        },
+        {
+          "image": "/src/assets/startup_karlsruhe_highlight-1.png",
+          "title": "Startup Karlsruhe",
+          "link": "https://startup-karlsruhe.de/de/",
+          "buttonText": "Mehr erfahren"
+        },
+        {
+          "image": "/src/assets/startup_tour_highlight-1.png",
+          "title": "Startup Tour",
+          "link": "https://tour.pioniergarage.de/",
+          "buttonText": "Mehr erfahren"
+        }
+      ],
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
       "content": "## Unsere Partner und Sponsoren",
       "style": {
         "alignment": "center",
