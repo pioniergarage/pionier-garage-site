@@ -65,6 +65,14 @@
       }
     },
     {
+      "type": "rich-text",
+      "content": "### Woran wir arbeiten",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "highlight-cards",
       "items": [
         {
