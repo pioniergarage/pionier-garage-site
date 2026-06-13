@@ -32,6 +32,19 @@
         "alignment": "left",
         "size": "full"
       }
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "question": "What is the Batch?",
+          "answer": "The Batch is our system for bringing in new members"
+        }
+      ],
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     }
   ]
 }
