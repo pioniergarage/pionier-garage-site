@@ -14,11 +14,11 @@
         "link": "https://grow.pioniergarage.de/"
       },
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       },
       "titleStyle": {
-        "size": "large",
+        "size": "medium",
         "color": "primary",
         "alignment": "left"
       }
