@@ -37,6 +37,12 @@
       "link": "https://www.peri.de/",
       "image": "/src/assets/peri-logo.webp",
       "tier": "Supporter"
+    },
+    {
+      "name": "Stiftung Wissen und Kompetenzen",
+      "link": "https://www.wplusk.de/",
+      "image": "/src/assets/Logo-Stiftung_WplusK.webp",
+      "tier": "Supporter"
     }
   ]
 }
