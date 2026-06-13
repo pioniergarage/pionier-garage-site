@@ -7,12 +7,8 @@
     {
       "type": "hero",
       "title": "GROW",
-      "subtitle": "Wir organisieren einen der größten studentischen Startup-Wettbewerbe im DACH-Raum. Von der Bewerbung über die Auswahl bis zur Betreuung der Teams – wir schaffen die Plattform, auf der Gründungsideen wachsen und sichtbar werden.",
       "heroTagline": "Größter Studentischer Gründungswettbewerb",
-      "button": {
-        "text": "Mehr erfahren",
-        "link": "https://grow.pioniergarage.de/"
-      },
+      "image": "/src/assets/grow_hero.png",
       "style": {
         "alignment": "center",
         "size": "full"
@@ -21,6 +17,15 @@
         "size": "medium",
         "color": "primary",
         "alignment": "left"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "Wir organisieren einen der größten studentischen Startup-Wettbewerbe im DACH-Raum. Von der Bewerbung über die Auswahl bis zur Betreuung der Teams – wir schaffen die Plattform, auf der Gründungsideen wachsen und sichtbar werden.",
+      "style": {
+        "alignment": "center",
+        "size": "full",
+        "className": "font-accent"
       }
     },
     {
@@ -53,7 +58,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Warum der Pioniergarage beitreten - Erkennst du dich wieder?",
+      "content": "## Warum der Pioniergarage beitreten - Erkennst du dich wieder?\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
