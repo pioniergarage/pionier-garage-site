@@ -9,7 +9,7 @@
       "type": "hero",
       "title": "Test Hero Title",
       "subtitle": "Test Hero Subtitle",
-      "image": "/src/assets/Startup_Karlsruhe_mobile.svg",
+      "image": "/src/assets/startup_karlsruhe_highlight-1.png",
       "button": {
         "text": "Call to Action",
         "link": "/target-url"
@@ -30,7 +30,7 @@
     },
     {
       "type": "image",
-      "image": "/src/assets/cyberforum_picture.jpg",
+      "image": "/src/assets/CyberForumSmall.jpg",
       "size": "small",
       "style": {
         "alignment": "left",
