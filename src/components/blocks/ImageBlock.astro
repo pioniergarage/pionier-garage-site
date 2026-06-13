@@ -18,7 +18,7 @@ const widths = {
 const selectedWidth = size ? widths[size as keyof typeof widths] : widths.large;
 
 const images = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/**/*.{jpeg,jpg,png,webp,avif}",
+  "/src/assets/**/*.{jpeg,jpg,png,webp,avif,svg}",
 );
 
 if (image && !images[image]) {
