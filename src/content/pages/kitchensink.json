@@ -30,7 +30,7 @@
     },
     {
       "type": "image",
-      "image": "/src/assets/CyberForumSmall.jpg",
+      "image": "/src/assets/CyberForumSmall.svg",
       "size": "small",
       "style": {
         "alignment": "left",
