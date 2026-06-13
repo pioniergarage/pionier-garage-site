@@ -66,9 +66,9 @@
     },
     {
       "type": "rich-text",
-      "content": "### Our Partners and Sponsors\n\n",
+      "content": "## Our Partners and Sponsors\n\n",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
