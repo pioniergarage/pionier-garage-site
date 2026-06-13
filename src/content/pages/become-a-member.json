@@ -1,0 +1,21 @@
+{
+  "title": "Become a member",
+  "language": "EN",
+  "slug": "/join",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "Become a Member",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      },
+      "titleStyle": {
+        "size": "large",
+        "color": "accent-red",
+        "alignment": "left"
+      }
+    }
+  ]
+}
