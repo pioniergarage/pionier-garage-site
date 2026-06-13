@@ -83,6 +83,14 @@
         "alignment": "left",
         "size": "full"
       }
+    },
+    {
+      "type": "custom-block",
+      "component": "SponsorBlock",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     }
   ]
 }
