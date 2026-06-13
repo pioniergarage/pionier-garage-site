@@ -53,7 +53,7 @@
       "style": {
         "alignment": "center",
         "size": "full",
-        "className": "text-accent"
+        "className": "font-accent"
       }
     },
     {
