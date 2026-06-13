@@ -11,7 +11,7 @@
       "image": "/src/assets/DSCF2147.jpg",
       "button": {
         "text": "Quatsche mit unserem Vorstand",
-        "link": "de/about"
+        "link": "de/about#board"
       },
       "style": {
         "alignment": "center",

@@ -63,7 +63,8 @@
       "content": "## Unser Vorstand\n\n",
       "style": {
         "alignment": "left",
-        "size": "full"
+        "size": "full",
+        "id": "board"
       }
     },
     {

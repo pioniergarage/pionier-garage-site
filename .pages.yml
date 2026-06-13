@@ -10,6 +10,7 @@ components:
       - { name: alignment,label: Alignment, type: select, options: { values: [left, center, right] }, default: 'left' }
       - { name: size,label: Size, type: select, options: { values: [full, half, third, screen] }, default: 'full' }
       - { name: className,label: Tailwind Classes, type: string }
+      - { name: id,label: Anchor ID, type: string }
 
   titleStyle:
     type: object

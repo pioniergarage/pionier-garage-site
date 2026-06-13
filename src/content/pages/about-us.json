@@ -64,7 +64,8 @@
       "content": "## Our Board\n\n",
       "style": {
         "alignment": "left",
-        "size": "full"
+        "size": "full",
+        "id": "board"
       }
     },
     {

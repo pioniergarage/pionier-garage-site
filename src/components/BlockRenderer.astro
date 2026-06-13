@@ -11,8 +11,14 @@ const block = Astro.props.block;
 
 // Determines which component to use
 const Component = BlockComponents[block.type];
+
+// Optional anchor target so blocks can be linked to via `#id` (e.g. a CTA that
+// jumps to a section further down the page). `scroll-mt-28` offsets the jump so
+// the target isn't hidden behind the fixed header.
+const anchorId = block.style?.id;
 ---
 
+{anchorId && <span id={anchorId} aria-hidden="true" class="block h-0 w-0 scroll-mt-28" />}
 {
   Component ? (
     <Component {...block} />

@@ -64,6 +64,7 @@ const styleSchema = z
     alignment: z.enum(["left", "center", "right"]),
     size: z.enum(["full", "half", "third","screen"]),
     className: z.string().optional(),
+    id: z.string().optional(),
   }).default({ alignment: "left", size: "full" });
 
 export type Style = z.infer<typeof styleSchema>;
