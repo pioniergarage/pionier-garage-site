@@ -4,13 +4,13 @@
       "url": "/about"
     },
     {
-      "url": "/partner"
-    },
-    {
       "url": "/offers"
     },
     {
       "url": "/join"
+    },
+    {
+      "url": "/contact"
     }
   ]
 }

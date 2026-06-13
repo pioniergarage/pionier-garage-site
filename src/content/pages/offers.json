@@ -1,0 +1,21 @@
+{
+  "title": "Offers",
+  "language": "EN",
+  "slug": "/offers",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "Offers",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      },
+      "titleStyle": {
+        "size": "large",
+        "color": "accent-red",
+        "alignment": "left"
+      }
+    }
+  ]
+}
