@@ -40,16 +40,8 @@
       }
     },
     {
-      "type": "spacer",
-      "size": "20px",
-      "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
       "type": "rich-text",
-      "content": "Unsere Startups\n\n",
+      "content": "Unsere Besten Startups\n\n",
       "style": {
         "alignment": "center",
         "size": "full",
@@ -74,7 +66,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Unsere Partner und Sponsoren\n\n",
+      "content": "## Unsere Partner und Sponsoren",
       "style": {
         "alignment": "center",
         "size": "full"
