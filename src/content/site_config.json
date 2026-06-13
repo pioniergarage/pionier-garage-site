@@ -30,7 +30,13 @@
       "name": "KIT Gründerschmiede",
       "link": "https://kit-gruenderschmiede.de/",
       "image": "/src/assets/kgs logo.svg",
-      "tier": "Partner"
+      "tier": "Supporter"
+    },
+    {
+      "name": "PERI",
+      "link": "https://www.peri.de/",
+      "image": "/src/assets/peri-logo.webp",
+      "tier": "Supporter"
     }
   ]
 }
