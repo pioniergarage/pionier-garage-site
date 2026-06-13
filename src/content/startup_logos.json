@@ -18,5 +18,10 @@
     "logo": "/src/assets/firstmomentumventures.svg",
     "name": "First Momentum Ventures",
     "website": "https://www.firstmomentum.vc/"
+  },
+  {
+    "logo": "/src/assets/parloa.svg",
+    "name": "Parloa",
+    "website": "https://www.parloa.com/"
   }
 ]
