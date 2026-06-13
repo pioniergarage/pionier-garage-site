@@ -49,7 +49,15 @@
     },
     {
       "type": "spacer",
-      "size": "50px",
+      "size": "80px",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "## Unsere Partner und Sponsoren\n\n",
       "style": {
         "alignment": "center",
         "size": "full"
@@ -58,6 +66,14 @@
     {
       "type": "custom-block",
       "component": "SponsorBlock",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
       "style": {
         "alignment": "left",
         "size": "full"
