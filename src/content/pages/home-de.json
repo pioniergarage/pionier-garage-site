@@ -75,6 +75,14 @@
         "alignment": "left",
         "size": "full"
       }
+    },
+    {
+      "type": "custom-block",
+      "component": "StartupLogos",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
     }
   ]
 }
