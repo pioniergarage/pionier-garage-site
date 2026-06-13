@@ -1,39 +1,23 @@
 ---
-import { pb } from "../../lib/pocketbase";
-import type { StartupItem } from "../startups/types";
+const startups_rounded = 60;
+const active_members = 45;
+const years_of_experience = 18;
 
-const { totalItems: startup_count } = await pb
-  .collection<StartupItem>("startups")
-  .getList(1, 1, { requestKey: "ecosystem_overview" });
-
-const startups_rounded = Math.floor(startup_count / 10) * 10;
-
-const { totalItems: events_count } = await pb
-  .collection<StartupItem>("events")
-  .getList(1, 1, { requestKey: "ecosystem_overview" });
-
-const events_rounded = Math.floor(events_count / 10) * 10;
-
-import rawConfig from "../../content/site_config.json";
-import { SiteSettingsConfigSchema } from "../../content.config.ts";
 import { localized } from "../../utils/utils";
 
-const config = SiteSettingsConfigSchema.parse(rawConfig);
-
-const { sponsors } = config;
 const locale = Astro.currentLocale === "de" ? "de" : "en";
 const numberLocale = locale === "de" ? "de-DE" : "en-US";
 
 const translations = {
   de: {
-    events: "Events",
-    partners: "Partner",
+    activeMembers: "Active Mitglieder",
     startups: "Startups",
+    years: "Jahre Erfahrung",
   },
   en: {
-    events: "Events",
-    partners: "Partners",
+    activeMembers: "Active Members",
     startups: "Startups",
+    years: "Years of Experience",
   },
 } as const;
 
@@ -41,13 +25,13 @@ const labels = translations[locale];
 ---
 
 <div
-  class="w-full bg-white p-10 text-black grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center items-center text-center"
+  class="w-full p-10 flex justify-items-space-between items-center text-center"
   data-count-locale={numberLocale}
 >
-  <a
-    href={localized("startups", Astro.currentLocale)}
-    class="w-full max-w-75 group block"
-  >
+  <div class="w-full group block">
+    <h3 class="font-serif">
+      {labels.startups}
+    </h3>
     <h1
       class="font-serif text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance"
       data-count-up
@@ -57,46 +41,41 @@ const labels = translations[locale];
     >
       {startups_rounded}+
     </h1>
-    <h3 class="font-serif group-hover:underline">
-      {labels.startups}
-    </h3>
-  </a>
+  </div>
 
-  <a
-    href={localized("events", Astro.currentLocale)}
-    class="w-full max-w-75 group block"
-  >
+  <div class="bg-white w-1 h-full opacity-50"></div>
+
+  <div class="w-full group block">
+    <h3 class="font-serif">
+      {labels.years}
+    </h3>
     <h1
       class="font-serif text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance"
       data-count-up
-      data-count-target={sponsors.length}
+      data-count-target={years_of_experience}
       data-count-suffix=""
-      aria-label={new Intl.NumberFormat(numberLocale).format(sponsors.length)}
+      aria-label={new Intl.NumberFormat(numberLocale).format(years_of_experience)}
     >
-      {sponsors.length}
+      {years_of_experience}
     </h1>
-    <h3 class="font-serif group-hover:underline">
-      {labels.partners}
-    </h3>
-  </a>
+  </div>
 
-  <a
-    href={localized("events", Astro.currentLocale)}
-    class="w-full max-w-75 group block"
-  >
+  <div class="bg-white w-1 h-full opacity-50"></div>
+
+  <div class="w-full group block">
+    <h3 class="font-serif">
+      {labels.activeMembers}
+    </h3>
     <h1
       class="font-serif text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance"
       data-count-up
-      data-count-target={events_rounded}
+      data-count-target={active_members}
       data-count-suffix="+"
-      aria-label={`${new Intl.NumberFormat(numberLocale).format(events_rounded)}+`}
+      aria-label={`${new Intl.NumberFormat(numberLocale).format(active_members)}+`}
     >
-      {events_rounded}+
+      {active_members}
     </h1>
-    <h3 class="font-serif group-hover:underline">
-      {labels.events}
-    </h3>
-  </a>
+  </div>
 </div>
 
 <script is:inline>
