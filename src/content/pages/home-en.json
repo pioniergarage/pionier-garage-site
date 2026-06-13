@@ -74,6 +74,14 @@
       }
     },
     {
+      "type": "rich-text",
+      "content": "### What we work on\n\n",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
       "type": "highlight-cards",
       "items": [
         {
@@ -110,7 +118,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Our Partners and Sponsors\n\n",
+      "content": "### Our Partners and Sponsors\n\n",
       "style": {
         "alignment": "center",
         "size": "full"
