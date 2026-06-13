@@ -41,6 +41,15 @@
       }
     },
     {
+      "type": "rich-text",
+      "content": "Our Best Startups",
+      "style": {
+        "alignment": "center",
+        "size": "full",
+        "className": "font-accent"
+      }
+    },
+    {
       "type": "custom-block",
       "component": "StartupLogos",
       "style": {
@@ -66,7 +75,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Our Partners and Sponsors\n\n",
+      "content": "## Our Partners and Sponsors",
       "style": {
         "alignment": "center",
         "size": "full"
