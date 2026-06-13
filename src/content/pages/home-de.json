@@ -49,10 +49,11 @@
     },
     {
       "type": "rich-text",
-      "content": "### Unsere Startups",
+      "content": "Unsere Startups\n\n",
       "style": {
-        "alignment": "left",
-        "size": "full"
+        "alignment": "center",
+        "size": "full",
+        "className": "text-accent"
       }
     },
     {
