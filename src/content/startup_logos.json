@@ -28,5 +28,19 @@
     "logo": "/src/assets/auvisus_logo-1000x1000-1.jpg",
     "name": "Auvisus",
     "website": "https://visioncheckout.com/"
+  },
+  {
+    "logo": "/src/assets/Campusjaeger_resized-1.png",
+    "name": "Campusjäger",
+    "website": "https://www.campusjaeger.de/"
+  },
+  {
+    "logo": "/src/assets/Fiami_logo_dicker_schrift_schwarz.webp",
+    "name": "FIAMI",
+    "website": "https://fiami.de/"
+  },
+  {
+    "logo": "/src/assets/motyfes-1-1000x1000.jpg",
+    "name": "motyfes"
   }
 ]
