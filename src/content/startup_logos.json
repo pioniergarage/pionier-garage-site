@@ -1,1 +1,47 @@
-[]
+[
+  {
+    "logo": "/src/assets/KOLIBRIGAMES_Logo_2C_RGB-1000x506.png",
+    "name": "Kolibri Games",
+    "website": "https://www.kolibrigames.com/"
+  },
+  {
+    "logo": "/src/assets/67b87d9dcdf2cfc0929355af_bliro logo.svg",
+    "name": "bliro",
+    "website": "https://www.bliro.io/"
+  },
+  {
+    "logo": "/src/assets/H9ssvK0zP5e7DbozWy35xxJ9428-1.svg",
+    "name": "alcemy",
+    "website": "https://alcemy.tech/"
+  },
+  {
+    "logo": "/src/assets/firstmomentumventures.svg",
+    "name": "First Momentum Ventures",
+    "website": "https://www.firstmomentum.vc/"
+  },
+  {
+    "logo": "/src/assets/parloa.svg",
+    "name": "Parloa",
+    "website": "https://www.parloa.com/"
+  },
+  {
+    "logo": "/src/assets/auvisus_logo-1000x1000-1.jpg",
+    "name": "Auvisus",
+    "website": "https://visioncheckout.com/"
+  },
+  {
+    "logo": "/src/assets/Campusjaeger_resized-1.png",
+    "name": "Campusjäger",
+    "website": "https://www.campusjaeger.de/"
+  },
+  {
+    "logo": "/src/assets/Fiami_logo_dicker_schrift_schwarz.webp",
+    "name": "FIAMI",
+    "website": "https://fiami.de/"
+  },
+  {
+    "logo": "/src/assets/nesto.svg",
+    "name": "Nesto",
+    "website": "https://www.nesto-software.com/"
+  }
+]

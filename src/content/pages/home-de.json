@@ -11,7 +11,7 @@
       "image": "/src/assets/DSCF2147.jpg",
       "button": {
         "text": "Quatsche mit unserem Vorstand",
-        "link": "de/startups"
+        "link": "de/about"
       },
       "style": {
         "alignment": "center",
@@ -24,6 +24,14 @@
       }
     },
     {
+      "type": "rich-text",
+      "content": "### Wir sind die größte Entrepreneurship-Community an deutschen Hochschulen – für alle, die Unternehmen aufbauen wollen.\n\n",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
       "type": "custom-block",
       "component": "EcosystemOverview",
       "style": {
@@ -33,9 +41,17 @@
     },
     {
       "type": "custom-block",
-      "component": "EventsHighlight",
+      "component": "StartupLogos",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "50px",
+      "style": {
+        "alignment": "center",
         "size": "full"
       }
     },

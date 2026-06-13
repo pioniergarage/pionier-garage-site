@@ -41,6 +41,14 @@
       }
     },
     {
+      "type": "custom-block",
+      "component": "StartupLogos",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "faq",
       "items": [
         {
