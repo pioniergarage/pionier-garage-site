@@ -6,7 +6,13 @@
   "blocks": [
     {
       "type": "hero",
-      "title": "Angebote",
+      "title": "GROW",
+      "subtitle": "Wir organisieren einen der größten studentischen Startup-Wettbewerbe im DACH-Raum. Von der Bewerbung über die Auswahl bis zur Betreuung der Teams – wir schaffen die Plattform, auf der Gründungsideen wachsen und sichtbar werden.",
+      "heroTagline": "Größter Studentischer Gründungswettbewerb",
+      "button": {
+        "text": "Mehr erfahren",
+        "link": "https://grow.pioniergarage.de/"
+      },
       "style": {
         "alignment": "left",
         "size": "full"
