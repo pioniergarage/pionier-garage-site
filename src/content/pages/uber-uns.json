@@ -51,6 +51,14 @@
       }
     },
     {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "rich-text",
       "content": "## Unser Vorstand\n\n",
       "style": {
@@ -61,6 +69,14 @@
     {
       "type": "custom-block",
       "component": "TeamGallery",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
       "style": {
         "alignment": "left",
         "size": "full"
