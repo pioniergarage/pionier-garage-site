@@ -67,7 +67,7 @@
       "style": {
         "alignment": "center",
         "size": "full",
-        "className": "font-accent bg-white text-black"
+        "className": "font-accent"
       }
     }
   ]
