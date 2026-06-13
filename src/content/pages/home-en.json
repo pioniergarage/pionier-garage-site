@@ -25,6 +25,15 @@
       }
     },
     {
+      "type": "rich-text",
+      "content": "Wir sind Deutschlands größte Hochschulgruppe für Entrepreneurship. Unsere Mitglieder sind und werden erfolgreiche Unternehmer und Gründer.",
+      "style": {
+        "alignment": "center",
+        "size": "full",
+        "className": "font-accent"
+      }
+    },
+    {
       "type": "custom-block",
       "component": "EcosystemOverview",
       "style": {
@@ -59,15 +68,6 @@
       "style": {
         "alignment": "center",
         "size": "full"
-      }
-    },
-    {
-      "type": "rich-text",
-      "content": "Wir sind Deutschlands größte Hochschulgruppe für Entrepreneurship. Unsere Mitglieder sind und werden erfolgreiche Unternehmer und Gründer.",
-      "style": {
-        "alignment": "center",
-        "size": "full",
-        "className": "font-accent"
       }
     }
   ]
