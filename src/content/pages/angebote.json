@@ -33,17 +33,6 @@
       }
     },
     {
-      "type": "button",
-      "style": {
-        "alignment": "center",
-        "size": "full"
-      },
-      "button": {
-        "text": "Mehr erfahren",
-        "link": "https://grow.pioniergarage.de/"
-      }
-    },
-    {
       "type": "spacer",
       "size": "80px",
       "style": {
@@ -69,8 +58,24 @@
       }
     },
     {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "rich-text",
       "content": "## Warum der Pioniergarage beitreten - Erkennst du dich wieder?\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
       "style": {
         "alignment": "left",
         "size": "full"
