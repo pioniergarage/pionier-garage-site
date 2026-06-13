@@ -48,7 +48,13 @@
       "name": "CyberForum e.V.",
       "link": "https://www.cyberforum.de/",
       "image": "/src/assets/CyberForumSmall.svg",
-      "tier": "None"
+      "tier": "Supporter"
+    },
+    {
+      "name": "Peter und Luise Hager Stiftung",
+      "link": "https://hagerstiftung.de/de/",
+      "image": "/src/assets/Hager_Stiftung_white.svg",
+      "tier": "Partner"
     }
   ]
 }
