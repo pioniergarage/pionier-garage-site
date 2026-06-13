@@ -5,6 +5,8 @@ import { TeamDirectorySchema } from "../../content.config";
 
 const team_members = TeamDirectorySchema.parse(team);
 
+const locale = Astro.currentLocale == "de" ? "de" : "en";
+
 // Resolve `/src/assets/...` paths to their processed, build-time URLs.
 // A raw source path works in `astro dev` (Vite serves source files) but 404s
 // in production, where assets are hashed into `/_astro/`. Since the team card
@@ -21,4 +23,4 @@ const resolved_team_members = team_members.map((member) =>
     : member,
 );
 ---
-<TeamExplorer team_members={resolved_team_members} />
+<TeamExplorer team_members={resolved_team_members} locale={locale} />

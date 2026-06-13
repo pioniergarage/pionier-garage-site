@@ -5,14 +5,15 @@ import TeamMemberCard from "./TeamMemberCard";
 
 interface Props {
     team_members: TeamData[]
+    locale: "de" | "en"
 }
 
-export default function TeamExplorer({team_members }: Props) {
+export default function TeamExplorer({team_members, locale }: Props) {
     return (
         <Grid
             items={team_members}
             keyExtractor={(team_member) => `${team_member.title}-${team_member.email}`}
-            card={(team_member) => <TeamMemberCard team_member={team_member} />}
+            card={(team_member) => <TeamMemberCard team_member={team_member} locale={locale} />}
         />
     );
 }
