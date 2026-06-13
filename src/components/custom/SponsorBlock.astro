@@ -23,7 +23,7 @@ for (const sponsor of sponsors) {
   <div class="flex flex-wrap flex-row w-full justify-center">
     {
       sponsors.map((sponsor) => (
-        <a class="flex m-7 justify-center items-center text-white transition-transform duration-150 ease-in hover:scale-105" href={sponsor.link}>
+        <a class="bg-black rounded-sm p-5 flex m-2 justify-center items-center text-white transition-transform duration-150 ease-in hover:scale-105" href={sponsor.link}>
           {sponsor.image ? (
             <Image 
               src={images[sponsor.image]()} 
