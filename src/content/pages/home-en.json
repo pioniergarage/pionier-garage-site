@@ -49,6 +49,22 @@
       }
     },
     {
+      "type": "spacer",
+      "size": "50px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "SponsorBlock",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "faq",
       "items": [
         {
