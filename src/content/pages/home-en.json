@@ -59,14 +59,6 @@
     },
     {
       "type": "spacer",
-      "size": "50px",
-      "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "spacer",
       "size": "80px",
       "style": {
         "alignment": "left",
@@ -118,7 +110,7 @@
     },
     {
       "type": "rich-text",
-      "content": "### Our Partners and Sponsors\n\n",
+      "content": "### Our Partners and Sponsors",
       "style": {
         "alignment": "center",
         "size": "full"
