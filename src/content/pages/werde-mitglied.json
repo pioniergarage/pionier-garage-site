@@ -1,6 +1,6 @@
 {
   "title": "Werde Mitglied ",
-  "language": "DE",
+  "language": "EN",
   "slug": "/join",
   "description": "Flo Test",
   "layout": "../layouts/PageLayout.astro",
