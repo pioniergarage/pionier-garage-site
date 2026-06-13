@@ -19,7 +19,24 @@
     },
     {
       "type": "rich-text",
-      "content": "## Warum der Pioniergarage beitreten - Erkennst du dich wieder?\n\n",
+      "content": "Unsere Startups",
+      "style": {
+        "alignment": "center",
+        "size": "full",
+        "className": "font-accent"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "StartupLogos",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "## Warum der Pioniergarage beitreten - Erkennst du dich wieder?",
       "style": {
         "alignment": "left",
         "size": "full"
