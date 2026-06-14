@@ -34,6 +34,14 @@
       }
     },
     {
+      "type": "custom-block",
+      "component": "StartupLogos",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "rich-text",
       "content": "Our Startups",
       "style": {
@@ -43,8 +51,25 @@
       }
     },
     {
-      "type": "custom-block",
-      "component": "StartupLogos",
+      "type": "steps",
+      "items": [
+        {
+          "title": "Network",
+          "description": "You are interested in starting a business—perhaps you even have an idea already—or you simply want to get to know the startup ecosystem better. You would like to talk to investors, mentors, and like-minded people about founding a company, your idea, or startups."
+        },
+        {
+          "title": "Mentoring",
+          "description": "You want to learn everything—from founding a company to sales, marketing, and coding. You don’t just want to talk to like-minded people, but to those who have already walked this path several times."
+        },
+        {
+          "title": "Projects",
+          "description": "You are eager to work on exciting projects where you can put your skills to the test. You do not shy away from uncertain tasks; instead, you actively seek them out, as they are what help you grow the most."
+        },
+        {
+          "title": "Community",
+          "description": "You know that your environment shapes you, yet in your personal life, you can’t find anyone who thinks the way you do. Topics like startups, tech, entrepreneurship, and success are part of your everyday life."
+        }
+      ],
       "style": {
         "alignment": "left",
         "size": "full"
