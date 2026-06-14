@@ -35,7 +35,7 @@
     },
     {
       "type": "rich-text",
-      "content": "### We are Germany’s leading university entrepreneurship community for aspiring founders and builders.",
+      "content": "### We are Germany’s leading university entrepreneurship community for aspiring founders and builders.\n\n",
       "style": {
         "alignment": "center",
         "size": "full"
@@ -51,11 +51,10 @@
     },
     {
       "type": "rich-text",
-      "content": "Our Best Startups",
+      "content": "### Our Best Startups",
       "style": {
-        "alignment": "center",
-        "size": "full",
-        "className": "font-accent"
+        "alignment": "left",
+        "size": "full"
       }
     },
     {
@@ -76,9 +75,9 @@
     },
     {
       "type": "rich-text",
-      "content": "### What we work on\n\n",
+      "content": "### Our Projects\n\n",
       "style": {
-        "alignment": "center",
+        "alignment": "left",
         "size": "full"
       }
     },
@@ -121,7 +120,7 @@
       "type": "rich-text",
       "content": "### Our Partners and Sponsors\n\n",
       "style": {
-        "alignment": "center",
+        "alignment": "left",
         "size": "full"
       }
     },
