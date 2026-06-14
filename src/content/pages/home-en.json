@@ -26,8 +26,16 @@
       }
     },
     {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "rich-text",
-      "content": "### We are Germany’s leading university entrepreneurship community for aspiring founders and builders.\n\n",
+      "content": "### We are Germany’s leading university entrepreneurship community for aspiring founders and builders.",
       "style": {
         "alignment": "center",
         "size": "full"
