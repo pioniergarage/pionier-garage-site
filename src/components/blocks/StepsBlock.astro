@@ -18,11 +18,11 @@ const sectionClasses = sectionVariants({
     {
       items.map((item, index) => (
         <div class="flex min-w-0 flex-col gap-3 rounded border border-stroke p-6">
-          <h3 class="m-0 text-center font-display text-2xl leading-tight text-white wrap-break-word">
+          <h3 class="m-0 font-accent text-2xl leading-tight text-white wrap-break-word">
             {index + 1}. {item.title}
           </h3>
           {item.description && (
-            <p class="m-0 font-accent leading-relaxed text-primary-muted">
+            <p class="m-0 leading-relaxed text-primary-muted">
               {item.description}
             </p>
           )}
