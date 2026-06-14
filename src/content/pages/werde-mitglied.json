@@ -43,7 +43,23 @@
     },
     {
       "type": "rich-text",
-      "content": "### Das sagen unsere Mitglieder\n\n",
+      "content": "### Deine Mitgliederreise\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "### Das sagen unsere Mitglieder",
       "style": {
         "alignment": "center",
         "size": "full"
@@ -81,14 +97,6 @@
       ],
       "style": {
         "alignment": "center",
-        "size": "full"
-      }
-    },
-    {
-      "type": "rich-text",
-      "content": "### Deine Mitgliederreise\n\n",
-      "style": {
-        "alignment": "left",
         "size": "full"
       }
     }
