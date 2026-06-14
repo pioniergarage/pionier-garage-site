@@ -93,6 +93,20 @@
         "alignment": "center",
         "size": "full"
       }
+    },
+    {
+      "type": "testimonials",
+      "items": [
+        {
+          "quote": "Die PG ist einfach super",
+          "name": "Josua",
+          "role": "Head of IT"
+        }
+      ],
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     }
   ]
 }
