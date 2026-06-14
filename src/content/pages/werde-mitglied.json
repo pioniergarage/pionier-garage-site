@@ -35,15 +35,7 @@
     },
     {
       "type": "rich-text",
-      "content": "STIMMEN UNSERER MITGLIEDER",
-      "style": {
-        "alignment": "center",
-        "size": "full"
-      }
-    },
-    {
-      "type": "spacer",
-      "size": "50px",
+      "content": "### Das sagen unsere Mitglieder",
       "style": {
         "alignment": "center",
         "size": "full"
@@ -60,6 +52,14 @@
       ],
       "style": {
         "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "50px",
+      "style": {
+        "alignment": "center",
         "size": "full"
       }
     },
