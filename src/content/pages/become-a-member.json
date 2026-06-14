@@ -26,6 +26,14 @@
       }
     },
     {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "rich-text",
       "content": "### Your member journey\n\n",
       "style": {
@@ -92,14 +100,6 @@
           "answer": "The Batch is our system for bringing in new members"
         }
       ],
-      "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "spacer",
-      "size": "80px",
       "style": {
         "alignment": "left",
         "size": "full"
