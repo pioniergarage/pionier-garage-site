@@ -98,6 +98,15 @@
         "alignment": "left",
         "size": "full"
       }
+    },
+    {
+      "type": "image",
+      "image": "/src/assets/558181_10150909246569338_1874013466_n.jpg",
+      "size": "medium",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     }
   ]
 }
