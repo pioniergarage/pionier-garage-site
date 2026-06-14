@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import { twMerge } from "tailwind-merge";
 import { localized, renderHeadline } from "../../utils/utils";
 import type { BlockProps } from "../types/types";
@@ -53,56 +54,92 @@ if (hasImage && !images[image]) {
 }
 const imageModule = hasImage ? await images[image]() : undefined;
 const backgroundUrl = imageModule?.default.src;
+
+// Gradient layers that fade the hero image into the background colour. Shared
+// between the desktop background and the mobile image overlay.
+const gradientOverlay = `
+  linear-gradient(to bottom, transparent 50%, var(--color-bg) 100%),
+  linear-gradient(to top, transparent 50%, var(--color-bg) 100%),
+  radial-gradient(circle at center, transparent 40%, var(--color-bg) 100%)
+`;
 ---
 
 <section class={sectionClasses}>
   <div
     class={twMerge(
-      "w-full px-4",
-      "flex flex-col max-w-[1280px] m-auto",
-      alignmentClasses,
+      "relative flex w-full flex-col max-w-[1280px] mx-auto",
       hasImage
-        ? "bg-cover bg-center mb-8 gap-4 h-auto md:justify-end md:gap-0 md:h-[80vh]"
+        ? "mb-8 md:h-[80vh] md:justify-end"
         : "min-h-[70vh] justify-center",
     )}
-    style={backgroundUrl && {
-      backgroundImage: `
-        linear-gradient(to bottom, transparent 50%, var(--color-bg) 100%), 
-        linear-gradient(to top, transparent 50%, var(--color-bg) 100%),
-        radial-gradient(circle at center, transparent 40%, var(--color-bg) 100%), 
-        url(${backgroundUrl})
-      `,
-    }}
   >
-    {heroTagline && <h3 class="font-accent text-xl">{heroTagline}</h3>}
-    <h1
-      class={twMerge(
-        "font-display leading-none text-balance wrap-break-word max-w-full",
-        titleSizeClasses[titleStyle?.size ?? defaultTitleSize],
-        titleColorClasses[titleStyle?.color ?? defaultTitleColor],
-        titleAlignClasses[titleAlignment],
-        "[&_.outlined]:text-bg [&_.outlined]:[text-shadow:-2px_-2px_0_var(--color-accent-red),2px_-2px_0_var(--color-accent-red),-2px_2px_0_var(--color-accent-red),2px_2px_0_var(--color-accent-red)]",
-        titleStyle?.className,
-      )}
-      set:html={renderedHeadline}
-    />
-
-    <h2 class="m-0 p-0 max-w-[30ch] md:max-w-[50ch] text-center">{subtitle}</h2>
-
     {
-      button && (
-        <a
-          class={twMerge(
-            // Translated .button-accent and .margin-top-lg
-            "mt-10 inline-block px-5 py-3.75 font-inherit text-primary bg-transparent",
-            "border-2 border-primary rounded cursor-pointer",
-            "transition duration-150 ease-out hover:bg-primary hover:text-bg",
-          )}
-          href={localized(button.link, Astro.currentLocale, ["en", "de"])}
-        >
-          {button.text}
-        </a>
+      hasImage && (
+        <>
+          {/* Desktop: image as a faded background, text overlaid at the bottom */}
+          <div
+            class="absolute inset-0 hidden bg-cover bg-center md:block"
+            aria-hidden="true"
+            style={{
+              backgroundImage: `${gradientOverlay}, url(${backgroundUrl})`,
+            }}
+          />
+          {/* Mobile: image stacked above the text, with the same gradient fade */}
+          <div class="relative block md:hidden">
+            <Image
+              src={images[image]()}
+              alt={title ?? ""}
+              class="block h-auto w-full"
+            />
+            <div
+              class="absolute inset-0"
+              aria-hidden="true"
+              style={{ backgroundImage: gradientOverlay }}
+            />
+          </div>
+        </>
       )
     }
+
+    <div
+      class={twMerge(
+        "relative z-10 flex w-full flex-col px-4 py-6 -mt-10 md:py-0 md:mt-0",
+        alignmentClasses,
+        // Mirror the block's alignment onto the text, so a centered hero also
+        // centers its multi-line text (the title can still override via titleStyle).
+        titleAlignClasses[style?.alignment ?? "left"],
+      )}
+    >
+      {heroTagline && <h3 class="font-accent text-xl">{heroTagline}</h3>}
+      <h1
+        class={twMerge(
+          "font-display leading-none text-balance wrap-break-word max-w-full",
+          titleSizeClasses[titleStyle?.size ?? defaultTitleSize],
+          titleColorClasses[titleStyle?.color ?? defaultTitleColor],
+          titleAlignClasses[titleAlignment],
+          "[&_.outlined]:text-bg [&_.outlined]:[text-shadow:-2px_-2px_0_var(--color-accent-red),2px_-2px_0_var(--color-accent-red),-2px_2px_0_var(--color-accent-red),2px_2px_0_var(--color-accent-red)]",
+          titleStyle?.className,
+        )}
+        set:html={renderedHeadline}
+      />
+
+      <h2 class="m-0 p-0 max-w-[30ch] md:max-w-[50ch] text-center">{subtitle}</h2>
+
+      {
+        button && (
+          <a
+            class={twMerge(
+              // Translated .button-accent and .margin-top-lg
+              "mt-5 inline-block px-5 py-3.75 font-inherit text-primary bg-transparent",
+              "border-2 border-primary rounded cursor-pointer",
+              "transition duration-150 ease-out hover:bg-primary hover:text-bg",
+            )}
+            href={localized(button.link, Astro.currentLocale, ["en", "de"])}
+          >
+            {button.text}
+          </a>
+        )
+      }
+    </div>
   </div>
 </section>

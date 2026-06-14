@@ -8,10 +8,20 @@ type Props = BlockProps<"rich-text"> & {
   children?: React.ReactNode;
 };
 
-export default function RichTextRenderer({ html, children }: Props) {
+export default function RichTextRenderer({ html, children, style }: Props) {
+  // Mirror the block's horizontal alignment onto the text itself, so a centered
+  // block also centers its multi-line text (not just the flex layout).
+  const textAlignClass =
+    style?.alignment === "center"
+      ? "text-center"
+      : style?.alignment === "right"
+        ? "text-right"
+        : "text-left";
+
   // 2. Mapping your global CSS rules to Tailwind arbitrary child selectors
   const richTextClasses = twMerge(
     "flex flex-col gap-5 leading-relaxed px-5",
+    textAlignClass,
 
     // Headings
     "[&_:is(h1,h2)]:font-bold [&_:is(h1,h2,h3,h4)]:leading-tight [&_:is(h1,h2,h3,h4)]:mt-4",
