@@ -6,11 +6,10 @@
   "blocks": [
     {
       "type": "rich-text",
-      "content": "# Kontaktiere Uns\n\nDu möchtest unser Partner werden?\nOder du hast einfach noch Fragen an uns?\n\nSchreib uns einfach!\nWir freuen uns auf dich!",
+      "content": "### Kontaktiere Uns\n\nDu möchtest unser Partner werden?\nOder du hast einfach noch Fragen an uns?\n\nSchreib uns einfach!\nWir freuen uns auf dich!",
       "style": {
-        "alignment": "center",
-        "size": "full",
-        "className": "font-accent"
+        "alignment": "left",
+        "size": "full"
       }
     },
     {
