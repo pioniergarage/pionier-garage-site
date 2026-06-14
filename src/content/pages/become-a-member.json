@@ -45,8 +45,8 @@
       "type": "steps",
       "items": [
         {
-          "title": "Application",
-          "description": "You apply."
+          "title": "Fill out the application",
+          "description": "Fill out your application quickly and easily for the start of each semester."
         }
       ],
       "style": {
