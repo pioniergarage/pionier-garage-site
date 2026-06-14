@@ -26,31 +26,8 @@
       }
     },
     {
-      "type": "separator",
-      "direction": "horizontal",
-      "style": {
-        "alignment": "center",
-        "size": "full"
-      }
-    },
-    {
       "type": "rich-text",
       "content": "DEINE MITGLIEDERREISE",
-      "style": {
-        "alignment": "center",
-        "size": "full"
-      }
-    },
-    {
-      "type": "custom-block",
-      "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "separator",
-      "direction": "horizontal",
       "style": {
         "alignment": "center",
         "size": "full"
@@ -65,32 +42,8 @@
       }
     },
     {
-      "type": "custom-block",
-      "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "button",
-      "style": {
-        "alignment": "center",
-        "size": "full"
-      },
-      "button": {
-        "text": "Das will ich auch "
-      }
-    },
-    {
       "type": "spacer",
       "size": "50px",
-      "style": {
-        "alignment": "center",
-        "size": "full"
-      }
-    },
-    {
-      "type": "faq",
       "style": {
         "alignment": "center",
         "size": "full"
@@ -107,6 +60,19 @@
       ],
       "style": {
         "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "question": "Was ist der Batch?",
+          "answer": "Was ganz tolles"
+        }
+      ],
+      "style": {
+        "alignment": "center",
         "size": "full"
       }
     }
