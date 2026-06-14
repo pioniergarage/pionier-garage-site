@@ -7,7 +7,8 @@
   "blocks": [
     {
       "type": "hero",
-      "title": "We are empowering the next generation of founders in karlsruhe to turn ideas into impact",
+      "title": "We are empowering the next generation of founders in karlsruhe to turn ideas into impact.",
+      "subtitle": "Test",
       "heroTagline": "Our Mission",
       "style": {
         "alignment": "left",
