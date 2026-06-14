@@ -20,7 +20,7 @@
         "size": "full"
       },
       "titleStyle": {
-        "size": "large",
+        "size": "display",
         "color": "primary",
         "alignment": "center"
       }
