@@ -45,7 +45,7 @@
       "type": "rich-text",
       "content": "### Deine Mitgliederreise\n\n",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
@@ -59,7 +59,7 @@
     },
     {
       "type": "rich-text",
-      "content": "### Das sagen unsere Mitglieder",
+      "content": "### Das sagen unsere Mitglieder\n\n",
       "style": {
         "alignment": "center",
         "size": "full"
