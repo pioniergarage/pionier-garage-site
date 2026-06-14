@@ -217,6 +217,21 @@ content:
               - name: style
                 component: style
 
+          - name: testimonials
+            label: Testimonials
+            fields:
+              - name: items
+                label: Testimonials
+                type: object
+                list: true
+                fields:
+                  - { name: quote, label: Quote, type: text }
+                  - { name: name, label: Name, type: string }
+                  - { name: role, label: Role, type: string }
+                  - { name: image, label: Avatar, type: image }
+              - name: style
+                component: style
+
   # --- SINGLETONS ---
 
   - name: site-header

@@ -205,6 +205,21 @@ const highlightCardsBlockSchema = z.object({
   style: styleSchema,
 });
 
+const testimonialsBlockSchema = z.object({
+  type: z.literal("testimonials"),
+  items: z
+    .array(
+      z.object({
+        quote: z.string().optional(),
+        name: z.string().optional(),
+        role: z.string().optional(),
+        image: z.string().default(""),
+      })
+    )
+    .optional(),
+  style: styleSchema,
+});
+
 const pageBlockSchema = z.discriminatedUnion("type", [
   heroBlockSchema,
   linkTagCloudBlockSchema,
@@ -221,6 +236,7 @@ const pageBlockSchema = z.discriminatedUnion("type", [
   embedBlockSchema,
   socialMediasBlockSchema,
   highlightCardsBlockSchema,
+  testimonialsBlockSchema,
 ]);
 
 const pages = defineCollection({
