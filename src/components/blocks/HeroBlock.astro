@@ -130,7 +130,7 @@ const gradientOverlay = `
         set:html={renderedHeadline}
       />
 
-      <h3 class="m-0 p-0 max-w-[30ch] md:max-w-[50ch] text-center">{subtitle}</h3>
+      <h3 class={twMerge("m-0 p-0 mt-4", titleAlignClasses[titleAlignment])}>{subtitle}</h3>
 
       {
         button && (
