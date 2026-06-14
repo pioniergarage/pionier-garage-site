@@ -34,20 +34,20 @@
       }
     },
     {
+      "type": "custom-block",
+      "component": "StartupLogos",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "rich-text",
       "content": "Unsere Startups",
       "style": {
         "alignment": "center",
         "size": "full",
         "className": "font-accent"
-      }
-    },
-    {
-      "type": "custom-block",
-      "component": "StartupLogos",
-      "style": {
-        "alignment": "left",
-        "size": "full"
       }
     },
     {
