@@ -7,6 +7,7 @@
     {
       "type": "hero",
       "title": "GROW",
+      "subtitle": "We organize one of the largest student startup competitions in the DACH region. From the application process and selection to team mentoring, we create the platform where startup ideas grow and gain visibility.",
       "heroTagline": "Germany's Largest Student Founding Contest",
       "image": "/src/assets/grow_hero.png",
       "mobileImage": "/src/assets/grow_hero_mobile.png",
