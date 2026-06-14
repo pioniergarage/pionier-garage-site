@@ -33,14 +33,14 @@ const sectionClasses = sectionVariants({
       items.map((item) => (
         <figure class="m-0 flex grow basis-full flex-col justify-between gap-6 rounded-lg border border-stroke p-6 md:basis-[calc(50%-0.75rem)] md:max-w-[480px]">
           {item.quote && (
-            <blockquote class="m-0 italic leading-relaxed text-primary-muted">
+            <blockquote class="m-0 italic leading-relaxed">
               {item.quote}
             </blockquote>
           )}
 
           <figcaption class="flex items-center gap-3">
-            <div class="h-12 w-12 shrink-0 overflow-hidden rounded-full bg-stroke">
-              {item.image && (
+            {item.image && (
+              <div class="h-12 w-12 shrink-0 overflow-hidden rounded-full bg-stroke">
                 <Image
                   src={images[item.image]()}
                   alt={item.name ?? ""}
@@ -48,8 +48,8 @@ const sectionClasses = sectionVariants({
                   height={96}
                   class="m-0 h-full w-full object-cover p-0"
                 />
-              )}
-            </div>
+              </div>
+            )}
 
             {(item.name || item.role) && (
               <div class="flex flex-col leading-tight">

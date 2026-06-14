@@ -14,6 +14,7 @@ import SectionBlock from "./SectionBlock.astro";
 import SeparatorBlock from "./SeparatorBlock.astro";
 import SocialMediasBlock from "./SocialMediasBlock.astro";
 import SpacerBlock from "./SpacerBlock.astro";
+import StepsBlock from "./StepsBlock.astro";
 import TestimonialsBlock from "./TestimonialsBlock.astro";
 
 
@@ -37,6 +38,7 @@ export const BlockComponents: Partial<Record<BlockTypes, any>> = {
   'separator': SeparatorBlock,
   'social-medias': SocialMediasBlock,
   'spacer': SpacerBlock,
+  'steps': StepsBlock,
   'tag-cloud': LinkTagCloudBlock,
   'testimonials': TestimonialsBlock,
 };

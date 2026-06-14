@@ -221,6 +221,19 @@ const testimonialsBlockSchema = z.object({
   style: styleSchema,
 });
 
+const stepsBlockSchema = z.object({
+  type: z.literal("steps"),
+  items: z
+    .array(
+      z.object({
+        title: z.string().optional(),
+        description: z.string().optional(),
+      })
+    )
+    .optional(),
+  style: styleSchema,
+});
+
 const pageBlockSchema = z.discriminatedUnion("type", [
   heroBlockSchema,
   linkTagCloudBlockSchema,
@@ -238,6 +251,7 @@ const pageBlockSchema = z.discriminatedUnion("type", [
   socialMediasBlockSchema,
   highlightCardsBlockSchema,
   testimonialsBlockSchema,
+  stepsBlockSchema,
 ]);
 
 const pages = defineCollection({
