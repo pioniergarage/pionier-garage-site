@@ -21,7 +21,7 @@
       },
       "titleStyle": {
         "size": "large",
-        "color": "accent-red",
+        "color": "primary",
         "alignment": "center"
       }
     },
