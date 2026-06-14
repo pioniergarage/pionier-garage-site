@@ -5,17 +5,36 @@
   "layout": "../layouts/PageLayout.astro",
   "blocks": [
     {
-      "type": "section",
-      "header": "Contact Us",
-      "body": "Do you need support for your startup, are you looking for access to the Karlsruhe startup community, or do you have a question?\n\nWe can help – send us a message and we'll connect you with the right contact person."
+      "type": "rich-text",
+      "content": "# Contact Us\n\nWould you like to become our partner?\n\nOr do you simply have some questions for us?\n\n\n\nJust drop us a line!\n\nWe look forward to hearing from you!\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     },
     {
       "type": "spacer",
-      "size": "50px"
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     },
     {
       "type": "form",
-      "url": "https://tally.so/r/D4X0PX"
+      "url": "https://tally.so/r/D4X0PX",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
     }
   ]
 }
