@@ -67,6 +67,31 @@
       }
     },
     {
+      "type": "steps",
+      "items": [
+        {
+          "title": "Netzwerk",
+          "description": "Du bist gründungsinteressiert, hast vielleicht sogar schon eine Idee oder möchtest das Startup - Umfeld besser kennenlernen. Du möchtest mit Investoren, Mentoren und Gleichgesinnten über Gründung, Idee oder Startups reden."
+        },
+        {
+          "title": "Mentoring",
+          "description": "Du willst alles von der Gründung bis hin zum Verkauf, Marketing und Coding lernen. Du möchtest nicht nur mit Gleichgesinnten reden, sondern mit denen, die den Weg bereits mehrere Male gegangen sind."
+        },
+        {
+          "title": "Projekte",
+          "description": "Du hast Lust an spannenden Projekten mitzuarbeiten, in denen du dein Können unter Beweis stellen kannst. Ungewisse Aufgaben vermeidest du nicht, sondern du suchst sie bewusst, da du an Ihnen am Meisten wächst."
+        },
+        {
+          "title": "Community",
+          "description": "Du weißt, dass dein Umfeld dich prägt, aber privat findest du niemanden der so denkt wie Du. Gesprächsthemen wie Startups, Tech, Unternehmertum und Erfolg gehören bei dir zum Alltag dazu. "
+        }
+      ],
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "spacer",
       "size": "80px",
       "style": {
