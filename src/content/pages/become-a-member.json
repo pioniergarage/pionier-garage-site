@@ -6,20 +6,27 @@
   "blocks": [
     {
       "type": "hero",
-      "title": "Become a Member",
+      "title": "Join Us",
+      "heroTagline": "Our Batch",
+      "image": "/src/assets/batch_hero_desktop.png",
+      "mobileImage": "/src/assets/batch_hero_mobile.png",
+      "button": {
+        "text": "I'm in",
+        "link": "/contact"
+      },
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       },
       "titleStyle": {
         "size": "large",
-        "color": "accent-red",
-        "alignment": "left"
+        "color": "primary",
+        "alignment": "center"
       }
     },
     {
       "type": "rich-text",
-      "content": "## Your Memberjourney\n\n",
+      "content": "## Your member journey\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
