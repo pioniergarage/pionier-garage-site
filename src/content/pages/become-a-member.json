@@ -41,6 +41,28 @@
       }
     },
     {
+      "type": "testimonials",
+      "items": [
+        {
+          "quote": "PionierGarage helped me make the right connections, find opportunities, and meet like-minded people. I learned skills that no one at university taught me.",
+          "name": "Josua",
+          "role": "Head of IT"
+        }
+      ],
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "faq",
       "items": [
         {
@@ -54,14 +76,8 @@
       }
     },
     {
-      "type": "testimonials",
-      "items": [
-        {
-          "quote": "PionierGarage helped me make the right connections, find opportunities, and meet like-minded people. I learned skills that no one at university taught me.",
-          "name": "Josua",
-          "role": "Head of IT"
-        }
-      ],
+      "type": "spacer",
+      "size": "80px",
       "style": {
         "alignment": "left",
         "size": "full"
