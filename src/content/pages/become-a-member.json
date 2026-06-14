@@ -37,7 +37,7 @@
       "type": "rich-text",
       "content": "### Your member journey\n\n",
       "style": {
-        "alignment": "center",
+        "alignment": "left",
         "size": "full"
       }
     },
@@ -78,7 +78,7 @@
       "type": "rich-text",
       "content": "### What our members say\n\n",
       "style": {
-        "alignment": "center",
+        "alignment": "left",
         "size": "full"
       }
     },
