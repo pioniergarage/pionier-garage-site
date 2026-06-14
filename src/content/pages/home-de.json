@@ -25,8 +25,16 @@
       }
     },
     {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "rich-text",
-      "content": "### Wir sind die größte Entrepreneurship-Community an deutschen Hochschulen – für alle, die Unternehmen aufbauen wollen.\n\n",
+      "content": "### Wir sind die größte Entrepreneurship-Community an deutschen Hochschulen – für alle, die Unternehmen aufbauen wollen.",
       "style": {
         "alignment": "center",
         "size": "full"
