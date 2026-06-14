@@ -9,6 +9,7 @@
       "title": "GROW",
       "heroTagline": "Größter Studentischer Gründungswettbewerb",
       "image": "/src/assets/grow_hero.png",
+      "mobileImage": "/src/assets/grow_hero_mobile.png",
       "button": {
         "text": "Mehr erfahren",
         "link": "https://grow.pioniergarage.de/"
