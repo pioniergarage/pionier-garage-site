@@ -13,6 +13,15 @@
       }
     },
     {
+      "type": "rich-text",
+      "content": "### Contact Us\n\nWould you like to become our partner?\nOr do you simply have some questions for us?\nJust drop us a line!\nWe look forward to hearing from you!",
+      "style": {
+        "alignment": "center",
+        "size": "full",
+        "className": "font-accent"
+      }
+    },
+    {
       "type": "spacer",
       "size": "80px",
       "style": {
