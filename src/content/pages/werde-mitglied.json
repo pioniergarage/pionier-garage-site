@@ -88,7 +88,12 @@
         {
           "quote": "Die PionierGarage hat mir dabei geholfen, die richtigen Connections, Gelegenheiten und Gleichgesinnte zu treffen. Ich habe Skills gelernt, die mir niemand in der Uni beigebracht hat.",
           "name": "Josua",
-          "role": "Co-Founder ColgLog, Head of IT"
+          "role": "Co-Founder ColgLog"
+        },
+        {
+          "quote": "Ich war schon immer interessiert an Unternehmertum und Gründen. Das Beitreten der Pioniergarage hat mir Möglichkeiten gegeben, mich persönlich weiterzuentwickeln und mein Netzwerk aufzubauen",
+          "name": "Florian",
+          "role": "Founder OutLeads"
         }
       ],
       "style": {
@@ -98,7 +103,7 @@
     },
     {
       "type": "spacer",
-      "size": "50px",
+      "size": "80px",
       "style": {
         "alignment": "center",
         "size": "full"
