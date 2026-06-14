@@ -6,9 +6,9 @@
   "blocks": [
     {
       "type": "rich-text",
-      "content": "# Contact Us\n\nWould you like to become our partner?\n\nOr do you simply have some questions for us?\n\n\n\nJust drop us a line!\n\nWe look forward to hearing from you!\n\n",
+      "content": "# Contact Us\n\n",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
