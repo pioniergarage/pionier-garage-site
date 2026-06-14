@@ -119,7 +119,7 @@
       "type": "rich-text",
       "content": "### Unsere Partner und Sponsoren\n\n",
       "style": {
-        "alignment": "center",
+        "alignment": "left",
         "size": "full"
       }
     },
