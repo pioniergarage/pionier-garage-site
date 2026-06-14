@@ -86,6 +86,7 @@ const heroBlockSchema = z.object({
   subtitle: z.string().optional(),
   heroTagline: z.string().optional(),
   image: z.string().optional().default(""),
+  mobileImage: z.string().optional().default(""),
   button: buttonSchema,
   style: styleSchema,
   titleStyle: titleStyleSchema,

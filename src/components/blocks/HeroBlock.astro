@@ -7,9 +7,11 @@ import { alignmentVariants, sectionVariants } from "../../styles/style-mapping";
 
 type Props = BlockProps<"hero">;
 
-const { heroTagline, title, subtitle, button, style, image, titleStyle } = Astro.props;
+const { heroTagline, title, subtitle, button, style, image, mobileImage, titleStyle } = Astro.props;
 const renderedHeadline = renderHeadline(title ?? "");
 const hasImage = Boolean(image);
+// Optional art-directed image for mobile; falls back to the desktop image.
+const mobileImagePath = mobileImage || image;
 
 const sectionClasses = sectionVariants({
   alignment: style?.alignment,
@@ -52,6 +54,11 @@ if (hasImage && !images[image]) {
     `"${image}" does not exist. Make sure the path is correct and matches the glob pattern.`,
   );
 }
+if (hasImage && !images[mobileImagePath]) {
+  throw new Error(
+    `"${mobileImagePath}" does not exist. Make sure the path is correct and matches the glob pattern.`,
+  );
+}
 const imageModule = hasImage ? await images[image]() : undefined;
 const backgroundUrl = imageModule?.default.src;
 
@@ -87,7 +94,7 @@ const gradientOverlay = `
           {/* Mobile: image stacked above the text, with the same gradient fade */}
           <div class="relative block md:hidden">
             <Image
-              src={images[image]()}
+              src={images[mobileImagePath]()}
               alt={title ?? ""}
               class="block h-auto w-full"
             />
