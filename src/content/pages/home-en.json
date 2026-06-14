@@ -20,7 +20,7 @@
         "size": "screen"
       },
       "titleStyle": {
-        "size": "large",
+        "size": "display",
         "color": "accent-red",
         "alignment": "center"
       }
@@ -51,7 +51,7 @@
     },
     {
       "type": "rich-text",
-      "content": "### Our Best Startups",
+      "content": "### Our Best Startups\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
