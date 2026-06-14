@@ -35,11 +35,10 @@
     },
     {
       "type": "rich-text",
-      "content": "Unsere Startups",
+      "content": "### Unsere Besten Startups",
       "style": {
         "alignment": "left",
-        "size": "full",
-        "className": "font-accent"
+        "size": "full"
       }
     },
     {
