@@ -14,7 +14,7 @@
     },
     {
       "type": "rich-text",
-      "content": "### Contact Us\n\nWould you like to become our partner?\nOr do you simply have some questions for us?\nJust drop us a line!\nWe look forward to hearing from you!",
+      "content": "Would you like to become our partner?  \nOr do you simply have some questions for us?  \nJust drop us a line!  \nWe look forward to hearing from you!\n\n",
       "style": {
         "alignment": "center",
         "size": "full",
