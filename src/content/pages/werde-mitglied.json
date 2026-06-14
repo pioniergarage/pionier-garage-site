@@ -7,6 +7,7 @@
     {
       "type": "hero",
       "title": "Werde Mitglied",
+      "subtitle": "Wir starten zweimal pro Jahr eine neue Trainee-Batch: zum Beginn des Wintersemesters und zum Beginn des Sommersemesters.",
       "heroTagline": "Unser Batch",
       "image": "/src/assets/batch_hero_desktop.png",
       "mobileImage": "/src/assets/batch_hero_mobile.png",
