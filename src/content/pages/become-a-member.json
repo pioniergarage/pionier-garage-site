@@ -26,9 +26,9 @@
     },
     {
       "type": "rich-text",
-      "content": "## Your member journey\n\n",
+      "content": "### Your member journey\n\n",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
@@ -55,9 +55,9 @@
     },
     {
       "type": "rich-text",
-      "content": "## What our members say",
+      "content": "### What our members say\n\n",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
