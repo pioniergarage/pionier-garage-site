@@ -43,5 +43,10 @@
     "logo": "/src/assets/nesto.svg",
     "name": "Nesto",
     "website": "https://www.nesto-software.com/"
+  },
+  {
+    "logo": "/src/assets/Logo_usertimes140.png",
+    "name": "usertimes",
+    "website": "https://usertimes.io/"
   }
 ]
