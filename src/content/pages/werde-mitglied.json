@@ -6,14 +6,13 @@
   "blocks": [
     {
       "type": "hero",
-      "title": "WERDE MITGLIED",
-      "subtitle": "Wir starten zweimal pro Jahr eine neue Trainee-Batch: zum Beginn des Wintersemesters und zum Beginn des Sommersemesters.",
-      "heroTagline": "Batch",
+      "title": "Werde Mitglied",
+      "heroTagline": "Unser Batch",
       "image": "/src/assets/batch_hero_desktop.png",
       "mobileImage": "/src/assets/batch_hero_mobile.png",
       "button": {
         "text": "Ich will mitmachen!",
-        "link": "/kontakt"
+        "link": "/contact"
       },
       "style": {
         "alignment": "center",
@@ -27,15 +26,16 @@
     },
     {
       "type": "rich-text",
-      "content": "DEINE MITGLIEDERREISE",
+      "content": "Wir starten zweimal pro Jahr eine neue Trainee-Batch: zum Beginn des Wintersemesters und zum Beginn des Sommersemesters.",
       "style": {
         "alignment": "center",
-        "size": "full"
+        "size": "full",
+        "className": "font-accent"
       }
     },
     {
       "type": "rich-text",
-      "content": "### Das sagen unsere Mitglieder",
+      "content": "### Das sagen unsere Mitglieder\n\n",
       "style": {
         "alignment": "center",
         "size": "full"
