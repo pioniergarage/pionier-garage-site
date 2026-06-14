@@ -50,6 +50,19 @@
       }
     },
     {
+      "type": "steps",
+      "items": [
+        {
+          "title": "Bewerbung",
+          "description": "Bewerbe dich bei uns"
+        }
+      ],
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "spacer",
       "size": "80px",
       "style": {
@@ -97,6 +110,14 @@
       ],
       "style": {
         "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
         "size": "full"
       }
     }
