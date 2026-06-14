@@ -9,7 +9,8 @@
       "type": "hero",
       "title": "PIONIERGARAGE",
       "heroTagline": "Student Entrepreneurs",
-      "image": "/src/assets/DSCF2147.jpg",
+      "image": "/src/assets/home_hero_desktop.png",
+      "mobileImage": "/src/assets/home_hero_mobile.png",
       "button": {
         "text": "Chat With Our Board",
         "link": "en/about#board"
@@ -110,7 +111,7 @@
     },
     {
       "type": "rich-text",
-      "content": "### Our Partners and Sponsors",
+      "content": "### Our Partners and Sponsors\n\n",
       "style": {
         "alignment": "center",
         "size": "full"
