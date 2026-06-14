@@ -26,15 +26,6 @@
       }
     },
     {
-      "type": "rich-text",
-      "content": "Wir starten zweimal pro Jahr eine neue Trainee-Batch: zum Beginn des Wintersemesters und zum Beginn des Sommersemesters.",
-      "style": {
-        "alignment": "center",
-        "size": "full",
-        "className": "font-accent"
-      }
-    },
-    {
       "type": "spacer",
       "size": "80px",
       "style": {
