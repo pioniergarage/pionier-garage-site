@@ -67,7 +67,7 @@ content:
               - { name: subtitle, type: string }
               - { name: heroTagline, type: string }
               - { name: image, label: Image (Desktop), type: image }
-              - { name: mobileImage, label: Image (Mobile, optional), type: image }
+              - { name: mobileImage, label: Image (Mobile), type: image }
               - name: button
                 type: object
                 fields:
