@@ -38,7 +38,7 @@ const navLinks = navlinks.map((link) => ({
 
 <header class="wrapper" data-header id="header">
   <div class="container">
-    <a href={homeHref} class="link" aria-label={labels.home}>
+    <a href={homeHref} class="brand" aria-label={labels.home}>
       PionierGarage
     </a>
 
@@ -59,7 +59,6 @@ const navLinks = navlinks.map((link) => ({
       <div class="mobile-header">
         <a href={homeHref} class="brand" aria-label={labels.home} data-nav-link>
           PionierGarage
-          <!-- <Image class="logo" src={logoWhite} alt="rocket_logo" /> -->
         </a>
 
         <button
@@ -295,6 +294,10 @@ const navLinks = navlinks.map((link) => ({
       opacity: 1;
       pointer-events: auto;
       transform: translateY(0);
+    }
+
+    .brand {
+      font-size: 1rem !important;
     }
 
     .mobile-header {

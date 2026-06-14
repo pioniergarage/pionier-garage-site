@@ -11,7 +11,7 @@ type Props = BlockProps<"rich-text"> & {
 export default function RichTextRenderer({ html, children }: Props) {
   // 2. Mapping your global CSS rules to Tailwind arbitrary child selectors
   const richTextClasses = twMerge(
-    "flex flex-col gap-5 leading-relaxed",
+    "flex flex-col gap-5 leading-relaxed px-5",
 
     // Headings
     "[&_:is(h1,h2)]:font-bold [&_:is(h1,h2,h3,h4)]:leading-tight [&_:is(h1,h2,h3,h4)]:mt-4",

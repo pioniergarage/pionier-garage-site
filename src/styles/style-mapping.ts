@@ -16,7 +16,7 @@ export const sectionVariants = cva(
     variants: {
       alignment: alignmentVariants,
       size: {
-        full: "w-full max-w-7xl mx-auto",
+        full: "w-full max-w-[1320px] mx-auto",
         half: "max-w-[50%]",
         third: "max-w-[33.333333333333336%]",
         screen: "w-screen"

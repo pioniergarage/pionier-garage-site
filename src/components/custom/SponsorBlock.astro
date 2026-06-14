@@ -19,8 +19,8 @@ for (const sponsor of sponsors) {
 }
 ---
 
-<div class="m-0 p-0 overflow-hidden flex max-h-[300px] w-full">
-  <div class="flex flex-wrap flex-row w-full justify-center">
+<div class="m-0 p-0 overflow-hidden flex w-full">
+  <div class="flex flex-col flex-wrap md:flex-row w-full justify-center">
     {
       sponsors.map((sponsor) => (
         <a class="bg-black rounded-sm p-5 flex m-2 justify-center items-center text-white transition-transform duration-150 ease-in hover:scale-105" href={sponsor.link}>
