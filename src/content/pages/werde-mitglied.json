@@ -34,6 +34,14 @@
       }
     },
     {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "rich-text",
       "content": "### Das sagen unsere Mitglieder\n\n",
       "style": {
@@ -73,6 +81,14 @@
       ],
       "style": {
         "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "### Deine Mitgliederreise\n\n",
+      "style": {
+        "alignment": "left",
         "size": "full"
       }
     }
