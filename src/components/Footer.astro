@@ -1,5 +1,7 @@
 ---
 // Site footer. Renders on bottom of site.
+import { Image } from "astro:assets";
+import logo from "../assets/pg_logo.png";
 import { localized } from "../utils/utils";
 import rawConfig from "../content/site_config.json";
 import { SiteSettingsConfigSchema } from "../content.config.ts";
@@ -27,9 +29,9 @@ const translations = {
 const labels = translations[locale];
 ---
 
-<footer class="w-full flex flex-row gap-4">
+<footer class="w-full flex flex-row gap-4 px-5">
   <div class="flex flex-col md:flex-row items-center w-full justify-between">
-    <h1>PionierGarage e.V.</h1>
+    <Image class="pg-logo" src={logo} alt="pioniergarage_logo" />
 
     <div class="flex flex-row gap-5">
       {
@@ -64,14 +66,14 @@ const labels = translations[locale];
     align-items: center;
     margin-top: 50px;
     margin-bottom: 30px;
-    max-width: 1280px;
+    max-width: 1320px;
     margin-left: auto;
     margin-right: auto;
   }
 
-  .rocket-logo-gradient {
-    width: 65px;
-    height: 65px;
+  .pg-logo {
+    max-width: 160px;
+    max-height: 30px;
     object-fit: contain;
   }
 
