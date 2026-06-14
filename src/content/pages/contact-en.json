@@ -8,7 +8,7 @@
       "type": "rich-text",
       "content": "# Contact Us\n\n",
       "style": {
-        "alignment": "center",
+        "alignment": "left",
         "size": "full"
       }
     },
@@ -16,7 +16,7 @@
       "type": "rich-text",
       "content": "Would you like to become our partner?  \nOr do you simply have some questions for us?  \nJust drop us a line!  \nWe look forward to hearing from you!\n\n",
       "style": {
-        "alignment": "center",
+        "alignment": "left",
         "size": "full",
         "className": "font-accent"
       }
