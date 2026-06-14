@@ -6,7 +6,7 @@
   "blocks": [
     {
       "type": "rich-text",
-      "content": "# Contact Us\n\n",
+      "content": "### Contact Us\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -17,8 +17,7 @@
       "content": "Would you like to become our partner?  \nOr do you simply have some questions for us?  \nJust drop us a line!  \nWe look forward to hearing from you!\n\n",
       "style": {
         "alignment": "left",
-        "size": "full",
-        "className": "font-accent"
+        "size": "full"
       }
     },
     {
