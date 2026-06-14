@@ -8,7 +8,8 @@
       "type": "hero",
       "title": "PIONIERGARAGE",
       "heroTagline": "Student Entrepreneurs",
-      "image": "/src/assets/DSCF2147.jpg",
+      "image": "/src/assets/home_hero_desktop.png",
+      "mobileImage": "/src/assets/home_hero_mobile.png",
       "button": {
         "text": "Quatsche mit unserem Vorstand",
         "link": "de/about#board"
