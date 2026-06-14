@@ -53,8 +53,20 @@
       "type": "steps",
       "items": [
         {
-          "title": "Bewerbung",
-          "description": "Bewerbe dich bei uns"
+          "title": "Bewerbung ausfüllen",
+          "description": "Fülle deine Bewerbung schnell und unkompliziert für Beginn eines jeden Semesters aus."
+        },
+        {
+          "title": "Auswahl und Kennenlernen",
+          "description": "Die besten 15 werden ausgewählt und starten als Trainees."
+        },
+        {
+          "title": "Trainee Batch",
+          "description": "Beweise dein Können in einem kurzem Batch."
+        },
+        {
+          "title": "Aufnahme & Mitglied",
+          "description": "Freu dich auf spannende Projekte und einzigartige Möglichkeiten !"
         }
       ],
       "style": {
