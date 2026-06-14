@@ -51,6 +51,10 @@
         {
           "title": "Selection and Getting to Know Each Other",
           "description": "The top 15 are selected and start as trainees."
+        },
+        {
+          "title": "Trainee Batch",
+          "description": "Prove your skills in a short batch."
         }
       ],
       "style": {
