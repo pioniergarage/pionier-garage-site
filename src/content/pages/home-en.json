@@ -20,7 +20,7 @@
         "size": "screen"
       },
       "titleStyle": {
-        "size": "display",
+        "size": "xlarge",
         "color": "accent-red",
         "alignment": "center"
       }
