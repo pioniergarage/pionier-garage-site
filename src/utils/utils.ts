@@ -1,7 +1,16 @@
 export function renderHeadline(text: string): string {
-  return text.replace(/\[([^\]]+)\]/g, (_, word) =>
-    `<span class="outlined">${word}</span>`
-  );
+  return text
+    // "||" marks an optional break point WITHOUT a hyphen: it becomes a
+    // zero-width space (U+200B), so e.g. "Pionier||garage" may break as
+    // "Pionier" / "garage" with no visible "-". Handled before single "|".
+    .replace(/\|\|/g, "​")
+    // A single "|" marks an optional break point WITH a hyphen: it becomes a
+    // soft hyphen (U+00AD), so e.g. "Pionier|garage" only breaks as
+    // "Pionier-garage" when the word doesn't fit on one line.
+    .replace(/\|/g, "­")
+    .replace(/\[([^\]]+)\]/g, (_, word) =>
+      `<span class="outlined">${word}</span>`
+    );
 }
 
 /**
