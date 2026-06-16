@@ -62,7 +62,7 @@
       "type": "rich-text",
       "content": "## Unser Vorstand\n\n",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full",
         "id": "board"
       }
@@ -71,7 +71,7 @@
       "type": "custom-block",
       "component": "TeamGallery",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
