@@ -13,7 +13,7 @@
         "size": "screen"
       },
       "titleStyle": {
-        "size": "large",
+        "size": "small",
         "color": "primary",
         "alignment": "center"
       }
