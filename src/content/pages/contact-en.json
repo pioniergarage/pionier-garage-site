@@ -5,40 +5,22 @@
   "layout": "../layouts/PageLayout.astro",
   "blocks": [
     {
-      "type": "rich-text",
-      "content": "### Contact Us\n\n",
+      "type": "hero",
+      "title": "Contact Us!",
+      "subtitle": "Would you like to become our partner? Or do you simply have some questions for us? Just drop us a line! We look forward to hearing from you!",
       "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "rich-text",
-      "content": "Would you like to become our partner?  \nOr do you simply have some questions for us?  \nJust drop us a line!  \nWe look forward to hearing from you!\n\n",
-      "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "spacer",
-      "size": "80px",
-      "style": {
-        "alignment": "left",
-        "size": "full"
+        "alignment": "center",
+        "size": "screen"
+      },
+      "titleStyle": {
+        "size": "small",
+        "color": "primary",
+        "alignment": "left"
       }
     },
     {
       "type": "form",
       "url": "https://tally.so/embed/44GzvO?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
-      "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "spacer",
-      "size": "80px",
       "style": {
         "alignment": "left",
         "size": "full"
