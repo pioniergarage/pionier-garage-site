@@ -35,7 +35,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Deine Mitgliederreise\n\n",
+      "content": "## Deine Mitglieder|reise\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
