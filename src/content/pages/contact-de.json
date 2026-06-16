@@ -8,6 +8,8 @@
       "type": "hero",
       "title": "Kontaktiere Uns !",
       "subtitle": "Du möchtest unser Partner werden? Oder du hast einfach noch Fragen an uns? Schreib uns einfach! Wir freuen uns auf dich!",
+      "image": "/src/assets/contact_hero_desktop.png",
+      "mobileImage": "/src/assets/contact_hero_desktop.png",
       "style": {
         "alignment": "center",
         "size": "screen"
