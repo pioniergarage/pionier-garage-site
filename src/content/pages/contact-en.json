@@ -5,6 +5,14 @@
   "layout": "../layouts/PageLayout.astro",
   "blocks": [
     {
+      "type": "spacer",
+      "size": "50px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "hero",
       "title": "Contact Us!",
       "subtitle": "Would you like to become our partner? Or do you simply have some questions for us? Just drop us a line! We look forward to hearing from you!",
