@@ -27,23 +27,18 @@
     },
     {
       "type": "spacer",
-      "size": "10px",
+      "size": "80px",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
     {
-      "type": "hero",
-      "title": "Deine Mitgliederreise",
+      "type": "rich-text",
+      "content": "# Deine Mitgliederreise\n\n",
       "style": {
         "alignment": "center",
         "size": "full"
-      },
-      "titleStyle": {
-        "size": "small",
-        "color": "primary",
-        "alignment": "center"
       }
     },
     {
@@ -73,23 +68,18 @@
     },
     {
       "type": "spacer",
-      "size": "10px",
+      "size": "80px",
       "style": {
         "alignment": "center",
         "size": "full"
       }
     },
     {
-      "type": "hero",
-      "title": "Das sagen unsere Mitglieder",
+      "type": "rich-text",
+      "content": "# Das sagen unsere Mitglieder\n\n",
       "style": {
         "alignment": "center",
         "size": "full"
-      },
-      "titleStyle": {
-        "size": "small",
-        "color": "primary",
-        "alignment": "center"
       }
     },
     {
@@ -113,9 +103,9 @@
     },
     {
       "type": "spacer",
-      "size": "10px",
+      "size": "80px",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
