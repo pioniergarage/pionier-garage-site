@@ -7,13 +7,13 @@
     {
       "type": "hero",
       "title": "Kontaktiere Uns !",
-      "subtitle": "Du möchtest unser Partner werden? Oder du hast einfach noch Fragen an uns?Schreib uns einfach! Wir freuen uns auf dich!",
+      "subtitle": "Du möchtest unser Partner werden? Oder du hast einfach noch Fragen an uns? Schreib uns einfach! Wir freuen uns auf dich!",
       "style": {
         "alignment": "center",
         "size": "screen"
       },
       "titleStyle": {
-        "size": "small",
+        "size": "medium",
         "color": "primary",
         "alignment": "center"
       }
