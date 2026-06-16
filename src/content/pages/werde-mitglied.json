@@ -126,6 +126,22 @@
       }
     },
     {
+      "type": "rich-text",
+      "content": "# Häufig gestellte Fragen\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "30px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "faq",
       "items": [
         {
