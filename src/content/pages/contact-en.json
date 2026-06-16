@@ -8,6 +8,8 @@
       "type": "hero",
       "title": "Contact Us!",
       "subtitle": "Would you like to become our partner? Or do you simply have some questions for us? Just drop us a line! We look forward to hearing from you!",
+      "image": "/src/assets/contact_hero_desktop.png",
+      "mobileImage": "/src/assets/contact_hero_desktop.png",
       "style": {
         "alignment": "center",
         "size": "screen"
@@ -20,7 +22,7 @@
     },
     {
       "type": "spacer",
-      "size": "80px",
+      "size": "20px",
       "style": {
         "alignment": "center",
         "size": "full"
