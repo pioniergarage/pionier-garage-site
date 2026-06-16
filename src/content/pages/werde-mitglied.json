@@ -43,7 +43,7 @@
       "titleStyle": {
         "size": "small",
         "color": "primary",
-        "alignment": "left"
+        "alignment": "center"
       }
     },
     {
@@ -80,8 +80,21 @@
       }
     },
     {
-      "type": "rich-text",
-      "content": "### Das sagen unsere Mitglieder\n\n",
+      "type": "hero",
+      "title": "Das sagen unsere Mitglieder",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      },
+      "titleStyle": {
+        "size": "small",
+        "color": "primary",
+        "alignment": "center"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -124,14 +137,6 @@
       ],
       "style": {
         "alignment": "center",
-        "size": "full"
-      }
-    },
-    {
-      "type": "spacer",
-      "size": "80px",
-      "style": {
-        "alignment": "left",
         "size": "full"
       }
     }
