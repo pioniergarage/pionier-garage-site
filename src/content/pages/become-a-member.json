@@ -27,7 +27,7 @@
     },
     {
       "type": "spacer",
-      "size": "80px",
+      "size": "20px",
       "style": {
         "alignment": "left",
         "size": "full"
