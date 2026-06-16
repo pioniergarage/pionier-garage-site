@@ -42,14 +42,6 @@
       }
     },
     {
-      "type": "spacer",
-      "size": "80px",
-      "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
       "type": "steps",
       "items": [
         {
@@ -85,14 +77,6 @@
     {
       "type": "rich-text",
       "content": "## What our members say\n\n",
-      "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "spacer",
-      "size": "80px",
       "style": {
         "alignment": "left",
         "size": "full"
