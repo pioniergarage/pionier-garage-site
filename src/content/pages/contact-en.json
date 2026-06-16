@@ -15,9 +15,9 @@
         "size": "screen"
       },
       "titleStyle": {
-        "size": "small",
+        "size": "medium",
         "color": "primary",
-        "alignment": "left"
+        "alignment": "center"
       }
     },
     {
