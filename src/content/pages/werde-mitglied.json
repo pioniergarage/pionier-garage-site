@@ -42,6 +42,14 @@
       }
     },
     {
+      "type": "spacer",
+      "size": "30px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "steps",
       "items": [
         {
@@ -79,6 +87,14 @@
       "content": "# Das sagen unsere Mitglieder\n\n",
       "style": {
         "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "30px",
+      "style": {
+        "alignment": "left",
         "size": "full"
       }
     },
