@@ -93,14 +93,6 @@
       }
     },
     {
-      "type": "spacer",
-      "size": "80px",
-      "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
       "type": "testimonials",
       "items": [
         {
@@ -123,7 +115,7 @@
       "type": "spacer",
       "size": "80px",
       "style": {
-        "alignment": "center",
+        "alignment": "left",
         "size": "full"
       }
     },
@@ -135,6 +127,14 @@
           "answer": "Was ganz tolles"
         }
       ],
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
       "style": {
         "alignment": "center",
         "size": "full"
