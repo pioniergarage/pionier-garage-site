@@ -27,7 +27,7 @@
     },
     {
       "type": "spacer",
-      "size": "80px",
+      "size": "10px",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -68,12 +68,12 @@
       ],
       "style": {
         "alignment": "center",
-        "size": "screen"
+        "size": "third"
       }
     },
     {
       "type": "spacer",
-      "size": "80px",
+      "size": "10px",
       "style": {
         "alignment": "center",
         "size": "full"
@@ -108,12 +108,12 @@
       ],
       "style": {
         "alignment": "center",
-        "size": "full"
+        "size": "screen"
       }
     },
     {
       "type": "spacer",
-      "size": "80px",
+      "size": "10px",
       "style": {
         "alignment": "left",
         "size": "full"
