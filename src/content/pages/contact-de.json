@@ -19,27 +19,11 @@
       }
     },
     {
-      "type": "spacer",
-      "size": "80px",
-      "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
       "type": "form",
-      "url": "https://tally.so/embed/44GzvO?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
+      "url": "https://tally.so/embed/44GzvO?hideTitle=1&transparentBackground=1&dynamicHeight=1",
       "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "spacer",
-      "size": "80px",
-      "style": {
-        "alignment": "left",
-        "size": "full"
+        "alignment": "center",
+        "size": "screen"
       }
     }
   ]
