@@ -110,6 +110,14 @@
       }
     },
     {
+      "type": "rich-text",
+      "content": "## Frequently asked Question",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "faq",
       "items": [
         {
