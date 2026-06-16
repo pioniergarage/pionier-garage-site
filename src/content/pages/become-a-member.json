@@ -27,17 +27,17 @@
     },
     {
       "type": "spacer",
-      "size": "20px",
+      "size": "80px",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
     {
       "type": "rich-text",
-      "content": "### Your member journey\n\n",
+      "content": "# Your member journey\n\n",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
@@ -76,7 +76,7 @@
     },
     {
       "type": "rich-text",
-      "content": "### What our members say\n\n",
+      "content": "# What our members say\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
