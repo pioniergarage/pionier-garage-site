@@ -30,7 +30,7 @@
     },
     {
       "type": "form",
-      "url": "https://tally.so/embed/44GzvO?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&lang=de",
+      "url": "https://tally.so/embed/44GzvO?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
       "style": {
         "alignment": "center",
         "size": "full"
