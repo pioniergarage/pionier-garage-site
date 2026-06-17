@@ -1,0 +1,35 @@
+name: Deploy to Main
+
+on:
+  workflow_dispatch:
+    inputs:
+      payload:
+        description: Pages CMS payload as JSON
+        required: true
+        type: string
+
+jobs:
+  merge-branch:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 
+          token: ${{ secrets.BYPASS_PAT }}
+
+      - name: Configure Git User
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Merge work into main
+        run: |
+          # Switch to the main branch
+          git checkout main
+          
+          # Merge the work branch into main
+          git merge origin/work --no-ff -m "Automated merge from 'work' branch via GitHub Actions"
+          
+          # Push the changes back to the remote main branch using the PAT credentials
+          git push origin main

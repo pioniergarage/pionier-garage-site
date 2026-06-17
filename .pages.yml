@@ -21,6 +21,15 @@ components:
       - { name: alignment,label: Alignment, type: select, options: { values: [left, center, right] }, default: 'left' }
       - { name: className,label: Tailwind Classes, type: string }
 
+actions:
+  - name: deploy-site
+    label: Deploy site
+    workflow: deploy-to-main.yml
+    confirm:
+      title: Deploy site?
+      message: This will deploy the current staging site to the live instance.
+      button: I'm sure, Deploy!
+
 content:
   - name: posts
     label: Posts
