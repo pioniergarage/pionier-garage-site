@@ -55,4 +55,5 @@ All commands are run from the root of the project, from a terminal:
 `https://data.pioniergarage.de/_/`
 
 ## Pages CMS
-`https://app.pagescms.org/pioniergarage/startup-karlsruhe/main/collection/posts`
+
+[Edit the site here](https://app.pagescms.org/pioniergarage/pionier-garage-site/work) You must be invited to the CMS, ask someone on the IT team if you think you should be but you are not.
