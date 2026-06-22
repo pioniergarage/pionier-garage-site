@@ -88,12 +88,17 @@
         {
           "quote": "PionierGarage helped me make the right connections, find opportunities, and meet like-minded people. I learned skills that no one at university taught me.",
           "name": "Josua",
-          "role": "Co-Founder ColgLog"
+          "role": "Co-Founder ColdLog"
         },
         {
           "quote": "I have always been interested in entrepreneurship and starting a business. Joining PionierGarage gave me opportunities for personal growth and to build my network.",
           "name": "Florian",
           "role": "Founder OutLeads"
+        },
+        {
+          "quote": "Looking back, I'm very grateful of the time I spent at PionierGarage as head of IT and speaker at GROW. I learned a staggering amount of everything entrepreneurship-related, from project management and hosting hackathons to networking and starting a business, everything in between and more, and some SQL. If you want to be a part of something and make a difference, join PG",
+          "name": "Marc Hudnut",
+          "role": "PionierGarage Alumni"
         }
       ],
       "style": {
@@ -111,7 +116,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Frequently asked Question",
+      "content": "## Frequently Asked Questions\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -138,7 +143,7 @@
         },
         {
           "question": "What can I learn in PionierGarage?",
-          "answer": "We cover everything from marketing and business development to leadership! Whether it’s internal financial accounting, planning a workshop with over 50 participants, or organizing GROW—our startup competition featuring more than 50 teams and 1,000 attendees—you have the chance to pursue your interests, take on responsibility, learn the fundamentals of starting a business, and build your own network!"
+          "answer": "We cover everything from marketing and business development to leadership! Whether it’s internal financial accounting, planning workshops with a couple hundred participants, or organizing GROW—our startup competition featuring more than 50 teams and 1,000 attendees—you have the chance to pursue your interests, take on responsibility, learn the fundamentals of starting a business, and build your own network!"
         },
         {
           "question": "What is the Batch?",
@@ -146,7 +151,7 @@
         }
       ],
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },

@@ -42,6 +42,14 @@
       }
     },
     {
+      "type": "spacer",
+      "size": "60px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "custom-block",
       "component": "EcosystemOverview",
       "style": {

@@ -2,7 +2,7 @@
   {
     "title": "Oscar Streif",
     "position": "Head of the Board",
-    "image": "/src/assets/oscar_formatted.png",
+    "image": "/src/assets/oscar_edited_formatted.png",
     "email": "oscar.streif@pioniergarage.de",
     "coffeeChatLink": "https://calendar.app.google/K3NJ8fiqtyC6Dto77",
     "startDate": "2026-05-19"
@@ -10,7 +10,7 @@
   {
     "title": "Hirad Sardashti",
     "position": "Head of Finance",
-    "image": "/src/assets/hirad formatted.png",
+    "image": "/src/assets/hirad_edited_formatted.png",
     "email": "hirad.sardashti@pioniergarage.de",
     "coffeeChatLink": "https://calendar.app.google/U5anpGY7mJrF6um59",
     "startDate": "2026-05-19"
@@ -18,7 +18,7 @@
   {
     "title": "Josua Röck",
     "position": "Head of IT",
-    "image": "/src/assets/josua formatted.png",
+    "image": "/src/assets/josua_edited_formatted.png",
     "email": "josua.roeck@pioniergarage.de",
     "coffeeChatLink": "https://calendar.app.google/TCLPWq5bYzEByEbcA",
     "startDate": "2026-05-19"
@@ -26,7 +26,7 @@
   {
     "title": "Farzad Yaqubi",
     "position": "Head of Marketing",
-    "image": "/src/assets/farzad formatted.png",
+    "image": "/src/assets/farzad_edited_formatted.png",
     "email": "farzad.yaqubi@pioniergarage.de",
     "coffeeChatLink": "https://calendar.app.google/XBqGuDhWigeoypUS6",
     "startDate": "2026-06-03"
@@ -34,7 +34,7 @@
   {
     "title": "Yavuz Cagan",
     "position": "Head of Events",
-    "image": "/src/assets/yavuz formatted.png",
+    "image": "/src/assets/yavuz_edited_formattedpng.png",
     "email": "yavuz.cagan@pioniergarage.de",
     "coffeeChatLink": "https://calendar.app.google/SzcS35JVTnMqGeuz7",
     "startDate": "2026-05-19"
@@ -42,7 +42,7 @@
   {
     "title": "Peer Vagner",
     "position": "Head of External",
-    "image": "/src/assets/peer formatted.png",
+    "image": "/src/assets/peer_edited_formatted.png",
     "email": "peer.vagner@pioniergarage.de",
     "startDate": "2026-06-03"
   }
