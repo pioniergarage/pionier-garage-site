@@ -21,7 +21,7 @@ export function renderHeadline(text: string): string {
  * @returns The localized link
  */
 export function localized(link_raw: string | undefined, locale: string | undefined, locales: string[] = []): string {
-  if (link_raw?.startsWith('http://') || link_raw?.startsWith('https://')) {
+  if (link_raw?.startsWith('http://') || link_raw?.startsWith('https://') || link_raw?.startsWith('mailto:')) {
     return link_raw ?? "";
   }
 
