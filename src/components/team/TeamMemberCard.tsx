@@ -1,3 +1,4 @@
+import { localized } from "../../utils/utils";
 import type { TeamData } from "./types";
 
 interface Props {
@@ -51,7 +52,7 @@ export default function TeamMemberCard({ team_member, locale }: Props) {
 
             {/* Contact Button */}
             <a
-                href={team_member.coffeeChatLink ?? `mailto:${team_member.email}`}
+                href={localized(team_member.coffeeChatLink || `mailto:${team_member.email}`, locale)}
                 className="w-full text-center px-4 py-3 text-lg font-accent text-white bg-transparent border-2 border-primary rounded cursor-pointer transition duration-150 ease-out hover:bg-primary hover:text-bg hover:border-primary"
             >
                 {t.talkTo(firstName)}
