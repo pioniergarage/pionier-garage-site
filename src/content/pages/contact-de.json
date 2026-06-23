@@ -5,35 +5,35 @@
   "layout": "../layouts/PageLayout.astro",
   "blocks": [
     {
-      "type": "rich-text",
-      "content": "### Kontaktiere Uns\n\nDu möchtest unser Partner werden?\nOder du hast einfach noch Fragen an uns?\n\nSchreib uns einfach!\nWir freuen uns auf dich!",
+      "type": "hero",
+      "title": "Schreib Uns!",
+      "subtitle": "Du möchtest unser Partner werden? Oder du hast einfach noch Fragen an uns? Schreib uns einfach! Wir freuen uns auf dich!",
+      "image": "/src/assets/contact_hero_desktop.png",
+      "mobileImage": "/src/assets/contact_hero_mobile.png",
       "style": {
-        "alignment": "left",
-        "size": "full"
+        "alignment": "center",
+        "size": "screen"
+      },
+      "titleStyle": {
+        "size": "medium",
+        "color": "primary",
+        "alignment": "center"
       }
     },
     {
       "type": "spacer",
-      "size": "80px",
+      "size": "20px",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
     {
       "type": "form",
-      "url": "https://tally.so/r/D4X0PX",
+      "url": "https://tally.so/embed/44GzvO?hideTitle=1&transparentBackground=1&dynamicHeight=1&lang=de",
       "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "spacer",
-      "size": "80px",
-      "style": {
-        "alignment": "left",
-        "size": "full"
+        "alignment": "center",
+        "size": "screen"
       }
     }
   ]

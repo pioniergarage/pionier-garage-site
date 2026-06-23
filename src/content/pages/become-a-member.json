@@ -20,7 +20,7 @@
         "size": "full"
       },
       "titleStyle": {
-        "size": "display",
+        "size": "medium",
         "color": "primary",
         "alignment": "center"
       }
@@ -29,13 +29,13 @@
       "type": "spacer",
       "size": "80px",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
     {
       "type": "rich-text",
-      "content": "### Your member journey\n\n",
+      "content": "## Your member journey\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -76,7 +76,7 @@
     },
     {
       "type": "rich-text",
-      "content": "### What our members say\n\n",
+      "content": "## What our members say\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -88,12 +88,17 @@
         {
           "quote": "PionierGarage helped me make the right connections, find opportunities, and meet like-minded people. I learned skills that no one at university taught me.",
           "name": "Josua",
-          "role": "Co-Founder ColgLog"
+          "role": "Co-Founder ColdLog"
         },
         {
           "quote": "I have always been interested in entrepreneurship and starting a business. Joining PionierGarage gave me opportunities for personal growth and to build my network.",
           "name": "Florian",
           "role": "Founder OutLeads"
+        },
+        {
+          "quote": "Looking back, I'm very grateful of the time I spent at PionierGarage as head of IT and speaker at GROW. I learned a staggering amount of everything entrepreneurship-related, from project management and hosting hackathons to networking and starting a business, everything in between and more, and some SQL. If you want to be a part of something and make a difference, join PG",
+          "name": "Marc Hudnut",
+          "role": "PionierGarage Alumni"
         }
       ],
       "style": {
@@ -110,15 +115,43 @@
       }
     },
     {
+      "type": "rich-text",
+      "content": "## Frequently Asked Questions\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "faq",
       "items": [
         {
+          "question": "Do I need an idea to get involved with you?",
+          "answer": "No! We want to help you with precisely this issue! It makes absolutely no difference how much experience or skill you already possess. Our goal is to help you become a founder! However, if you are already at that stage and ready to hit the ground running, we will, of course, support you and your team with every resource at our disposal!"
+        },
+        {
+          "question": "Do you have to be a university student to become a member?",
+          "answer": "Absolutely not! We welcome anyone interested in founding a business!"
+        },
+        {
+          "question": "I don't really want to start a business—can I still join in?",
+          "answer": "Sure! Not all of our members want to start a business. However, PionierGarage gives you the chance to find out if that’s right for you! Since we play a very active role in the student startup scene, there are plenty of projects and tasks you can take on to help both yourself and us move forward."
+        },
+        {
+          "question": "What level of commitment is expected of me as an active member?",
+          "answer": "Commitment is an important factor, but it is entirely up to you! Depending on the project you wish to take on and your personal situation—whether regarding your studies, work, or other commitments—you have the autonomy to manage your own involvement and schedule. Apart from our weekly team meeting every Thursday, you are free to organize your work however you like."
+        },
+        {
+          "question": "What can I learn in PionierGarage?",
+          "answer": "We cover everything from marketing and business development to leadership! Whether it’s internal financial accounting, planning workshops with a couple hundred participants, or organizing GROW—our startup competition featuring more than 50 teams and 1,000 attendees—you have the chance to pursue your interests, take on responsibility, learn the fundamentals of starting a business, and build your own network!"
+        },
+        {
           "question": "What is the Batch?",
-          "answer": "The Batch is our system for bringing in new members"
+          "answer": "The best thing ever"
         }
       ],
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },

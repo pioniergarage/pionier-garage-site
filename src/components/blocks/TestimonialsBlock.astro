@@ -28,10 +28,10 @@ const sectionClasses = sectionVariants({
 ---
 
 <section class={sectionClasses}>
-  <div class="flex w-full flex-wrap justify-start gap-6">
+  <div class="flex gap-6 flex-wrap justify-between">
     {
       items.map((item) => (
-        <figure class="m-0 flex grow basis-full flex-col justify-between gap-6 rounded bg-black border border-stroke p-5 md:basis-[calc(50%-0.75rem)] md:max-w-[480px]">
+        <figure class="m-0 flex grow basis-full flex-col justify-between gap-6 rounded bg-black border border-stroke p-5 md:basis-[calc(30%-0.75rem)] md:max-w-120">
           {item.quote && (
             <blockquote class="m-0 leading-relaxed">
               {item.quote}

@@ -20,18 +20,34 @@ for (const sponsor of sponsors) {
 ---
 
 <div class="m-0 p-0 overflow-hidden flex w-full">
-  <div class="flex flex-col flex-wrap md:flex-row w-full justify-center">
+  <div class="flex flex-col flex-wrap md:flex-row w-full justify-left">
     {
       sponsors.map((sponsor) => (
-        <a class="bg-black rounded-sm p-5 flex m-2 justify-center items-center text-white transition-transform duration-150 ease-in hover:scale-105" href={sponsor.link}>
+        <a
+          class="relative rounded-sm p-5 flex m-2 justify-center items-center text-white transition-transform duration-150 ease-in hover:scale-105 overflow-hidden ring-1 ring-inset ring-white/20"
+          href={sponsor.link}
+        >
           {sponsor.image ? (
-            <Image 
-              src={images[sponsor.image]()} 
-              alt={sponsor.name ?? ""} 
-              class="h-[50px] w-auto m-0 p-0 object-contain"
-            />
+            <>
+              {/* 2x Blurred Background Image */}
+              <Image
+                src={images[sponsor.image]()}
+                alt=""
+                class="absolute inset-0 w-full h-full object-contain scale-200 blur-md opacity-25 z-0 pointer-events-none"
+                aria-hidden="true"
+              />
+
+              {/* Main Foreground Image */}
+              <Image
+                src={images[sponsor.image]()}
+                alt={sponsor.name ?? ""}
+                class="relative h-12.5 w-auto m-0 p-0 object-contain z-10"
+              />
+            </>
           ) : (
-            <h2 class="font-display text-white">{sponsor.name}</h2>
+            <h2 class="relative font-display text-white z-10">
+              {sponsor.name}
+            </h2>
           )}
         </a>
       ))

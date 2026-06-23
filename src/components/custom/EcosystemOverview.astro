@@ -25,15 +25,15 @@ const labels = translations[locale];
 ---
 
 <div
-  class="w-full p-10 flex flex-col md:flex-row gap-4 justify-items-space-between items-center text-center"
+  class="w-full p-10 flex flex-col md:flex-row gap-4 justify-items-space-between items-center text-center text-xl"
   data-count-locale={numberLocale}
 >
   <div class="w-full group block">
-    <h3 class="font-serif">
+    <h3>
       {labels.startups}
     </h3>
     <h1
-      class="font-serif text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance"
+      class="text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance"
       data-count-up
       data-count-target={startups_rounded}
       data-count-suffix="+"
@@ -43,31 +43,33 @@ const labels = translations[locale];
     </h1>
   </div>
 
-  <div class="bg-secondary w-full h-[1px] md:w-1 md:h-full"></div>
+  <div class="bg-secondary w-full h-px md:w-1 md:h-full"></div>
 
   <div class="w-full group block">
-    <h3 class="font-serif">
+    <h3>
       {labels.years}
     </h3>
     <h1
-      class="font-serif text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance"
+      class="text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance"
       data-count-up
       data-count-target={years_of_experience}
       data-count-suffix=""
-      aria-label={new Intl.NumberFormat(numberLocale).format(years_of_experience)}
+      aria-label={new Intl.NumberFormat(numberLocale).format(
+        years_of_experience,
+      )}
     >
       {years_of_experience}
     </h1>
   </div>
 
-  <div class="bg-secondary w-full h-[1px] md:w-1 md:h-full"></div>
+  <div class="bg-secondary w-full h-px md:w-1 md:h-full"></div>
 
   <div class="w-full group block">
-    <h3 class="font-serif">
+    <h3>
       {labels.activeMembers}
     </h3>
     <h1
-      class="font-serif text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance"
+      class="text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance"
       data-count-up
       data-count-target={active_members}
       data-count-suffix="+"

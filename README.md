@@ -2,7 +2,7 @@
 
 ## 🚀 Project Structure
 
-Inside of the Startup-Karlsruhe project, you'll see the following folders and files:
+Inside of the PionierGarage project, you'll see the following folders and files:
 
 ```text
 /
@@ -18,8 +18,6 @@ Inside of the Startup-Karlsruhe project, you'll see the following folders and fi
 │   │   ├── events <- React Components relating to rendering events
 │   │   ├── README.md <- Read this for a small explanatory specifically regarding our custom component structure
 │   │   ├── search <- React Components relating to collection searching
-│   │   ├── startup-map <- React Components relating to the Startup Map
-│   │   ├── startups <- React Components relating to rendering startups
 │   │   ├── types <- Typescript types
 │   │   └── ui <- UI primitives
 │   ├── layouts <- Base layouts
@@ -57,4 +55,5 @@ All commands are run from the root of the project, from a terminal:
 `https://data.pioniergarage.de/_/`
 
 ## Pages CMS
-`https://app.pagescms.org/pioniergarage/startup-karlsruhe/main/collection/posts`
+
+[Edit the site here](https://app.pagescms.org/pioniergarage/pionier-garage-site/work) You must be invited to the CMS, ask someone on the IT team if you think you should be but you are not.

@@ -5,6 +5,7 @@ import logo from "../assets/pg_logo.png";
 import { localized } from "../utils/utils";
 import rawConfig from "../content/site_config.json";
 import { SiteSettingsConfigSchema } from "../content.config.ts";
+import { Icon } from "astro-icon/components";
 
 const locale = Astro.currentLocale === "de" ? "de" : "en";
 
@@ -17,12 +18,16 @@ const translations = {
     privacy: "Datenschutz",
     contact: "Kontakt",
     copyright: "(c) 2026 PionierGarage e.V.",
+    find_us: "Entdeckt uns auf",
+    brought_to_you: "Hergestellt in Karlsruhe von",
   },
   en: {
     imprint: "Imprint",
     privacy: "Privacy",
     contact: "Contact",
     copyright: "(c) 2026 PionierGarage e.V.",
+    find_us: "Check us out!",
+    brought_to_you: "Made in Karlsruhe by",
   },
 } as const;
 
@@ -30,13 +35,20 @@ const labels = translations[locale];
 ---
 
 <footer class="w-full flex flex-row gap-4 px-5">
-  <div class="flex flex-col gap-4 md:flex-row items-center w-full justify-between">
+  <div
+    class="flex flex-col gap-4 md:flex-row items-center w-full justify-between"
+  >
     <Image class="pg-logo" src={logo} alt="pioniergarage_logo" />
 
     <div class="flex flex-row gap-5">
+      <h3>{labels.find_us}</h3>
       {
         socialMedias.map((social) => (
-          <a class="" href={social.link}>
+          <a href={social.link} class="text-center">
+            <Icon
+              name={`lucide:${social.icon}`}
+              class="w-6 h-6 inline-block justify-center"
+            />
             {social.name}
           </a>
         ))
@@ -44,10 +56,40 @@ const labels = translations[locale];
     </div>
   </div>
 
-  <div class="w-full bg-secondary h-[1px]"></div>
+  <div class="w-full bg-secondary h-px"></div>
 
   <div class="footer-content">
     <a href="https://www.pioniergarage.de/">{labels.copyright}</a>
+
+    <div class="flex flex-row flex-wrap justify-center align-center text-center">
+      <h3>{labels.brought_to_you}</h3>
+      <div class="flex flex-row gap-4 px-4">
+         <a
+          href={"https://github.com/josuaroeck"}
+          class="justify-center align-center text-center"
+          ><Icon
+            name={`lucide:github`}
+            class="w-6 h-6 inline-block justify-center"
+          /> Josua</a
+        >
+        <a
+          href={"https://github.com/hudmarc"}
+          class="justify-center align-center text-center"
+          ><Icon
+            name={`lucide:github`}
+            class="w-6 h-6 inline-block justify-center"
+          /> Marc</a
+        >
+        <a
+          href={"https://github.com/pioniergarage"}
+          class="justify-center align-center text-center"
+          ><Icon
+            name={`lucide:github`}
+            class="w-6 h-6 inline-block justify-center"
+          /> PionierGarage IT Team</a
+        >
+      </div>
+    </div>
 
     <div class="footer-content-link-group">
       <a href={localized("imprint", Astro.currentLocale)}>{labels.imprint}</a>
@@ -109,7 +151,7 @@ const labels = translations[locale];
     color: var(--text);
   }
 
-  @media (max-width: 576px) {
+  @media (max-width: 800px) {
     .startup-karlsruhe-type--mobile {
       display: block;
     }

@@ -5,42 +5,34 @@
   "layout": "../layouts/PageLayout.astro",
   "blocks": [
     {
-      "type": "rich-text",
-      "content": "### Contact Us\n\n",
+      "type": "hero",
+      "title": "Let's talk!",
+      "subtitle": "Would you like to become our partner? Or do you simply have some questions for us? Just drop us a line! We look forward to hearing from you!",
+      "image": "/src/assets/contact_hero_desktop.png",
+      "mobileImage": "/src/assets/contact_hero_mobile.png",
       "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "rich-text",
-      "content": "Would you like to become our partner?  \nOr do you simply have some questions for us?  \nJust drop us a line!  \nWe look forward to hearing from you!\n\n",
-      "style": {
-        "alignment": "left",
-        "size": "full"
+        "alignment": "center",
+        "size": "screen"
+      },
+      "titleStyle": {
+        "size": "medium",
+        "color": "primary",
+        "alignment": "center"
       }
     },
     {
       "type": "spacer",
-      "size": "80px",
+      "size": "20px",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
     {
       "type": "form",
-      "url": "https://tally.so/r/D4X0PX",
+      "url": "https://tally.so/embed/44GzvO?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&lang=en",
       "style": {
-        "alignment": "left",
-        "size": "full"
-      }
-    },
-    {
-      "type": "spacer",
-      "size": "80px",
-      "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     }

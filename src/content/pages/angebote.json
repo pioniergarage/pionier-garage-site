@@ -20,7 +20,7 @@
         "size": "full"
       },
       "titleStyle": {
-        "size": "medium",
+        "size": "xlarge",
         "color": "primary",
         "alignment": "center"
       }
@@ -35,11 +35,10 @@
     },
     {
       "type": "rich-text",
-      "content": "Unsere Startups",
+      "content": "### Unsere Besten Startups\n\n",
       "style": {
         "alignment": "left",
-        "size": "full",
-        "className": "font-accent"
+        "size": "full"
       }
     },
     {

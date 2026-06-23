@@ -19,7 +19,7 @@
         "size": "full"
       },
       "titleStyle": {
-        "size": "large",
+        "size": "xlarge",
         "color": "accent-red",
         "alignment": "center"
       }
@@ -34,7 +34,7 @@
     },
     {
       "type": "rich-text",
-      "content": "### Wir sind die größte Entrepreneurship-Community an deutschen Hochschulen – für alle, die Unternehmen aufbauen wollen.",
+      "content": "### Wir sind die größte Entrepreneurship-Community an deutschen Hochschulen – für alle, die Unternehmen aufbauen wollen.\n\n",
       "style": {
         "alignment": "center",
         "size": "full"
@@ -50,11 +50,10 @@
     },
     {
       "type": "rich-text",
-      "content": "Unsere Besten Startups\n\n",
+      "content": "### Unsere Besten Startups\n\n",
       "style": {
-        "alignment": "center",
-        "size": "full",
-        "className": "font-accent"
+        "alignment": "left",
+        "size": "full"
       }
     },
     {
@@ -75,9 +74,9 @@
     },
     {
       "type": "rich-text",
-      "content": "### Woran wir arbeiten\n\n",
+      "content": "### Unsere Projekte\n\n",
       "style": {
-        "alignment": "center",
+        "alignment": "left",
         "size": "full"
       }
     },
@@ -120,7 +119,7 @@
       "type": "rich-text",
       "content": "### Unsere Partner und Sponsoren\n\n",
       "style": {
-        "alignment": "center",
+        "alignment": "left",
         "size": "full"
       }
     },

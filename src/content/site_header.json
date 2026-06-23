@@ -1,10 +1,10 @@
 {
   "navbar": [
     {
-      "url": "/about"
+      "url": "/offers"
     },
     {
-      "url": "/offers"
+      "url": "/about"
     },
     {
       "url": "/join"

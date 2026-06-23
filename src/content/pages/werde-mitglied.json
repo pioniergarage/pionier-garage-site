@@ -20,7 +20,7 @@
         "size": "full"
       },
       "titleStyle": {
-        "size": "large",
+        "size": "medium",
         "color": "primary",
         "alignment": "center"
       }
@@ -29,13 +29,13 @@
       "type": "spacer",
       "size": "80px",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
     {
       "type": "rich-text",
-      "content": "### Deine Mitgliederreise\n\n",
+      "content": "## Dein Weg in die PG\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -62,7 +62,7 @@
         }
       ],
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
@@ -70,13 +70,13 @@
       "type": "spacer",
       "size": "80px",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
     {
       "type": "rich-text",
-      "content": "### Das sagen unsere Mitglieder\n\n",
+      "content": "## Das sagen unsere Mitglieder\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -88,7 +88,7 @@
         {
           "quote": "Die PionierGarage hat mir dabei geholfen, die richtigen Connections, Gelegenheiten und Gleichgesinnte zu treffen. Ich habe Skills gelernt, die mir niemand in der Uni beigebracht hat.",
           "name": "Josua",
-          "role": "Co-Founder ColgLog"
+          "role": "Co-Founder ColdLog"
         },
         {
           "quote": "Ich war schon immer interessiert an Unternehmertum und Gründen. Das Beitreten der PionierGarage hat mir Möglichkeiten gegeben, mich persönlich weiterzuentwickeln und mein Netzwerk aufzubauen",
@@ -110,8 +110,36 @@
       }
     },
     {
+      "type": "rich-text",
+      "content": "## Häufig gestellte Fragen\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "faq",
       "items": [
+        {
+          "question": "Brauche ich eine Idee, um bei euch aktiv zu werden?",
+          "answer": "Nein! Wir wollen Dir genau bei diesem Thema helfen! Es ist ganz egal wie viel Erfahrung & Können Du schon mitbringst. Unser Ziel ist es Dir dabei zu helfen zu einem Gründer zu werden! Falls Du aber schon soweit bist und durchstarten willst, unterstützen wir Dich und dein Team natürlich auch mit all unseren Mitteln!"
+        },
+        {
+          "question": "Muss man studieren, um bei euch Mitglied zu werden?",
+          "answer": "Absolut nicht! Wir heißen alle Gründungsinteressierten bei uns willkommen!"
+        },
+        {
+          "question": "Ich möchte eigentlich nicht gründen, darf ich trotzdem bei euch mitmachen?",
+          "answer": "Klar! Nicht alle unserer Mitglieder wollen gründen. Die PionierGarage gibt Dir aber die Chance, genau das für Dich herauszufinden! Da wir eine sehr aktive Rolle in der studentischen Gründerszene führen, gibt es genug Projekte & Aufgaben die Du übernehmen kannst, um Dich und uns weiterzubringen. "
+        },
+        {
+          "question": "Wie viel Engagement muss ich als aktives Mitglied mitbringen?",
+          "answer": "Engagement ist ein wichtiger Faktor, jedoch liegt es ganz an Dir! Je nachdem, welches Projekt Du übernehmen möchtest & wie Deine persönliche Situation mit Studium, Arbeit oder sonstigem aussieht, bist Du selbständig in deinem Engagement und Deiner Zeitplanung. Bis auf unser wöchentliches Teamtreffen jeden Donnerstag, bist Du frei in Deiner Arbeitseinteilung!"
+        },
+        {
+          "question": "Was kann ich in der PionierGarage lernen?",
+          "answer": "Von Marketing, über Akquise bis zu Leadership ist bei uns alles drin! Ob es die interne Finanzbuchhaltung, die Planung eines Workshops mit über 50 Teilnehmern oder die Organisation von GROW, unserem Gründungswettbewerb mit über 50 Teams und 1000 Besuchern, ist. Du hast die Chance Dich in Deinen Interessen zu entfalten, Verantwortung zu übernehmen , grundlegende Dinge rund ums Gründen zu lernen und Dir ein eigenes Netzwerk aufzubauen!"
+        },
         {
           "question": "Was ist der Batch?",
           "answer": "Was ganz tolles"
@@ -126,7 +154,7 @@
       "type": "spacer",
       "size": "80px",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     }
