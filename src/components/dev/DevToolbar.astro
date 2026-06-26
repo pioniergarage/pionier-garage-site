@@ -1,0 +1,73 @@
+---
+import { PencilLine } from "@lucide/astro";
+import DeployBadge from "./DeployBadge";
+import { ArrowUpRight, XIcon } from "lucide-react";
+---
+
+<div class="floating-widget" role="button" aria-label="Open support menu">
+  <button class="close-widget-btn"><XIcon /></button>
+  <a
+    href="https://app.pagescms.org/pioniergarage/pionier-garage-site/main/collection/posts"
+    ><PencilLine /> Edit on PagesCMS</a
+  >
+  <a href="https://github.com/pioniergarage/pionier-garage-site"
+    >View Source <ArrowUpRight /></a
+  >
+  <DeployBadge client:load />
+</div>
+
+<script>
+  const closeButtons = document.querySelectorAll('.close-widget-btn');
+
+  closeButtons.forEach(button => {
+    button.addEventListener('click', (event) => {
+      const target = event.currentTarget as HTMLElement;
+      
+      const widget = target.closest('.floating-widget') as HTMLElement | null;
+      
+      if (widget) {
+        widget.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+<style>
+  .floating-widget {
+    position: fixed; /* Sticks to the viewport, even when scrolling */
+    bottom: 20px; /* Distance from the bottom edge */
+    left: 20px; /* Distance from the left edge */
+    z-index: 1000; /* Ensures it stays on top of most content */
+
+    min-width: 60px; /* Define the square size */
+    height: 60px;
+    border-radius: 8px; /* Optional: adds soft corners */
+
+    background-color: #333; /* Dark gray background */
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Soft depth shadow */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 16px;
+
+    padding: 16px;
+
+    cursor: pointer;
+    transition:
+      transform 0.2s ease,
+      background-color 0.2s ease;
+  }
+
+  a {
+    display: inline-flex;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 6px;
+  }
+  a:hover {
+    background-color: #555;
+  }
+</style>
