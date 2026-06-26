@@ -2,14 +2,17 @@
 import { Image } from "astro:assets";
 import rawConfig from "../../content/site_config.json";
 import { SiteSettingsConfigSchema } from "../../content.config.ts";
+import { twMerge } from "tailwind-merge";
+import { localized } from "../../utils/utils";
+import { ArrowRight } from "@lucide/astro";
 
 const config = SiteSettingsConfigSchema.parse(rawConfig);
 
-const { sponsors } = config;
+const { sponsors: sponsors_and_supporters } = config;
 const images = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/**/*.{jpeg,jpg,png,webp,avif,svg}",
 );
-for (const sponsor of sponsors) {
+for (const sponsor of sponsors_and_supporters) {
   const image = sponsor.image;
   if (image && !images[image]) {
     throw new Error(
@@ -17,14 +20,35 @@ for (const sponsor of sponsors) {
     );
   }
 }
+
+const locale = Astro.currentLocale == "de" ? "de" : "en";
+
+const translations = {
+  de: {
+    supporter_header: "Gefördert Durch",
+    partner_header: "Partner aus der Community",
+    partner_CTA: "Partner werden",
+  },
+  en: {
+    supporter_header: "With support from",
+    partner_header: "Community Partners",
+    partner_CTA: "Partner with Us",
+  },
+};
+
+const supporters = sponsors_and_supporters.filter((p) => p.tier == "Supporter");
+const partners = sponsors_and_supporters.filter((p) => p.tier == "Partner");
+const sponsors = sponsors_and_supporters.filter(
+  (p) => p.tier != "Supporter" && p.tier != "Partner",
+);
 ---
 
-<div class="m-0 p-0 overflow-hidden flex w-full">
+<div class="m-0 p-0 overflow-hidden flex flex-col w-full">
   <div class="flex flex-col flex-wrap md:flex-row w-full justify-left">
     {
       sponsors.map((sponsor) => (
         <a
-          class="relative rounded-sm p-5 flex m-2 justify-center items-center text-white transition-transform duration-150 ease-in hover:scale-105 overflow-hidden"
+          class="relative rounded-sm p-5 flex m-2 justify-center items-center text-white transition-transform duration-150 ease-in hover:scale-105 overflow-hidden ring-1 ring-inset ring-white/20"
           href={sponsor.link}
         >
           {sponsor.image ? (
@@ -50,6 +74,74 @@ for (const sponsor of sponsors) {
             </h2>
           )}
         </a>
+      ))
+    }
+    <a
+      class="relative rounded-sm p-5 gap-2 flex m-2 justify-center items-center text-white transition-transform duration-150 ease-in hover:scale-105 overflow-hidden ring-1 ring-inset ring-white/20"
+      href={localized("/contact", Astro.currentLocale, ["en", "de"])}
+    >
+      {translations[locale].partner_CTA}<ArrowRight />
+    </a>
+  </div>
+  <h3 class="text-xl px-5">{translations[locale].partner_header}</h3>
+  <div class="flex flex-col flex-wrap md:flex-row w-full justify-left">
+    {
+      partners.map((sponsor) => (
+        <span class="relative rounded-sm p-5 flex m-2 justify-center items-center text-white overflow-hidden ring-1 ring-inset ring-white/20">
+          {sponsor.image ? (
+            <>
+              {/* 2x Blurred Background Image */}
+              <Image
+                src={images[sponsor.image]()}
+                alt=""
+                class="absolute inset-0 w-full h-full object-contain scale-200 blur-md opacity-25 z-0 pointer-events-none"
+                aria-hidden="true"
+              />
+
+              {/* Main Foreground Image */}
+              <Image
+                src={images[sponsor.image]()}
+                alt={sponsor.name ?? ""}
+                class="relative h-12.5 w-auto m-0 p-0 object-contain z-10"
+              />
+            </>
+          ) : (
+            <h2 class="relative font-display text-white z-10">
+              {sponsor.name}
+            </h2>
+          )}
+        </span>
+      ))
+    }
+  </div>
+  <h3 class="text-xl px-5">{translations[locale].supporter_header}</h3>
+  <div class="flex flex-col flex-wrap md:flex-row w-full justify-left">
+    {
+      supporters.map((sponsor) => (
+        <span class="relative rounded-sm p-5 flex m-2 justify-center items-center text-white overflow-hidden ring-1 ring-inset ring-white/20">
+          {sponsor.image ? (
+            <>
+              {/* 2x Blurred Background Image */}
+              <Image
+                src={images[sponsor.image]()}
+                alt=""
+                class="absolute inset-0 w-full h-full object-contain scale-200 blur-md opacity-25 z-0 pointer-events-none"
+                aria-hidden="true"
+              />
+
+              {/* Main Foreground Image */}
+              <Image
+                src={images[sponsor.image]()}
+                alt={sponsor.name ?? ""}
+                class="relative h-12.5 w-auto m-0 p-0 object-contain z-10"
+              />
+            </>
+          ) : (
+            <h2 class="relative font-display text-white z-10">
+              {sponsor.name}
+            </h2>
+          )}
+        </span>
       ))
     }
   </div>

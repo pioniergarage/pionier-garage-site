@@ -21,38 +21,37 @@
   ],
   "sponsors": [
     {
-      "name": "Wirtschaftsförderung Karlsruhe",
-      "link": "https://www.karlsruhe.de/wirtschaft-wissenschaft",
-      "image": "/src/assets/Wirtschaftsfoerederung Karlsruhe Weiss-1.png",
-      "tier": "None"
-    },
-    {
-      "name": "KIT Gründerschmiede",
-      "link": "https://kit-gruenderschmiede.de/",
-      "image": "/src/assets/kgs logo 1.svg",
-      "tier": "Supporter"
-    },
-    {
-      "name": "PERI",
-      "link": "https://www.peri.de/",
-      "image": "/src/assets/PERI_white.svg",
-      "tier": "Supporter"
-    },
-    {
-      "name": "Stiftung Wissen+Kompetenzen",
-      "link": "https://www.wplusk.de/",
-      "image": "/src/assets/Stiftung W+K_white.svg",
-      "tier": "Supporter"
-    },
-    {
       "name": "CyberForum e.V.",
       "link": "https://www.cyberforum.de/",
       "image": "/src/assets/CyberForumSmall.svg",
-      "tier": "Supporter"
+      "tier": "Partner"
+    },
+    {
+      "name": "EWOR",
+      "link":"https://www.ewor.com",
+      "image": "/src/assets/ewor_logo.webp",
+      "tier": "Partner"
+    },
+    {
+      "name": "KIT",
+      "link":"https://www.kit.edu",
+      "image": "/src/assets/kit_logo.png",
+      "tier": "Partner"
     },
     {
       "name": "Peter und Luise Hager-Stiftung",
       "image": "/src/assets/Hager_Stiftung_white-1.svg",
+      "tier": "Supporter"
+    },
+    {
+      "name": "Hoepfner-Stiftung",
+      "image": "/src/assets/hoepfner_stiftung_SW.png",
+      "tier": "Supporter"
+    },
+    {
+      "name": "Wirtschaftsförderung Karlsruhe",
+      "link": "https://www.karlsruhe.de/wirtschaft-wissenschaft",
+      "image": "/src/assets/Wirtschaftsfoerederung Karlsruhe Weiss-1.png",
       "tier": "Supporter"
     }
   ]
