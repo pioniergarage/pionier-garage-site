@@ -87,7 +87,11 @@ const sponsors = sponsors_and_supporters.filter(
   <div class="flex flex-col flex-wrap md:flex-row w-full justify-left">
     {
       partners.map((sponsor) => (
-        <span class="relative rounded-sm p-5 flex m-2 justify-center items-center text-white overflow-hidden ring-1 ring-inset ring-white/20">
+        <a
+          class="relative rounded-sm p-5 flex m-2 justify-center items-center text-white transition-transform duration-150 ease-in hover:scale-105 overflow-hidden ring-1 ring-inset ring-white/20"
+          href={sponsor.link}
+        >
+          {" "}
           {sponsor.image ? (
             <>
               {/* 2x Blurred Background Image */}
@@ -110,7 +114,7 @@ const sponsors = sponsors_and_supporters.filter(
               {sponsor.name}
             </h2>
           )}
-        </span>
+        </a>
       ))
     }
   </div>
