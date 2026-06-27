@@ -3,10 +3,13 @@ import "../styles/global.css";
 import BaseHead from "../components/BaseHead.astro";
 import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
+import DevToolbar from "../components/dev/DevToolbar.astro";
 
 // Maps your path conditional animation smoothly
 const root_anim =
   Astro.originPathname.length < 5 ? "animate-appear-slowly" : "";
+
+const not_release = import.meta.env.DEV || import.meta.env.PUBLIC_STAGING != undefined;
 ---
 
 <!doctype html>
@@ -25,7 +28,9 @@ const root_anim =
 
       <Footer />
     </div>
-  </body><script>
+  </body>
+  {not_release && <DevToolbar/>}
+  <script>
     const header = document.getElementById("header");
 
     if (header) {
