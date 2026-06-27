@@ -9,7 +9,7 @@ import DevToolbar from "../components/dev/DevToolbar.astro";
 const root_anim =
   Astro.originPathname.length < 5 ? "animate-appear-slowly" : "";
 
-const not_release = import.meta.env.DEV || import.meta.env.STAGING;
+const not_release = import.meta.env.DEV || import.meta.env.PUBLIC_STAGING;
 ---
 
 <!doctype html>
