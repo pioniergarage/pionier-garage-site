@@ -1,0 +1,21 @@
+{
+  "title": "Women DE",
+  "language": "DE",
+  "slug": "/women",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "Women Initiative",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      },
+      "titleStyle": {
+        "size": "large",
+        "color": "accent-red",
+        "alignment": "left"
+      }
+    }
+  ]
+}
