@@ -1,0 +1,125 @@
+---
+import { z } from "astro/zod";
+import { localized } from "../../utils/utils";
+
+// A configurable stats row in the style of EcosystemOverview. Values, captions
+// and optional links are provided per stat via the custom-block `props`, e.g.:
+//   "props": { "stats": [ { "value": 30, "caption": "Members", "suffix": "+" } ] }
+// Since page JSON files are per-locale (women.json / women-de.json), the caption
+// text is simply written in the right language in each file.
+const statSchema = z.object({
+  value: z.number(),
+  caption: z.string(),
+  suffix: z.string().optional().default(""),
+  link: z.string().optional(),
+});
+
+const StatsSchema = z.array(statSchema).max(3).default([]);
+
+const stats = StatsSchema.parse(Astro.props.stats ?? []);
+
+const locale = Astro.currentLocale === "de" ? "de" : "en";
+const numberLocale = locale === "de" ? "de-DE" : "en-US";
+const formatter = new Intl.NumberFormat(numberLocale);
+---
+
+{
+  stats.length > 0 && (
+    <div
+      class="w-full p-10 flex flex-col md:flex-row gap-4 justify-items-space-between items-center text-center text-xl"
+      data-count-locale={numberLocale}
+    >
+      {stats.map((stat, index) => {
+        const href = stat.link
+          ? localized(stat.link, Astro.currentLocale, ["en", "de"])
+          : undefined;
+
+        const StatTag = href ? "a" : "div";
+
+        return (
+          <>
+            {index > 0 && (
+              <div class="bg-secondary w-full h-px md:w-1 md:h-full" />
+            )}
+            <StatTag
+              class="w-full group block transition hover:opacity-80"
+              href={href}
+            >
+              <h3>{stat.caption}</h3>
+              <h1
+                class="text-[60px] leading-16.25 p-0 m-0 max-w-full wrap-anywhere text-balance"
+                data-count-up
+                data-count-target={stat.value}
+                data-count-suffix={stat.suffix}
+                aria-label={`${formatter.format(stat.value)}${stat.suffix}`}
+              >
+                {stat.value}
+                {stat.suffix}
+              </h1>
+            </StatTag>
+          </>
+        );
+      })}
+    </div>
+  )
+}
+
+<script is:inline>
+  (() => {
+    const counters = document.querySelectorAll("[data-count-up]");
+    if (!counters.length) return;
+
+    const localeSource = counters[0]?.closest("[data-count-locale]");
+    const locale = localeSource?.getAttribute("data-count-locale") || "en-US";
+    const formatter = new Intl.NumberFormat(locale);
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+
+    const renderValue = (element, value) => {
+      const suffix = element.getAttribute("data-count-suffix") || "";
+      element.textContent = `${formatter.format(value)}${suffix}`;
+    };
+
+    const animateCounter = (element) => {
+      const target = Number(element.getAttribute("data-count-target") || "0");
+
+      if (prefersReducedMotion) {
+        renderValue(element, target);
+        return;
+      }
+
+      const duration = 1400;
+      const startTime = performance.now();
+
+      renderValue(element, 0);
+
+      const tick = (now) => {
+        const progress = Math.min((now - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        const currentValue = Math.round(target * eased);
+
+        renderValue(element, currentValue);
+
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        }
+      };
+
+      requestAnimationFrame(tick);
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          animateCounter(entry.target);
+          observer.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.35 },
+    );
+
+    counters.forEach((counter) => observer.observe(counter));
+  })();
+</script>

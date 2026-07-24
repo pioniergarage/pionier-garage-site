@@ -1,5 +1,5 @@
 {
-  "title": "Women",
+  "title": "Women Initiative",
   "language": "EN",
   "slug": "/women",
   "layout": "../layouts/PageLayout.astro",
@@ -15,8 +15,8 @@
         "size": "full"
       },
       "titleStyle": {
-        "size": "xlarge",
-        "color": "primary",
+        "size": "large",
+        "color": "accent-pink",
         "alignment": "center"
       }
     },
@@ -30,7 +30,26 @@
     },
     {
       "type": "custom-block",
+      "component": "StatsOverview",
+      "props": {
+        "stats": [
+          { "value": 10, "caption": "Active Women", "suffix": "%" },
+          { "value": 30, "caption": "Members", "suffix": "" },
+          { "value": 0, "caption": "Sponsors", "suffix": "" }
+        ]
+      },
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
       "component": "TeamGallery",
+      "props": {
+        "source": "women-team",
+        "showContact": false
+      },
       "style": {
         "alignment": "center",
         "size": "full"

@@ -54,7 +54,7 @@ export default function TeamMemberCard({ team_member, locale, showContact = true
 
             {/* Optional caption */}
             {team_member.caption && (
-                <p className="px-2 font-body text-base leading-snug text-primary-muted">
+                <p className="px-2 font-body text-base leading-snug">
                     {team_member.caption}
                 </p>
             )}

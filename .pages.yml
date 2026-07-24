@@ -17,7 +17,7 @@ components:
     label: titleStyle
     fields:
       - { name: size,label: Size, type: select, options: { values: [small, medium, large, xlarge, display] }, default: 'large' }
-      - { name: color,label: Color, type: select, options: { values: [primary, background, accent-red, inherit] }, default: 'accent-red' }
+      - { name: color,label: Color, type: select, options: { values: [primary, background, accent-red, accent-pink, inherit] }, default: 'accent-red' }
       - { name: alignment,label: Alignment, type: select, options: { values: [left, center, right] }, default: 'left' }
       - { name: className,label: Tailwind Classes, type: string }
 
@@ -124,7 +124,7 @@ content:
             fields:
               - name: component
                 type: select
-                options: 
+                options:
                   values: # NOTE: Dear developer, you must update this _manually_ to match the content of `src/components/custom` when you create a new custom component.
                     - EventsHighlight
                     - SearchableEvents
@@ -135,6 +135,27 @@ content:
                     - TeamGallery
                     - StartupLogos
                     - EcosystemOverview
+                    - StatsOverview
+              # NOTE: Props are shared across all custom components. Only fill the
+              # fields relevant to the selected component (the CMS cannot show them
+              # conditionally). Unused fields can be left empty.
+              - name: props
+                label: Component Props
+                type: object
+                fields:
+                  # TeamGallery
+                  - { name: source, label: "TeamGallery — Team dataset (filename without .json)", type: string }
+                  - { name: showContact, label: "TeamGallery — Show contact button", type: boolean }
+                  # StatsOverview (up to 3)
+                  - name: stats
+                    label: "StatsOverview — Stats (max 3)"
+                    type: object
+                    list: true
+                    fields:
+                      - { name: value, label: Value, type: number }
+                      - { name: caption, label: Caption, type: string }
+                      - { name: suffix, label: Suffix (e.g. +, %), type: string }
+                      - { name: link, label: Link (optional), type: string }
               - name: style
                 component: style
 

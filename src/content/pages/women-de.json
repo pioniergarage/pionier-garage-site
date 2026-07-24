@@ -1,5 +1,5 @@
 {
-  "title": "Women DE",
+  "title": "Mädels Initiative",
   "language": "DE",
   "slug": "/women",
   "layout": "../layouts/PageLayout.astro",
@@ -16,8 +16,32 @@
       },
       "titleStyle": {
         "size": "xlarge",
-        "color": "primary",
+        "color": "accent-pink",
         "alignment": "center"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "20px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "### Wir schaffen den Raum, in dem die Zukunft Gestalt annimmt.\n\n",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "Die Karlsruher Community für Frauen, die etwas bewegen – und für die Verbündeten, die sie dabei unterstützen.\nHier triffst du Gleichgesinnte, schärfst deine Ideen und lernst Menschen kennen, die ihr Wissen teilen und Türen öffnen. Kein Exklusivitätsgehabe. Keine leeren Empowerment-Floskeln. Sondern echte Kontakte, neue Perspektiven und Raum zum Ausprobieren.",
+      "style": {
+        "alignment": "center",
+        "size": "full"
       }
     },
     {
@@ -30,7 +54,26 @@
     },
     {
       "type": "custom-block",
+      "component": "StatsOverview",
+      "props": {
+        "stats": [
+          { "value": 10, "caption": "Aktive Frauen", "suffix": "%" },
+          { "value": 30, "caption": "Mitglieder", "suffix": "" },
+          { "value": 0, "caption": "Sponsoren", "suffix": "" }
+        ]
+      },
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
       "component": "TeamGallery",
+      "props": {
+        "source": "women-team",
+        "showContact": false
+      },
       "style": {
         "alignment": "center",
         "size": "full"
