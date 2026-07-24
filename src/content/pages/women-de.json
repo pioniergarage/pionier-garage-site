@@ -6,7 +6,7 @@
   "blocks": [
     {
       "type": "hero",
-      "title": "Hot Girls Build Startups",
+      "title": "Hot Girls ||Build Startups",
       "heroTagline": "Eine Initiative der PionierGarage",
       "image": "/src/assets/women_hero_desktop-1.png",
       "mobileImage": "/src/assets/women_hero_mobile-1.png",
@@ -15,7 +15,7 @@
         "size": "full"
       },
       "titleStyle": {
-        "size": "large",
+        "size": "xlarge",
         "color": "primary",
         "alignment": "center"
       }
