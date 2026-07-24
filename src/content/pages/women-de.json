@@ -21,6 +21,14 @@
       }
     },
     {
+      "type": "spacer",
+      "size": "100px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "custom-block",
       "component": "TeamGallery",
       "style": {
