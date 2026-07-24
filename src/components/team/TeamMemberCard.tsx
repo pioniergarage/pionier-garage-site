@@ -4,6 +4,8 @@ import type { TeamData } from "./types";
 interface Props {
     team_member: TeamData;
     locale: "de" | "en";
+    // When false, hides the coffee-chat/contact CTA button (e.g. for the Women gallery).
+    showContact?: boolean;
 }
 
 const translations = {
@@ -15,7 +17,7 @@ const translations = {
     },
 } as const;
 
-export default function TeamMemberCard({ team_member, locale }: Props) {
+export default function TeamMemberCard({ team_member, locale, showContact = true }: Props) {
     const t = translations[locale];
     const firstName = team_member.title?.split(" ")[0] ?? team_member.title;
 
@@ -50,13 +52,22 @@ export default function TeamMemberCard({ team_member, locale }: Props) {
                 </h3>
             </div>
 
+            {/* Optional caption */}
+            {team_member.caption && (
+                <p className="px-2 font-body text-base leading-snug text-primary-muted">
+                    {team_member.caption}
+                </p>
+            )}
+
             {/* Contact Button */}
-            <a
-                href={localized(team_member.coffeeChatLink || `mailto:${team_member.email}`, locale)}
-                className="w-full text-center px-4 py-3 text-lg font-accent text-white bg-transparent border-2 border-primary rounded cursor-pointer transition duration-150 ease-out hover:bg-primary hover:text-bg hover:border-primary"
-            >
-                {t.talkTo(firstName)}
-            </a>
+            {showContact && (
+                <a
+                    href={localized(team_member.coffeeChatLink || `mailto:${team_member.email}`, locale)}
+                    className="w-full text-center px-4 py-3 text-lg font-accent text-white bg-transparent border-2 border-primary rounded cursor-pointer transition duration-150 ease-out hover:bg-primary hover:text-bg hover:border-primary"
+                >
+                    {t.talkTo(firstName)}
+                </a>
+            )}
         </article>
     );
 }

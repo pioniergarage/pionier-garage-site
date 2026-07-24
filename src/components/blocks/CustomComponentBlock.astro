@@ -5,7 +5,7 @@ import { sectionVariants } from "../../styles/style-mapping";
 
 type Props = BlockProps<"custom-block">;
 
-const { style, component } = Astro.props;
+const { style, component, props } = Astro.props;
 
 const customComponents = import.meta.glob<{ default: any }>(
   "../custom/*.astro",
@@ -25,7 +25,7 @@ const sectionClasses = sectionVariants({
 <section class={sectionClasses}>
   {
     DynamicComponent ? (
-      <DynamicComponent class={style.className} />
+      <DynamicComponent class={style.className} {...props} />
     ) : (
       <div class="p-4 text-sm font-medium text-accent-red bg-accent-red/10 border border-accent-red/20 rounded">
         Error: Component "{component}" not found.

@@ -6,15 +6,28 @@
   "blocks": [
     {
       "type": "hero",
-      "title": "Women Initiative",
+      "title": "Hot Girls Build Startups",
+      "heroTagline": "Eine Initiative der PionierGarage",
       "style": {
         "alignment": "left",
         "size": "full"
       },
       "titleStyle": {
         "size": "large",
-        "color": "accent-red",
+        "color": "accent-pink",
         "alignment": "left"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "TeamGallery",
+      "props": {
+        "source": "women-team",
+        "showContact": false
+      },
+      "style": {
+        "alignment": "center",
+        "size": "full"
       }
     }
   ]

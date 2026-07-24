@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Kira Schütte",
+    "position": "Female Initiative Lead",
+    "image": "/src/assets/oscar_edited_formatted.png",
+    "email": "vorname.nachname@pioniergarage.de",
+    "coffeeChatLink": "",
+    "startDate": "2026-05-19",
+    "caption": {
+      "en": "Short description for Kira.",
+      "de": "Kurzer Beschreibungstext für Kira."
+    }
+  },
+  {
+    "title": "Vivienne Milse",
+    "position": "Events + Marketing",
+    "image": "/src/assets/oscar_edited_formatted.png",
+    "email": "vorname.nachname@pioniergarage.de",
+    "coffeeChatLink": "",
+    "startDate": "2026-05-19",
+    "caption": {
+      "en": "Short description for Vivienne.",
+      "de": "Kurzer Beschreibungstext für Vivienne."
+    }
+  },
+  {
+    "title": "Amelie Häring",
+    "position": "External + Finance",
+    "image": "/src/assets/oscar_edited_formatted.png",
+    "email": "vorname.nachname@pioniergarage.de",
+    "coffeeChatLink": "",
+    "startDate": "2026-05-19",
+    "caption": {
+      "en": "Short description for Amelie.",
+      "de": "Kurzer Beschreibungstext für Amelie."
+    }
+  }
+]

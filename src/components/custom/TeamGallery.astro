@@ -1,9 +1,30 @@
 ---
-import team from "../../content/team.json"
 import TeamExplorer from "../team/TeamExplorer";
 import { TeamDirectorySchema } from "../../content.config";
 
-const team_members = TeamDirectorySchema.parse(team);
+interface Props {
+  // Filename (without extension) of the team dataset in `src/content/`. Defaults to the main team.
+  source?: string;
+  // When false, hides each card's contact/coffee-chat CTA button.
+  showContact?: boolean;
+}
+
+const { source = "team", showContact = true } = Astro.props;
+
+// Team datasets: the default `team.json`, plus any `<name>-team.json` (e.g. `women-team.json`).
+// The naming convention keeps this glob from pulling in unrelated content JSON files.
+const teamDatasets = {
+  ...import.meta.glob<{ default: unknown }>("../../content/team.json", { eager: true }),
+  ...import.meta.glob<{ default: unknown }>("../../content/*-team.json", { eager: true }),
+};
+const dataset = teamDatasets[`../../content/${source}.json`];
+if (!dataset) {
+  throw new Error(
+    `TeamGallery: dataset "${source}" not found. Expected src/content/${source}.json`,
+  );
+}
+
+const team_members = TeamDirectorySchema.parse(dataset.default);
 
 const locale = Astro.currentLocale == "de" ? "de" : "en";
 
@@ -17,10 +38,21 @@ const images = import.meta.glob<{ default: ImageMetadata }>(
   { eager: true },
 );
 
-const resolved_team_members = team_members.map((member) =>
-  member.image && images[member.image]
-    ? { ...member, image: images[member.image].default.src }
-    : member,
-);
+// A caption may be a plain string or a per-locale object; flatten it to a string
+// for the current locale (falling back to the other locale if one is missing).
+const pickCaption = (caption: (typeof team_members)[number]["caption"]): string | undefined => {
+  if (typeof caption === "string") return caption;
+  if (caption) return caption[locale] ?? caption.en ?? caption.de;
+  return undefined;
+};
+
+const resolved_team_members = team_members.map((member) => ({
+  ...member,
+  image:
+    member.image && images[member.image]
+      ? images[member.image].default.src
+      : member.image,
+  caption: pickCaption(member.caption),
+}));
 ---
-<TeamExplorer team_members={resolved_team_members} locale={locale} />
+<TeamExplorer team_members={resolved_team_members} locale={locale} showContact={showContact} />

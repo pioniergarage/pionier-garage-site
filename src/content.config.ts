@@ -72,7 +72,7 @@ export type Style = z.infer<typeof styleSchema>;
 const titleStyleSchema = z
   .object({
     size: z.enum(["small", "medium", "large", "xlarge", "display"]).optional(),
-    color: z.enum(["primary", "background", "accent-red", "inherit"]).optional(),
+    color: z.enum(["primary", "background", "accent-red", "accent-pink", "inherit"]).optional(),
     alignment: z.enum(["left", "center", "right"]).optional(),
     className: z.string().optional(),
   })
@@ -125,6 +125,8 @@ const imageBlockSchema = z.object({
 const customBlockBlockSchema = z.object({
   type: z.literal("custom-block"),
   component: z.string().optional(),
+  // Arbitrary props forwarded to the resolved custom component (e.g. TeamGallery's `source`).
+  props: z.record(z.string(), z.any()).optional(),
   style: styleSchema,
 });
 
@@ -316,5 +318,13 @@ export const TeamDirectorySchema = z.array(z.object({
   email: z.email(),
   coffeeChatLink: z.string().default(""),
   startDate: z.coerce.date(),
+  // Optional short descriptive text shown on the card (used by the Women gallery).
+  // Either a single string, or a per-locale object like { "en": "...", "de": "..." }.
+  caption: z
+    .union([
+      z.string(),
+      z.object({ en: z.string().optional(), de: z.string().optional() }),
+    ])
+    .optional(),
 })
 ).default([]);
