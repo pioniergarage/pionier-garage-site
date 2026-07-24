@@ -11,13 +11,13 @@
       "image": "/src/assets/women hero desktop.png",
       "mobileImage": "/src/assets/women hero mobile.png",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       },
       "titleStyle": {
         "size": "large",
         "color": "primary",
-        "alignment": "left"
+        "alignment": "center"
       }
     },
     {
