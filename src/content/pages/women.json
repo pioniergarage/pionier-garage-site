@@ -8,8 +8,8 @@
       "type": "hero",
       "title": "Hot Girls Build Startups",
       "heroTagline": "An Initiative by PionierGarage",
-      "image": "/src/assets/women_hero_desktop.png",
-      "mobileImage": "/src/assets/women_hero_mobile.png",
+      "image": "/src/assets/women_hero_desktop-1.png",
+      "mobileImage": "/src/assets/women_hero_mobile-1.png",
       "style": {
         "alignment": "center",
         "size": "full"
@@ -18,6 +18,14 @@
         "size": "medium",
         "color": "primary",
         "alignment": "center"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
       }
     },
     {
