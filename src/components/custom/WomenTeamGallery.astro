@@ -1,0 +1,14 @@
+---
+import TeamGallery from "./TeamGallery.astro";
+
+// The women team gallery is just `TeamGallery` pinned to `women-team.json`, so
+// editors can pick it in the CMS without having to know the dataset filename.
+interface Props {
+  // Off by default: these cards lead with a caption instead of a contact CTA.
+  showContact?: boolean;
+}
+
+const { showContact = false } = Astro.props;
+---
+
+<TeamGallery source="women-team" showContact={showContact} />

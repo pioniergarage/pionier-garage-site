@@ -22,7 +22,7 @@ export default function TeamMemberCard({ team_member, locale, showContact = true
     const firstName = team_member.title?.split(" ")[0] ?? team_member.title;
 
     return (
-        <article className="flex flex-col gap-3">
+        <article className="flex flex-col gap-3 max-w-[300px]">
 
             {/* Profile Image */}
             <div className="relative w-full max-w-[300px] shrink-0 overflow-hidden rounded">

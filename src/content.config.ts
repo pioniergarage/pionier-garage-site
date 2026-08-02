@@ -236,7 +236,10 @@ const stepsBlockSchema = z.object({
   style: styleSchema,
 });
 
-const pageBlockSchema = z.discriminatedUnion("type", [
+// Blocks that may be placed inside a column. `columns` itself is deliberately
+// absent: allowing a column layout inside a column would make both the CMS form
+// and the responsive grid arbitrarily deep for very little editorial gain.
+const nestedBlockSchemas = [
   heroBlockSchema,
   linkTagCloudBlockSchema,
   sectionWrapperSchema,
@@ -254,6 +257,41 @@ const pageBlockSchema = z.discriminatedUnion("type", [
   highlightCardsBlockSchema,
   testimonialsBlockSchema,
   stepsBlockSchema,
+] as const;
+
+const nestedBlockSchema = z.discriminatedUnion("type", [...nestedBlockSchemas]);
+
+/**
+ * Splits the page into side-by-side columns. Each column carries its own width
+ * and its own list of blocks, so "three equal thirds" and "one third next to
+ * two thirds" are both just different width combinations rather than separate
+ * presets. Widths are fractions of the row; anything summing past 1 wraps onto
+ * the next line, and on small screens the columns stack.
+ */
+const columnWidthSchema = z
+  .enum(["1/4", "1/3", "1/2", "2/3", "3/4", "full"])
+  .default("1/2");
+
+export type ColumnWidth = z.infer<typeof columnWidthSchema>;
+
+const columnsBlockSchema = z.object({
+  type: z.literal("columns"),
+  gap: z.enum(["none", "small", "medium", "large"]).default("medium"),
+  verticalAlign: z.enum(["top", "center", "bottom"]).default("top"),
+  columns: z
+    .array(
+      z.object({
+        width: columnWidthSchema,
+        blocks: z.array(nestedBlockSchema).default([]),
+      })
+    )
+    .default([]),
+  style: styleSchema,
+});
+
+const pageBlockSchema = z.discriminatedUnion("type", [
+  ...nestedBlockSchemas,
+  columnsBlockSchema,
 ]);
 
 const pages = defineCollection({

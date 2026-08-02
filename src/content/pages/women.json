@@ -29,6 +29,54 @@
       }
     },
     {
+      "type": "columns",
+      "gap": "small",
+      "verticalAlign": "top",
+      "columns": [
+        {
+          "width": "1/3",
+          "blocks": [
+            {
+              "type": "rich-text",
+              "content": "### Who this is for",
+              "style": {
+                "alignment": "left",
+                "size": "full",
+                "className": ""
+              }
+            },
+            {
+              "type": "rich-text",
+              "content": "## No experience needed. Just curiosity.",
+              "style": {
+                "alignment": "left",
+                "size": "full",
+                "className": ""
+              }
+            }
+          ]
+        },
+        {
+          "width": "2/3",
+          "blocks": [
+            {
+              "type": "rich-text",
+              "content": "You don't need a company, a co-founder, or a five-year plan. You need curiosity — and the willingness to spend an evening around people who are figuring it out too. Come to get inspired, co-work in our office, test half-baked ideas, or just listen. This is a safe space: honest questions, no judgment, no bro-culture. If you've ever thought 'maybe I could build something' — this is where you start.",
+              "style": {
+                "alignment": "left",
+                "size": "full",
+                "className": "[&_p]:text-primary-muted [&_p]:text-lg [&_p]:leading-relaxed"
+              }
+            }
+          ]
+        }
+      ],
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "custom-block",
       "component": "StatsOverview",
       "props": {

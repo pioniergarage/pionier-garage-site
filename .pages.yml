@@ -21,6 +21,268 @@ components:
       - { name: alignment,label: Alignment, type: select, options: { values: [left, center, right] }, default: 'left' }
       - { name: className,label: Tailwind Classes, type: string }
 
+  # --- BLOCK DEFINITIONS ---
+  # NOTE: Dear developer, each block's fields live here rather than inline under
+  # `content.pages.blocks`, because a block can be offered in two places: at the
+  # top level of a page, and inside a column of the `columns` block. Defining
+  # them once here keeps those two lists from drifting apart.
+  #
+  # A block is referenced as `- { name: <type>, component: <key> }`. The `name`
+  # is what ends up in the JSON as `"type"`, so it must match the block's
+  # `z.literal("...")` in `src/content.config.ts`.
+
+  heroBlock:
+    type: object
+    label: Hero
+    fields:
+      - { name: title, type: string }
+      - { name: subtitle, type: string }
+      - { name: heroTagline, type: string }
+      - { name: image, label: Image (Desktop), type: image }
+      - { name: mobileImage, label: Image (Mobile), type: image }
+      - name: button
+        type: object
+        fields:
+          - { name: text, type: string }
+          - { name: link, type: string }
+      - name: style
+        component: style
+      - name: titleStyle
+        component: titleStyle
+
+  tagCloudBlock:
+    type: object
+    label: Tag Cloud
+    fields:
+      - { name: title, type: string }
+      - name: style
+        component: style
+      - name: tags
+        type: object
+        list: true
+        fields:
+          - { name: text, type: string }
+          - { name: link, type: string }
+          - { name: icon, label: Icon Identifier, type: string }
+          - name: style
+            component: style
+
+  sectionBlock:
+    type: object
+    label: Section Wrapper
+    fields:
+      - { name: header, type: string }
+      - { name: body, type: rich-text }
+      - name: style
+        component: style
+
+  imageBlock:
+    type: object
+    label: Image Block
+    fields:
+      - { name: image, type: image }
+      - { name: size, type: select, options: { values: [small, medium, large] } }
+      - name: style
+        component: style
+
+  customBlock:
+    type: object
+    label: Custom Component
+    fields:
+      - name: component
+        type: select
+        options:
+          values: # NOTE: Dear developer, you must update this _manually_ to match the content of `src/components/custom` when you create a new custom component.
+            - EventsHighlight
+            - SearchableEvents
+            - SearchableStartups
+            - StartupMap
+            - StartupsHighlight
+            - SponsorBlock
+            - TeamGallery
+            - WomenTeamGallery
+            - StartupLogos
+            - EcosystemOverview
+            - StatsOverview
+      # NOTE: Props are shared across all custom components. Only fill the
+      # fields relevant to the selected component (the CMS cannot show them
+      # conditionally). Unused fields can be left empty.
+      - name: props
+        label: Component Props
+        type: object
+        fields:
+          # TeamGallery (WomenTeamGallery pins `source` to women-team itself)
+          - { name: source, label: "TeamGallery — Team dataset (filename without .json)", type: string }
+          - { name: showContact, label: "TeamGallery / WomenTeamGallery — Show contact button", type: boolean }
+          # StatsOverview (up to 3)
+          - name: stats
+            label: "StatsOverview — Stats (max 3)"
+            type: object
+            list: true
+            fields:
+              - { name: value, label: Value, type: number }
+              - { name: caption, label: Caption, type: string }
+              - { name: suffix, label: "Suffix (e.g. +, %)", type: string }
+              - { name: link, label: Link (optional), type: string }
+      - name: style
+        component: style
+
+  richTextBlock:
+    type: object
+    label: Rich Text
+    fields:
+      - { name: content, type: rich-text }
+      - name: style
+        component: style
+
+  formBlock: # Note to developers: this does NOT need to expose form fields. This is just an embed point for an existing Tally form.
+    type: object
+    label: Tally Form Embed
+    fields:
+      - { name: url, label: Tally Embed URL, type: string } # An existing Tally form
+      - name: style
+        component: style
+
+  buttonBlock:
+    type: object
+    label: Button
+    fields:
+      - name: style
+        component: style
+      - name: button
+        type: object
+        fields:
+          - { name: text, type: string }
+          - { name: link, type: string }
+
+  faqBlock:
+    type: object
+    label: FAQ
+    fields:
+      - name: items
+        type: object
+        list: true
+        fields:
+          - { name: question, type: string }
+          - { name: answer, type: text }
+      - name: style
+        component: style
+
+  postsBlock:
+    type: object
+    label: Posts
+    fields:
+      - { name: sort, type: select, options: { values: [latest, top] }, default: latest }
+      - name: style
+        component: style
+
+  separatorBlock:
+    type: object
+    label: Separator
+    fields:
+      - { name: size, type: string }
+      - { name: direction, type: select, options: { values: [horizontal, vertical] }, default: horizontal }
+      - name: style
+        component: style
+
+  spacerBlock:
+    type: object
+    label: Spacer
+    fields:
+      - { name: size, type: string, default: "50px" }
+      - name: style
+        component: style
+
+  embedBlock:
+    type: object
+    label: Iframe Embed
+    fields:
+      - { name: url, type: string }
+      - { name: width, type: string }
+      - { name: height, type: string }
+      - name: style
+        component: style
+
+  socialMediasBlock:
+    type: object
+    label: Social Medias
+    fields:
+      - name: style
+        component: style
+
+  highlightCardsBlock:
+    type: object
+    label: Highlight Cards
+    fields:
+      - name: items
+        label: Cards
+        type: object
+        list: true
+        fields:
+          - { name: image, label: Image, type: image }
+          - { name: title, label: Title, type: string }
+          - { name: link, label: Link, type: string }
+          - { name: buttonText, label: Button Text, type: string }
+      - name: style
+        component: style
+
+  testimonialsBlock:
+    type: object
+    label: Testimonials
+    fields:
+      - name: items
+        label: Testimonials
+        type: object
+        list: true
+        fields:
+          - { name: quote, label: Quote, type: text }
+          - { name: name, label: Name, type: string }
+          - { name: role, label: Role, type: string }
+          - { name: image, label: Avatar, type: image }
+      - name: style
+        component: style
+
+  stepsBlock:
+    type: object
+    label: Steps
+    fields:
+      - name: items
+        label: Steps
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string }
+          - { name: description, label: Description, type: text }
+      - name: style
+        component: style
+
+  # The block palette offered *inside* a column. Mirrors the top-level palette
+  # minus `hero` (a full-bleed banner has no business in a column) and minus
+  # `columns` itself — nesting a column layout inside a column is not supported,
+  # by design.
+  columnBlocks:
+    type: block
+    label: Blocks
+    list: true
+    blockKey: type
+    blocks:
+      - { name: rich-text, component: richTextBlock }
+      - { name: section, component: sectionBlock }
+      - { name: image, component: imageBlock }
+      - { name: custom-block, component: customBlock }
+      - { name: button, component: buttonBlock }
+      - { name: tag-cloud, component: tagCloudBlock }
+      - { name: faq, component: faqBlock }
+      - { name: posts, component: postsBlock }
+      - { name: form, component: formBlock }
+      - { name: embed, component: embedBlock }
+      - { name: highlight-cards, component: highlightCardsBlock }
+      - { name: testimonials, component: testimonialsBlock }
+      - { name: steps, component: stepsBlock }
+      - { name: social-medias, component: socialMediasBlock }
+      - { name: separator, component: separatorBlock }
+      - { name: spacer, component: spacerBlock }
+
 actions:
   - name: deploy-site
     label: Deploy site
@@ -69,212 +331,46 @@ content:
         list: true
         blockKey: type
         blocks:
-          - name: hero
-            label: Hero
-            fields:
-              - { name: title, type: string }
-              - { name: subtitle, type: string }
-              - { name: heroTagline, type: string }
-              - { name: image, label: Image (Desktop), type: image }
-              - { name: mobileImage, label: Image (Mobile), type: image }
-              - name: button
-                type: object
-                fields:
-                  - { name: text, type: string }
-                  - { name: link, type: string }
-              - name: style
-                component: style
-              - name: titleStyle
-                component: titleStyle
+          - { name: hero, component: heroBlock }
+          - { name: rich-text, component: richTextBlock }
+          - { name: section, component: sectionBlock }
+          - { name: image, component: imageBlock }
+          - { name: custom-block, component: customBlock }
+          - { name: button, component: buttonBlock }
+          - { name: tag-cloud, component: tagCloudBlock }
+          - { name: faq, component: faqBlock }
+          - { name: posts, component: postsBlock }
+          - { name: form, component: formBlock }
+          - { name: embed, component: embedBlock }
+          - { name: highlight-cards, component: highlightCardsBlock }
+          - { name: testimonials, component: testimonialsBlock }
+          - { name: steps, component: stepsBlock }
+          - { name: social-medias, component: socialMediasBlock }
+          - { name: separator, component: separatorBlock }
+          - { name: spacer, component: spacerBlock }
 
-          - name: tag-cloud
-            label: Tag Cloud
+          # Splits the page into side-by-side columns. Each column sets its own
+          # width and holds its own blocks, so "three equal thirds" and "one
+          # third beside two thirds" are just different width combinations.
+          # Widths are fractions of the row: pick a set that adds up to 1
+          # (1/3+1/3+1/3, 1/3+2/3, 1/2+1/2, 1/4+3/4, ...). Anything over 1 wraps
+          # onto the next line. Columns stack vertically on small screens.
+          - name: columns
+            label: Columns
             fields:
-              - { name: title, type: string }
-              - name: style
-                component: style
-              - name: tags
-                type: object
-                list: true
-                fields:
-                  - { name: text, type: string }
-                  - { name: link, type: string }
-                  - { name: icon, label: Icon Identifier, type: string }
-                  - name: style
-                    component: style
-
-          - name: section
-            label: Section Wrapper
-            fields:
-              - { name: header, type: string }
-              - { name: body, type: rich-text }
-              - name: style
-                component: style
-
-          - name: image
-            label: Image Block
-            fields:
-              - { name: image, type: image }
-              - { name: size, type: select, options: { values: [small, medium, large] } }
-              - name: style
-                component: style
-
-          - name: custom-block
-            label: Custom Component
-            fields:
-              - name: component
-                type: select
-                options:
-                  values: # NOTE: Dear developer, you must update this _manually_ to match the content of `src/components/custom` when you create a new custom component.
-                    - EventsHighlight
-                    - SearchableEvents
-                    - SearchableStartups
-                    - StartupMap
-                    - StartupsHighlight
-                    - SponsorBlock
-                    - TeamGallery
-                    - StartupLogos
-                    - EcosystemOverview
-                    - StatsOverview
-              # NOTE: Props are shared across all custom components. Only fill the
-              # fields relevant to the selected component (the CMS cannot show them
-              # conditionally). Unused fields can be left empty.
-              - name: props
-                label: Component Props
-                type: object
-                fields:
-                  # TeamGallery
-                  - { name: source, label: "TeamGallery — Team dataset (filename without .json)", type: string }
-                  - { name: showContact, label: "TeamGallery — Show contact button", type: boolean }
-                  # StatsOverview (up to 3)
-                  - name: stats
-                    label: "StatsOverview — Stats (max 3)"
-                    type: object
-                    list: true
-                    fields:
-                      - { name: value, label: Value, type: number }
-                      - { name: caption, label: Caption, type: string }
-                      - { name: suffix, label: Suffix (e.g. +, %), type: string }
-                      - { name: link, label: Link (optional), type: string }
-              - name: style
-                component: style
-
-          - name: rich-text
-            label: Rich Text
-            fields:
-              - { name: content, type: rich-text }
-              - name: style
-                component: style
-
-          - name: form # Note to developers: this does NOT need to expose form fields. This is just an embed point for an existing Tally form.
-            label: Tally Form Embed
-            fields:
-              - { name: url, label: Tally Embed URL, type: string } # An existing Tally form
-              - name: style
-                component: style
-
-          - name: button
-            label: Button
-            fields:
-              - name: style
-                component: style
-              - name: button
-                type: object
-                fields:
-                  - { name: text, type: string }
-                  - { name: link, type: string }
-
-          - name: faq
-            label: FAQ
-            fields:
-              - name: items
+              - { name: gap, label: Gap between columns, type: select, options: { values: [none, small, medium, large] }, default: medium }
+              - { name: verticalAlign, label: Vertical alignment, type: select, options: { values: [top, center, bottom] }, default: top }
+              - name: columns
+                label: Columns
                 type: object
                 list: true
                 fields:
-                  - { name: question, type: string }
-                  - { name: answer, type: text }
-              - name: style
-                component: style
-                
-          - name: posts
-            label: Posts
-            fields:
-              - { name: sort, type: select, options: { values: [latest, top] }, default: latest }
+                  - { name: width, label: Width, type: select, options: { values: ["1/4", "1/3", "1/2", "2/3", "3/4", full] }, default: "1/2" }
+                  - name: blocks
+                    component: columnBlocks
               - name: style
                 component: style
 
-          - name: separator
-            label: Separator
-            fields:
-              - { name: size, type: string }
-              - { name: direction, type: select, options: { values: [horizontal, vertical] }, default: horizontal }
-              - name: style
-                component: style
-
-          - name: spacer
-            label: Spacer
-            fields:
-              - { name: size, type: string, default: "50px" }
-              - name: style
-                component: style
-
-          - name: embed
-            label: Iframe Embed
-            fields:
-              - { name: url, type: string }
-              - { name: width, type: string }
-              - { name: height, type: string }
-              - name: style
-                component: style
-
-          - name: social-medias
-            label: Social Medias
-            fields:
-              - name: style
-                component: style
-
-          - name: highlight-cards
-            label: Highlight Cards
-            fields:
-              - name: items
-                label: Cards
-                type: object
-                list: true
-                fields:
-                  - { name: image, label: Image, type: image }
-                  - { name: title, label: Title, type: string }
-                  - { name: link, label: Link, type: string }
-                  - { name: buttonText, label: Button Text, type: string }
-              - name: style
-                component: style
-
-          - name: testimonials
-            label: Testimonials
-            fields:
-              - name: items
-                label: Testimonials
-                type: object
-                list: true
-                fields:
-                  - { name: quote, label: Quote, type: text }
-                  - { name: name, label: Name, type: string }
-                  - { name: role, label: Role, type: string }
-                  - { name: image, label: Avatar, type: image }
-              - name: style
-                component: style
-
-          - name: steps
-            label: Steps
-            fields:
-              - name: items
-                label: Steps
-                type: object
-                list: true
-                fields:
-                  - { name: title, label: Title, type: string }
-                  - { name: description, label: Description, type: text }
-              - name: style
-                component: style
 
   # --- SINGLETONS ---
 
@@ -325,6 +421,28 @@ content:
       - { name: email, label: Email, type: string }
       - { name: coffeeChatLink, label: Coffee Chat Link, type: string }
       - { name: startDate, label: Start Date, type: date }
+
+  - name: women-team
+    label: Women Team Directory
+    type: file
+    path: src/content/women-team.json
+    format: json
+    list: true
+    fields:
+      - { name: title, label: Full Name, type: string }
+      - { name: position, label: Position, type: string }
+      - { name: image, label: Image, type: image }
+      - { name: email, label: Email, type: string }
+      - { name: coffeeChatLink, label: Coffee Chat Link, type: string }
+      - { name: startDate, label: Start Date, type: date }
+      # Shown on the card below the position. Unlike the pages, this dataset is
+      # shared across locales, so the text is stored per language here.
+      - name: caption
+        label: Caption
+        type: object
+        fields:
+          - { name: en, label: Caption (EN), type: text }
+          - { name: de, label: Caption (DE), type: text }
 
   - name: startup-logos
     label: PG Startups
