@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 import react from '@astrojs/react';
 import icon from 'astro-icon';
 
+import sitemap from '@astrojs/sitemap';
+
 export default defineConfig({
   output: 'static',
   build: {
@@ -24,5 +26,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: 'https://pioniergarage.de',
-  integrations: [react(), icon()]
+  integrations: [react(), icon(), sitemap()]
 });
