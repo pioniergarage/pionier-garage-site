@@ -55,7 +55,7 @@ const gridClasses = twMerge(
     <section class={wrapperClasses}>
       <div class={gridClasses}>
         {columns.map((column) => (
-          <div class={twMerge("flex flex-col gap-5 min-w-0", widthClasses[column.width])}>
+          <div class={twMerge("flex flex-col min-w-0", widthClasses[column.width])}>
             {column.blocks.map((block) => (
               <BlockRenderer block={block} />
             ))}
