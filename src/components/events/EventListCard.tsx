@@ -1,5 +1,6 @@
 import { pb } from "../../lib/pocketbase";
 import type { EventItem } from "./types";
+import { getLocaleTag, type Locale } from "../../utils/i18n";
 
 const translations = {
   de: {
@@ -7,37 +8,50 @@ const translations = {
     free: "Kostenlos",
     paid: "Kostenpflichtig",
     untitled: "Event",
+    tagsAriaLabel: "Event-Kategorien",
   },
   en: {
     empty: "No matching events found.",
     free: "Free",
     paid: "Paid",
     untitled: "Event",
+    tagsAriaLabel: "Event tags",
+  },
+  fr: {
+    empty: "Aucun événement correspondant.",
+    free: "Gratuit",
+    paid: "Payant",
+    untitled: "Événement",
+    tagsAriaLabel: "Catégories de l’événement",
   },
 } as const;
 
-function getEventDateParts(dateValue: Date | string, locale: "de" | "en") {
+function getEventDateParts(dateValue: Date | string, locale: Locale) {
   const date = new Date(dateValue);
   if (Number.isNaN(date.getTime())) return { day: "", month: "" };
 
   const day = date.getDate().toString();
-  const month = new Intl.DateTimeFormat(locale === "de" ? "de-DE" : "en-US", {
+  const month = new Intl.DateTimeFormat(getLocaleTag(locale), {
     month: "short",
   }).format(date);
 
   return { day, month };
 }
 
-function formatDuration(duration: Number, locale: "de" | "en") {
+function formatDuration(duration: Number, locale: Locale) {
   const numericDuration = Number(duration);
 
   if (!Number.isFinite(numericDuration) || numericDuration <= 0) {
     return "";
   }
 
-  return locale === "de"
-    ? `${numericDuration} Std.`
-    : `${numericDuration} hr`;
+  const formattedDuration = new Intl.NumberFormat(getLocaleTag(locale)).format(
+    numericDuration,
+  );
+
+  if (locale === "de") return `${formattedDuration} Std.`;
+  if (locale === "fr") return `${formattedDuration} h`;
+  return `${formattedDuration} hr`;
 }
 
 export default function EventListCard({
@@ -45,7 +59,7 @@ export default function EventListCard({
   locale = "en",
 }: {
   event: EventItem;
-  locale?: "de" | "en";
+  locale?: Locale;
 }) {
   const labels = translations[locale];
   const title = event.title?.trim() || labels.untitled;
@@ -81,7 +95,7 @@ export default function EventListCard({
           <div className="flex flex-row justify-between gap-2">
             <div className="flex min-w-0 flex-col justify-start gap-2">
               <h1 className="m-0 line-clamp-2 whitespace-normal font-display text-[21px] font-semibold leading-normal text-white [text-shadow:-1.5px_-1.5px_0_black,1.5px_-1.5px_0_black,-1.5px_1.5px_0_black,1.5px_1.5px_0_black]">{title}</h1>
-              <div className="flex flex-wrap gap-1.5 capitalize" aria-label="Event tags">
+              <div className="flex flex-wrap gap-1.5 capitalize" aria-label={labels.tagsAriaLabel}>
                 {location && <span className="inline-flex items-center justify-center whitespace-nowrap rounded border border-accent-yellow/20 bg-accent-yellow/15 px-2.5 py-1.5 font-inherit text-caption font-normal leading-normal text-accent-yellow capitalize">{location}</span>}
                 {duration && <span className="inline-flex items-center justify-center whitespace-nowrap rounded border border-accent-blue/20 bg-accent-blue/15 px-2.5 py-1.5 font-inherit text-caption font-normal leading-normal text-accent-blue capitalize">{duration}</span>}
                 {event.freeEvent && <span className="inline-flex items-center justify-center whitespace-nowrap rounded border border-accent-pink/20 bg-accent-pink/15 px-2.5 py-1.5 font-inherit text-caption font-normal leading-normal text-accent-pink capitalize">{labels.free}</span>}

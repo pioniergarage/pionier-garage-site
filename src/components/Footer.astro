@@ -6,8 +6,9 @@ import { localized } from "../utils/utils";
 import rawConfig from "../content/site_config.json";
 import { SiteSettingsConfigSchema } from "../content.config.ts";
 import { Icon } from "astro-icon/components";
+import { getLocale } from "../utils/i18n";
 
-const locale = Astro.currentLocale === "de" ? "de" : "en";
+const locale = getLocale(Astro.currentLocale);
 
 const config = SiteSettingsConfigSchema.parse(rawConfig);
 const { socialMedias } = config;
@@ -28,6 +29,14 @@ const translations = {
     copyright: "(c) 2026 PionierGarage e.V.",
     find_us: "Check us out!",
     brought_to_you: "Made in Karlsruhe by",
+  },
+  fr: {
+    imprint: "Mentions légales",
+    privacy: "Confidentialité",
+    contact: "Contact",
+    copyright: "(c) 2026 PionierGarage e.V.",
+    find_us: "Retrouvez-nous !",
+    brought_to_you: "Créé à Karlsruhe par",
   },
 } as const;
 

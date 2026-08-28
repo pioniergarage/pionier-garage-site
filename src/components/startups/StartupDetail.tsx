@@ -2,9 +2,12 @@ import { ArrowLeft, ArrowUpRight } from "lucide-react";
 import { formatStartupTaxonomyLabel } from "../../utils/startupTaxonomy";
 import type { StartupDetailData } from "./types";
 import { sectionVariants } from "../../styles/style-mapping";
+import { localized } from "../../utils/utils";
+import type { Locale } from "../../utils/i18n";
 
 export interface Props {
   startup: StartupDetailData;
+  locale?: Locale;
 }
 
 type DetailRow = {
@@ -18,6 +21,63 @@ const tagStyles = {
   yellow: "text-accent-yellow bg-accent-yellow/15 border-accent-yellow/20",
   blue: "text-accent-blue bg-accent-blue/15 border-accent-blue/20",
 };
+
+const translations = {
+  de: {
+    backToStartups: "Zurück zu den Startups",
+    details: (name: string) => `Details zu ${name}`,
+    bannerAlt: (name: string) => `Titelbild von ${name}`,
+    logoAlt: (name: string) => `Logo von ${name}`,
+    tagList: "Startup-Kategorien",
+    productTitle: "Unser Produkt",
+    companyTitle: "Unser Unternehmen",
+    stage: "Phase",
+    marketModel: "Go-to-Market-Modell",
+    productType: "Produkttyp",
+    foundingYear: "Gründungsjahr",
+    founders: "Gründerteam",
+    employees: "Teammitglieder",
+    region: "Region",
+    industry: "Branche",
+    visitPitchload: "Auf Pitchload ansehen",
+  },
+  en: {
+    backToStartups: "Back to startups",
+    details: (name: string) => `${name} details`,
+    bannerAlt: (name: string) => `${name} header image`,
+    logoAlt: (name: string) => `${name} logo`,
+    tagList: "Startup categories",
+    productTitle: "Our product",
+    companyTitle: "Our company",
+    stage: "Stage",
+    marketModel: "Go-to-market model",
+    productType: "Product type",
+    foundingYear: "Founding year",
+    founders: "Founding team",
+    employees: "Team members",
+    region: "Region",
+    industry: "Industry",
+    visitPitchload: "View on Pitchload",
+  },
+  fr: {
+    backToStartups: "Retour aux startups",
+    details: (name: string) => `Détails de ${name}`,
+    bannerAlt: (name: string) => `Image d’en-tête de ${name}`,
+    logoAlt: (name: string) => `Logo de ${name}`,
+    tagList: "Catégories de la startup",
+    productTitle: "Notre produit",
+    companyTitle: "Notre entreprise",
+    stage: "Phase",
+    marketModel: "Modèle go-to-market",
+    productType: "Type de produit",
+    foundingYear: "Année de création",
+    founders: "Équipe fondatrice",
+    employees: "Membres de l’équipe",
+    region: "Région",
+    industry: "Secteur",
+    visitPitchload: "Voir sur Pitchload",
+  },
+} as const;
 
 
 function toDisplayValue(value: unknown): string {
@@ -54,13 +114,13 @@ function normalizeRichText(html: string): string {
     .trim();
 }
 
-export default function StartupDetail({ startup }: Props) {
+export default function StartupDetail({ startup, locale = "en" }: Props) {
+  const labels = translations[locale];
   const company = startup.ourCompany ?? {};
   const product = startup.ourProduct ?? {};
 
   const name = pickDisplayValue(startup.name) || "Startup";
   const description = pickDisplayValue(startup.longDescription, startup.shortDescription);
-  console.log("description: ", startup.longDescription, startup.shortDescription);
   const richDescription = description ? normalizeRichText(description) : "";
   const headerImageUrl = pickDisplayValue(startup.headerImageUrl);
   const logoUrl = pickDisplayValue(startup.logoUrl);
@@ -110,19 +170,17 @@ export default function StartupDetail({ startup }: Props) {
   );
 
   const productRows: DetailRow[] = [
-    { label: "Stage", value: stage },
-    { label: "Go To Market Model", value: marketModel },
-    { label: "Product Type", value: productType },
+    { label: labels.stage, value: stage },
+    { label: labels.marketModel, value: marketModel },
+    { label: labels.productType, value: productType },
   ].filter((row) => row.value);
 
-  const pitchloadUrl = import.meta.env.PUBLIC_PITCHLOAD_URL;
-
   const companyRows: DetailRow[] = [
-    { label: "Gründungsjahr", value: foundingYear },
-    { label: "Gründer", value: founders },
-    { label: "Mitarbeiter", value: employees },
-    { label: "Region", value: region },
-    { label: "Branche", value: industry }
+    { label: labels.foundingYear, value: foundingYear },
+    { label: labels.founders, value: founders },
+    { label: labels.employees, value: employees },
+    { label: labels.region, value: region },
+    { label: labels.industry, value: industry }
   ].filter((row) => row.value);
 
   const tags = [
@@ -134,7 +192,8 @@ export default function StartupDetail({ startup }: Props) {
   return (
     <div className="w-[min(100%,1120px)] mx-auto py-6 pt-2.5 text-primary max-lg:pt-4">
       <a
-        href="startups"
+        href={localized("startups", locale)}
+        aria-label={labels.backToStartups}
         className="inline-flex items-center justify-center font-inherit text-primary p-2.5 rounded w-13 h-13 border-2 border-primary transition duration-150 ease-out cursor-pointer bg-transparent hover:bg-primary hover:text-bg mb-4"
       >
         <ArrowLeft />
@@ -143,7 +202,7 @@ export default function StartupDetail({ startup }: Props) {
       {/* Merging your CVA sectionVariants with the detail-specific layout needs */}
       <section
         className={`${sectionVariants({ alignment: "left", size: "full" })} block!`}
-        aria-label={`${name} details`}
+        aria-label={labels.details(name)}
       >
         <div className="relative">
           {headerImageUrl && (
@@ -151,7 +210,7 @@ export default function StartupDetail({ startup }: Props) {
               <img
                 className="w-full h-full max-h-75 block object-cover object-center"
                 src={headerImageUrl}
-                alt="banner image"
+                alt={labels.bannerAlt(name)}
               />
               <div className="absolute inset-0 bg-linear-to-b from-black/15 to-black/50" aria-hidden="true" />
             </div>
@@ -164,7 +223,7 @@ export default function StartupDetail({ startup }: Props) {
               <img
                 className="w-full h-full object-contain object-center block"
                 src={logoUrl}
-                alt={`${name} logo`}
+                alt={labels.logoAlt(name)}
               />
             ) : (
               <span className="flex items-center justify-center text-[#151515] font-display text-[1.35rem] font-bold" aria-hidden="true">
@@ -179,7 +238,7 @@ export default function StartupDetail({ startup }: Props) {
             </h1>
 
             {tags.length > 0 && (
-              <div className="flex flex-wrap gap-1.25 capitalize" aria-label="Startup tags">
+              <div className="flex flex-wrap gap-1.25 capitalize" aria-label={labels.tagList}>
                 {tags.map((tag) => (
                   <span
                     key={`${tag.tone}-${tag.label}`}
@@ -204,7 +263,7 @@ export default function StartupDetail({ startup }: Props) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4.5 items-start mt-6 px-3 max-md:px-0">
           {productRows.length > 0 && (
             <article className="rounded border border-stroke bg-black/80 shadow-[0_14px_34px_rgba(0,0,0,0.2)] py-4.5 px-4 pb-3.5 max-sm:px-3.5 max-sm:py-4">
-              <h2 className="m-0 mb-3.5 font-bold text-[1.55rem] leading-[1.1] font-display max-sm:text-xl">Unser Produkt</h2>
+              <h2 className="m-0 mb-3.5 font-bold text-[1.55rem] leading-[1.1] font-display max-sm:text-xl">{labels.productTitle}</h2>
               <dl className="m-0 grid gap-3">
                 {productRows.map((row) => (
                   <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_auto] gap-1 sm:gap-5 items-baseline" key={row.label}>
@@ -218,7 +277,7 @@ export default function StartupDetail({ startup }: Props) {
 
           {companyRows.length > 0 && (
             <article className="rounded border border-stroke bg-black/80 shadow-[0_14px_34px_rgba(0,0,0,0.2)] py-4.5 px-4 pb-3.5 max-sm:px-3.5 max-sm:py-4">
-              <h2 className="m-0 mb-3.5 font-bold text-[1.55rem] leading-[1.1] font-display max-sm:text-xl">Unser Unternehmen</h2>
+              <h2 className="m-0 mb-3.5 font-bold text-[1.55rem] leading-[1.1] font-display max-sm:text-xl">{labels.companyTitle}</h2>
               <dl className="m-0 grid gap-3">
                 {companyRows.map((row) => (
                   <div className="grid grid-cols-1 sm:grid-cols-[minmax(0,1fr)_auto] gap-1 sm:gap-5 items-baseline" key={row.label}>
@@ -246,7 +305,7 @@ export default function StartupDetail({ startup }: Props) {
                     rel="noopener noreferrer"   // Security safeguard for blank targets
                     className="inline-flex items-center gap-2 px-2 py-1 font-body bg-transparent border-2 border-primary rounded transition duration-150 ease-out cursor-pointer hover:bg-primary hover:text-bg"
                   >
-                    Visit on Pitchload
+                    {labels.visitPitchload}
                     <ArrowUpRight size={18} />
                   </a>
                 </dd>
@@ -258,4 +317,3 @@ export default function StartupDetail({ startup }: Props) {
     </div>
   );
 }
-

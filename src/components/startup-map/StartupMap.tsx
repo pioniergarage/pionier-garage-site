@@ -3,10 +3,11 @@ import FilterSearchBar from "../search/FilterSearchBar";
 import StartupMapCategoryGroup from "./StartupMapCategoryGroup";
 import type { StartupMapViewEntry, StartupMapViewMilestone } from "./types";
 import { useStartupMapViewModel } from "./useStartupMapViewModel";
+import type { Locale } from "../../utils/i18n";
 
 type StartupMapProps = {
   map: StartupMapViewMilestone[];
-  locale?: "de" | "en";
+  locale?: Locale;
 };
 
 const translations = {
@@ -17,6 +18,7 @@ const translations = {
     noActiveFiltersAriaLabel: "Keine aktiven Filter",
     searchButton: "Suchen",
     searchPlaceholder: "Suche und Filtere nach Angeboten, Kategorien, Meilensteinen ...",
+    empty: "Keine passenden Einträge gefunden.",
   },
   en: {
     ariaLabel: "Startup map search",
@@ -25,6 +27,16 @@ const translations = {
     noActiveFiltersAriaLabel: "No active filters",
     searchButton: "Search",
     searchPlaceholder: "Search and filter offers, categories, milestones ...",
+    empty: "No matching entries found.",
+  },
+  fr: {
+    ariaLabel: "Recherche dans la carte des startups",
+    clearAll: "Tout effacer",
+    clearAllAriaLabel: "Réinitialiser tous les filtres",
+    noActiveFiltersAriaLabel: "Aucun filtre actif",
+    searchButton: "Rechercher",
+    searchPlaceholder: "Rechercher et filtrer les offres, catégories et étapes…",
+    empty: "Aucune entrée correspondante.",
   },
 } as const;
 
@@ -46,6 +58,7 @@ export default function StartupMapRenderer({ map, locale = "en" }: StartupMapPro
     setQuery,
     toggleFilter,
   } = useStartupMapViewModel(map, locale);
+  const labels = translations[locale];
 
   return (
     <>
@@ -59,7 +72,7 @@ export default function StartupMapRenderer({ map, locale = "en" }: StartupMapPro
         inputId="startup-map-search-input"
         inputRef={inputRef}
         isOpen={isOpen}
-        labels={translations[locale]}
+        labels={labels}
         onOpen={open}
         overlayId="startup-map-search-overlay"
         panelRef={panelRef}
@@ -71,11 +84,7 @@ export default function StartupMapRenderer({ map, locale = "en" }: StartupMapPro
       />
 
       {filteredMap.length === 0 ? (
-        <p className="mt-5 text-secondary">
-          {locale === "de"
-            ? "Keine passenden Eintraege gefunden."
-            : "No matching entries found."}
-        </p>
+        <p className="mt-5 text-secondary">{labels.empty}</p>
       ) : (
         <div className="flex flex-col gap-5 w-full max-w-215 pt-2 pb-6">
           {filteredMap.map((milestone) => {

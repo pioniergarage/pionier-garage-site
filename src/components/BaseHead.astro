@@ -19,11 +19,18 @@ import '@fontsource/unbounded/400.css';
 import '@fontsource/unbounded/500.css';
 import '@fontsource/unbounded/700.css';
 
+type Props = {
+  title?: string;
+  description?: string;
+};
+
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 // Validates the JSON configuration against your Zod schema at build/runtime
 const config = SiteSettingsConfigSchema.parse(rawConfig);
-const { title, description, ogImage } = config;
+const { ogImage } = config;
+const title = Astro.props.title ?? config.title;
+const description = Astro.props.description ?? config.description;
 ---
 <!-- Font Preload Hooks -->
 <link rel="preload" href={rubik400} as="font" type="font/woff2" crossorigin="anonymous">

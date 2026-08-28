@@ -1,0 +1,89 @@
+{
+  "title": "À propos",
+  "language": "FR",
+  "slug": "/about",
+  "description": "Découvrez PionierGarage, notre histoire et notre équipe",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "Nous donnons à la prochaine génération d’entre|preneurs de Karlsruhe les moyens de transformer ses idées en impact",
+      "heroTagline": "Notre mission",
+      "style": {
+        "alignment": "left",
+        "size": "screen",
+        "className": "bg-accent-red text-primary"
+      },
+      "titleStyle": {
+        "size": "small",
+        "color": "primary",
+        "alignment": "left"
+      }
+    },
+    {
+      "type": "hero",
+      "title": "Dans cinq ans, nos membres seront des entre|preneurs à fort impact qui feront grandir l’écosystème de Karlsruhe.",
+      "heroTagline": "Notre vision",
+      "style": {
+        "alignment": "left",
+        "size": "screen",
+        "className": "bg-accent-red/80 text-primary"
+      },
+      "titleStyle": {
+        "size": "small",
+        "color": "primary",
+        "alignment": "left"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "## Notre histoire\n\n",
+      "style": {
+        "alignment": "center",
+        "size": "full",
+        "id": "board"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "### 2008 : création au KIT\n\nUn groupe d’étudiants — Moritz Meenen, Jan Henric Stönner, Martin Mitscher, Tobias Griesshaber et Maximilian Engelken — fonde le nouveau groupe universitaire PionierGarage au KIT. Les rencontres régulières du mardi deviennent l’activité centrale. Des entrepreneurs sont invités aux sessions Meet-the-Founder pour faire découvrir aux étudiants la création d’entreprise de l’intérieur.\n\n\n\n### 2009 : partenariat avec CyberForum\n\nKerstin Weber-Sanguigno rejoint l’association et le partenariat avec CyberForum débute. Acteur majeur de la scène startup de Karlsruhe, CyberForum met PionierGarage en relation avec des entrepreneurs et des mentors, et l’ancre encore davantage dans l’écosystème local.\n\n\n\n### 2011 : première Startup Tour dans la Silicon Valley\n\nLa première Startup Tour emmène les membres pendant deux semaines dans la Silicon Valley, au cœur de son écosystème entrepreneurial. Depuis, la Startup Tour est devenue une tradition annuelle, avec une nouvelle destination chaque année.\n\n\n\n### 2013 : naissance de GROW\n\nPremière édition du concours de création d’entreprise GROW, avec le soutien de Holger Kujath, fondateur de knuddels. Depuis, le concours a lieu chaque année au KIT et réunit toujours plus d’équipes et de visiteurs. Holger Kujath continue de soutenir GROW chaque année en tant que donateur et sponsor.\n\n### 2016 : ouverture du Launchpad\n\nOuverture du PionierGarage Launchpad, le premier incubateur étudiant d’Allemagne. Après un an de préparation, le Launchpad offre aux startups un espace de travail abordable et au plus près de la communauté étudiante. L’association quitte officiellement l’AStA du KIT pour s’installer dans ses propres locaux. Des pôles et des réunions régulières sont mis en place, tandis que le nombre de membres actifs ne cesse de croître.\n\n\n\n### 2019 : les 10 ans de PionierGarage\n\nLa finale de GROW attire 500 personnes à l’Audimax. Le premier PionierWochenende voit le jour et PionierGarage célèbre ses dix ans. L’organisation en pôles cède la place à une structure centrée sur les projets.\n\n\n\n### 2024 : déménagement au CUBE\n\nL’état du bâtiment impose de quitter le Launchpad. PionierGarage s’installe au CUBE de la KIT-Gründerschmiede.\n\n\n\n### 2026 : GROW franchit le cap des 1 000 visiteurs\n\nPour la première fois, GROW accueille 1 000 visiteurs ! Parmi les temps forts : Daniel Jung, des représentants de la ville, ainsi que des investisseurs et des mentors venus de toute l’Allemagne.\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "50px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "## Notre comité\n\n",
+      "style": {
+        "alignment": "center",
+        "size": "full",
+        "id": "board"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "TeamGallery",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "50px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    }
+  ]
+}

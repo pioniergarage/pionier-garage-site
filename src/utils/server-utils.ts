@@ -1,14 +1,20 @@
 import { getCollection } from "astro:content";
+import type { Locale } from "./i18n";
 
-export async function getNavLinks(lang: 'de' | 'en', navbar: { url: string }[]) {
+export async function getNavLinks(lang: Locale, navbar: { url: string }[]) {
   const allPages = await getCollection('pages');
 
   return navbar.map((item) => {
-    // Find the page matching the URL and the language
-    const page = allPages.find((p: { id: string; }) => {
-      // Logic assumes your slugs or IDs follow a pattern like 'en/events' or 'de/events'
-      return p.id.startsWith(`${lang}/`) && p.id.endsWith(item.url);
-    });
+    // Use the requested translation when it exists. English mirrors Astro's
+    // configured fallback and gives the navigation a useful label while a new
+    // translation is still being prepared.
+    const page =
+      allPages.find(
+        (p) => p.id.startsWith(`${lang}/`) && p.id.endsWith(item.url),
+      ) ??
+      allPages.find(
+        (p) => p.id.startsWith("en/") && p.id.endsWith(item.url),
+      );
 
     return {
       href: item.url,

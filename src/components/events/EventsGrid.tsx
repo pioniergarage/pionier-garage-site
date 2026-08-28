@@ -4,10 +4,11 @@ import SearchBar from "./SearchBar";
 import type { EventItem } from "./types";
 import { useEventsExplorerViewModel } from "./useEventsExplorerViewModel";
 import EventListCard from "./EventListCard";
+import type { Locale } from "../../utils/i18n";
 
 export interface Props {
   events: EventItem[];
-  locale?: "de" | "en";
+  locale?: Locale;
 }
 
 const INITIAL_VISIBLE_EVENTS = 24;
@@ -20,6 +21,7 @@ const translations = {
     loadMore: "Mehr laden",
     paid: "Kostenpflichtig",
     untitled: "Event",
+    listAriaLabel: "Eventliste",
   },
   en: {
     empty: "No matching events found.",
@@ -27,6 +29,15 @@ const translations = {
     loadMore: "Load more",
     paid: "Paid",
     untitled: "Event",
+    listAriaLabel: "Event list",
+  },
+  fr: {
+    empty: "Aucun événement correspondant.",
+    free: "Gratuit",
+    loadMore: "Afficher plus",
+    paid: "Payant",
+    untitled: "Événement",
+    listAriaLabel: "Liste des événements",
   },
 } as const;
 
@@ -85,7 +96,7 @@ export default function EventsGrid({ events, locale = "en" }: Props) {
         <p className="w-full text-center text-primary-muted">{labels.empty}</p>
       ) : (
         <div className="block min-w-0">
-          <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 lg:grid-cols-3" aria-label="Event list">
+          <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 lg:grid-cols-3" aria-label={labels.listAriaLabel}>
             {visibleEvents.map((event) => (
               <div key={event.id} className="min-w-0">
                 <EventListCard event={event} locale={locale} />

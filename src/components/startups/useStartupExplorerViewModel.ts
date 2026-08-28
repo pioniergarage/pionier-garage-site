@@ -9,6 +9,7 @@ import {
   normalizeStartupTaxonomyValue,
 } from "../../utils/startupTaxonomy";
 import type { StartupItem } from "./types";
+import type { Locale } from "../../utils/i18n";
 
 export type FilterGroupKey =
   | "industry"
@@ -73,6 +74,12 @@ const FILTER_GROUP_TITLES = {
     productStatus: "Product status:",
     grow: "GROW participants:",
   },
+  fr: {
+    industry: "Secteurs :",
+    productType: "Type de produit :",
+    productStatus: "Statut du produit :",
+    grow: "Participants à GROW :",
+  },
 } as const;
 
 function normalizeValue(value: string): string {
@@ -118,15 +125,15 @@ function createEmptySelectedFilters(): SelectedFilters {
   };
 }
 
-function sortValues(values: Set<string>) {
+function sortValues(values: Set<string>, locale: Locale) {
   return [...values].sort((left, right) =>
-    left.localeCompare(right, "de", { sensitivity: "base" }),
+    left.localeCompare(right, locale, { sensitivity: "base" }),
   );
 }
 
 export function useStartupExplorerViewModel(
   startups: StartupItem[],
-  locale: "de" | "en" = "en",
+  locale: Locale = "en",
 ) {
   const panelRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -160,7 +167,7 @@ export function useStartupExplorerViewModel(
         key: group.key,
         title: filterGroupTitles[group.key],
         color: group.tone,
-        values: sortValues(values).map((value) => ({
+        values: sortValues(values, locale).map((value) => ({
           value,
           label: formatStartupTaxonomyLabel(value),
           isSelected: selectedFilters[group.key].has(value),
@@ -168,7 +175,7 @@ export function useStartupExplorerViewModel(
         })),
       };
     }).filter((group) => group.values.length > 0);
-  }, [filterGroupTitles, indexedStartups, selectedFilters]);
+  }, [filterGroupTitles, indexedStartups, locale, selectedFilters]);
 
   const filteredStartups = useMemo(() => {
     return indexedStartups

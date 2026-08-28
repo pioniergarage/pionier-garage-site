@@ -2,10 +2,11 @@
 import Grid from "../ui/Grid";
 import type { TeamData } from "./types";
 import TeamMemberCard from "./TeamMemberCard";
+import type { Locale } from "../../utils/i18n";
 
 interface Props {
     team_members: TeamData[]
-    locale: "de" | "en"
+    locale: Locale
 }
 
 export default function TeamExplorer({team_members, locale }: Props) {

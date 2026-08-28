@@ -5,6 +5,7 @@ import { SiteSettingsConfigSchema } from "../../content.config.ts";
 import { twMerge } from "tailwind-merge";
 import { localized } from "../../utils/utils";
 import { ArrowRight } from "@lucide/astro";
+import { getLocale, SUPPORTED_LOCALES } from "../../utils/i18n";
 
 const config = SiteSettingsConfigSchema.parse(rawConfig);
 
@@ -21,7 +22,7 @@ for (const sponsor of sponsors_and_supporters) {
   }
 }
 
-const locale = Astro.currentLocale == "de" ? "de" : "en";
+const locale = getLocale(Astro.currentLocale);
 
 const translations = {
   de: {
@@ -34,7 +35,12 @@ const translations = {
     partner_header: "Community Partners",
     partner_CTA: "Partner with Us",
   },
-};
+  fr: {
+    supporter_header: "Avec le soutien de",
+    partner_header: "Partenaires de la communauté",
+    partner_CTA: "Devenir partenaire",
+  },
+} as const;
 
 const supporters = sponsors_and_supporters.filter((p) => p.tier == "Supporter");
 const partners = sponsors_and_supporters.filter((p) => p.tier == "Partner");
@@ -78,7 +84,7 @@ const sponsors = sponsors_and_supporters.filter(
     }
     <a
       class="relative rounded-sm p-5 gap-2 flex m-2 justify-center items-center text-white transition-transform duration-150 ease-in hover:scale-105 overflow-hidden ring-1 ring-inset ring-white/20"
-      href={localized("/contact", Astro.currentLocale, ["en", "de"])}
+      href={localized("/contact", locale, SUPPORTED_LOCALES)}
     >
       {translations[locale].partner_CTA}<ArrowRight />
     </a>

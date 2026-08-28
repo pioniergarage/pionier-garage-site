@@ -2,13 +2,30 @@ import { pb } from "../../lib/pocketbase";
 import { formatStartupTaxonomyLabel } from "../../utils/startupTaxonomy";
 import { localized } from "../../utils/utils";
 import type { StartupItem } from "./types";
+import type { Locale } from "../../utils/i18n";
 
 export interface Props {
   startup: StartupItem;
-  locale: string;
+  locale: Locale;
 }
 
+const translations = {
+  de: {
+    headerImage: (name: string) => `Titelbild von ${name}`,
+    logoImage: (name: string) => `Logo von ${name}`,
+  },
+  en: {
+    headerImage: (name: string) => `${name} header image`,
+    logoImage: (name: string) => `${name} logo`,
+  },
+  fr: {
+    headerImage: (name: string) => `Image d’en-tête de ${name}`,
+    logoImage: (name: string) => `Logo de ${name}`,
+  },
+} as const;
+
 export default function StartupListCard({ startup, locale }: Props) {
+  const labels = translations[locale];
   const detailUrl = localized(`startups#${startup.externalId}`, locale);
   const industry = formatStartupTaxonomyLabel(startup.industry);
   const marketModel = formatStartupTaxonomyLabel(startup.marketModel);
@@ -22,7 +39,7 @@ export default function StartupListCard({ startup, locale }: Props) {
         <div className="relative h-37.5 shrink-0 overflow-hidden -mb-5.75">
           {startup_header_url && <img
             src={startup_header_url}
-            alt={`${startup.name} Header Image`}
+            alt={labels.headerImage(startup.name)}
             loading="lazy"
             className="w-full h-full object-cover object-center block"
           />}
@@ -71,7 +88,7 @@ export default function StartupListCard({ startup, locale }: Props) {
               <div className="w-15 h-15 rounded overflow-hidden border-[1.5px] border-black bg-black shrink-0">
                 <img
                   src={startup_logo_url}
-                  alt={`${startup.name} Logo Image`}
+                  alt={labels.logoImage(startup.name)}
                   loading="lazy"
                   className="w-full h-full object-cover object-center block"
                 />
