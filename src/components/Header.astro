@@ -152,9 +152,11 @@ const navLinks = navlinks.map((link) => ({
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
   }
-  /* Fixes the header to the top viewport edge and centers the inner container */
+  /* Sticks the header to the top viewport edge and centers the inner container.
+     sticky statt fixed: der Header liegt im normalen Fluss unter dem Banner und
+     bleibt erst oben haengen, wenn der Banner weggescrollt ist. */
   .wrapper {
-    position: fixed;
+    position: sticky;
     top: 0;
     left: 0;
     width: 100%; /** Fixes problem where hamburger disappears */

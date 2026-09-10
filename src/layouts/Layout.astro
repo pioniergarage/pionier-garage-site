@@ -27,7 +27,7 @@ const not_release = import.meta.env.DEV || import.meta.env.PUBLIC_STAGING != und
   </head>
   <body class="margin-0 min-h-screen bg-bg text-primary font-body">
     <div
-      class="absolute top-0 left-0 w-full z-10 mt-18.75 flex flex-col justify-center min-h-screen"
+      class="relative w-full z-10 flex flex-col justify-center min-h-screen"
     >
       <Banner />
       <Header id="header" class={root_anim} />
@@ -43,13 +43,22 @@ const not_release = import.meta.env.DEV || import.meta.env.PUBLIC_STAGING != und
     const header = document.getElementById("header");
 
     if (header) {
-      window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-          header.classList.add("active");
-        } else {
-          header.classList.remove("active");
-        }
+      // Der Banner scrollt mit und liegt ueber dem Header - der Hintergrund des
+      // Headers wird deshalb erst eingeblendet, sobald der Banner durchgelaufen
+      // ist und der Header oben haengen bleibt.
+      const banner = document.querySelector("[data-banner]");
+      let offset = banner instanceof HTMLElement ? banner.offsetHeight : 0;
+
+      const update = () => {
+        header.classList.toggle("active", window.scrollY > offset + 50);
+      };
+
+      window.addEventListener("scroll", update, { passive: true });
+      window.addEventListener("resize", () => {
+        offset = banner instanceof HTMLElement ? banner.offsetHeight : 0;
+        update();
       });
+      update();
     }
   </script>
 </html>
