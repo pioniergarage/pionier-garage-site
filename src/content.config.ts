@@ -366,3 +366,35 @@ export const TeamDirectorySchema = z.array(z.object({
     .optional(),
 })
 ).default([]);
+
+/**
+ * Optionaler Ankuendigungsbalken ganz oben auf jeder Seite. Alle Felder sind
+ * optional: sind beide Texte leer, wird nichts gerendert.
+ */
+const optionalLocalizedText = z
+  .object({ en: z.string().optional(), de: z.string().optional() })
+  .optional();
+
+// Das CMS schreibt geleerte Felder als "" statt sie zu entfernen; "" wuerde
+// z.coerce.date() zu einem Invalid Date machen, also vorher wegnormalisieren.
+const optionalDate = z.preprocess(
+  (value) => (value === "" || value === null ? undefined : value),
+  z.coerce.date().optional()
+);
+
+export const SiteBannerSchema = z.object({
+  text: optionalLocalizedText,
+  link: z.string().optional(),
+  linkText: optionalLocalizedText,
+  showUntil: optionalDate,
+  color: z
+    .enum([
+      "accent-red",
+      "accent-pink",
+      "accent-blue",
+      "accent-yellow",
+      "accent-green",
+      "accent-orange",
+    ])
+    .default("accent-red"),
+});

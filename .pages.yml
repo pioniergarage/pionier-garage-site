@@ -389,6 +389,32 @@ content:
           - { name: url, type: string }
       - { name: styleOverrides, label: Header Style Overrides, type: string }
 
+  # Optionaler Ankuendigungsbalken ganz oben auf jeder Seite. Kein Pflichtfeld:
+  # bleiben beide Texte leer, wird der Banner nicht gerendert.
+  - name: site-banner
+    label: Site Banner
+    type: file
+    path: src/content/site_banner.json
+    format: json
+    fields:
+      - name: text
+        label: Banner Text
+        description: Leer lassen, um den Banner auszublenden.
+        type: object
+        fields:
+          - { name: de, label: Text (DE), type: text }
+          - { name: en, label: Text (EN), type: text }
+      - { name: link, label: Link, type: string }
+      - name: linkText
+        label: Link-Beschriftung
+        description: Leer lassen, damit der ganze Banner klickbar ist.
+        type: object
+        fields:
+          - { name: de, label: Link-Text (DE), type: string }
+          - { name: en, label: Link-Text (EN), type: string }
+      - { name: showUntil, label: Anzeigen bis (einschliesslich), type: date }
+      - { name: color, label: Farbe, type: select, options: { values: [accent-red, accent-pink, accent-blue, accent-yellow, accent-green, accent-orange] }, default: accent-red }
+
   - name: site-footer
     label: Site Footer
     type: file
