@@ -2,6 +2,7 @@ import type { RefObject } from "react";
 
 import FilterSearchBar from "../search/FilterSearchBar";
 import type { SearchFilterGroup, SelectedTagChip } from "../search/types";
+import type { Locale } from "../../utils/i18n";
 
 export type FilterGroupKey = "search";
 
@@ -13,7 +14,7 @@ type SearchBarProps = {
   hasActiveFilters: boolean;
   inputRef: RefObject<HTMLInputElement | null>;
   isOpen: boolean;
-  locale?: "de" | "en";
+  locale?: Locale;
   onOpen: () => void;
   panelRef: RefObject<HTMLDivElement | null>;
   query: string;
@@ -39,6 +40,14 @@ const translations = {
     noActiveFiltersAriaLabel: "No active filters",
     searchButton: "Search",
     searchPlaceholder: "Search events, locations, ...",
+  },
+  fr: {
+    ariaLabel: "Recherche d’événements",
+    clearAll: "Tout effacer",
+    clearAllAriaLabel: "Réinitialiser tous les filtres",
+    noActiveFiltersAriaLabel: "Aucun filtre actif",
+    searchButton: "Rechercher",
+    searchPlaceholder: "Rechercher des événements, des lieux…",
   },
 } as const;
 

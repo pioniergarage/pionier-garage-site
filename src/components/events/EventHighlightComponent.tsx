@@ -2,10 +2,11 @@ import Grid from "../ui/Grid";
 import EventListCard from "./EventListCard";
 import type { EventItem } from "./types";
 import { sectionVariants } from "../../styles/style-mapping"; // Added import
+import type { Locale } from "../../utils/i18n";
 
 export interface Props {
     events: EventItem[];
-    locale?: "de" | "en";
+    locale?: Locale;
     alignment?: "left" | "center" | "right"; // Added standard variant props
     size?: "full" | "half" | "third";
 }

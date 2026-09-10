@@ -6,6 +6,13 @@ import Footer from "../components/Footer.astro";
 import Header from "../components/Header.astro";
 import DevToolbar from "../components/dev/DevToolbar.astro";
 
+type Props = {
+  title?: string;
+  description?: string;
+};
+
+const { title, description } = Astro.props;
+
 // Maps your path conditional animation smoothly
 const root_anim =
   Astro.originPathname.length < 5 ? "animate-appear-slowly" : "";
@@ -16,7 +23,7 @@ const not_release = import.meta.env.DEV || import.meta.env.PUBLIC_STAGING != und
 <!doctype html>
 <html lang={Astro.currentLocale} class="scroll-smooth">
   <head>
-    <BaseHead />
+    <BaseHead title={title} description={description} />
   </head>
   <body class="margin-0 min-h-screen bg-bg text-primary font-body">
     <div

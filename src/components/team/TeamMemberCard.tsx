@@ -1,9 +1,10 @@
 import { localized } from "../../utils/utils";
 import type { TeamData } from "./types";
+import type { Locale } from "../../utils/i18n";
 
 interface Props {
     team_member: TeamData;
-    locale: "de" | "en";
+    locale: Locale;
     // When false, hides the coffee-chat/contact CTA button (e.g. for the Women gallery).
     showContact?: boolean;
 }
@@ -11,9 +12,15 @@ interface Props {
 const translations = {
     de: {
         talkTo: (name: string) => `Sprich mit ${name}`,
+        noImage: "Kein Bild",
     },
     en: {
         talkTo: (name: string) => `Talk to ${name}`,
+        noImage: "No image",
+    },
+    fr: {
+        talkTo: (name: string) => `Échanger avec ${name}`,
+        noImage: "Aucune photo",
     },
 } as const;
 
@@ -35,7 +42,7 @@ export default function TeamMemberCard({ team_member, locale, showContact = true
                     />
                 ) : (
                     <div className="w-full h-full bg-stroke flex items-center justify-center text-secondary">
-                        No Image
+                        {t.noImage}
                     </div>
                 )}
             </div>

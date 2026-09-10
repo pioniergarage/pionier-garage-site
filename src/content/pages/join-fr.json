@@ -1,0 +1,167 @@
+{
+  "title": "Rejoins-nous",
+  "language": "FR",
+  "slug": "/join",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "Rejoins-nous",
+      "subtitle": "Nous lançons une nouvelle promotion de trainees deux fois par an : au début du semestre d’hiver et au début du semestre d’été.",
+      "heroTagline": "Notre Batch",
+      "image": "/src/assets/batch_hero_desktop.png",
+      "mobileImage": "/src/assets/batch_hero_mobile.png",
+      "button": {
+        "text": "Ça m’intéresse !",
+        "link": "/contact"
+      },
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      },
+      "titleStyle": {
+        "size": "medium",
+        "color": "primary",
+        "alignment": "center"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "## Ton parcours pour rejoindre PG\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "title": "Dépose ta candidature",
+          "description": "Candidate rapidement et simplement au début de chaque semestre."
+        },
+        {
+          "title": "Sélection et rencontre",
+          "description": "Les 15 meilleurs profils sont sélectionnés et commencent leur parcours comme trainees."
+        },
+        {
+          "title": "Trainee Batch",
+          "description": "Montre ce dont tu es capable pendant un Batch court et intense."
+        },
+        {
+          "title": "Admission et adhésion",
+          "description": "Prépare-toi à vivre des projets passionnants et des opportunités uniques !"
+        }
+      ],
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "## Ce qu’en disent nos membres\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "testimonials",
+      "items": [
+        {
+          "quote": "PionierGarage m’a aidé à nouer les bons contacts, à trouver des opportunités et à rencontrer des personnes qui partagent mes ambitions. J’y ai acquis des compétences que personne ne m’avait enseignées à l’université.",
+          "name": "Josua",
+          "role": "Co-fondateur de ColdLog"
+        },
+        {
+          "quote": "L’entrepreneuriat et la création d’entreprise m’ont toujours passionné. Rejoindre PionierGarage m’a donné l’occasion de grandir personnellement et de développer mon réseau.",
+          "name": "Florian",
+          "role": "Fondateur d’OutLeads"
+        },
+        {
+          "quote": "Avec le recul, je suis très reconnaissant pour les années passées chez PionierGarage comme responsable informatique et intervenant à GROW. J’ai énormément appris sur l’entrepreneuriat : gestion de projet, organisation de hackathons, réseautage, création d’entreprise, bien plus encore — et même un peu de SQL. Si tu veux prendre part à quelque chose qui compte et avoir un véritable impact, rejoins PG.",
+          "name": "Marc Hudnut",
+          "role": "Ancien membre de PionierGarage"
+        }
+      ],
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "## Questions fréquentes\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "faq",
+      "items": [
+        {
+          "question": "Ai-je besoin d’une idée pour m’engager à vos côtés ?",
+          "answer": "Pas du tout ! Nous sommes justement là pour t’aider à trouver et développer cette idée. Ton expérience ou tes compétences actuelles n’ont aucune importance : notre objectif est de te donner les moyens de devenir entrepreneur ou entrepreneuse. Et si ton projet est déjà prêt à décoller, nous mettrons bien sûr toutes nos ressources au service de ton équipe !"
+        },
+        {
+          "question": "Faut-il être étudiant ou étudiante pour devenir membre ?",
+          "answer": "Absolument pas ! Toutes les personnes curieuses de l’entrepreneuriat sont les bienvenues."
+        },
+        {
+          "question": "Je ne souhaite pas forcément créer une entreprise. Puis-je quand même participer ?",
+          "answer": "Bien sûr ! Tous nos membres ne veulent pas créer leur entreprise. PionierGarage te permet justement de découvrir si cette voie te correspond. Comme nous jouons un rôle très actif dans l’écosystème étudiant des startups, tu trouveras de nombreux projets et missions pour progresser tout en faisant avancer la communauté."
+        },
+        {
+          "question": "Quel niveau d’engagement attendez-vous des membres actifs ?",
+          "answer": "L’engagement compte, mais c’est toi qui définis ton rythme. Selon le projet que tu choisis et tes contraintes liées aux études, au travail ou à d’autres activités, tu organises librement ton temps. Seule notre réunion d’équipe hebdomadaire du jeudi est fixe ; pour le reste, tu es autonome."
+        },
+        {
+          "question": "Que puis-je apprendre chez PionierGarage ?",
+          "answer": "Du marketing au développement commercial, en passant par le leadership : tu peux tout explorer ! Comptabilité interne, préparation d’ateliers réunissant plusieurs centaines de personnes ou organisation de GROW — notre concours de startups avec plus de 50 équipes et 1 000 participants —, tu peux suivre tes intérêts, prendre des responsabilités, apprendre les bases de la création d’entreprise et bâtir ton propre réseau."
+        },
+        {
+          "question": "Qu’est-ce que le Batch ?",
+          "answer": "Tout simplement la meilleure expérience qui soit."
+        }
+      ],
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    }
+  ]
+}

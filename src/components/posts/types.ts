@@ -3,7 +3,7 @@ export interface PostData {
   author: string;
   pubDatetime: Date;
   title: string;
-  language: "EN" | "DE";
+  language: "EN" | "DE" | "FR";
   tags: string[];
   modDatetime?: Date | null | undefined;
   ogImage?: string | {

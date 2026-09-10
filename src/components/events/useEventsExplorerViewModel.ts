@@ -3,33 +3,36 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import type { SearchFilterGroup, SelectedTagChip } from "../search/types";
 import type { EventItem } from "./types";
 import type { FilterGroupKey } from "./SearchBar";
+import { getLocaleTag, type Locale } from "../../utils/i18n";
 
 type IndexedEvent = {
   event: EventItem;
   searchText: string;
 };
 
-function formatSearchDate(dateValue: Date | string, locale: "de" | "en") {
+function formatSearchDate(dateValue: Date | string, locale: Locale) {
   const date = new Date(dateValue);
 
   if (Number.isNaN(date.getTime())) {
     return "";
   }
 
-  return new Intl.DateTimeFormat(locale === "de" ? "de-DE" : "en-US", {
+  return new Intl.DateTimeFormat(getLocaleTag(locale), {
     dateStyle: "medium",
     timeStyle: "short",
   }).format(date);
 }
 
-function buildSearchText(event: EventItem, locale: "de" | "en") {
+const priceSearchTerms = {
+  de: { free: "kostenlos free gratuit", paid: "kostenpflichtig paid payant" },
+  en: { free: "free kostenlos gratuit", paid: "paid kostenpflichtig payant" },
+  fr: { free: "gratuit free kostenlos", paid: "payant paid kostenpflichtig" },
+} as const;
+
+function buildSearchText(event: EventItem, locale: Locale) {
   const priceLabel = event.freeEvent
-    ? locale === "de"
-      ? "kostenlos free"
-      : "free kostenlos"
-    : locale === "de"
-      ? "kostenpflichtig paid"
-      : "paid kostenpflichtig";
+    ? priceSearchTerms[locale].free
+    : priceSearchTerms[locale].paid;
 
   return [
     event.title,
@@ -45,7 +48,7 @@ function buildSearchText(event: EventItem, locale: "de" | "en") {
     .toLowerCase();
 }
 
-function buildIndexedEvent(event: EventItem, locale: "de" | "en"): IndexedEvent {
+function buildIndexedEvent(event: EventItem, locale: Locale): IndexedEvent {
   return {
     event,
     searchText: buildSearchText(event, locale),
@@ -54,7 +57,7 @@ function buildIndexedEvent(event: EventItem, locale: "de" | "en"): IndexedEvent 
 
 export function useEventsExplorerViewModel(
   events: EventItem[],
-  locale: "de" | "en" = "en",
+  locale: Locale = "en",
 ) {
   const panelRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);

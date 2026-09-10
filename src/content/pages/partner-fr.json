@@ -1,0 +1,33 @@
+{
+  "title": "Devenir partenaire",
+  "language": "FR",
+  "slug": "/partner",
+  "description": "Vous souhaitez devenir partenaire et soutenir notre mission visant à rassembler les startups de Karlsruhe ?",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "section",
+      "header": "Devenir partenaire",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "50px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "form",
+      "url": "https://tally.so/embed/XxOLrL?lang=fr",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    }
+  ]
+}

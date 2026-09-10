@@ -4,9 +4,10 @@ import { pb } from "../../lib/pocketbase";
 import EventHightlightComponent from "../events/EventHighlightComponent";
 import type { EventItem } from "../events/types";
 import { sectionVariants } from "../../styles/style-mapping";
+import { getLocale } from "../../utils/i18n";
 
 const now = new Date().toISOString();
-const locale = Astro.currentLocale == "de" ? "de" : "en";
+const locale = getLocale(Astro.currentLocale);
 
 const translations = {
   de: {
@@ -17,7 +18,11 @@ const translations = {
     button_text: "See More",
     header: "Next Events",
   },
-};
+  fr: {
+    button_text: "Voir plus",
+    header: "Prochains événements",
+  },
+} as const;
 
 const eventFilter = [
   'date != ""',

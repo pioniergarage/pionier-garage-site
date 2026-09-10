@@ -43,7 +43,7 @@ const blog = defineCollection({
       pubDatetime: z.date(),
       modDatetime: z.date().optional().nullable(),
       title: z.string(),
-      language: z.enum(["EN", "DE"]).default("EN"),
+      language: z.enum(["EN", "DE", "FR"]).default("EN"),
       ogImage: z.string().default(settings.fallbackImage ?? ""),
       slug: z.string().optional(),
       featured: z.boolean().optional(),
@@ -306,7 +306,7 @@ const pages = defineCollection({
   }),
   schema: z.object({
     title: z.string(),
-    language: z.enum(["EN", "DE"]).default("EN"),
+    language: z.enum(["EN", "DE", "FR"]).default("EN"),
     slug: z.string(), // Required based on yaml
     description: z.string().optional(),
     layout: z.string().default("../layouts/PageLayout.astro"),

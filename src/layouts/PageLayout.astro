@@ -2,11 +2,14 @@
 import Layout from "./Layout.astro";
 
 // We define the Props to match the data schema of the 'pages' collection
-type Props = { title: string };
+type Props = {
+  title: string;
+  description?: string;
+};
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
-<Layout title={title}>
+<Layout title={title} description={description}>
     <slot />
 </Layout>

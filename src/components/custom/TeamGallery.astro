@@ -1,6 +1,7 @@
 ---
 import TeamExplorer from "../team/TeamExplorer";
 import { TeamDirectorySchema } from "../../content.config";
+import { getLocale } from "../../utils/i18n";
 
 interface Props {
   // Filename (without extension) of the team dataset in `src/content/`. Defaults to the main team.
@@ -26,7 +27,7 @@ if (!dataset) {
 
 const team_members = TeamDirectorySchema.parse(dataset.default);
 
-const locale = Astro.currentLocale == "de" ? "de" : "en";
+const locale = getLocale(Astro.currentLocale);
 
 // Resolve `/src/assets/...` paths to their processed, build-time URLs.
 // A raw source path works in `astro dev` (Vite serves source files) but 404s

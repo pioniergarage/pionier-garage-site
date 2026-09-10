@@ -4,11 +4,12 @@ import { pb } from "../../lib/pocketbase";
 import { localized } from "../../utils/utils";
 import StartupsHighlightComponent from "../startups/StartupsHighlightComponent";
 import type { StartupItem } from "../startups/types";
+import { getLocale } from "../../utils/i18n";
 
 // Note: Ensure your startup-page.css import is removed once its internal
 // components (like StartupsHighlightComponent) are also fully migrated.
 
-const locale = Astro.currentLocale == "de" ? "de" : "en";
+const locale = getLocale(Astro.currentLocale);
 
 const translations = {
   de: {
@@ -19,7 +20,11 @@ const translations = {
     button_text: "See More",
     header: "Karlsruhe's Startups",
   },
-};
+  fr: {
+    button_text: "Voir plus",
+    header: "Les startups de Karlsruhe",
+  },
+} as const;
 
 const startups = await pb
   .collection<StartupItem>("startups")

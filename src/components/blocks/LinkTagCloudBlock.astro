@@ -33,7 +33,7 @@ const innerWrapperClasses = twMerge(
         tags?.map((tag) => (
           <a 
             class="inline-block px-5 py-3.75 text-base font-inherit text-primary bg-transparent border-2 border-primary rounded transition duration-150 ease-out cursor-pointer hover:bg-primary hover:text-bg"
-            href={localized(tag.link ?? "", Astro.currentLocale, ["EN", "DE"])}
+            href={localized(tag.link ?? "", Astro.currentLocale, ["EN", "DE", "FR"])}
           >
             {tag.text}
           </a>

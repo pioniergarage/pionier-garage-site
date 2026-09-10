@@ -7,20 +7,18 @@ import BlockRenderer from "../components/BlockRenderer.astro";
 export async function getStaticPaths() {
   const pages = await getCollection("pages");
 
-  return pages.map((page) => {
-    return {
-      params: { slug: page.id },
-      props: page,
-    };
-  });
+  return pages.map((page) => ({
+    params: { slug: page.id },
+    props: page,
+  }));
 }
 
 type Props = CollectionEntry<"pages">;
 
 const page = Astro.props;
-const { title, language, layout, blocks } = page.data;
+const { title, description, blocks } = page.data;
 ---
 
-<PageLayout title={title}>
+<PageLayout title={title} description={description}>
   {blocks.map((block) => <BlockRenderer block={block} />)}
 </PageLayout>

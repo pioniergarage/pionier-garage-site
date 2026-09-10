@@ -1,0 +1,102 @@
+{
+  "title": "Nos offres",
+  "language": "FR",
+  "slug": "/offers",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "GROW",
+      "subtitle": "Nous organisons l’un des plus grands concours étudiants de startups de la région DACH. De la candidature à la sélection, puis à l’accompagnement des équipes, nous créons la plateforme où les idées prennent de l’ampleur et gagnent en visibilité.",
+      "heroTagline": "L’un des plus grands concours étudiants de création d’entreprise",
+      "image": "/src/assets/grow_hero.png",
+      "mobileImage": "/src/assets/grow_hero_mobile.png",
+      "button": {
+        "text": "En savoir plus",
+        "link": "https://grow.pioniergarage.de/"
+      },
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      },
+      "titleStyle": {
+        "size": "xlarge",
+        "color": "primary",
+        "alignment": "center"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "### Nos startups phares\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "custom-block",
+      "component": "StartupLogos",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "### Pourquoi rejoindre PionierGarage ? Tu te reconnais ?\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "steps",
+      "items": [
+        {
+          "title": "Réseau",
+          "description": "Tu t’intéresses à la création d’entreprise, tu as peut-être déjà une idée ou tu veux simplement mieux connaître l’écosystème startup. Tu souhaites échanger avec des investisseurs, des mentors et d’autres passionnés sur l’entrepreneuriat, ton idée ou les startups."
+        },
+        {
+          "title": "Mentorat",
+          "description": "Tu veux tout apprendre, de la création d’entreprise à la vente, au marketing et au code. Tu ne veux pas seulement discuter avec des personnes qui partagent tes ambitions, mais aussi apprendre de celles et ceux qui ont déjà parcouru ce chemin plusieurs fois."
+        },
+        {
+          "title": "Projets",
+          "description": "Tu as envie de contribuer à des projets passionnants et d’y mettre tes compétences à l’épreuve. Les missions dont l’issue est incertaine ne te font pas peur : tu les recherches, car ce sont elles qui te font le plus progresser."
+        },
+        {
+          "title": "Communauté",
+          "description": "Tu sais que ton entourage te façonne, mais tu trouves rarement des personnes qui pensent comme toi. Les startups, la tech, l’entrepreneuriat et l’envie de réussir font naturellement partie de tes conversations."
+        }
+      ],
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    }
+  ]
+}

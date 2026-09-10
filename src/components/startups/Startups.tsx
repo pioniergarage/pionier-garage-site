@@ -3,10 +3,11 @@ import type { StartupDetailData, StartupItem } from "./types";
 import StartupExplorer from "./StartupExplorer";
 import StartupDetail from "./StartupDetail";
 import { pb } from "../../lib/pocketbase";
+import type { Locale } from "../../utils/i18n";
 
 export interface Props {
     startups: StartupItem[];
-    locale?: "de" | "en";
+    locale?: Locale;
 }
 
 export default function Startups({ startups, locale = "en" }: Props) {
@@ -73,5 +74,5 @@ export default function Startups({ startups, locale = "en" }: Props) {
         };
     }, []);
 
-    return (startup != undefined ? <StartupDetail startup={startup} /> : <StartupExplorer startups={startups} locale={locale} />)
+    return (startup != undefined ? <StartupDetail startup={startup} locale={locale} /> : <StartupExplorer startups={startups} locale={locale} />)
 }
