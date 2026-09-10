@@ -1,0 +1,40 @@
+{
+  "title": "Contact",
+  "language": "FR",
+  "slug": "/contact",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "hero",
+      "title": "Parlons-nous !",
+      "subtitle": "Vous souhaitez devenir notre partenaire ? Ou vous avez simplement des questions à nous poser ? Écrivez-nous ! Nous serons ravis d’échanger avec vous.",
+      "image": "/src/assets/contact_hero_desktop.png",
+      "mobileImage": "/src/assets/contact_hero_mobile.png",
+      "style": {
+        "alignment": "center",
+        "size": "screen"
+      },
+      "titleStyle": {
+        "size": "medium",
+        "color": "primary",
+        "alignment": "center"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "20px",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "form",
+      "url": "https://tally.so/embed/44GzvO?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1&lang=fr",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    }
+  ]
+}

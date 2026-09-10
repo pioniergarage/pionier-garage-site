@@ -4,11 +4,12 @@ import type { StartupItem } from "./types";
 import StartupListCard from "./StartupListCard";
 import SearchBar from "./SearchBar";
 import { useStartupExplorerViewModel } from "./useStartupExplorerViewModel";
+import type { Locale } from "../../utils/i18n";
 
 
 export interface Props {
   startups: StartupItem[];
-  locale: "de" | "en";
+  locale: Locale;
 }
 
 const INITIAL_VISIBLE_STARTUPS = 24;
@@ -22,6 +23,10 @@ const translations = {
   en: {
     empty: "No matching startups found.",
     loadMore: "Load more",
+  },
+  fr: {
+    empty: "Aucune startup correspondante.",
+    loadMore: "Afficher plus",
   },
 } as const;
 

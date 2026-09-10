@@ -7,8 +7,9 @@ const { navbar, logo, styleOverrides } = config;
 
 import LanguageToggle from "./LanguageToggle.astro";
 import { getNavLinks } from "../utils/server-utils";
+import { getLocale } from "../utils/i18n";
 
-const locale = Astro.currentLocale == "de" ? "de" : "en";
+const locale = getLocale(Astro.currentLocale);
 
 const translations = {
   de: {
@@ -23,10 +24,16 @@ const translations = {
     menuClose: "Close menu",
     navigation: "Main navigation",
   },
-};
+  fr: {
+    home: "Aller à l’accueil",
+    menuOpen: "Ouvrir le menu",
+    menuClose: "Fermer le menu",
+    navigation: "Navigation principale",
+  },
+} as const;
 
 const labels = translations[locale];
-const homeHref = locale === "de" ? "/de" : "/en";
+const homeHref = `/${locale}`;
 const navlinks = await getNavLinks(locale, navbar);
 const navLinks = navlinks.map((link) => ({
   ...link,

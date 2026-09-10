@@ -1,0 +1,40 @@
+{
+  "title": "Mentions légales",
+  "language": "FR",
+  "slug": "/imprint",
+  "layout": "../layouts/PageLayout.astro",
+  "blocks": [
+    {
+      "type": "rich-text",
+      "content": "# Mentions légales\n\n",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "50px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "# Informations légales\n\nInformations conformément à l’article 5 de la loi allemande sur les télémédias (TMG) :\n\nPionierGarage e.V.\n\nStrasse am Forum 1,\n\n76131 Karlsruhe\n\n## **Représentée par :**\n\nOscar Streif, président du conseil d’administration\n\nÇağla Özçelik, vice-présidente du conseil d’administration\n\n## **Contact :**\n\nE-mail : [info@pioniergarage.de](mailto:info@pioniergarage.de)\n\n## **Inscription au registre :**\n\nInscription au registre des associations.\n\nTribunal chargé du registre : tribunal d’instance de Mannheim\n\nNuméro d’inscription : 103583\n\n## **Responsable du contenu conformément à l’article 55, paragraphe 2, du RStV :**\n\nPionierGarage e. V.\n\nRintheimer Strasse 15\n\n76131 Karlsruhe\n\n## **Règlement des litiges**\n\nLa Commission européenne met à disposition une plateforme de règlement en ligne des litiges (RLL) : [https://ec.europa.eu/consumers/odr](https://ec.europa.eu/consumers/odr).\n\nNotre adresse e-mail figure ci-dessus dans les mentions légales.\n\nNous ne sommes ni disposés ni tenus de participer à une procédure de règlement des litiges devant un organisme de médiation de la consommation.\n\n### Responsabilité relative aux contenus\n\nEn tant que prestataire de services, nous sommes responsables de nos propres contenus sur ces pages conformément à l’article 7, paragraphe 1, de la loi allemande sur les télémédias (TMG) et aux lois générales. Toutefois, conformément aux articles 8 à 10 de la TMG, nous ne sommes pas tenus, en tant que prestataire de services, de surveiller les informations de tiers transmises ou stockées, ni de rechercher des circonstances indiquant une activité illicite.\n\nLes obligations de supprimer ou de bloquer l’utilisation d’informations conformément aux lois générales restent inchangées. Une responsabilité à cet égard n’est toutefois possible qu’à compter du moment où nous avons connaissance d’une violation concrète de la loi. Dès que nous aurons connaissance de telles violations, nous supprimerons immédiatement les contenus concernés.\n\n### Responsabilité relative aux liens\n\nNotre site contient des liens vers des sites externes de tiers sur le contenu desquels nous n’exerçons aucune influence. Nous ne pouvons donc assumer aucune responsabilité pour ces contenus de tiers. Le fournisseur ou l’exploitant respectif des pages liées est toujours responsable de leur contenu. Les pages liées ont été vérifiées afin de détecter d’éventuelles violations de la loi au moment de la création des liens. Aucun contenu illicite n’était identifiable à ce moment-là.\n\nToutefois, un contrôle permanent du contenu des pages liées ne peut raisonnablement être exigé en l’absence d’indices concrets d’une violation de la loi. Dès que nous aurons connaissance de violations de la loi, nous supprimerons immédiatement les liens concernés.\n\n### Droits d’auteur\n\nLes contenus et œuvres créés par les exploitants du site sur ces pages sont soumis au droit d’auteur allemand. La reproduction, la modification, la diffusion et toute forme d’exploitation en dehors des limites du droit d’auteur nécessitent l’accord écrit de l’auteur ou du créateur concerné. Les téléchargements et copies de ce site ne sont autorisés qu’à des fins privées et non commerciales.\n\nDans la mesure où les contenus de ce site n’ont pas été créés par l’exploitant, les droits d’auteur de tiers sont respectés. Les contenus de tiers sont notamment signalés comme tels. Si vous deviez néanmoins constater une violation des droits d’auteur, veuillez nous en informer. Dès que nous aurons connaissance de violations, nous supprimerons immédiatement les contenus concernés.\n\n### Attribution\n\nIcônes créées par [Freepik](https://www.flaticon.com/authors/freepik), [Those Icons](https://www.flaticon.com/authors/those-icons), [Smashicons](https://www.flaticon.com/authors/smashicons), [Pixel Perfect](https://www.flaticon.com/authors/pixel-perfect), [Eucalyp](https://www.flaticon.com/authors/eucalyp), [Kiranshastry](https://www.flaticon.com/authors/kiranshastry) sur [www.flaticon.com](http://www.flaticon.com)\n\nSource : [eRecht24](http://www.e-recht24.de/), Sören Siebert, avocat spécialisé en droit de l’Internet",
+      "style": {
+        "alignment": "left",
+        "size": "half"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "50px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    }
+  ]
+}

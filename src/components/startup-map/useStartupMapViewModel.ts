@@ -6,6 +6,7 @@ import type {
   SelectedTagChip as SharedSelectedTagChip,
 } from "../search/types";
 import type { StartupMapViewMilestone } from "./types";
+import type { Locale } from "../../utils/i18n";
 
 export type StartupMapFilterGroupKey = "category";
 export type StartupMapSearchBarGroup = SearchFilterGroup<StartupMapFilterGroupKey>;
@@ -19,6 +20,9 @@ const GROUP_TITLES = {
   },
   en: {
     category: "Categories:",
+  },
+  fr: {
+    category: "Catégories :",
   },
 } as const;
 
@@ -64,7 +68,7 @@ function buildSearchText(milestoneName: string, entry: StartupMapViewMilestone["
 
 export function useStartupMapViewModel(
   map: StartupMapViewMilestone[],
-  locale: "de" | "en" = "en",
+  locale: Locale = "en",
 ) {
   const panelRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -99,22 +103,22 @@ export function useStartupMapViewModel(
       }
     }
 
-    return [
-      {
-        key: "category",
-        title: titles.category,
-        color: "orange",
-        values: [...values.entries()]
-          .sort(([left], [right]) =>
-            left.localeCompare(right, locale, { sensitivity: "base" }),
-          )
-          .map(([value, metadata]) => ({
-            value,
-            isSelected: selectedFilters.category.has(value),
-            color: metadata.color,
-          })),
-      },
-    ].filter((group) => group.values.length > 0);
+    const categoryGroup: StartupMapSearchBarGroup = {
+      key: "category",
+      title: titles.category,
+      color: "orange",
+      values: [...values.entries()]
+        .sort(([left], [right]) =>
+          left.localeCompare(right, locale, { sensitivity: "base" }),
+        )
+        .map(([value, metadata]) => ({
+          value,
+          isSelected: selectedFilters.category.has(value),
+          color: metadata.color,
+        })),
+    };
+
+    return categoryGroup.values.length > 0 ? [categoryGroup] : [];
   }, [locale, safeMap, selectedFilters.category, titles.category]);
 
   const filteredMap = useMemo(() => {

@@ -3,8 +3,9 @@
 import { pb } from "../../lib/pocketbase";
 import StartupsExplorer from "../startups/Startups";
 import type { StartupItem } from "../startups/types";
+import { getLocale } from "../../utils/i18n";
 
-const locale = Astro.currentLocale == "de" ? "de" : "en";
+const locale = getLocale(Astro.currentLocale);
 
 const startupFilter = [
   'shortDescription != ""',

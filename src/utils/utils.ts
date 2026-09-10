@@ -1,3 +1,5 @@
+import { getLocale, SUPPORTED_LOCALES } from "./i18n";
+
 export function renderHeadline(text: string): string {
   return text
     // "||" marks an optional break point WITHOUT a hyphen: it becomes a
@@ -20,36 +22,27 @@ export function renderHeadline(text: string): string {
  * @param locales The available locales, skip if you trust the input link.
  * @returns The localized link
  */
-export function localized(link_raw: string | undefined, locale: string | undefined, locales: string[] = []): string {
-  if (link_raw?.startsWith('http://') || link_raw?.startsWith('https://') || link_raw?.startsWith('mailto:')) {
-    return link_raw ?? "";
+export function localized(
+  linkRaw: string | undefined,
+  localeRaw: string | undefined,
+  locales: readonly string[] = SUPPORTED_LOCALES,
+): string {
+  if (!linkRaw || !localeRaw) return "";
+
+  // Preserve absolute and non-HTTP URI schemes such as mailto: and tel:.
+  if (/^[a-z][a-z\d+.-]*:/i.test(linkRaw) || linkRaw.startsWith("//")) {
+    return linkRaw;
   }
 
-  if (link_raw == undefined || locale == undefined)
-    return "";
-  const link = link_raw.toLowerCase();
-  if (link.startsWith('/')) {
-    for (const raw_loc of locales) {
-      const loc = raw_loc.toLowerCase();
-      if (link.startsWith(loc, 1)) {
-        if (link.endsWith(loc)) {
-          return `${link}/`
-        }
-        return link;
-      }
-      return `/${locale}${link}`
-    }
-  }
-  else {
-    for (const loc of locales) {
-      if (link.startsWith(loc)) {
-        if (link.endsWith(loc)) {
-          return `/${link}/`
-        }
-        return `/${link}`;
-      }
-    }
+  const locale = getLocale(localeRaw);
+  const knownLocales = locales.map((item) => item.toLowerCase());
+  const path = linkRaw.startsWith("/") ? linkRaw : `/${linkRaw}`;
+  const firstSegment = path.split("/", 3)[1]?.toLowerCase();
+
+  // An explicitly localized link is intentional and should not be rewritten.
+  if (firstSegment && knownLocales.includes(firstSegment)) {
+    return path;
   }
 
-  return `/${locale}/${link}`
+  return `/${locale}${path}`;
 }

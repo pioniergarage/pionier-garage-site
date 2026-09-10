@@ -1,24 +1,47 @@
 ---
+import { getLocale, SUPPORTED_LOCALES } from "../utils/i18n";
+import { getCollection } from "astro:content";
+
 const languages = [
   { code: "en", label: "English" },
   { code: "de", label: "Deutsch" },
-];
+  { code: "fr", label: "Français" },
+] as const;
+
+const translations = {
+  de: { selectLanguage: "Sprache auswählen" },
+  en: { selectLanguage: "Select language" },
+  fr: { selectLanguage: "Choisir la langue" },
+} as const;
 
 const currentPathSegments = Astro.url.pathname.split("/").filter(Boolean);
-const currentLangCode = languages.some(
-  (item) => item.code === currentPathSegments[0],
-)
-  ? currentPathSegments[0]
-  : languages[0].code;
+const currentLangCode = getLocale(currentPathSegments[0]);
+
+const hasLocalePrefix = SUPPORTED_LOCALES.some(
+  (locale) => locale === currentPathSegments[0],
+);
+const contentPath = currentPathSegments
+  .slice(hasLocalePrefix ? 1 : 0)
+  .join("/");
+const pageIds = new Set((await getCollection("pages")).map((page) => page.id));
+const hasTranslation = (langCode: string) => {
+  const id = contentPath ? `${langCode}/${contentPath}` : `${langCode}/`;
+  return pageIds.has(id) || (!contentPath && pageIds.has(langCode));
+};
+const isContentPage = languages.some((lang) => hasTranslation(lang.code));
+const availableLanguages = isContentPage
+  ? languages.filter((lang) => hasTranslation(lang.code))
+  : languages;
 
 const selected =
   languages.find((lang) => lang.code === currentLangCode) || languages[0];
+const labels = translations[currentLangCode];
 
 const localizeRootUrl = (langCode: string) => {
   const url = new URL(Astro.url);
   const pathSegments = url.pathname.split("/").filter(Boolean);
 
-  if (languages.some((item) => item.code === pathSegments[0])) {
+  if (SUPPORTED_LOCALES.some((locale) => locale === pathSegments[0])) {
     pathSegments[0] = langCode;
   } else {
     pathSegments.unshift(langCode);
@@ -34,6 +57,7 @@ const localizeRootUrl = (langCode: string) => {
     type="button"
     aria-expanded="false"
     aria-haspopup="listbox"
+    aria-label={labels.selectLanguage}
     class="trigger"
   >
     <span class="label">{selected.code}</span>
@@ -42,9 +66,9 @@ const localizeRootUrl = (langCode: string) => {
     </span> -->
   </button>
 
-  <div class="menu" role="listbox" aria-label="Select language" style="display: none;">
+  <div class="menu" role="listbox" aria-label={labels.selectLanguage} style="display: none;">
     {
-      languages.map((lang) => (
+      availableLanguages.map((lang) => (
         <a
           href={localizeRootUrl(lang.code)}
           role="option"

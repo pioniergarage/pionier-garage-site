@@ -1,10 +1,11 @@
 import Grid from "../ui/Grid";
 import type { StartupItem } from "./types";
 import StartupListCard from "./StartupListCard";
+import type { Locale } from "../../utils/i18n";
 
 export interface Props {
     startups: StartupItem[];
-    locale: "de" | "en";
+    locale: Locale;
 }
 
 export default function StartupExplorer({ startups, locale }: Props) {
