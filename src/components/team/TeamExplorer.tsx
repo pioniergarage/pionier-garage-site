@@ -7,6 +7,7 @@ import type { Locale } from "../../utils/i18n";
 interface Props {
     team_members: TeamData[]
     locale: Locale
+    showContact?: boolean
 }
 
 export default function TeamExplorer({team_members, locale, showContact = true }: Props) {
