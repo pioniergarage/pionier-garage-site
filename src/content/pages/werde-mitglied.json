@@ -11,10 +11,6 @@
       "heroTagline": "Unser Batch",
       "image": "/src/assets/batch_hero_desktop.png",
       "mobileImage": "/src/assets/batch_hero_mobile.png",
-      "button": {
-        "text": "Ich will mitmachen!",
-        "link": "/contact"
-      },
       "style": {
         "alignment": "center",
         "size": "full"
@@ -23,14 +19,6 @@
         "size": "medium",
         "color": "primary",
         "alignment": "center"
-      }
-    },
-    {
-      "type": "form",
-      "url": "https://tally.so/embed/LZ2AEG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
-      "style": {
-        "alignment": "center",
-        "size": "screen"
       }
     },
     {
@@ -43,7 +31,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Dein Weg in die PG\n\n",
+      "content": "## Dein Weg in die PG",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -80,6 +68,22 @@
       "style": {
         "alignment": "center",
         "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "### Hier kannst du dich bewerben",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "form",
+      "url": "https://tally.so/embed/LZ2AEG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
+      "style": {
+        "alignment": "center",
+        "size": "screen"
       }
     },
     {
