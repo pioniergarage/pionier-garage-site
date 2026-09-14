@@ -26,6 +26,14 @@
       }
     },
     {
+      "type": "form",
+      "url": "https://tally.so/embed/J9QLpX?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "spacer",
       "size": "80px",
       "style": {
