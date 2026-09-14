@@ -1,0 +1,206 @@
+---
+// Optionaler Ankuendigungsbalken ganz oben auf jeder Seite. Gepflegt wird er
+// ueber das Singleton `src/content/site_banner.json` (Pages CMS: "Site Banner").
+// Sind beide Textfelder leer oder ist das Enddatum ueberschritten, rendert die
+// Komponente gar nichts.
+import rawBanner from "../content/site_banner.json";
+import { SiteBannerSchema } from "../content.config.ts";
+import { localized } from "../utils/utils";
+
+const locale = Astro.currentLocale === "de" ? "de" : "en";
+
+const translations = {
+  de: { announcement: "Ankuendigung" },
+  en: { announcement: "Announcement" },
+};
+
+const labels = translations[locale];
+
+// safeParse statt parse: ein kaputt gepflegtes CMS-Feld darf den Build nicht
+// abbrechen, der Banner entfaellt dann einfach.
+const parsed = SiteBannerSchema.safeParse(rawBanner);
+const config = parsed.success ? parsed.data : undefined;
+
+type LocalizedText = { en?: string; de?: string } | undefined;
+
+// Erster nicht-leerer Wert: aktuelle Sprache zuerst, sonst die jeweils andere.
+// Ein leerer String aus dem CMS zaehlt dabei nicht als gepflegter Wert.
+const pick = (field: LocalizedText) =>
+  [field?.[locale], field?.en, field?.de]
+    .find((value) => value && value.trim() !== "")
+    ?.trim() ?? "";
+
+// Das Enddatum gilt einschliesslich, der Banner laeuft also erst zum Tagesende ab.
+const expiresAt = config?.showUntil ? new Date(config.showUntil) : undefined;
+expiresAt?.setHours(23, 59, 59, 999);
+const expired = expiresAt ? expiresAt.getTime() < Date.now() : false;
+
+const text = pick(config?.text);
+const linkLabel = pick(config?.linkText);
+const rawLink = config?.link?.trim() ?? "";
+const href = rawLink ? localized(rawLink, Astro.currentLocale, ["en", "de"]) : "";
+
+const visible = text !== "" && !expired;
+const hasLabelledLink = href !== "" && linkLabel !== "";
+const wholeClickable = href !== "" && linkLabel === "";
+const untilIso = expiresAt?.toISOString();
+
+// Tailwind scannt den Quelltext, dynamisch zusammengesetzte Klassennamen
+// wuerden nicht erzeugt - daher jede Variante ausgeschrieben.
+const variants = {
+  "accent-red": { bar: "border-accent-red bg-accent-red" },
+  "accent-pink": { bar: "border-accent-pink bg-accent-pink" },
+  "accent-blue": { bar: "border-accent-blue bg-accent-blue" },
+  "accent-yellow": { bar: "border-accent-yellow bg-accent-yellow" },
+  "accent-green": { bar: "border-accent-green bg-accent-green" },
+  "accent-orange": { bar: "border-accent-orange bg-accent-orange" },
+} as const;
+
+const variant = variants[config?.color ?? "accent-red"];
+
+// Ist der ganze Balken klickbar, wird der innere Container selbst zum Link.
+const Inner = wholeClickable ? "a" : "div";
+---
+
+{
+  visible && (
+    <aside
+      class:list={["w-full overflow-hidden border-b", variant.bar]}
+      aria-label={labels.announcement}
+      data-banner
+      data-banner-until={untilIso}
+    >
+      <Inner
+        class:list={[
+          "block py-3 font-medium font-accent text-primary",
+          wholeClickable && "transition hover:opacity-80",
+        ]}
+        href={wholeClickable ? href : undefined}
+      >
+        {/*
+          Es wird nur eine Kopie gerendert - Screenreader und Suchmaschinen
+          sehen den Text also genau einmal. Die Wiederholungen fuer die
+          Laufschrift klont das Skript unten passend zur Fensterbreite dazu.
+        */}
+        <div
+          class="flex w-full justify-center overflow-hidden"
+          data-banner-marquee
+        >
+          <div
+            class="flex shrink-0 items-center gap-16 whitespace-nowrap will-change-transform"
+            data-banner-track
+          >
+            <span class="flex shrink-0 items-center gap-3 px-5">
+              <span>{text}</span>
+              {hasLabelledLink && (
+                <a
+                  href={href}
+                  class="font-medium text-primary underline underline-offset-4 transition hover:opacity-80"
+                >
+                  {linkLabel}
+                </a>
+              )}
+            </span>
+          </div>
+        </div>
+      </Inner>
+    </aside>
+  )
+}
+
+{
+  /*
+    Die Seite ist statisch und wird nur beim Deploy neu gebaut. Damit der Banner
+    auch aus bereits ausgeliefertem HTML puenktlich verschwindet, wird das
+    Enddatum zusaetzlich im Browser geprueft.
+  */
+}
+{
+  visible && untilIso && (
+    <script is:inline>
+      (() => {
+        const el = document.querySelector("[data-banner-until]");
+        if (!el) return;
+        const until = Date.parse(el.dataset.bannerUntil);
+        if (!Number.isNaN(until) && Date.now() > until) el.remove();
+      })();
+    </script>
+  )
+}
+
+{
+  /*
+    Laufschrift: Der Text wird so oft geklont, dass die Leiste bei jeder
+    Fensterbreite vollstaendig gefuellt ist, und dann um genau eine
+    Kopienbreite nach links geschoben. Weil alle Kopien identisch sind, sieht
+    der Ruecksprung an den Anfang nahtlos aus.
+  */
+}
+{
+  visible && (
+    <script is:inline>
+      (() => {
+        const container = document.querySelector("[data-banner-marquee]");
+        const track = container && container.querySelector("[data-banner-track]");
+        const item = track && track.firstElementChild;
+        if (!item) return;
+
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        let animation = null;
+
+        const setup = () => {
+          if (animation) {
+            animation.cancel();
+            animation = null;
+          }
+          // Klone entfernen, damit neu immer von genau einer Kopie aus gemessen wird.
+          while (track.children.length > 1) track.lastElementChild.remove();
+          container.classList.add("justify-center");
+
+          // Wer Bewegung reduziert haben moechte, bekommt den Text einfach
+          // einmal zentriert und ohne Animation.
+          if (reduceMotion.matches) return;
+
+          const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
+          const step = item.getBoundingClientRect().width + gap;
+          if (step <= 0) return;
+
+          // Einmal die sichtbare Breite fuellen, plus eine Kopie Reserve, damit
+          // waehrend der Verschiebung nie eine Luecke entsteht.
+          const clones = Math.ceil(container.clientWidth / step) + 1;
+          for (let i = 0; i < clones; i++) {
+            const clone = item.cloneNode(true);
+            clone.setAttribute("aria-hidden", "true");
+            // Kopien duerfen nicht in die Tab-Reihenfolge geraten.
+            clone.querySelectorAll("a").forEach((a) => a.setAttribute("tabindex", "-1"));
+            track.appendChild(clone);
+          }
+
+          container.classList.remove("justify-center");
+
+          const speed = 60; // Pixel pro Sekunde, wie bei den Startup-Logos
+          animation = track.animate(
+            [
+              { transform: "translateX(0)" },
+              { transform: `translateX(-${step}px)` },
+            ],
+            { duration: (step / speed) * 1000, iterations: Infinity },
+          );
+        };
+
+        setup();
+
+        // Beim Ueberfahren anhalten, damit man in Ruhe lesen und klicken kann.
+        container.addEventListener("mouseenter", () => animation && animation.pause());
+        container.addEventListener("mouseleave", () => animation && animation.play());
+
+        let resizeTimer;
+        window.addEventListener("resize", () => {
+          window.clearTimeout(resizeTimer);
+          resizeTimer = window.setTimeout(setup, 200);
+        });
+        reduceMotion.addEventListener("change", setup);
+      })();
+    </script>
+  )
+}

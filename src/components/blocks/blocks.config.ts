@@ -1,5 +1,6 @@
 import type { BlockTypes } from "../types/types.ts";
 import ButtonBlock from "./ButtonBlock.astro";
+import ColumnsBlock from "./ColumnsBlock.astro";
 import CustomComponentBlock from "./CustomComponentBlock.astro";
 import EmbedBlock from "./EmbedBlock.astro";
 import FAQBlock from "./FAQBlock.astro";
@@ -25,6 +26,7 @@ import TestimonialsBlock from "./TestimonialsBlock.astro";
  */
 export const BlockComponents: Partial<Record<BlockTypes, any>> = {
   'button': ButtonBlock,
+  'columns': ColumnsBlock,
   'custom-block': CustomComponentBlock,
   'embed': EmbedBlock,
   'faq': FAQBlock,

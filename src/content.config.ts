@@ -72,7 +72,7 @@ export type Style = z.infer<typeof styleSchema>;
 const titleStyleSchema = z
   .object({
     size: z.enum(["small", "medium", "large", "xlarge", "display"]).optional(),
-    color: z.enum(["primary", "background", "accent-red", "inherit"]).optional(),
+    color: z.enum(["primary", "background", "accent-red", "accent-pink", "inherit"]).optional(),
     alignment: z.enum(["left", "center", "right"]).optional(),
     className: z.string().optional(),
   })
@@ -125,6 +125,8 @@ const imageBlockSchema = z.object({
 const customBlockBlockSchema = z.object({
   type: z.literal("custom-block"),
   component: z.string().optional(),
+  // Arbitrary props forwarded to the resolved custom component (e.g. TeamGallery's `source`).
+  props: z.record(z.string(), z.any()).optional(),
   style: styleSchema,
 });
 
@@ -234,7 +236,10 @@ const stepsBlockSchema = z.object({
   style: styleSchema,
 });
 
-const pageBlockSchema = z.discriminatedUnion("type", [
+// Blocks that may be placed inside a column. `columns` itself is deliberately
+// absent: allowing a column layout inside a column would make both the CMS form
+// and the responsive grid arbitrarily deep for very little editorial gain.
+const nestedBlockSchemas = [
   heroBlockSchema,
   linkTagCloudBlockSchema,
   sectionWrapperSchema,
@@ -252,6 +257,41 @@ const pageBlockSchema = z.discriminatedUnion("type", [
   highlightCardsBlockSchema,
   testimonialsBlockSchema,
   stepsBlockSchema,
+] as const;
+
+const nestedBlockSchema = z.discriminatedUnion("type", [...nestedBlockSchemas]);
+
+/**
+ * Splits the page into side-by-side columns. Each column carries its own width
+ * and its own list of blocks, so "three equal thirds" and "one third next to
+ * two thirds" are both just different width combinations rather than separate
+ * presets. Widths are fractions of the row; anything summing past 1 wraps onto
+ * the next line, and on small screens the columns stack.
+ */
+const columnWidthSchema = z
+  .enum(["1/4", "1/3", "1/2", "2/3", "3/4", "full"])
+  .default("1/2");
+
+export type ColumnWidth = z.infer<typeof columnWidthSchema>;
+
+const columnsBlockSchema = z.object({
+  type: z.literal("columns"),
+  gap: z.enum(["none", "small", "medium", "large"]).default("medium"),
+  verticalAlign: z.enum(["top", "center", "bottom"]).default("top"),
+  columns: z
+    .array(
+      z.object({
+        width: columnWidthSchema,
+        blocks: z.array(nestedBlockSchema).default([]),
+      })
+    )
+    .default([]),
+  style: styleSchema,
+});
+
+const pageBlockSchema = z.discriminatedUnion("type", [
+  ...nestedBlockSchemas,
+  columnsBlockSchema,
 ]);
 
 const pages = defineCollection({
@@ -316,5 +356,45 @@ export const TeamDirectorySchema = z.array(z.object({
   email: z.email(),
   coffeeChatLink: z.string().default(""),
   startDate: z.coerce.date(),
+  // Optional short descriptive text shown on the card (used by the Women gallery).
+  // Either a single string, or a per-locale object like { "en": "...", "de": "..." }.
+  caption: z
+    .union([
+      z.string(),
+      z.object({ en: z.string().optional(), de: z.string().optional() }),
+    ])
+    .optional(),
 })
 ).default([]);
+
+/**
+ * Optionaler Ankuendigungsbalken ganz oben auf jeder Seite. Alle Felder sind
+ * optional: sind beide Texte leer, wird nichts gerendert.
+ */
+const optionalLocalizedText = z
+  .object({ en: z.string().optional(), de: z.string().optional() })
+  .optional();
+
+// Das CMS schreibt geleerte Felder als "" statt sie zu entfernen; "" wuerde
+// z.coerce.date() zu einem Invalid Date machen, also vorher wegnormalisieren.
+const optionalDate = z.preprocess(
+  (value) => (value === "" || value === null ? undefined : value),
+  z.coerce.date().optional()
+);
+
+export const SiteBannerSchema = z.object({
+  text: optionalLocalizedText,
+  link: z.string().optional(),
+  linkText: optionalLocalizedText,
+  showUntil: optionalDate,
+  color: z
+    .enum([
+      "accent-red",
+      "accent-pink",
+      "accent-blue",
+      "accent-yellow",
+      "accent-green",
+      "accent-orange",
+    ])
+    .default("accent-red"),
+});

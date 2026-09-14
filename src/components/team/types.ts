@@ -5,4 +5,5 @@ export interface TeamData {
     email?: string,
     coffeeChatLink?: string,
     startDate: Date | null | undefined;
+    caption?: string;
 }

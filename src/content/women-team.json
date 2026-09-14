@@ -1,0 +1,38 @@
+[
+  {
+    "title": "Kira Schütte",
+    "position": "Female Initiative Lead",
+    "image": "/src/assets/oscar_edited_formatted.png",
+    "email": "kira.schutte@pioniergarage.de",
+    "coffeeChatLink": "",
+    "startDate": "2026-05-19",
+    "caption": {
+      "en": "Building the community she wished she’d had when starting out.",
+      "de": "Sie baut die Community auf, die sie sich zu Beginn ihrer Laufbahn gewünscht hätte."
+    }
+  },
+  {
+    "title": "Vivienne Milse",
+    "position": "Events + Marketing",
+    "image": "/src/assets/oscar_edited_formatted.png",
+    "email": "vivienne.milse@pioniergarage.de",
+    "coffeeChatLink": "",
+    "startDate": "2026-05-19",
+    "caption": {
+      "en": "Curates workshops, founder dinners and build weekends. Thinks in formats that create real progress.",
+      "de": "Kuratiert Workshops, Gründer-Dinner und Build-Weekends. Denkt in Formaten, die echten Fortschritt schaffen."
+    }
+  },
+  {
+    "title": "Amelie Häring",
+    "position": "External + Finance",
+    "image": "/src/assets/oscar_edited_formatted.png",
+    "email": "amelie.haering@pioniergarage.de",
+    "coffeeChatLink": "",
+    "startDate": "2026-05-19",
+    "caption": {
+      "en": "Opens doors to operators, sponsors and investors. Makes sure momentum turns into runway.",
+      "de": "Öffnet Türen zu Betreibern, Sponsoren und Investoren. Sorgt dafür, dass aus der Dynamik echter Spielraum entsteht."
+    }
+  }
+]
