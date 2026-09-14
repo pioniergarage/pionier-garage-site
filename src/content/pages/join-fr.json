@@ -1,5 +1,6 @@
 {
   "title": "Rejoins-nous",
+  "language": "FR",
   "slug": "/join",
   "layout": "../layouts/PageLayout.astro",
   "blocks": [
