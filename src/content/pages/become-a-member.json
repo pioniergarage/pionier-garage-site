@@ -67,6 +67,22 @@
       }
     },
     {
+      "type": "rich-text",
+      "content": "## **Here you can apply**",
+      "style": {
+        "alignment": "center",
+        "size": "screen"
+      }
+    },
+    {
+      "type": "form",
+      "url": "https://tally.so/embed/LZ2AEG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
+      "style": {
+        "alignment": "center",
+        "size": "screen"
+      }
+    },
+    {
       "type": "spacer",
       "size": "80px",
       "style": {
@@ -76,7 +92,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## What our members say\n\n",
+      "content": "## What our members say",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -116,7 +132,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Frequently Asked Questions\n\n",
+      "content": "## Frequently Asked Questions",
       "style": {
         "alignment": "left",
         "size": "full"
