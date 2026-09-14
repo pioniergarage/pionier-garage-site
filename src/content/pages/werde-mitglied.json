@@ -72,7 +72,7 @@
     },
     {
       "type": "rich-text",
-      "content": "### Hier kannst du dich bewerben\n\n",
+      "content": "## **Hier kannst du dich bewerben**\n\n",
       "style": {
         "alignment": "center",
         "size": "full"
