@@ -11,10 +11,6 @@
       "heroTagline": "Our Batch",
       "image": "/src/assets/batch_hero_desktop.png",
       "mobileImage": "/src/assets/batch_hero_mobile.png",
-      "button": {
-        "text": "I'm hooked",
-        "link": "/contact"
-      },
       "style": {
         "alignment": "center",
         "size": "full"
@@ -68,7 +64,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## **Here you can apply**",
+      "content": "## **Here you can apply**\n\n",
       "style": {
         "alignment": "center",
         "size": "screen"
@@ -92,7 +88,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## What our members say",
+      "content": "## What our members say\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -132,7 +128,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Frequently Asked Questions",
+      "content": "## Frequently Asked Questions\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
