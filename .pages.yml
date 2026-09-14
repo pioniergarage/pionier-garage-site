@@ -304,7 +304,7 @@ content:
       - { name: pubDatetime, label: Date, type: date }
       - { name: modDatetime, label: Date, type: date }
       - { name: title, label: Title, type: string, required: true }
-      - { name: language, label: Language, type: select, options: { values: [EN, DE] }, default: EN }
+      - { name: language, label: Language, type: select, required: true, options: { values: [EN, DE, FR] }, default: EN }
       - { name: ogImage, label: Original Image, type: image }
       - { name: slug, label: Slug, type: string }
       - { name: featured, label: Featured, type: boolean }
@@ -321,7 +321,7 @@ content:
     filename: "{title}.json"
     fields:
       - { name: title, label: Title, type: string, required: true }
-      - { name: language, label: Language, type: select, options: { values: [EN, DE] }, default: EN }
+      - { name: language, label: Language, type: select, required: true, options: { values: [EN, DE, FR] }, default: EN }
       - { name: slug, label: Slug, type: string, required: true }
       - { name: description, label: Description, type: string }
       - { name: layout, type: string, hidden: true, default: "../layouts/PageLayout.astro" }
