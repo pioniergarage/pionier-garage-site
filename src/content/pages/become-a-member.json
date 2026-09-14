@@ -23,7 +23,7 @@
     },
     {
       "type": "spacer",
-      "size": "80px",
+      "size": "40px",
       "style": {
         "alignment": "center",
         "size": "full"
