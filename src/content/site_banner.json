@@ -1,7 +1,13 @@
 {
-  "text": { "de": "Huhei", "en": "HUHU" },
-  "link": "/contact",
-  "linkText": { "de": "Bewerbe dich hier", "en": "Apply Here" },
-  "showUntil": "",
+  "text": {
+    "de": "Bewerbung zum aktuellen Batch:",
+    "en": "Applications for current Batch:"
+  },
+  "link": "/join",
+  "linkText": {
+    "de": "Bewerbe dich hier",
+    "en": "Apply Here"
+  },
+  "showUntil": "2026-09-14",
   "color": "accent-red"
 }
