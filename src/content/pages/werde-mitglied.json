@@ -31,7 +31,31 @@
     },
     {
       "type": "rich-text",
-      "content": "## Dein Weg in die PG\n\n",
+      "content": "## **Hier kannst du dich bewerben**\n\n",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
+      "type": "form",
+      "url": "https://tally.so/embed/LZ2AEG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
+      "style": {
+        "alignment": "center",
+        "size": "screen"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
+      "type": "rich-text",
+      "content": "## Dein Weg in die PG",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -72,23 +96,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## **Hier kannst du dich bewerben**\n\n",
-      "style": {
-        "alignment": "center",
-        "size": "full"
-      }
-    },
-    {
-      "type": "form",
-      "url": "https://tally.so/embed/LZ2AEG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
-      "style": {
-        "alignment": "center",
-        "size": "screen"
-      }
-    },
-    {
-      "type": "rich-text",
-      "content": "## Das sagen unsere Mitglieder\n\n",
+      "content": "## Das sagen unsere Mitglieder",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -123,7 +131,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Häufig gestellte Fragen\n\n",
+      "content": "## Häufig gestellte Fragen",
       "style": {
         "alignment": "left",
         "size": "full"
