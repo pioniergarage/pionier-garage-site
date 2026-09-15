@@ -87,6 +87,14 @@
       }
     },
     {
+      "type": "spacer",
+      "size": "80px",
+      "style": {
+        "alignment": "left",
+        "size": "full"
+      }
+    },
+    {
       "type": "rich-text",
       "content": "## What our members say\n\n",
       "style": {
@@ -164,14 +172,6 @@
       ],
       "style": {
         "alignment": "center",
-        "size": "full"
-      }
-    },
-    {
-      "type": "spacer",
-      "size": "80px",
-      "style": {
-        "alignment": "left",
         "size": "full"
       }
     },
