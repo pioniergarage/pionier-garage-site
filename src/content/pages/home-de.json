@@ -8,8 +8,8 @@
       "type": "hero",
       "title": "PIONIER||GARAGE",
       "heroTagline": "Student Entrepreneurs",
-      "image": "/src/assets/home_hero_desktop.png",
-      "mobileImage": "/src/assets/home_hero_mobile.png",
+      "image": "/src/assets/PG_Hero_Desktop_New.png",
+      "mobileImage": "/src/assets/PG_Hero_Mobile_new.png",
       "button": {
         "text": "Quatsche mit unserem Vorstand",
         "link": "de/about#board"
@@ -43,6 +43,9 @@
     {
       "type": "custom-block",
       "component": "EcosystemOverview",
+      "props": {
+        "showContact": false
+      },
       "style": {
         "alignment": "left",
         "size": "full"
@@ -59,6 +62,9 @@
     {
       "type": "custom-block",
       "component": "StartupLogos",
+      "props": {
+        "showContact": false
+      },
       "style": {
         "alignment": "center",
         "size": "full"
@@ -126,6 +132,9 @@
     {
       "type": "custom-block",
       "component": "SponsorBlock",
+      "props": {
+        "showContact": false
+      },
       "style": {
         "alignment": "left",
         "size": "full"
