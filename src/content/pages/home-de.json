@@ -6,8 +6,6 @@
   "blocks": [
     {
       "type": "hero",
-      "title": "PIONIER||GARAGE",
-      "heroTagline": "Student Entrepreneurs",
       "image": "/src/assets/PG_Hero_Desktop_New.png",
       "mobileImage": "/src/assets/PG_Hero_Mobile_new.png",
       "button": {
