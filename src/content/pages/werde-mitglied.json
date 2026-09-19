@@ -5,31 +5,6 @@
   "layout": "../layouts/PageLayout.astro",
   "blocks": [
     {
-      "type": "hero",
-      "title": "Werde Mitglied",
-      "subtitle": "Wir starten zweimal pro Jahr eine neue Trainee-Batch: zum Beginn des Wintersemesters und zum Beginn des Sommersemesters.",
-      "heroTagline": "Unser Batch",
-      "image": "/src/assets/batch_hero_desktop.png",
-      "mobileImage": "/src/assets/batch_hero_mobile.png",
-      "style": {
-        "alignment": "center",
-        "size": "full"
-      },
-      "titleStyle": {
-        "size": "medium",
-        "color": "primary",
-        "alignment": "center"
-      }
-    },
-    {
-      "type": "spacer",
-      "size": "80px",
-      "style": {
-        "alignment": "center",
-        "size": "full"
-      }
-    },
-    {
       "type": "rich-text",
       "content": "## **Hier kannst du dich bewerben**\n\n",
       "style": {
@@ -49,8 +24,25 @@
       "type": "spacer",
       "size": "80px",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
+      }
+    },
+    {
+      "type": "hero",
+      "title": "Werde Mitglied",
+      "subtitle": "Wir starten zweimal pro Jahr eine neue Trainee-Batch: zum Beginn des Wintersemesters und zum Beginn des Sommersemesters.",
+      "heroTagline": "Unser Batch",
+      "image": "/src/assets/batch_hero_desktop.png",
+      "mobileImage": "/src/assets/batch_hero_mobile.png",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      },
+      "titleStyle": {
+        "size": "medium",
+        "color": "primary",
+        "alignment": "center"
       }
     },
     {
