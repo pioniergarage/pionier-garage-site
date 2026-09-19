@@ -5,6 +5,30 @@
   "layout": "../layouts/PageLayout.astro",
   "blocks": [
     {
+      "type": "rich-text",
+      "content": "## **Here you can apply**\n\n",
+      "style": {
+        "alignment": "center",
+        "size": "screen"
+      }
+    },
+    {
+      "type": "form",
+      "url": "https://tally.so/embed/LZ2AEG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
+      "style": {
+        "alignment": "center",
+        "size": "screen"
+      }
+    },
+    {
+      "type": "spacer",
+      "size": "240px",
+      "style": {
+        "alignment": "center",
+        "size": "full"
+      }
+    },
+    {
       "type": "hero",
       "title": "Join Us",
       "subtitle": "We launch a new trainee cohort twice a year: at the start of the winter semester and at the start of the summer semester.",
@@ -23,26 +47,10 @@
     },
     {
       "type": "spacer",
-      "size": "40px",
+      "size": "80px",
       "style": {
         "alignment": "center",
         "size": "full"
-      }
-    },
-    {
-      "type": "rich-text",
-      "content": "## **Here you can apply**\n\n",
-      "style": {
-        "alignment": "center",
-        "size": "screen"
-      }
-    },
-    {
-      "type": "form",
-      "url": "https://tally.so/embed/LZ2AEG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
-      "style": {
-        "alignment": "center",
-        "size": "screen"
       }
     },
     {
@@ -55,7 +63,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Your member journey\n\n",
+      "content": "## Your member journey",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -96,7 +104,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## What our members say\n\n",
+      "content": "## What our members say",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -136,7 +144,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Frequently Asked Questions\n\n",
+      "content": "## Frequently Asked Questions",
       "style": {
         "alignment": "left",
         "size": "full"
