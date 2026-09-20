@@ -7,17 +7,15 @@
   "blocks": [
     {
       "type": "hero",
-      "title": "PIONIER||GARAGE",
-      "heroTagline": "L’entrepreneuriat étudiant",
-      "image": "/src/assets/home_hero_desktop.png",
-      "mobileImage": "/src/assets/home_hero_mobile.png",
+      "image": "/src/assets/PG_Hero_Desktop_New.png",
+      "mobileImage": "/src/assets/PG_Hero_Mobile_new.png",
       "button": {
         "text": "Échange avec notre comité",
         "link": "fr/about#board"
       },
       "style": {
         "alignment": "center",
-        "size": "screen"
+        "size": "full"
       },
       "titleStyle": {
         "size": "xlarge",
@@ -52,6 +50,9 @@
     {
       "type": "custom-block",
       "component": "EcosystemOverview",
+      "props": {
+        "showContact": false
+      },
       "style": {
         "alignment": "center",
         "size": "full"
@@ -68,6 +69,9 @@
     {
       "type": "custom-block",
       "component": "StartupLogos",
+      "props": {
+        "showContact": false
+      },
       "style": {
         "alignment": "left",
         "size": "full"
@@ -135,6 +139,9 @@
     {
       "type": "custom-block",
       "component": "SponsorBlock",
+      "props": {
+        "showContact": false
+      },
       "style": {
         "alignment": "left",
         "size": "full"
