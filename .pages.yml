@@ -390,7 +390,7 @@ content:
       - { name: styleOverrides, label: Header Style Overrides, type: string }
 
   # Optionaler Ankuendigungsbalken ganz oben auf jeder Seite. Kein Pflichtfeld:
-  # bleiben beide Texte leer, wird der Banner nicht gerendert.
+  # bleiben alle Texte leer, wird der Banner nicht gerendert.
   - name: site-banner
     label: Site Banner
     type: file
@@ -404,6 +404,7 @@ content:
         fields:
           - { name: de, label: Text (DE), type: text }
           - { name: en, label: Text (EN), type: text }
+          - { name: fr, label: Text (FR), type: text }
       - { name: link, label: Link, type: string }
       - name: linkText
         label: Link-Beschriftung
@@ -412,6 +413,7 @@ content:
         fields:
           - { name: de, label: Link-Text (DE), type: string }
           - { name: en, label: Link-Text (EN), type: string }
+          - { name: fr, label: Link-Text (FR), type: string }
       - { name: showUntil, label: Anzeigen bis (einschliesslich), type: date }
       - { name: color, label: Farbe, type: select, options: { values: [accent-red, accent-pink, accent-blue, accent-yellow, accent-green, accent-orange] }, default: accent-red }
 
