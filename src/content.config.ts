@@ -369,10 +369,10 @@ export const TeamDirectorySchema = z.array(z.object({
 
 /**
  * Optionaler Ankuendigungsbalken ganz oben auf jeder Seite. Alle Felder sind
- * optional: sind beide Texte leer, wird nichts gerendert.
+ * optional: sind alle Texte leer, wird nichts gerendert.
  */
 const optionalLocalizedText = z
-  .object({ en: z.string().optional(), de: z.string().optional() })
+  .object({ en: z.string().optional(), de: z.string().optional(), fr: z.string().optional() })
   .optional();
 
 // Das CMS schreibt geleerte Felder als "" statt sie zu entfernen; "" wuerde
