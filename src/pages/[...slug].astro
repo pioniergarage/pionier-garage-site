@@ -3,6 +3,7 @@ import { type CollectionEntry, getCollection } from "astro:content";
 
 import PageLayout from "../layouts/PageLayout.astro";
 import BlockRenderer from "../components/BlockRenderer.astro";
+import { getLocale, type Locale } from "../utils/i18n";
 
 export async function getStaticPaths() {
   const pages = await getCollection("pages");
@@ -17,8 +18,16 @@ type Props = CollectionEntry<"pages">;
 
 const page = Astro.props;
 const { title, description, blocks } = page.data;
+const locale = getLocale(Astro.currentLocale);
+const tagline: Record<Locale, string> = {
+  en: "PionierGarage, Student Entrepreneurs from Karlsruhe",
+  de: "PionierGarage, studentische Gründerinnen und Gründer aus Karlsruhe",
+  fr: "PionierGarage, les étudiants entrepreneurs de Karlsruhe",
+};
+const pageTitle = page.data.slug === "/" && locale === "en" ? "Homepage" : title.trim();
+const fullTitle = `${pageTitle} | ${tagline[locale]}`;
 ---
 
-<PageLayout title={title} description={description}>
+<PageLayout title={fullTitle} description={description}>
   {blocks.map((block) => <BlockRenderer block={block} />)}
 </PageLayout>

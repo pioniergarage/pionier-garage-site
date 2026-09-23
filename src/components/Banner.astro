@@ -1,17 +1,19 @@
 ---
 // Optionaler Ankuendigungsbalken ganz oben auf jeder Seite. Gepflegt wird er
 // ueber das Singleton `src/content/site_banner.json` (Pages CMS: "Site Banner").
-// Sind beide Textfelder leer oder ist das Enddatum ueberschritten, rendert die
+// Sind alle Textfelder leer oder ist das Enddatum ueberschritten, rendert die
 // Komponente gar nichts.
 import rawBanner from "../content/site_banner.json";
 import { SiteBannerSchema } from "../content.config.ts";
 import { localized } from "../utils/utils";
+import { getLocale, type Locale } from "../utils/i18n";
 
-const locale = Astro.currentLocale === "de" ? "de" : "en";
+const locale = getLocale(Astro.currentLocale);
 
 const translations = {
   de: { announcement: "Ankuendigung" },
   en: { announcement: "Announcement" },
+  fr: { announcement: "Annonce" },
 };
 
 const labels = translations[locale];
@@ -21,12 +23,12 @@ const labels = translations[locale];
 const parsed = SiteBannerSchema.safeParse(rawBanner);
 const config = parsed.success ? parsed.data : undefined;
 
-type LocalizedText = { en?: string; de?: string } | undefined;
+type LocalizedText = Partial<Record<Locale, string>> | undefined;
 
-// Erster nicht-leerer Wert: aktuelle Sprache zuerst, sonst die jeweils andere.
+// Erster nicht-leerer Wert: aktuelle Sprache zuerst, dann die anderen.
 // Ein leerer String aus dem CMS zaehlt dabei nicht als gepflegter Wert.
 const pick = (field: LocalizedText) =>
-  [field?.[locale], field?.en, field?.de]
+  [field?.[locale], field?.en, field?.de, field?.fr]
     .find((value) => value && value.trim() !== "")
     ?.trim() ?? "";
 
@@ -38,7 +40,7 @@ const expired = expiresAt ? expiresAt.getTime() < Date.now() : false;
 const text = pick(config?.text);
 const linkLabel = pick(config?.linkText);
 const rawLink = config?.link?.trim() ?? "";
-const href = rawLink ? localized(rawLink, Astro.currentLocale, ["en", "de"]) : "";
+const href = rawLink ? localized(rawLink, locale) : "";
 
 const visible = text !== "" && !expired;
 const hasLabelledLink = href !== "" && linkLabel !== "";
