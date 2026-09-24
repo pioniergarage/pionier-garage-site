@@ -8,12 +8,11 @@
     "startDate": "2026-05-19"
   },
   {
-    "title": "Josua Röck",
-    "position": "Head of IT",
-    "image": "/src/assets/josua_raw.jpg",
-    "email": "josua.roeck@pioniergarage.de",
-    "coffeeChatLink": "https://calendar.app.google/TCLPWq5bYzEByEbcA",
-    "startDate": "2026-05-19"
+    "title": "Caghan Varli",
+    "position": "Vice-Chairman",
+    "image": "/src/assets/caghan_raw.jpg",
+    "email": "caghan.varli@pioniergarage.de",
+    "startDate": "2026-09-24"
   },
   {
     "title": "Peer Vagner",
@@ -24,11 +23,12 @@
     "startDate": "2026-06-03"
   },
   {
-    "title": "Caghan Varli",
-    "position": "Vice-Chairman",
-    "image": "/src/assets/caghan_raw.jpg",
-    "email": "caghan.varli@pioniergarage.de",
-    "startDate": "2026-09-24"
+    "title": "Josua Röck",
+    "position": "Head of IT",
+    "image": "/src/assets/josua_raw.jpg",
+    "email": "josua.roeck@pioniergarage.de",
+    "coffeeChatLink": "https://calendar.app.google/TCLPWq5bYzEByEbcA",
+    "startDate": "2026-05-19"
   },
   {
     "title": "Vivienne Milse",
