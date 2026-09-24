@@ -22,5 +22,33 @@
     "email": "peer.vagner@pioniergarage.de",
     "coffeeChatLink": "https://calendar.app.google/1ZJmAcAFHaqJUX1L8",
     "startDate": "2026-06-03"
+  },
+  {
+    "title": "Caghan Varli",
+    "position": "Vice-Chairman",
+    "image": "/src/assets/caghan_raw.jpg",
+    "email": "caghan.varli@pioniergarage.de",
+    "startDate": "2026-09-24"
+  },
+  {
+    "title": "Vivienne Milse",
+    "position": "Head of Community",
+    "image": "/src/assets/vivienne_raw.jpg",
+    "email": "vivienne.milse@pioniergarage.de",
+    "startDate": "2026-09-24"
+  },
+  {
+    "title": "Laurin Ost",
+    "position": "Head of Marketing",
+    "image": "/src/assets/laurin_raw.jpg",
+    "email": "laurin.ost@pioniergarage.de",
+    "startDate": "2026-09-24"
+  },
+  {
+    "title": "Marko Nedliko",
+    "position": "Head of Innovations",
+    "image": "/src/assets/marko_raw.jpg",
+    "email": "marko.nedliko@pioniergarage.de",
+    "startDate": "2026-09-24"
   }
 ]
