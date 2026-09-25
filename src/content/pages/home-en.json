@@ -24,18 +24,18 @@
       }
     },
     {
-      "type": "rich-text",
-      "content": "### Where technology meets entrepreneurship. Shaping founders since 2008.\n\n",
+      "type": "spacer",
+      "size": "20px",
       "style": {
-        "alignment": "center",
+        "alignment": "left",
         "size": "full"
       }
     },
     {
-      "type": "spacer",
-      "size": "60px",
+      "type": "rich-text",
+      "content": "### Where technology meets entrepreneurship. Shaping founders since 2008.",
       "style": {
-        "alignment": "left",
+        "alignment": "center",
         "size": "full"
       }
     },
@@ -52,7 +52,7 @@
     },
     {
       "type": "rich-text",
-      "content": "### Our Best Startups",
+      "content": "### Our Best Startups\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -79,7 +79,7 @@
     },
     {
       "type": "rich-text",
-      "content": "### Our Projects",
+      "content": "### Our Projects\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -122,7 +122,7 @@
     },
     {
       "type": "rich-text",
-      "content": "### Our Partners and Sponsors",
+      "content": "### Our Partners and Sponsors\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
