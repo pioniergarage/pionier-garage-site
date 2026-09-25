@@ -25,7 +25,7 @@
     },
     {
       "type": "spacer",
-      "size": "80px",
+      "size": "20px",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -33,17 +33,9 @@
     },
     {
       "type": "rich-text",
-      "content": "### We are Germany’s leading university entrepreneurship community for aspiring founders and builders.\n\n",
+      "content": "### Where technology meets entrepreneurship. Shaping founders since 2008.",
       "style": {
         "alignment": "center",
-        "size": "full"
-      }
-    },
-    {
-      "type": "spacer",
-      "size": "60px",
-      "style": {
-        "alignment": "left",
         "size": "full"
       }
     },
