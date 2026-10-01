@@ -27,5 +27,12 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: 'https://pioniergarage.de',
-  integrations: [react(), icon(), sitemap()]
+  integrations: [
+    react(),
+    icon(),
+    sitemap({
+      filter: (page) =>
+        new URL(page).pathname.replace(/\/+$/, "") !== "/en/kitchensink",
+    }),
+  ]
 });
