@@ -24,7 +24,7 @@
     },
     {
       "type": "spacer",
-      "size": "80px",
+      "size": "20px",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -32,10 +32,10 @@
     },
     {
       "type": "rich-text",
-      "content": "## Technologie trifft Unternehmergeis\n\n### Wir sind die PionierGarage - eine Initiative am KIT für Menschen, die Ideen vorantreiben, Unternehmen aufbauen und Zukunft gestalten wollen.\n\n",
+      "content": "### Where technology meets entrepreneurship. Shaping founders since 2008.\n\n",
       "style": {
         "alignment": "center",
-        "size": "screen"
+        "size": "full"
       }
     },
     {
