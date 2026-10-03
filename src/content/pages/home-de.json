@@ -32,7 +32,7 @@
     },
     {
       "type": "rich-text",
-      "content": "### Technologie trifft Unternehmergeist\n\n### Wir sind die PionierGarage - eine Initiative am KIT für Menschen, die Ideen vorantreiben, Unternehmen aufbauen und Zukunft gestalten wollen.\n\n",
+      "content": "## Wir sind die PionierGarage - eine Initiative am KIT für Menschen, die Ideen vorantreiben, Unternehmen aufbauen und Zukunft gestalten wollen.\n\n",
       "style": {
         "alignment": "center",
         "size": "full"
