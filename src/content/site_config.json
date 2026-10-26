@@ -5,7 +5,7 @@
   "socialMedias": [
     {
       "name": "Instagram",
-      "link": "https://www.instagram.com/pioniergarage_ev/",
+      "link": "https://www.instagram.com/pioniergarage/",
       "icon": "instagram"
     },
     {
@@ -28,13 +28,13 @@
     },
     {
       "name": "EWOR",
-      "link":"https://www.ewor.com",
+      "link": "https://www.ewor.com",
       "image": "/src/assets/ewor_logo.webp",
       "tier": "Partner"
     },
     {
       "name": "KIT",
-      "link":"https://www.kit.edu",
+      "link": "https://www.kit.edu",
       "image": "/src/assets/kit_logo.png",
       "tier": "Partner"
     },
