@@ -1,15 +1,15 @@
 {
   "text": {
-    "de": "Bewerbung zum aktuellen Batch:",
-    "en": "Applications for current Batch:",
-    "fr": "Candidatures pour la promotion actuelle:"
+    "de": "Komm zum GROW Kickoff",
+    "en": "Join us at GROW Kickoff",
+    "fr": "Rejoignez-nous lors du lancement de GROW"
   },
-  "link": "/join",
+  "link": "https://luma.com/45bjp2f8",
   "linkText": {
-    "de": "Bewerbe dich hier",
-    "en": "Apply Here",
-    "fr": "Postule ici"
+    "de": "Melde dich hier an",
+    "en": "Sign Up Here",
+    "fr": "Inscrivez-vous ici"
   },
-  "showUntil": "2026-10-31",
-  "color": "accent-red"
+  "showUntil": "2026-11-06",
+  "color": "accent-blue"
 }
