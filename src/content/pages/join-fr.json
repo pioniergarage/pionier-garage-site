@@ -5,36 +5,16 @@
   "layout": "../layouts/PageLayout.astro",
   "blocks": [
     {
-      "type": "rich-text",
-      "content": "## **Here you can apply**\n\n",
-      "style": {
-        "alignment": "center",
-        "size": "screen"
-      }
-    },
-    {
-      "type": "form",
-      "url": "https://tally.so/embed/LZ2AEG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
-      "style": {
-        "alignment": "center",
-        "size": "screen"
-      }
-    },
-    {
-      "type": "spacer",
-      "size": "240px",
-      "style": {
-        "alignment": "center",
-        "size": "full"
-      }
-    },
-    {
       "type": "hero",
       "title": "Rejoins-nous",
       "subtitle": "Nous lançons une nouvelle promotion de trainees deux fois par an : au début du semestre d’hiver et au début du semestre d’été.",
       "heroTagline": "Notre Batch",
       "image": "/src/assets/batch_hero_desktop.png",
       "mobileImage": "/src/assets/batch_hero_mobile.png",
+      "button": {
+        "text": "Postulez maintenant!",
+        "link": "fr/contact"
+      },
       "style": {
         "alignment": "center",
         "size": "full"

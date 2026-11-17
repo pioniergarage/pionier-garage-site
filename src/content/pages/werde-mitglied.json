@@ -5,44 +5,16 @@
   "layout": "../layouts/PageLayout.astro",
   "blocks": [
     {
-      "type": "rich-text",
-      "content": "## **Hier kannst du dich bewerben**\n\n",
-      "style": {
-        "alignment": "center",
-        "size": "full"
-      }
-    },
-    {
-      "type": "form",
-      "url": "https://tally.so/embed/LZ2AEG?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1",
-      "style": {
-        "alignment": "center",
-        "size": "screen"
-      }
-    },
-    {
-      "type": "spacer",
-      "size": "80px",
-      "style": {
-        "alignment": "center",
-        "size": "full"
-      }
-    },
-    {
-      "type": "spacer",
-      "size": "240px",
-      "style": {
-        "alignment": "center",
-        "size": "full"
-      }
-    },
-    {
       "type": "hero",
       "title": "Werde Mitglied",
       "subtitle": "Wir starten zweimal pro Jahr eine neue Trainee-Batch: zum Beginn des Wintersemesters und zum Beginn des Sommersemesters.",
       "heroTagline": "Unser Batch",
       "image": "/src/assets/batch_hero_desktop.png",
       "mobileImage": "/src/assets/batch_hero_mobile.png",
+      "button": {
+        "text": "Bewerbe dich jetzt!",
+        "link": "de/contact"
+      },
       "style": {
         "alignment": "center",
         "size": "full"
@@ -63,7 +35,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Dein Weg in die PG",
+      "content": "## Dein Weg in die PG\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -104,7 +76,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Das sagen unsere Mitglieder",
+      "content": "## Das sagen unsere Mitglieder\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
@@ -139,7 +111,7 @@
     },
     {
       "type": "rich-text",
-      "content": "## Häufig gestellte Fragen",
+      "content": "## Häufig gestellte Fragen\n\n",
       "style": {
         "alignment": "left",
         "size": "full"
