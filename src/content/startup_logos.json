@@ -43,5 +43,10 @@
     "logo": "/src/assets/nesto.svg",
     "name": "Nesto",
     "website": "https://www.nesto-software.com/"
+  },
+  {
+    "logo": "/src/assets/Onboarding_ColdLog_Icon.svg",
+    "name": "ColdLog",
+    "website": "https://coldlog.de/de/"
   }
 ]
