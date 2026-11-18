@@ -1,7 +1,7 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
 import PageLayout from "../../layouts/PageLayout.astro";
-import RichTextRenderer from "../../components/RichTextRenderer";
+import RichTextBlock from "../../components/blocks/RichTextBlock.astro";
 import type { BlockProps } from "../../components/types/types";
 
 export async function getStaticPaths() {
@@ -23,14 +23,8 @@ type Props = CollectionEntry<"pages">;
 type BlockPropsRichText = Pick<BlockProps<"rich-text">, "style">;
 
 const post = Astro.props;
-const { Content } = await render(post);
-
-const props: BlockPropsRichText = {
-  style: { alignment: "center", size: "full" },
-};
 ---
 
 <PageLayout title={post.data.title}>
-  <RichTextRenderer style={props.style} >
-    <Content/>
-  </RichTextRenderer>
+  <RichTextBlock style={{ alignment: "center", size: "full",className:"max-w-[600px]" }} content={post.body} />
+</PageLayout>
