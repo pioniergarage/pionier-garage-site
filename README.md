@@ -1,3 +1,5 @@
+[![Build Check](https://github.com/pioniergarage/pionier-garage-site/actions/workflows/build.yml/badge.svg)](https://github.com/pioniergarage/pionier-garage-site/actions/workflows/build.yml)
+
 # PionierGarage: Astro, React, Pocketbase, PagesCMS
 
 ## 🚀 Project Structure
