@@ -2,7 +2,7 @@ name: Build Check
 
 on:
   pull_request:
-    branches: [main]
+    branches: [main, work]
 
 jobs:
   build:
@@ -14,7 +14,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version-file: ".nvmrc" # or set a fixed version like "22"
+          node-version: "24"
           cache: "npm" # change to "yarn" or "pnpm" if you use that
 
       - name: Install dependencies
