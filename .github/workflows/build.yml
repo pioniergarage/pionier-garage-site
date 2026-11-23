@@ -2,7 +2,7 @@ name: Build Check
 
 on:
   pull_request:
-    branches: [main, work]
+    branches: [main]
 
 jobs:
   build:
@@ -14,11 +14,13 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "24"
+          node-version-file: ".nvmrc" # or set a fixed version like "22"
           cache: "npm" # change to "yarn" or "pnpm" if you use that
 
       - name: Install dependencies
         run: npm ci # or `yarn install --frozen-lockfile` / `pnpm install --frozen-lockfile`
 
       - name: Build project
+        env:
+          PUBLIC_POCKETBASE_URL: ${{ secrets.PUBLIC_POCKETBASE_URL }}
         run: npm run build # replace with your repo's standard build command (e.g., `npx tsc --noEmit` or `yarn build`)
