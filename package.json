@@ -1,5 +1,5 @@
 {
-  "name": "startup-karlsruhe",
+  "name": "pionier-garage-site",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -15,34 +15,34 @@
     "lint:types": "astro sync && node scripts/sync-types.mjs"
   },
   "dependencies": {
-    "@astrojs/react": "^5.0.4",
-    "@astrojs/sitemap": "^3.7.3",
-    "@fontsource/dela-gothic-one": "^5.2.7",
-    "@fontsource/philosopher": "^5.2.8",
-    "@fontsource/rubik": "^5.2.8",
-    "@fontsource/unbounded": "^5.2.8",
-    "@iconify-json/lucide": "^1.2.103",
-    "@lucide/astro": "^1.12.0",
-    "@tailwindcss/vite": "^4.3.0",
-    "astro": "^6.1.8",
-    "astro-icon": "^1.1.5",
-    "astro-loader-pocketbase": "^3.0.1",
+    "@astrojs/react": "^6.0.5",
+    "@astrojs/sitemap": "^3.7.4",
+    "@fontsource/dela-gothic-one": "^5.3.0",
+    "@fontsource/philosopher": "^5.3.0",
+    "@fontsource/rubik": "^5.3.0",
+    "@fontsource/unbounded": "^5.3.0",
+    "@iconify-json/lucide": "^1.2.130",
+    "@lucide/astro": "^1.42.0",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^7.4.13",
+    "astro-icon": "^1.2.0",
+    "astro-loader-pocketbase": "^4.0.6",
     "class-variance-authority": "^0.7.1",
-    "isomorphic-dompurify": "^3.10.0",
-    "lucide-react": "^1.8.0",
-    "marked": "^18.0.2",
-    "node": "^24.15.0",
-    "pocketbase": "^0.26.8",
-    "react": "^19.2.5",
-    "react-dom": "^19.2.5",
+    "isomorphic-dompurify": "^4.2.0",
+    "lucide-react": "^1.43.0",
+    "marked": "^18.0.12",
+    "node": "^26.8.1",
+    "pocketbase": "^0.28.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
     "tailwind-merge": "^3.6.0",
-    "tailwindcss": "^4.3.0",
-    "yaml": "^2.8.3"
+    "tailwindcss": "^4.3.3",
+    "yaml": "^2.9.0"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.19",
-    "@types/node": "^25.6.0",
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3"
+    "@tailwindcss/typography": "^0.5.20",
+    "@types/node": "^26.5.0",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7"
   }
 }
