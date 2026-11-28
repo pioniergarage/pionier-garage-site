@@ -2,76 +2,25 @@
 import { twMerge } from "tailwind-merge";
 import type { BlockProps } from "../types/types";
 import { sectionVariants } from "../../styles/style-mapping";
+import { getLocale } from "../../utils/i18n";
+import { localized } from "../../utils/utils";
 
 type Props = BlockProps<"form">;
 
 const { url, style } = Astro.props;
-
-const cleaned_embed = url?.includes("?")
-  ? url
-  : `${url?.replace("/r/", "/embed/")}?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1`;
-
-// Maps to --panel-bg (rgba(0,0,0,0.5)), padding, --border-radius (4px), and --stroke (#2a2c2e)
-const sectionClasses = twMerge(
-  sectionVariants({ alignment: style.alignment, size: style.size }),
-  style.className,
-  "overflow-visible p-5 pb-3 ",
-);
-const cardClasses = "w-full max-w-3xl overflow-visible mx-auto";
+const formUrl = url?.replace(/^https:\/\/tally\.so\/embed\//, "https://tally.so/r/");
+const labels = {
+  de: { privacy: "Datenschutzhinweise", open: "Formular bei Tally öffnen" },
+  en: { privacy: "Privacy notice", open: "Open form on Tally" },
+  fr: { privacy: "Politique de confidentialité", open: "Ouvrir le formulaire sur Tally" },
+}[getLocale(Astro.currentLocale)];
 ---
 
-<section class={sectionClasses}>
-  <div class={cardClasses}>
-    <iframe
-      id="tally-form-iframe"
-      data-tally-src={cleaned_embed}
-      loading="eager"
-      width="100%"
-      height="600"
-      class={twMerge(
-        "overflow-visible opacity-0 transition-opacity duration-500 ease-in-out",
-        style.className,
-      )}
-      title="Embedded Form"
-    >
-    </iframe>
-  </div>
-</section>
-
-<script>
-  declare var Tally: any;
-
-  var d = document,
-    w = "https://tally.so/widgets/embed.js",
-    v = function () {
-      "undefined" != typeof Tally
-        ? Tally.loadEmbeds()
-        : d
-            .querySelectorAll("iframe[data-tally-src]:not([src])")
-            .forEach(function (e) {
-              const iframe = e as HTMLIFrameElement;
-              if (iframe.dataset.tallySrc) {
-                iframe.src = iframe.dataset.tallySrc;
-              }
-            });
-    };
-
-  if ("undefined" != typeof Tally) v();
-  else if (d.querySelector('script[src="' + w + '"]') == null) {
-    var s = d.createElement("script");
-    ((s.src = w), (s.onload = v), (s.onerror = v), d.body.appendChild(s));
-  }
-
-  // NEW: Listen for Tally's internal load event to fade in the iframe
-  window.addEventListener("message", (e) => {
-    // Tally sends an event called 'Tally.FormLoaded' when it's done computing
-    if (e.data && typeof e.data === 'string'&& e.data.includes("Tally.FormLoaded")) {
-      const iframe = document.getElementById("tally-form-iframe");
-      if (iframe) {
-        // Remove the invisible class and set opacity to full
-        iframe.classList.remove("opacity-0");
-        iframe.classList.add("opacity-100");
-      }
-    }
-  });
-</script>
+{formUrl && (
+  <section class={twMerge(sectionVariants(style), style.className, "p-5")}>
+    <div class="mx-auto flex max-w-3xl flex-wrap items-center gap-4">
+      <a class="underline" href={localized("privacy", Astro.currentLocale)}>{labels.privacy}</a>
+      <a class="underline" href={formUrl} rel="noreferrer">{labels.open}</a>
+    </div>
+  </section>
+)}
